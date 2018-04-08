@@ -1,0 +1,82 @@
+/*--------------------------------------------------------------
+# Breakpoints
+--------------------------------------------------------------*/
+$tablet: 768px;
+$desktop: 1024px;
+$widescreen: 1280px;
+/*--------------------------------------------------------------
+# Colors
+--------------------------------------------------------------*/
+$c-black: #000;
+$c-white: #fff;
+$c-grey: #bebebe;
+$c-grey-light: #eee;
+$c-grey-darker: #3e3e3e;
+$c-grey-dark: #303030;
+$c-red: #CC4040;
+$c-red-darker: #b73a3a;
+$c-blue: #4c79ad;
+/*--------------------------------------------------------------
+# Fonts
+--------------------------------------------------------------*/
+$f-large: 1.125em;
+$f-normal: 1em;
+$f-medium: 0.875em;
+$f-small: 0.750em;
+$f-very-small: 0.625em;
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(assets/fonts/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'),
+  local('MaterialIcons-Regular'),
+  url(assets/fonts/MaterialIcons-Regular.woff2) format('woff2'),
+  url(assets/fonts/MaterialIcons-Regular.woff) format('woff'),
+  url(assets/fonts/MaterialIcons-Regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto-Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: url('assets/fonts/roboto-regular-webfont.woff2') format('woff2'),
+  url('assets/fonts/roboto-regular-webfont.woff') format('woff'),
+  url('assets/fonts/roboto-regular-webfont.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'OpenSans-Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: url('assets/fonts/OpenSans-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'RobotoSlab-Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: url('assets/fonts/RobotoSlab-Regular.ttf') format('truetype');
+}
+/*--------------------------------------------------------------
+# Icons
+--------------------------------------------------------------*/
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}

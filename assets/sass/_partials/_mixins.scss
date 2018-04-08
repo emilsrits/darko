@@ -1,0 +1,61 @@
+@import "variables";
+/*--------------------------------------------------------------
+# Mixin - Breakpoints
+--------------------------------------------------------------*/
+
+@mixin bp($min-value, $max-value) {
+  $media: only screen;
+  $max-value: $max-value - 1px;
+  @media #{$media} and (min-width: $min-value) and (max-width: $max-value) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  $media: only screen;
+  @media #{$media} and (max-width: $tablet - 1px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  $media: only screen;
+  @media #{$media} and (min-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin tablet-only {
+  $media: only screen;
+  @media #{$media} and (min-width: $tablet) and (max-width: $desktop - 1px) {
+    @content;
+  }
+}
+
+@mixin to-desktop {
+  $media: only screen;
+  @media #{$media} and (max-width: $desktop - 1px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  $media: only screen;
+  @media #{$media} and (min-width: $desktop) {
+    @content;
+  }
+}
+
+@mixin desktop-only {
+  $media: only screen;
+  @media #{$media} and (min-width: $desktop) and (max-width: $widescreen - 1px) {
+    @content;
+  }
+}
+
+@mixin widescreen {
+  $media: only screen;
+  @media #{$media} and (min-width: $widescreen) {
+    @content;
+  }
+}

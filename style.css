@@ -1,0 +1,967 @@
+/*
+Theme Name: Mloc
+Author: Emils Rits
+Description: Theme for Wordpress
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: dark, full-width, right-sidebar, flexible-width, custom-header,
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+/*--------------------------------------------------------------
+# Breakpoints
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Colors
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Fonts
+--------------------------------------------------------------*/
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(assets/fonts/MaterialIcons-Regular.eot);
+  /* For IE6-8 */
+  src: local("Material Icons"), local("MaterialIcons-Regular"), url(assets/fonts/MaterialIcons-Regular.woff2) format("woff2"), url(assets/fonts/MaterialIcons-Regular.woff) format("woff"), url(assets/fonts/MaterialIcons-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: 'Roboto-Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: url("assets/fonts/roboto-regular-webfont.woff2") format("woff2"), url("assets/fonts/roboto-regular-webfont.woff") format("woff"), url("assets/fonts/roboto-regular-webfont.ttf") format("truetype");
+}
+@font-face {
+  font-family: 'OpenSans-Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: url("assets/fonts/OpenSans-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: 'RobotoSlab-Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: url("assets/fonts/RobotoSlab-Regular.ttf") format("truetype");
+}
+/*--------------------------------------------------------------
+# Icons
+--------------------------------------------------------------*/
+/* line 62, assets/sass/_partials/_variables.scss */
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+/*--------------------------------------------------------------
+# Mixin - Breakpoints
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Breakpoints
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Colors
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Fonts
+--------------------------------------------------------------*/
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(assets/fonts/MaterialIcons-Regular.eot);
+  /* For IE6-8 */
+  src: local("Material Icons"), local("MaterialIcons-Regular"), url(assets/fonts/MaterialIcons-Regular.woff2) format("woff2"), url(assets/fonts/MaterialIcons-Regular.woff) format("woff"), url(assets/fonts/MaterialIcons-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: 'Roboto-Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: url("assets/fonts/roboto-regular-webfont.woff2") format("woff2"), url("assets/fonts/roboto-regular-webfont.woff") format("woff"), url("assets/fonts/roboto-regular-webfont.ttf") format("truetype");
+}
+@font-face {
+  font-family: 'OpenSans-Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: url("assets/fonts/OpenSans-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: 'RobotoSlab-Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: url("assets/fonts/RobotoSlab-Regular.ttf") format("truetype");
+}
+/*--------------------------------------------------------------
+# Icons
+--------------------------------------------------------------*/
+/* line 62, assets/sass/_partials/_variables.scss */
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+/* line 20, assets/sass/style.scss */
+*, *:before, *:after {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+}
+
+/* line 27, assets/sass/style.scss */
+body {
+  font-family: OpenSans-Regular, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  word-wrap: break-word;
+  color: #eee;
+  background-color: #3e3e3e;
+}
+
+/* line 36, assets/sass/style.scss */
+a {
+  text-decoration: none;
+  color: #CC4040;
+  transition: color 0.3s ease;
+}
+/* line 40, assets/sass/style.scss */
+a:focus, a:visited {
+  color: #CC4040;
+}
+/* line 43, assets/sass/style.scss */
+a:hover {
+  color: #b73a3a;
+}
+
+/* line 48, assets/sass/style.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-family: RobotoSlab-Regular, sans-serif;
+}
+
+/* line 52, assets/sass/style.scss */
+p {
+  font-family: Roboto-Regular, sans-serif;
+  color: #eee;
+}
+
+/* line 57, assets/sass/style.scss */
+ul {
+  margin: 0;
+  padding-left: 0;
+  list-style-type: none;
+}
+
+/* line 63, assets/sass/style.scss */
+code {
+  padding: .2rem .5rem;
+  margin: 0 .2rem;
+  font-size: 90%;
+  color: #303030;
+  white-space: nowrap;
+  background: #F1F1F1;
+  border: 1px solid #E1E1E1;
+  border-radius: 4px;
+}
+
+/* line 74, assets/sass/style.scss */
+pre > code {
+  display: block;
+  padding: 1rem 1.5rem;
+  white-space: pre;
+}
+
+/* line 80, assets/sass/style.scss */
+span.required {
+  padding-left: 3px;
+  font-size: 0.625em;
+  color: #CC4040;
+  vertical-align: super;
+}
+
+/* line 87, assets/sass/style.scss */
+#main {
+  margin: 20px 40px 0 40px;
+  background-color: #3e3e3e;
+  -webkit-box-shadow: 0 16px 24px 2px rgba(48, 48, 48, 0.5), 0 6px 30px 5px rgba(48, 48, 48, 0.5), 0 8px 10px -5px rgba(48, 48, 48, 0.5);
+  -moz-box-shadow: 0 16px 24px 2px rgba(48, 48, 48, 0.5), 0 6px 30px 5px rgba(48, 48, 48, 0.5), 0 8px 10px -5px rgba(48, 48, 48, 0.5);
+  box-shadow: 0 16px 24px 2px rgba(48, 48, 48, 0.5), 0 6px 30px 5px rgba(48, 48, 48, 0.5), 0 8px 10px -5px rgba(48, 48, 48, 0.5);
+}
+
+/* line 96, assets/sass/style.scss */
+.container:after, .navbar-collapse:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 103, assets/sass/style.scss */
+.container {
+  position: relative;
+  margin: 0 auto;
+  padding: 0 15px;
+  max-width: 100%;
+}
+
+/* line 110, assets/sass/style.scss */
+.label {
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* line 117, assets/sass/style.scss */
+.btn {
+  cursor: pointer;
+}
+
+/* line 121, assets/sass/style.scss */
+.align-left {
+  text-align: left;
+}
+
+/* line 125, assets/sass/style.scss */
+.align-right {
+  text-align: right;
+}
+
+/*--------------------------------------------------------------
+## Navigation
+--------------------------------------------------------------*/
+/* line 131, assets/sass/style.scss */
+#main-menu {
+  width: 100%;
+  background-color: #303030;
+  box-shadow: 0 4px 4px -4px #303030;
+  z-index: 1;
+}
+/* line 137, assets/sass/style.scss */
+#main-menu .container {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  min-height: 55px;
+}
+/* line 146, assets/sass/style.scss */
+#main-menu .navbar-brand {
+  margin-right: auto;
+  color: #fff;
+  font-size: 1em;
+}
+/* line 152, assets/sass/style.scss */
+#main-menu .navbar-toggle {
+  display: block;
+  color: #000;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+/* line 162, assets/sass/style.scss */
+.main-menu-fixed #main-menu {
+  position: fixed;
+  top: 0;
+}
+/* line 165, assets/sass/style.scss */
+.main-menu-fixed #main-menu.at-top {
+  box-shadow: none;
+}
+/* line 170, assets/sass/style.scss */
+.main-menu-fixed.admin-bar #main-menu {
+  margin-top: 32px;
+}
+/* line 175, assets/sass/style.scss */
+.main-menu-fixed.home #wrapper {
+  margin-top: 83px;
+}
+/* line 180, assets/sass/style.scss */
+.main-menu-fixed #wrapper {
+  margin-top: 63px;
+}
+
+/* line 185, assets/sass/style.scss */
+#main-navigation {
+  background-color: #303030;
+}
+
+/* line 190, assets/sass/style.scss */
+#menu-main-menu li {
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+/* line 195, assets/sass/style.scss */
+#menu-main-menu li > a {
+  display: block;
+  padding: 15px 15px;
+  color: #fff;
+  font-size: 0.75em;
+  transition: color 0.2s ease;
+}
+/* line 201, assets/sass/style.scss */
+#menu-main-menu li > a:hover {
+  color: #CC4040;
+}
+
+/* line 208, assets/sass/style.scss */
+.collapse {
+  display: none;
+}
+
+/* line 212, assets/sass/style.scss */
+#mloc-go-top {
+  display: block;
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  width: 40px;
+  height: 40px;
+  color: #eee;
+  background-color: #000;
+  opacity: 0.6;
+  outline: none;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  z-index: 900;
+}
+/* line 228, assets/sass/style.scss */
+#mloc-go-top.faded-out {
+  opacity: 0;
+}
+/* line 231, assets/sass/style.scss */
+#mloc-go-top:hover {
+  opacity: 0.8;
+}
+/* line 235, assets/sass/style.scss */
+#mloc-go-top > i {
+  font-size: 1.125em;
+}
+
+/*--------------------------------------------------------------
+## Header
+--------------------------------------------------------------*/
+/* line 242, assets/sass/style.scss */
+.hero {
+  position: relative;
+  padding: 60px 0;
+  color: #fff;
+  text-align: center;
+}
+
+/*--------------------------------------------------------------
+## Footer
+--------------------------------------------------------------*/
+/* line 251, assets/sass/style.scss */
+#site-footer {
+  position: relative;
+  padding: 1em 0;
+  background-color: #303030;
+}
+/* line 256, assets/sass/style.scss */
+#site-footer .copyright {
+  text-align: center;
+}
+/* line 258, assets/sass/style.scss */
+#site-footer .copyright p {
+  margin: 0;
+}
+
+/*--------------------------------------------------------------
+# Content
+--------------------------------------------------------------*/
+/* line 267, assets/sass/style.scss */
+#main .content-container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #3e3e3e;
+}
+/* line 273, assets/sass/style.scss */
+#main .read-more {
+  display: block;
+  margin-top: 10px;
+  color: #CC4040;
+}
+/* line 277, assets/sass/style.scss */
+#main .read-more:active, #main .read-more:focus, #main .read-more:hover {
+  color: #b73a3a;
+}
+
+/*--------------------------------------------------------------
+## Posts
+--------------------------------------------------------------*/
+/* line 286, assets/sass/style.scss */
+.home article .row {
+  justify-content: center;
+  align-items: center;
+}
+
+/* line 292, assets/sass/style.scss */
+.post {
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+}
+
+/* line 298, assets/sass/style.scss */
+.single-post .hero-img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  background-position: center center;
+  background-size: cover;
+}
+/* line 307, assets/sass/style.scss */
+.single-post .hero-img:before, .single-post .hero-img:after {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+}
+/* line 316, assets/sass/style.scss */
+.single-post .hero-img:before {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+/* line 321, assets/sass/style.scss */
+.single-post #main {
+  margin-top: 0;
+}
+/* line 325, assets/sass/style.scss */
+.single-post .featured-img {
+  margin: 0 15% 20px;
+}
+/* line 327, assets/sass/style.scss */
+.single-post .featured-img img {
+  display: block;
+  margin: auto;
+  width: 100%;
+  height: auto;
+}
+/* line 333, assets/sass/style.scss */
+.single-post .featured-img .post-header {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+/* line 348, assets/sass/style.scss */
+.single-post .post-content {
+  margin-bottom: 40px;
+}
+/* line 350, assets/sass/style.scss */
+.single-post .post-content p {
+  font-size: 1em;
+}
+/* line 356, assets/sass/style.scss */
+.single-post .post-category > span:first-child, .single-post .post-tags > span:first-child {
+  color: #bebebe;
+  letter-spacing: 0.5px;
+}
+
+/* line 364, assets/sass/style.scss */
+.post-title a {
+  color: #eee;
+}
+/* line 366, assets/sass/style.scss */
+.post-title a:hover {
+  color: #bebebe;
+}
+
+/* line 372, assets/sass/style.scss */
+.post-featured-img img {
+  display: block;
+  margin: auto;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* line 382, assets/sass/style.scss */
+.post-content p {
+  font-size: 0.875em;
+  line-height: 1.6;
+}
+/* line 386, assets/sass/style.scss */
+.post-content p a {
+  color: #CC4040;
+}
+/* line 388, assets/sass/style.scss */
+.post-content p a:hover {
+  color: #b73a3a;
+}
+
+/* line 395, assets/sass/style.scss */
+.post-category, .post-tags {
+  margin: 10px 0 10px;
+  font-size: 0.625em;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+/* line 401, assets/sass/style.scss */
+.post-category .label, .post-tags .label {
+  display: inline-block;
+  margin: 5px;
+  background-color: #303030;
+}
+/* line 405, assets/sass/style.scss */
+.post-category .label:first-child, .post-tags .label:first-child {
+  margin-left: 0;
+}
+/* line 409, assets/sass/style.scss */
+.post-category .label a, .post-tags .label a {
+  display: inline-block;
+  padding: 2px 2px;
+  letter-spacing: 0.5px;
+}
+
+/* line 418, assets/sass/style.scss */
+.post-tags span {
+  display: inline-block;
+}
+/* line 422, assets/sass/style.scss */
+.post-tags .tag {
+  margin: 5px;
+}
+
+/* line 427, assets/sass/style.scss */
+.post-author {
+  font-size: 0.75em;
+}
+
+/* line 431, assets/sass/style.scss */
+.next_and_previous_posts {
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+/* line 435, assets/sass/style.scss */
+.next_and_previous_posts span, .next_and_previous_posts a {
+  display: block;
+}
+/* line 439, assets/sass/style.scss */
+.next_and_previous_posts span {
+  color: #bebebe;
+  font-size: 0.75em;
+}
+/* line 444, assets/sass/style.scss */
+.next_and_previous_posts a {
+  margin: 10px 0 20px;
+  font-size: 0.875em;
+}
+
+/* line 450, assets/sass/style.scss */
+#comments {
+  margin-top: 25px;
+  border-top: 1px solid #303030;
+}
+
+/* line 455, assets/sass/style.scss */
+.comments-header {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* line 460, assets/sass/style.scss */
+.post-comments {
+  overflow: auto;
+}
+
+/* line 464, assets/sass/style.scss */
+#comments .children {
+  padding-left: 35px;
+}
+/* line 467, assets/sass/style.scss */
+#comments .children .comment {
+  margin: 5px 0;
+}
+/* line 470, assets/sass/style.scss */
+#comments .children .comment .author-avatar img {
+  width: 40px;
+  height: 40px;
+}
+
+/* line 477, assets/sass/style.scss */
+.parent.comment {
+  margin-bottom: 10px;
+}
+
+/* line 482, assets/sass/style.scss */
+.comment .author-avatar, .comments-reply .author-avatar {
+  padding-right: 20px;
+}
+/* line 485, assets/sass/style.scss */
+.comment .author-avatar img, .comments-reply .author-avatar img {
+  border-radius: 50%;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.6);
+}
+
+/* line 492, assets/sass/style.scss */
+.comment {
+  display: flex;
+  margin: 10px 0 20px;
+  padding: 10px 0;
+}
+/* line 497, assets/sass/style.scss */
+.comment .comment-body {
+  width: 100%;
+  padding-right: 20px;
+}
+/* line 503, assets/sass/style.scss */
+.comment .comment-meta > h4 {
+  margin: 0 0 10px;
+}
+/* line 506, assets/sass/style.scss */
+.comment .comment-meta > h4 span {
+  font-family: Roboto-Regular, sans-serif;
+  font-size: 0.75em;
+}
+/* line 513, assets/sass/style.scss */
+.comment .comment-content p {
+  margin-bottom: 10px;
+}
+/* line 517, assets/sass/style.scss */
+.comment .comment-footer {
+  text-align: right;
+}
+/* line 520, assets/sass/style.scss */
+.comment .comment-footer a, .comment .comment-footer i {
+  font-size: 0.875em;
+}
+
+/* line 526, assets/sass/style.scss */
+.comments-reply {
+  margin-top: 60px;
+  overflow: auto;
+}
+/* line 530, assets/sass/style.scss */
+.comments-reply .comments-reply-header {
+  margin: 10px 0 30px;
+  text-align: center;
+}
+/* line 535, assets/sass/style.scss */
+.comments-reply .comment-notes {
+  font-size: 0.75em;
+}
+/* line 539, assets/sass/style.scss */
+.comments-reply .form-body {
+  display: flex;
+}
+/* line 543, assets/sass/style.scss */
+.comments-reply #commentform {
+  width: 100%;
+}
+/* line 546, assets/sass/style.scss */
+.comments-reply #commentform .logged-in-as {
+  font-size: 0.75em;
+}
+/* line 550, assets/sass/style.scss */
+.comments-reply #commentform .form-group {
+  text-align: right;
+}
+/* line 554, assets/sass/style.scss */
+.comments-reply #commentform .control-label {
+  display: inline-block;
+  margin: 5px 0;
+  padding: 5px 10px;
+  font-size: 0.75em;
+  border-radius: 12px;
+  background-color: #303030;
+}
+/* line 563, assets/sass/style.scss */
+.comments-reply #commentform .row {
+  margin: 20px 0;
+}
+/* line 566, assets/sass/style.scss */
+.comments-reply #commentform .row input.form-control {
+  padding: 5px;
+}
+/* line 571, assets/sass/style.scss */
+.comments-reply #commentform input.form-control, .comments-reply #commentform textarea {
+  width: 100%;
+  font-size: 0.875em;
+  color: #eee;
+  background-color: #3e3e3e;
+  outline: none;
+  border: none;
+  border-bottom: 3px solid #CC4040;
+  transition: 0.3s ease;
+}
+/* line 580, assets/sass/style.scss */
+.comments-reply #commentform input.form-control:hover, .comments-reply #commentform input.form-control:focus, .comments-reply #commentform textarea:hover, .comments-reply #commentform textarea:focus {
+  border-color: #b73a3a;
+}
+/* line 585, assets/sass/style.scss */
+.comments-reply #commentform textarea {
+  display: block;
+  margin-top: 10px;
+  padding: 10px;
+  resize: none;
+}
+/* line 590, assets/sass/style.scss */
+.comments-reply #commentform textarea:hover, .comments-reply #commentform textarea:focus {
+  background-color: #303030;
+}
+/* line 596, assets/sass/style.scss */
+.comments-reply .form-submit {
+  margin: 35px 0 30px;
+  text-align: right;
+}
+/* line 600, assets/sass/style.scss */
+.comments-reply .form-submit #submit {
+  padding: 15px 20px;
+  font-size: 0.75em;
+  text-transform: uppercase;
+  color: #eee;
+  border: none;
+  border-radius: 12px;
+  background-color: #CC4040;
+  transition: background 0.3s ease;
+}
+/* line 609, assets/sass/style.scss */
+.comments-reply .form-submit #submit:hover {
+  background-color: #b73a3a;
+}
+
+/*--------------------------------------------------------------
+## Pagination
+--------------------------------------------------------------*/
+/* line 618, assets/sass/style.scss */
+.pagination {
+  width: 100%;
+  margin: 20px 0;
+  text-align: center;
+}
+/* line 623, assets/sass/style.scss */
+.pagination .screen-reader-text {
+  display: none;
+}
+/* line 627, assets/sass/style.scss */
+.pagination .page-numbers {
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 0.75em;
+  line-height: 1.6;
+  color: #bebebe;
+  background-color: #3e3e3e;
+  border: 1px solid #303030;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+/* line 639, assets/sass/style.scss */
+.pagination .page-numbers:hover {
+  border-color: #000;
+}
+/* line 643, assets/sass/style.scss */
+.pagination .page-numbers.current {
+  outline: 0;
+  background-image: none;
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+/* line 649, assets/sass/style.scss */
+.pagination .page-numbers i {
+  font-size: 0.75em;
+  font-weight: bold;
+}
+
+/* line 656, assets/sass/style.scss */
+.comments-pagination {
+  margin: 20px 0 50px;
+}
+/* line 659, assets/sass/style.scss */
+.comments-pagination .page-numbers {
+  margin: 0 2px;
+}
+
+/*--------------------------------------------------------------
+# Responsive
+--------------------------------------------------------------*/
+@media only screen and (max-width: 767px) {
+  /* line 668, assets/sass/style.scss */
+  .main-menu-fixed #wrapper {
+    margin-top: 55px;
+  }
+  /* line 672, assets/sass/style.scss */
+  .main-menu-fixed.admin-bar #main-menu {
+    margin-top: 46px;
+  }
+
+  /* line 677, assets/sass/style.scss */
+  #main-navigation {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+  }
+  /* line 684, assets/sass/style.scss */
+  #main-navigation > ul {
+    padding: 10px 0;
+    border-top: 1px solid #3e3e3e;
+  }
+
+  /* line 691, assets/sass/style.scss */
+  #menu-main-menu li {
+    display: block;
+  }
+
+  /* line 696, assets/sass/style.scss */
+  #mloc-go-top {
+    display: none;
+  }
+
+  /* line 700, assets/sass/style.scss */
+  #main {
+    margin: 0;
+  }
+
+  /* line 704, assets/sass/style.scss */
+  .post-title {
+    margin-top: 25px;
+  }
+
+  /* line 709, assets/sass/style.scss */
+  #comments .children {
+    padding-left: 5px;
+    border-left: 1px solid #303030;
+  }
+  /* line 713, assets/sass/style.scss */
+  #comments .children .comment {
+    margin: 10px 0 5px;
+  }
+  /* line 719, assets/sass/style.scss */
+  #comments .comment .comment-body {
+    padding-right: 5px;
+  }
+  /* line 723, assets/sass/style.scss */
+  #comments .comment .author-avatar {
+    padding-right: 15px;
+  }
+  /* line 727, assets/sass/style.scss */
+  #comments .comment .comment-meta > h4, #comments .comment .comment-content p {
+    font-size: 0.875em;
+  }
+
+  /* line 733, assets/sass/style.scss */
+  .comments-reply {
+    margin-top: 40px;
+  }
+  /* line 736, assets/sass/style.scss */
+  .comments-reply .author-avatar {
+    display: none;
+  }
+  /* line 741, assets/sass/style.scss */
+  .comments-reply #commentform .control-label {
+    margin: 10px 0 5px;
+  }
+  /* line 746, assets/sass/style.scss */
+  .comments-reply .comment-notes {
+    text-align: center;
+  }
+  /* line 750, assets/sass/style.scss */
+  .comments-reply .form-submit {
+    text-align: center;
+  }
+}
+@media only screen and (min-width: 768px) {
+  /* line 758, assets/sass/style.scss */
+  #main-menu .navbar-toggle {
+    display: none;
+  }
+
+  /* line 763, assets/sass/style.scss */
+  .collapse {
+    display: block !important;
+  }
+
+  /* line 767, assets/sass/style.scss */
+  .container {
+    width: 750px;
+  }
+
+  /* line 771, assets/sass/style.scss */
+  .content-container {
+    min-height: 900px;
+  }
+}
+@media only screen and (max-width: 1023px) {
+  /* line 777, assets/sass/style.scss */
+  #main {
+    margin: 20px 0 0;
+    box-shadow: none;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  /* line 784, assets/sass/style.scss */
+  .container {
+    width: 970px;
+  }
+}
+/*--------------------------------------------------------------
+## Custom Media
+--------------------------------------------------------------*/
+@media only screen and (max-width: 600px) {
+  /* line 794, assets/sass/style.scss */
+  .main-menu-fixed.admin-bar #main-menu {
+    margin-top: 0;
+  }
+  /* line 796, assets/sass/style.scss */
+  .main-menu-fixed.admin-bar #main-menu.at-top {
+    margin-top: 46px;
+  }
+}
