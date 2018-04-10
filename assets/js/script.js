@@ -1,66 +1,103 @@
-(function( $ ) {
-    'use strict';
+'use strict';
 
-    let mainMenu = $( '#main-menu' );
-    let goTop = $( '#mloc-go-top' );
-    let scrollTop;
+document.addEventListener('DOMContentLoaded', function () {
+  var $ = document.querySelector.bind(document),
+      $$ = document.querySelectorAll.bind(document),
+      mainMenu = $('#main-menu'),
+      menuToggle = $('.navbar-toggle'),
+      goTop = $('#mloc-go-top');
+  var isCollapsed = void 0,
+      toggleTarget = void 0,
+      scrollTop = void 0;
 
-    /**
-     * Change elements depending on window
-     * scroll location
-     */
-    function initScrollWatch() {
-        if ( ! $( window ).scrollTop() ) {
-            mainMenu.addClass( 'at-top' );
+  /**
+   * Change elements depending on window
+   * scroll location
+   */
+  (function () {
+    if (!window.scrollTop) {
+      mainMenu.classList.add('at-top');
+    }
+
+    window.addEventListener('scroll', function () {
+      scrollTop = window.pageYOffset;
+
+      if (scrollTop > 0) {
+        mainMenu.classList.remove('at-top');
+        if (scrollTop > 100) {
+          goTop.classList.remove('faded-out');
+        } else {
+          goTop.classList.add('faded-out');
         }
+      } else {
+        mainMenu.classList.add('at-top');
+      }
+    });
+  })();
 
-        $( window ).on( 'scroll', function () {
-            scrollTop = $( this ).scrollTop();
-
-            if ( scrollTop > 0 ) {
-                mainMenu.removeClass( 'at-top' );
-                if ( scrollTop > 100 ) {
-                    goTop.removeClass( 'faded-out' );
-                } else {
-                    goTop.addClass( 'faded-out' );
-                }
-            } else {
-                mainMenu.addClass( 'at-top' );
-            }
-        } );
+  /**
+   * Navigation bar toggle for mobile
+   */
+  (function () {
+    if (!menuToggle) {
+      return;
     }
-    initScrollWatch();
 
-    /**
-     * Navigation bar toggle for mobile
-     */
-    function initMainMenuToggle() {
-        let menuToggle = $( '.navbar-toggle' );
+    toggleTarget = $(menuToggle.getAttribute('data-target'));
 
-        if ( ! menuToggle.length ) {
-            return;
-        }
+    menuToggle.addEventListener('click', function () {
+      if (menuToggle.classList.contains('collapsed')) {
+        isCollapsed = true;
+      } else {
+        isCollapsed = false;
+      }
 
-        menuToggle.on( 'click', function () {
-            $( this ).attr( 'aria-expanded', $( this ).hasClass( 'collapsed' ) );
-            $( this ).toggleClass( 'collapsed' );
-            let toggleTarget = $( $( this ).data( 'target' ) );
-            toggleTarget.toggleClass( 'in' );
-            if ( toggleTarget.hasClass( 'in' ) ) {
-                toggleTarget.slideDown();
-            } else {
-                toggleTarget.slideUp();
-            }
-        } );
-    }
-    initMainMenuToggle();
+      menuToggle.setAttribute('aria-expanded', isCollapsed);
+      menuToggle.classList.toggle('collapsed');
 
-    function goTopClick() {
-        goTop.on( 'click', function () {
-            $( 'html, body' ).animate( {scrollTop : 0}, 800 );
-            return false;
-        } );
-    }
-    goTopClick();
+      toggleTarget.classList.toggle('in');
+    });
+  })();
 
-}( jQuery ));
+  /**
+   * Smooth scroll to location
+   * @param to
+   * @param duration
+   */
+  function scrollTo(to, duration) {
+    var element = document.scrollingElement || document.documentElement,
+        start = element.scrollTop,
+        change = to - start,
+        startDate = new Date().getTime();
+
+    var easeInOutAnimation = function easeInOutAnimation(pCurrentTime, pStart, pChange, pDuration) {
+      pCurrentTime /= pDuration / 2;
+      if (pCurrentTime < 1) {
+        return pChange / 2 * pCurrentTime * pCurrentTime + pStart;
+      }
+      pCurrentTime--;
+      return -pChange / 2 * (pCurrentTime * (pCurrentTime - 2) - 1) + pStart;
+    };
+
+    var animateScroll = function animateScroll() {
+      var currentDate = new Date().getTime();
+      var currentTime = currentDate - startDate;
+      element.scrollTop = parseInt(easeInOutAnimation(currentTime, start, change, duration));
+      if (currentTime < duration) {
+        requestAnimationFrame(animateScroll);
+      } else {
+        element.scrollTop = to;
+      }
+    };
+    animateScroll();
+  }
+
+  /**
+   * Scroll to top on click
+   */
+  (function () {
+    goTop.addEventListener('click', function () {
+      scrollTo(0, 800);
+    });
+  })();
+});

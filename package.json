@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "build": "babel assets/js/script-es6.js -o assets/js/script.js",
+    "watch": "babel assets/js/script-es6.js -w -o assets/js/script.js"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1"
+  }
+}

@@ -45,23 +45,19 @@ if ( ! function_exists( 'mloc_setup_theme' ) ) {
 
 function mloc_script() {
     // Normalize styles
-    wp_register_style( 'normalize', get_template_directory_uri() . '/assets/css/normalize.css');
+    wp_register_style( 'normalize', get_template_directory_uri() . '/assets/css/normalize.min.css');
     wp_enqueue_style( 'normalize' );
 
     // Flexbox grid styles
-    wp_register_style( 'flexboxgrid', get_template_directory_uri() . '/assets/css/flexboxgrid.css' );
+    wp_register_style( 'flexboxgrid', get_template_directory_uri() . '/assets/css/flexboxgrid.min.css' );
     wp_enqueue_style( 'flexboxgrid' );
 
     // Main styles
     wp_register_style( 'style', get_stylesheet_uri());
     wp_enqueue_style( 'style' );
 
-    // jQuery
-    wp_register_script( 'jquery-script', get_template_directory_uri() . '/assets/js/jquery.min.js', array('jquery'), 'null', true );
-    wp_enqueue_script( 'jquery-script' );
-
     // Main scripts
-    wp_register_script( 'script', get_template_directory_uri() . '/assets/js/script.js', array('jquery'), 'null', true );
+    wp_register_script( 'script', get_template_directory_uri() . '/assets/js/script.js', null, false, true );
     wp_enqueue_script( 'script' );
 }
 add_action('wp_enqueue_scripts', 'mloc_script');

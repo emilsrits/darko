@@ -205,10 +205,6 @@ span.required {
   }
 }
 
-.collapse {
-  display: none;
-}
-
 #mloc-go-top {
   display: block;
   position: fixed;
@@ -324,24 +320,12 @@ span.required {
 
   .featured-img {
     margin: 0 15% 20px;
+
     img {
       display: block;
       margin: auto;
       width: 100%;
       height: auto;
-    }
-    .post-header {
-      position: absolute;
-      display:flex;
-      align-items: center;
-      justify-content: center;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 100%;
-      color: $c-white;
-      text-align: center;
-      background-color: rgba(0, 0, 0, 0.3);
     }
   }
 
@@ -369,13 +353,17 @@ span.required {
   }
 }
 
-.post-featured-img img {
-  display: block;
-  margin: auto;
-  width: 100%;
-  max-width: 400px;
-  height: auto;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+.post-featured-img {
+  padding: 0 10px;
+
+  img {
+    display: block;
+    margin: auto;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
 }
 
 .post-content {
@@ -679,7 +667,15 @@ span.required {
     top: 100%;
     left: 0;
     width: 100%;
+    transition: max-height 0.3s ease-in-out;
+    overflow: hidden;
     z-index: 1;
+    &.collapse {
+      max-height: 1px;
+    }
+    &.collapse.in {
+      max-height: 500px;
+    }
 
     > ul {
       padding: 10px 0;
@@ -699,6 +695,10 @@ span.required {
 
   #main {
     margin: 0;
+  }
+
+  .single-post .featured-img {
+    margin: 0 5% 20px;
   }
 
   .post-title {
@@ -758,10 +758,6 @@ span.required {
     .navbar-toggle {
       display: none;
     }
-  }
-
-  .collapse {
-    display: block !important;
   }
 
   .container {
