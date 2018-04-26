@@ -25,9 +25,9 @@
                 ?>
             </div> <!-- .post-content -->
 
-            <div class="post-category">
+            <div class="post-categories">
                 <span><?php esc_html_e( 'Categories: ', 'mloc' ); ?></span>
-                <?php mloc_category(); ?>
+                <?php mloc_categories(); ?>
             </div> <!-- .post-category -->
 
             <?php the_tags( '<div class="post-tags"><span>' . esc_html__( 'Tags: ', 'mloc' ) . '</span><span class="tag">', '</span><span class="tag">', '</span></div>' ); ?>

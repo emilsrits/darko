@@ -30,7 +30,7 @@
                 <p>
                     <?php
                     if ( is_single() ) {
-                        echo get_the_content_with_formatting();
+                        echo mloc_get_the_content_with_formatting();
                     } else {
                         $read_more = strpos( $post->post_content, '<!--more' );
                         if ( $read_more ) :
@@ -57,8 +57,8 @@
                 ?>
             </div> <!-- .post-author -->
 
-            <div class="post-category">
-                <?php mloc_category(); ?>
+            <div class="post-categories">
+                <?php mloc_categories(); ?>
             </div> <!-- .post-category -->
         </div>
     </div> <!-- .row -->

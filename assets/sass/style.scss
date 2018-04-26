@@ -108,9 +108,12 @@ span.required {
 }
 
 .label {
+  display: inline-block;
+  margin: 5px 5px 5px 0;
   padding: 5px 10px;
+  letter-spacing: 0.5px;
   border-radius: 12px;
-  font-weight: bold;
+  background-color: $c-grey-dark;
 }
 
 .btn {
@@ -483,11 +486,15 @@ span.required {
     }
   }
 
-  .post-category, .post-tags {
+  .post-categories, .post-tags {
     > span:first-child {
       color: $c-grey;
       letter-spacing: 0.5px;
     }
+  }
+
+  .post-categories .label:first-child {
+    margin-left: 5px;
   }
 }
 
@@ -527,26 +534,15 @@ span.required {
   }
 }
 
-.post-category, .post-tags {
+.post-categories, .post-tags {
   margin: 10px 0 10px;
   font-size: $f-very-small;
   text-transform: uppercase;
   letter-spacing: 0.3px;
+}
 
-  .label {
-    display: inline-block;
-    margin: 5px;
-    background-color: $c-grey-dark;
-    &:first-child {
-      margin-left: 0;
-    }
-
-    a {
-      display: inline-block;
-      padding: 2px 2px;
-      letter-spacing: 0.5px;
-    }
-  }
+.post-categories .label {
+  padding: 7px 12px;
 }
 
 .post-tags {
@@ -594,12 +590,9 @@ span.required {
     margin-bottom: 5px;
   }
 
-  .related-post-tags .tag {
-    display: inline-block;
-    margin: 5px 5px 5px 0;
+  .related-post-tags .label {
     font-size: $f-very-small;
     letter-spacing: 0.3px;
-    background-color: $c-grey-dark;
   }
 
   .related-post-title {
@@ -716,7 +709,7 @@ span.required {
   overflow: auto;
 
   .comments-reply-header {
-    margin: 10px 0 30px;
+    margin: 10px 0 25px;
     text-align: center;
   }
 
@@ -740,12 +733,9 @@ span.required {
     }
 
     .control-label {
-      display: inline-block;
       margin: 5px 0;
-      padding: 5px 10px;
       font-size: $f-small;
-      border-radius: 12px;
-      background-color: $c-grey-dark;
+      letter-spacing: 0;
     }
 
     .row {
@@ -782,16 +772,15 @@ span.required {
   }
 
   .form-submit {
-    margin: 35px 0 30px;
+    margin: 25px 0 30px;
     text-align: right;
 
     #submit {
-      padding: 15px 20px;
-      font-size: $f-small;
-      text-transform: uppercase;
+      width: 45px;
+      height: 45px;
       color: $c-grey-light;
       border: none;
-      border-radius: 12px;
+      border-radius: 50%;
       background-color: $c-red;
       transition: background 0.3s ease;
       &:hover {
@@ -965,10 +954,6 @@ span.required {
     }
 
     .comment-notes {
-      text-align: center;
-    }
-
-    .form-submit {
       text-align: center;
     }
   }

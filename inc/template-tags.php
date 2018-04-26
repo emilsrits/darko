@@ -5,15 +5,15 @@
 ?>
 
 <?php
-if ( ! function_exists( 'mloc_category' ) ) :
+if ( ! function_exists( 'mloc_categories' ) ) :
     /**
      * Display the first category of the post
      */
-    function mloc_category() {
+    function mloc_categories() {
         $categories = get_the_category();
         if ( $categories ) {
             foreach ($categories as $category) {
-                echo '<span class="label"><a href="' . esc_url( get_category_link( $category->term_id ) ) . '" title="' . esc_attr( sprintf( __( 'View all posts in %s', 'mloc' ), $category->name ) ) . '" ' . '>' . esc_html( $category->name ) . '</a></span>';
+                echo '<span><a class="label" href="' . esc_url( get_category_link( $category->term_id ) ) . '" title="' . esc_attr( sprintf( __( 'View all posts in %s', 'mloc' ), $category->name ) ) . '">' . esc_html( $category->name ) . '</a></span>';
             }
         }
     }
@@ -34,8 +34,8 @@ if ( ! function_exists( 'mloc_tags_trimmed' ) ) :
             $buffer = '';
             foreach( $tags as $tag ) {
                 $count++;
-                $buffer .= '<span class="tag label">';
-                $buffer .= '<a href="' . get_tag_link( $tag->term_id ).'" rel="tag">#' . $tag->name . '</a>';
+                $buffer .= '<span class="tag">';
+                $buffer .= '<a class="label" href="' . get_tag_link( $tag->term_id ).'" rel="tag">#' . $tag->name . '</a>';
                 $buffer .= '</span>';
                 if( $count >= $max ) {
                     break;
@@ -140,11 +140,11 @@ if ( ! function_exists( 'mloc_comments_form_template' ) ) :
             'comment_notes_before' => '<p class="comment-notes"><span id="email-notes">' . __( 'Your email address will not be published.' ) . '</p>',
             'fields'               => apply_filters(
                 'comment_form_default_fields', array(
-                    'author' => '<div class="row"><div class="col-xs-12 col-sm-6"><div class="form-group"><label for="name" class="control-label">' . esc_html__( 'Name', 'mloc' ) . ( $req ? '<span class="required">*</span>' : '' ) . '</label><input id="author" name="author" class="form-control" type="text"' . $aria_req . ' /></div></div>',
-                    'email'  => '<div class="col-xs-12 col-sm-6"><div class="form-group"><label for="email" class="control-label">' . esc_html__( 'Email', 'mloc' ) . ( $req ? '<span class="required">*</span>' : '' ) . '</label><input id="email" name="email" class="form-control" type="email"' . $aria_req . ' /></div></div></div>',
+                    'author' => '<div class="row"><div class="col-xs-12 col-sm-6"><div class="form-group"><label for="name" class="control-label label">' . esc_html__( 'Name', 'mloc' ) . ( $req ? '<span class="required">*</span>' : '' ) . '</label><input id="author" name="author" class="form-control" type="text"' . $aria_req . ' /></div></div>',
+                    'email'  => '<div class="col-xs-12 col-sm-6"><div class="form-group"><label for="email" class="control-label label">' . esc_html__( 'Email', 'mloc' ) . ( $req ? '<span class="required">*</span>' : '' ) . '</label><input id="email" name="email" class="form-control" type="email"' . $aria_req . ' /></div></div></div>',
                 )
             ),
-            'comment_field'        => '<div class="form-group"><label class="control-label">' . esc_html__( 'Comment', 'mloc' ) . '<span class="required">*</span>' . '</label><textarea id="comment" name="comment" class="form-control" rows="7" aria-required="true"></textarea></div>',
+            'comment_field'        => '<div class="form-group"><label class="control-label label">' . esc_html__( 'Comment', 'mloc' ) . '<span class="required">*</span>' . '</label><textarea id="comment" name="comment" class="form-control" rows="7" aria-required="true"></textarea></div>',
             'must_log_in'          => '<p class="must-log-in">' .
                 sprintf(
                     wp_kses(
@@ -156,9 +156,13 @@ if ( ! function_exists( 'mloc_comments_form_template' ) ) :
                         )
                     ), esc_url( wp_login_url( apply_filters( 'the_permalink', get_permalink() ) ) )
                 ) . '</p> </div>',
-            'class_submit'         => 'btn',
-            'title_reply_before'   => '<h3 class="comments-reply-header">',
-            'title_reply_after'    => '</h3><div class="form-body"><div class="author-avatar">' . $current_user . '</div>',
+            'class_submit'         => 'material-icons btn',
+            'label_submit'         => __( '&#xE163;' ),
+            'title_reply_before'   => '<h4 class="comments-reply-header">',
+            'title_reply_after'    => '</h4><div class="form-body"><div class="author-avatar">' . $current_user . '</div>',
+            'cancel_reply_before'  => ' <span class="required">',
+            'cancel_reply_after'   => '</span>',
+            'cancel_reply_link'    => __( '[Cancel reply]' ),
         );
 
         return $args;
