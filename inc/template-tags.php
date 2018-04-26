@@ -218,9 +218,17 @@ if ( ! function_exists( 'mloc_related_posts' ) ) :
 
         $tags = wp_get_post_tags( $post_id );
         if ( $tags ) {
-            $first_tag = $tags[0]->term_id;
+            $tag_ids = [];
+            $i = 0;
+            foreach ( $tags as $tag ) {
+                $tag_ids[$i] = $tag->term_id;
+                $i++;
+                if ( $i == 3 ) {
+                    break;
+                }
+            }
             $args = array(
-                'tag__in' => array( $first_tag ),
+                'tag__in' => $tag_ids,
                 'post__not_in' => array( $post_id ),
                 'posts_per_page' => 3,
                 'paged' => $page
