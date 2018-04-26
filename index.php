@@ -2,7 +2,6 @@
 /**
  * The main template file
  */
-
 get_header(); ?>
 
 <div id="primary" class="content-area">

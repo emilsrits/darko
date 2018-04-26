@@ -8,6 +8,9 @@ define( 'MLOC_INC', trailingslashit( get_template_directory() ) . 'inc/');
 require_once( MLOC_INC . 'template-tags.php' );
 
 if ( ! function_exists( 'mloc_setup_theme' ) ) {
+    /**
+     * Theme setup
+     */
     function mloc_setup_theme() {
         /**
          * This will limit the width of all uploaded images and embeds
@@ -18,9 +21,10 @@ if ( ! function_exists( 'mloc_setup_theme' ) ) {
         }
 
         /**
-         * Adds image size
+         * Adds image sizes
          */
         add_image_size( 'mloc-blog', 360, 240, true );
+        add_image_size( 'mloc-post-thumb', 218, 150, true );
 
         /**
          * Enable support for title tag
@@ -43,6 +47,9 @@ if ( ! function_exists( 'mloc_setup_theme' ) ) {
     add_action('after_setup_theme', 'mloc_setup_theme');
 }
 
+/**
+ * Script and style registering/enqueuing
+ */
 function mloc_script() {
     // Normalize styles
     wp_register_style( 'normalize', get_template_directory_uri() . '/assets/css/normalize.min.css');
@@ -57,8 +64,9 @@ function mloc_script() {
     wp_enqueue_style( 'style' );
 
     // Main scripts
-    wp_register_script( 'script', get_template_directory_uri() . '/assets/js/script.js', null, false, true );
+    wp_register_script( 'script', get_template_directory_uri() . '/assets/js/script.js', array( 'jquery' ), false, true );
     wp_enqueue_script( 'script' );
+    wp_localize_script( 'script', 'phpVars', array( 'ajaxUrl' => admin_url( 'admin-ajax.php'), 'check_nonce' => wp_create_nonce( 'mloc-nonce' ) ) );
 }
 add_action('wp_enqueue_scripts', 'mloc_script');
 
@@ -110,16 +118,29 @@ add_filter( 'comment_form_fields', 'mloc_move_comment_textarea' );
  *
  * @param string $more_link_text
  * @param int $stripteaser
- * @param string $more_file
  * @return mixed|string
  */
-function mloc_get_the_content_with_formatting ($more_link_text = '(more...)', $stripteaser = 0, $more_file = '') {
-    $content = get_the_content($more_link_text, $stripteaser, $more_file);
+function mloc_get_the_content_with_formatting($more_link_text = '(more...)', $stripteaser = 0) {
+    $content = get_the_content($more_link_text, $stripteaser);
     $content = apply_filters('the_content', $content);
     $content = str_replace(']]>', ']]&gt;', $content);
     return $content;
 }
 
 add_action( 'mloc_blog_adjacent_posts', 'mloc_adjacent_posts' );
-
 add_action( 'mloc_blog_related_posts', 'mloc_related_posts' );
+
+/**
+ * Display a different page of related posts from ajax request
+ */
+function mloc_ajax_related_posts() {
+    check_ajax_referer( 'mloc-nonce', 'security' );
+    $page = $_POST['paged'];
+    if ( empty( $page ) ) {
+        $page = 1;
+    }
+    mloc_related_posts( $page, true );
+    die();
+}
+add_action( 'wp_ajax_mloc_related_posts', 'mloc_ajax_related_posts' );
+add_action( 'wp_ajax_nopriv_mloc_related_posts', 'mloc_ajax_related_posts' );

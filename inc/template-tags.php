@@ -13,8 +13,35 @@ if ( ! function_exists( 'mloc_category' ) ) :
         $categories = get_the_category();
         if ( $categories ) {
             foreach ($categories as $category) {
-                echo '<span class=' . "label" . '><a href="' . esc_url( get_category_link( $category->term_id ) ) . '" title="' . esc_attr( sprintf( __( 'View all posts in %s', 'mloc' ), $category->name ) ) . '" ' . '>' . esc_html( $category->name ) . '</a></span>';
+                echo '<span class="label"><a href="' . esc_url( get_category_link( $category->term_id ) ) . '" title="' . esc_attr( sprintf( __( 'View all posts in %s', 'mloc' ), $category->name ) ) . '" ' . '>' . esc_html( $category->name ) . '</a></span>';
             }
+        }
+    }
+endif;
+
+if ( ! function_exists( 'mloc_tags_trimmed' ) ) :
+    /**
+     * Returns string/html of post tags up to specified number
+     *
+     * @param int $max
+     * @return string $buffer
+     */
+    function mloc_tags_trimmed( $max = 3 ) {
+        $tags = get_the_tags();
+        $count = 0;
+
+        if ( $tags ) {
+            $buffer = '';
+            foreach( $tags as $tag ) {
+                $count++;
+                $buffer .= '<span class="tag label">';
+                $buffer .= '<a href="' . get_tag_link( $tag->term_id ).'" rel="tag">#' . $tag->name . '</a>';
+                $buffer .= '</span>';
+                if( $count >= $max ) {
+                    break;
+                }
+            }
+            return $buffer;
         }
     }
 endif;
@@ -147,7 +174,7 @@ if ( ! function_exists( 'mloc_adjacent_posts' ) ) :
         $next_post = get_next_post();
 
         if ( $prev_post || $next_post ) : ?>
-            <div class="next_and_previous_posts row">
+            <div id="adjacent-posts" class="row">
                 <div class="col-xs-6 align-left">
                     <?php
                     if ( $prev_post ) {
@@ -173,9 +200,115 @@ endif;
 if ( ! function_exists( 'mloc_related_posts' ) ) :
     /**
      * Template for showing related posts
+     *
+     * @param int $page
+     * @param bool $ajax
      */
-    function mloc_related_posts() {
-        // TODO: add related posts
+    function mloc_related_posts( $page, $ajax = false ) {
+        global $post;
+
+        if ( empty( $post ) ) {
+            $post_id = $_POST['postId'];
+        } else {
+            $post_id = $post->ID;
+        }
+        if ( empty( $page ) ) {
+            $page = 1;
+        }
+
+        $tags = wp_get_post_tags( $post_id );
+        if ( $tags ) {
+            $first_tag = $tags[0]->term_id;
+            $args = array(
+                'tag__in' => array( $first_tag ),
+                'post__not_in' => array( $post_id ),
+                'posts_per_page' => 3,
+                'paged' => $page
+            );
+
+            $query = new WP_Query( $args );
+            $max_pages = $query->max_num_pages;
+            $buffer = '';
+            if ( $page > $max_pages ) {
+                wp_reset_query();
+                http_response_code( 400 );
+                return;
+            }
+            if( $query->have_posts() ) {
+                if ( $ajax == false ) : ?>
+                    <div id="related-posts" data-id="<?php echo $post_id; ?>">
+                        <div class="row center-xs">
+                <?php
+                endif;
+                while ( $query->have_posts() ) : $query->the_post();
+                    $post_thumb = get_the_post_thumbnail( get_the_ID(), 'mloc-post-thumb' );
+
+                    $buffer .= '<div class="related-post col-xs-12 col-sm-4 col-md-4">';
+                        $buffer .= '<div class="related-post-thumb">';
+                            $buffer .= '<a href="' . get_the_permalink() . '" title="' . get_the_title() . '">' . $post_thumb . '</a>';
+                        $buffer .= '</div> <!-- .related-post-thumb -->';
+
+                        $buffer .= '<div class="related-post-meta">';
+                            $buffer .= '<div class="related-post-tags">';
+                                $buffer .= mloc_tags_trimmed();
+                            $buffer .= '</div>';
+
+                            $buffer .= '<h3 class="related-post-title">';
+                                $buffer .= '<a href="' . get_the_permalink() . '" title="' . get_the_title() . '">' . get_the_title() . '</a>';
+                            $buffer .= '</h3>';
+                        $buffer .= '</div> <!-- .related-post-meta -->';
+                    $buffer .= '</div> <!-- .related-post -->';
+                endwhile;
+                if ( $ajax == false ) :
+                            echo $buffer;
+                            ?>
+                        </div> <!-- .row -->
+                        <div class="mloc-ajax-spinner">
+                            <div class="mloc-spinner1 mloc-spinner"></div>
+                            <div class="mloc-spinner2 mloc-spinner"></div>
+                            <div class="mloc-spinner3 mloc-spinner"></div>
+                            <div class="mloc-spinner4 mloc-spinner"></div>
+                            <div class="mloc-spinner5 mloc-spinner"></div>
+                            <div class="mloc-spinner6 mloc-spinner"></div>
+                            <div class="mloc-spinner7 mloc-spinner"></div>
+                            <div class="mloc-spinner8 mloc-spinner"></div>
+                            <div class="mloc-spinner9 mloc-spinner"></div>
+                            <div class="mloc-spinner10 mloc-spinner"></div>
+                            <div class="mloc-spinner11 mloc-spinner"></div>
+                            <div class="mloc-spinner12 mloc-spinner"></div>
+                        </div> <!-- .sk-fading-circle -->
+                    </div> <!-- #related_posts -->
+                    <?php
+                    if ( $max_pages != 1 ) :
+                        mloc_ajax_related_posts_navigation();
+                    endif;
+                endif;
+            }
+            wp_reset_query();
+            if ( ! $ajax == false ) :
+                ( $page == $max_pages ) ? $last_page = true : $last_page = false;
+                ( $page == 1 ) ? $first_page = true : $first_page = false;
+                echo json_encode( array( 'html' => $buffer, 'firstPage' => $first_page, 'lastPage' => $last_page ) );
+            endif;
+        }
+    }
+endif;
+
+if ( ! function_exists( 'mloc_ajax_related_posts_navigation' ) ) :
+    /**
+     * Template for related posts navigation
+     */
+    function mloc_ajax_related_posts_navigation() {
+        ?>
+        <div id="related-posts-navigation">
+            <button class="ajax-prev-page btn" disabled>
+                <i class="material-icons">&#xE5CB;</i>
+            </button>
+            <button class="ajax-next-page btn">
+                <i class="material-icons">&#xE5CC;</i>
+            </button>
+        </div>
+        <?php
     }
 endif;
 
@@ -190,6 +323,5 @@ if ( ! function_exists( 'mloc_go_top' ) ) :
         </button>
         <?php
     }
-
     add_action( 'wp_footer', 'mloc_go_top' );
 endif;
