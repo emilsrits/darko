@@ -1,8 +1,11 @@
 <?php
 /**
  * Template for displaying header
+ *
+ * @package Mloc
  */
 ?>
+
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>

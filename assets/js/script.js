@@ -1,5 +1,11 @@
 'use strict';
 
+/**
+ * Main scripts file
+ *
+ * @package Mloc
+ */
+
 (function ($) {
     var mainMenu = $('#main-menu'),
         menuToggle = mainMenu.find('.navbar-toggle'),

@@ -1,8 +1,11 @@
 <?php
 /**
  * Template for displaying footer
+ *
+ * @package Mloc
  */
 ?>
+
     <footer id="site-footer">
         <div class="container">
             <div class="copyright">

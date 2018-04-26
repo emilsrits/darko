@@ -1,6 +1,8 @@
 <?php
 /**
  * Template for displaying single post
+ *
+ * @package Mloc
  */
 
 get_header(); ?>

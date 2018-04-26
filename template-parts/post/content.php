@@ -1,6 +1,10 @@
 <?php
 /**
- * Template part for displaying posts
+ * Template for displaying content
+ *
+ * Used for index
+ *
+ * @package Mloc
  */
 ?>
 

@@ -1,6 +1,8 @@
 <?php
 /**
  * Template for displaying comments
+ *
+ * @package Mloc
  */
 
 if ( post_password_required() ) {

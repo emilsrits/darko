@@ -1,3 +1,9 @@
+/**
+ * Main scripts file
+ *
+ * @package Mloc
+ */
+
 ( ($) => {
     const
         mainMenu = $( '#main-menu' ),

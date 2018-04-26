@@ -1,6 +1,8 @@
 <?php
 /**
- * Mloc functions and definitions
+ * Theme functions and definitions
+ *
+ * @package Mloc
  */
 
 define( 'MLOC_INC', trailingslashit( get_template_directory() ) . 'inc/');

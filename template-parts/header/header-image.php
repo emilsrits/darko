@@ -1,6 +1,8 @@
 <?php
 /**
  * Template for displaying header image
+ *
+ * @package Mloc
  */
 
 $current_object_id = get_queried_object_id() ;

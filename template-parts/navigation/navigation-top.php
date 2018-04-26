@@ -1,6 +1,8 @@
 <?php
 /**
- * Displays top navigation
+ * Template for top navigation
+ * 
+ * @package Mloc
  */
 ?>
 

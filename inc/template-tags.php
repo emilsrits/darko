@@ -1,6 +1,8 @@
 <?php
 /**
  * Custom template tags
+ *
+ * @package Mloc
  */
 ?>
 
@@ -69,7 +71,7 @@ if ( ! function_exists( 'mloc_comments_list' ) ) :
                         <span>
                             <?php
                             printf(
-                            /* translators: %1$s is Date, %2$s is Time */
+                            /* translators: %1$s is date, %2$s is time */
                                 esc_html__( '- %1$s at %2$s', 'mloc' ),
                                 get_comment_date(),
                                 get_comment_time()
@@ -148,7 +150,7 @@ if ( ! function_exists( 'mloc_comments_form_template' ) ) :
             'must_log_in'          => '<p class="must-log-in">' .
                 sprintf(
                     wp_kses(
-                    /* translators: %s is Link to login */
+                    /* translators: %s is a link to login */
                         __( 'You must be <a href="%s">logged in</a> to post a comment.', 'mloc' ), array(
                             'a' => array(
                                 'href' => array(),

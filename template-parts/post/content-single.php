@@ -1,6 +1,10 @@
 <?php
 /**
- * Template part for displaying single post
+ * Template for displaying content
+ *
+ * Used for single posts
+ *
+ * @package Mloc
  */
 ?>
 
