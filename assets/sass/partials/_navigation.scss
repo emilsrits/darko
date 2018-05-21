@@ -1,0 +1,107 @@
+/*--------------------------------------------------------------
+# Navigation
+--------------------------------------------------------------*/
+#main-menu {
+  width: 100%;
+  background-color: $c-grey-dark;
+  box-shadow: 0 4px 4px -4px $c-grey-dark;
+  z-index: 1;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    min-height: 55px;
+  }
+
+  .navbar-brand {
+    margin-right: auto;
+    color: $c-white;
+    font-size: 1em;
+  }
+
+  .navbar-toggle {
+    display: block;
+    color: $c-black;
+    background: none;
+    border: none;
+    outline: none;
+  }
+}
+
+.main-menu-fixed {
+  #main-menu {
+    position: fixed;
+    top: 0;
+    &.at-top {
+      box-shadow: none;
+    }
+  }
+
+  &.admin-bar #main-menu {
+    margin-top: 32px;
+  }
+
+  &.home {
+    #wrapper {
+      margin-top: 83px;
+    }
+  }
+
+  #wrapper {
+    margin-top: 63px;
+  }
+}
+
+#main-navigation {
+  background-color: $c-grey-dark;
+}
+
+#menu-main-menu {
+  li {
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+
+    > a {
+      display: block;
+      padding: 15px 15px;
+      color: $c-white;
+      font-size: $f-small;
+      transition: color 0.2s ease;
+      &:hover {
+        color: $c-red;
+      }
+    }
+  }
+}
+
+#mloc-go-top {
+  display: block;
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  width: 40px;
+  height: 40px;
+  color: $c-grey-light;
+  background-color: $c-black;
+  opacity: 0.6;
+  outline: none;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  z-index: 900;
+  &.faded-out {
+    opacity: 0;
+  }
+  &:hover {
+    opacity: 0.8;
+  }
+
+  > i {
+    font-size: $f-large;
+  }
+}

@@ -1,0 +1,170 @@
+/*--------------------------------------------------------------
+# Responsive
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Mobile
+--------------------------------------------------------------*/
+@include mobile {
+  .main-menu-fixed {
+    #wrapper {
+      margin-top: 55px;
+    }
+
+    &.admin-bar #main-menu {
+      margin-top: 46px;
+    }
+  }
+
+  #main-navigation {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    transition: max-height 0.3s ease-in-out;
+    overflow: hidden;
+    z-index: 1;
+    &.collapse {
+      max-height: 1px;
+    }
+    &.collapse.in {
+      max-height: 500px;
+    }
+
+    > ul {
+      padding: 10px 0;
+      border-top: 1px solid $c-grey-darker;
+    }
+  }
+
+  #menu-main-menu {
+    li {
+      display: block;
+    }
+  }
+
+  #mloc-go-top {
+    display: none;
+  }
+
+  #main {
+    margin: 0;
+  }
+
+  .single-post .featured-img {
+    margin: 0 5% 20px;
+  }
+
+  .post-title {
+    margin-top: 25px;
+  }
+
+  #related-posts .related-post {
+    display: flex;
+    margin-bottom: 20px;
+    text-align: left;
+
+    .related-post-thumb {
+      padding-right: 15px;
+
+      img {
+        max-width: 140px;
+        height: auto;
+      }
+    }
+
+    .related-post-meta {
+      .related-post-title {
+        font-size: $f-medium;
+      }
+    }
+  }
+
+  #comments {
+    .children {
+      padding-left: 5px;
+      border-left: 1px solid $c-grey-dark;
+
+      .comment {
+        margin: 10px 0 5px;
+      }
+    }
+
+    .comment {
+      .comment-body {
+        padding-right: 5px;
+      }
+
+      .author-avatar {
+        padding-right: 15px;
+      }
+
+      .comment-meta > h4, .comment-content p {
+        font-size: $f-medium;
+      }
+    }
+  }
+
+  .comments-reply {
+    margin-top: 40px;
+
+    .author-avatar {
+      display: none;
+    }
+
+    #commentform {
+      .control-label {
+        margin: 10px 0 5px;
+      }
+    }
+
+    .comment-notes {
+      text-align: center;
+    }
+  }
+}
+/*--------------------------------------------------------------
+## Tablet
+--------------------------------------------------------------*/
+@include tablet {
+  #main-menu {
+    .navbar-toggle {
+      display: none;
+    }
+  }
+
+  .container {
+    width: 750px;
+  }
+
+  .content-container {
+    min-height: 900px;
+  }
+}
+/*--------------------------------------------------------------
+## To desktop
+--------------------------------------------------------------*/
+@include to-desktop {
+  #main {
+    margin: 20px 0 0;
+    box-shadow: none;
+  }
+}
+/*--------------------------------------------------------------
+## Desktop
+--------------------------------------------------------------*/
+@include desktop {
+  .container {
+    width: 970px;
+  }
+}
+/*--------------------------------------------------------------
+## Custom Media
+--------------------------------------------------------------*/
+@media only screen and (max-width: 600px) {
+  .main-menu-fixed.admin-bar #main-menu {
+    margin-top: 0;
+    &.at-top {
+      margin-top: 46px;
+    }
+  }
+}
