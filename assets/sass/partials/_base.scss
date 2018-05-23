@@ -44,6 +44,13 @@ ul {
   list-style-type: none;
 }
 
+blockquote {
+  margin: 0;
+  padding-left: 10px;
+  font-style: italic;
+  border-left: 3px solid $c-red-darker;
+}
+
 code {
   padding: .2rem .5rem;
   margin: 0 .2rem;
@@ -111,6 +118,40 @@ span.required {
 
 .align-right {
   text-align: right;
+}
+/*--------------------------------------------------------------
+## WP classes
+--------------------------------------------------------------*/
+.aligncenter {
+  display: block;
+  margin: 26px auto;
+  text-align: center;
+}
+
+.alignleft {
+  display: block;
+  margin: 26px auto 26px 0;
+  text-align: center;
+}
+
+.alignright {
+  display: block;
+  margin: 26px 0 26px auto;
+  text-align: center;
+}
+
+.alignnone {
+  display: block;
+  margin: 26px 0;
+  text-align: center;
+}
+
+.wp-caption-text {
+  margin: 0;
+  padding-top: 5px;
+  color: $c-grey;
+  font-size: $f-small;
+  text-align: center;
 }
 /*--------------------------------------------------------------
 ## Header

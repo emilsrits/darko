@@ -2,7 +2,7 @@
 /**
  * Template for displaying content
  *
- * Used for single posts
+ * Used for pages
  *
  * @package Mloc
  */
@@ -23,26 +23,9 @@
 
     <div class="row">
         <div class="col-xs-12">
-            <div class="post-content">
+            <div class="page-content">
                 <?php the_content(); ?>
             </div> <!-- .post-content -->
-
-            <div class="post-categories">
-                <span><?php esc_html_e( 'Categories: ', 'mloc' ); ?></span>
-                <?php mloc_categories(); ?>
-            </div> <!-- .post-category -->
-
-            <?php the_tags( '<div class="post-tags"><span>' . esc_html__( 'Tags: ', 'mloc' ) . '</span><span class="tag">', '</span><span class="tag">', '</span></div>' ); ?>
         </div> <!-- .col-xs-12 -->
     </div> <!-- .row -->
 </article>
-<?php
-
-do_action( 'mloc_blog_adjacent_posts' );
-
-do_action( 'mloc_blog_related_posts' );
-
-if ( comments_open() || get_comments_number() ) :
-    comments_template();
-endif;
-?>
