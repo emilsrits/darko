@@ -651,7 +651,7 @@ span.required {
 }
 
 /* line 22, assets/sass/partials/_content.scss */
-.page .hero-img, .single-post .hero-img {
+.page .hero-img, .single-post .hero-img, .archive .hero-img {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -662,7 +662,7 @@ span.required {
   background-size: cover;
 }
 /* line 31, assets/sass/partials/_content.scss */
-.page .hero-img:before, .page .hero-img:after, .single-post .hero-img:before, .single-post .hero-img:after {
+.page .hero-img:before, .page .hero-img:after, .single-post .hero-img:before, .single-post .hero-img:after, .archive .hero-img:before, .archive .hero-img:after {
   display: block;
   position: absolute;
   top: 0;
@@ -672,11 +672,11 @@ span.required {
   content: "";
 }
 /* line 40, assets/sass/partials/_content.scss */
-.page .hero-img:before, .single-post .hero-img:before {
+.page .hero-img:before, .single-post .hero-img:before, .archive .hero-img:before {
   background-color: rgba(0, 0, 0, 0.6);
 }
 /* line 45, assets/sass/partials/_content.scss */
-.page #main, .single-post #main {
+.page #main, .single-post #main, .archive #main {
   margin-top: 0;
 }
 

@@ -26,24 +26,26 @@ if ( post_password_required() ) {
                     'comments title',
                     'mloc'
                 ),
-                number_format_i18n($comments_number)
+                number_format_i18n( $comments_number )
             );
         }
         ?>
     </h4>
     <div class="post-comments">
         <?php
-        wp_list_comments( 'type=comment&callback=mloc_comments_list');
+        wp_list_comments( 'type=comment&callback=mloc_comments_list' );
         wp_list_comments( 'type=pings&callback=mloc_comments_list' );
         mloc_comments_pagination();
         ?>
     </div> <!-- .post-comments -->
     <div class="comments-reply">
-        <?php comment_form( mloc_comments_form_template() ); ?>
-        <?php if ( ! comments_open() && get_comments_number() ) : ?>
-            <?php if ( is_single() ) : ?>
+        <?php
+        comment_form( mloc_comments_form_template() );
+        if ( ! comments_open() && get_comments_number() ) :
+            if ( is_single() ) : ?>
                 <h4 class="no-comments"><?php esc_html_e( 'Comments are closed', 'mloc' ); ?></h4>
-            <?php endif; ?>
-        <?php endif; ?>
+            <?php
+            endif;
+        endif; ?>
     </div> <!-- .comments-reply -->
 </div> <!-- #comments -->

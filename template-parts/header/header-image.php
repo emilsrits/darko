@@ -7,13 +7,17 @@
 
 $current_object_id = get_queried_object_id() ;
 
-if ( is_single() || is_page() ) : ?>
+if ( is_single() || is_page() || is_archive() ) : ?>
     <div class="hero">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
                     <?php
-                    the_title( '<h1 class="hero-title">', '</h1>' );
+                    if ( is_single() || is_page() ) :
+                        the_title( '<h1 class="hero-title">', '</h1>' );
+                    elseif ( is_archive() ) :
+                        the_archive_title( '<h1 class="hero-title">', '</h1>' );
+                    endif;
                     if ( is_single() ) : ?>
                         <div class="post-author">
                             <?php

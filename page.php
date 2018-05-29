@@ -11,8 +11,8 @@ get_header(); ?>
     <main id="main" class="site-main" role="main">
         <div class="content-container container">
             <?php
-            if (have_posts()) :
-                while (have_posts()) :
+            if ( have_posts() ) :
+                while ( have_posts() ) :
                     the_post();
                     get_template_part( 'template-parts/post/content', 'page' );
                 endwhile;

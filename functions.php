@@ -5,7 +5,7 @@
  * @package Mloc
  */
 
-define( 'MLOC_INC', trailingslashit( get_template_directory() ) . 'inc/');
+define( 'MLOC_INC', trailingslashit( get_template_directory() ) . 'inc/' );
 
 require_once( MLOC_INC . 'template-tags.php' );
 
@@ -46,7 +46,7 @@ if ( ! function_exists( 'mloc_setup_theme' ) ) {
             'footer'    => __( 'Footer Menu', 'mloc' ),
         ) );
     }
-    add_action('after_setup_theme', 'mloc_setup_theme');
+    add_action( 'after_setup_theme', 'mloc_setup_theme' );
 }
 
 /**
@@ -54,7 +54,7 @@ if ( ! function_exists( 'mloc_setup_theme' ) ) {
  */
 function mloc_script() {
     // Normalize styles
-    wp_register_style( 'normalize', get_template_directory_uri() . '/assets/css/normalize.min.css');
+    wp_register_style( 'normalize', get_template_directory_uri() . '/assets/css/normalize.min.css' );
     wp_enqueue_style( 'normalize' );
 
     // Flexbox grid styles
@@ -70,7 +70,7 @@ function mloc_script() {
     wp_enqueue_script( 'script' );
     wp_localize_script( 'script', 'phpVars', array( 'ajaxUrl' => admin_url( 'admin-ajax.php'), 'check_nonce' => wp_create_nonce( 'mloc-nonce' ) ) );
 }
-add_action('wp_enqueue_scripts', 'mloc_script');
+add_action( 'wp_enqueue_scripts', 'mloc_script' );
 
 /**
  * Filter the excerpt "read more" string.
