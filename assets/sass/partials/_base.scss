@@ -44,6 +44,16 @@ ul {
   list-style-type: none;
 }
 
+img {
+  height: auto;
+}
+
+embed, iframe, img, .wp-caption {
+  max-width: 100%;
+}
+
+
+
 blockquote {
   margin: 0;
   padding-left: 10px;

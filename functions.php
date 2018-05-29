@@ -34,7 +34,7 @@ if ( ! function_exists( 'mloc_setup_theme' ) ) {
         add_theme_support( 'title-tag' );
 
         /**
-         * Enable support for post thumbnails and featured images
+         * Enable support for post thumbnails
          */
         add_theme_support( 'post-thumbnails' );
 
