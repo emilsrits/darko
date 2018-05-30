@@ -30,15 +30,13 @@
       max-height: 500px;
     }
 
-    > ul {
+    ul.navbar-nav {
       padding: 10px 0;
       border-top: 1px solid $c-grey-darker;
-    }
-  }
 
-  #menu-main-menu {
-    li {
-      display: block;
+      > li {
+        display: block;
+      }
     }
   }
 
@@ -111,9 +109,14 @@
       display: none;
     }
 
+    #comment-cookies {
+      text-align: center;
+    }
+
     #commentform {
       .control-label {
         margin: 10px 0 5px;
+        font-size: $f-very-small;
       }
     }
 

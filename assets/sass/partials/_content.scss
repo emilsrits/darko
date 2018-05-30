@@ -307,7 +307,7 @@
   overflow: auto;
 
   .comments-reply-header {
-    margin: 10px 0 25px;
+    margin: 10px 0 30px;
     text-align: center;
   }
 
@@ -317,6 +317,18 @@
 
   .form-body {
     display: flex;
+  }
+
+  #comment-cookies {
+    input[type="checkbox"] {
+      vertical-align: middle;
+      margin-right: 5px;
+    }
+
+    label {
+      color: $c-grey;
+      font-size: $f-small;
+    }
   }
 
   #commentform {

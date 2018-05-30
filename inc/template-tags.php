@@ -136,17 +136,26 @@ if ( ! function_exists( 'mloc_comments_form_template' ) ) :
         } else {
             $current_user = '<img src="' . get_template_directory_uri() . '/assets/images/placeholder.png" height="64" width="64"/>';
         }
+        $commenter = wp_get_current_commenter();
         $req = get_option( 'require_name_email' );
         $aria_req = ( $req ? " aria-required='true'" : '' );
+        $consent  = empty( $commenter['comment_author_email'] ) ? '' : ' checked="checked"';
         $args = array(
             'comment_notes_before' => '<p class="comment-notes"><span id="email-notes">' . __( 'Your email address will not be published.' ) . '</p>',
             'fields'               => apply_filters(
                 'comment_form_default_fields', array(
-                    'author' => '<div class="row"><div class="col-xs-12 col-sm-6"><div class="form-group"><label for="name" class="control-label label">' . esc_html__( 'Name', 'mloc' ) . ( $req ? '<span class="required">*</span>' : '' ) . '</label><input id="author" name="author" class="form-control" type="text"' . $aria_req . ' /></div></div>',
-                    'email'  => '<div class="col-xs-12 col-sm-6"><div class="form-group"><label for="email" class="control-label label">' . esc_html__( 'Email', 'mloc' ) . ( $req ? '<span class="required">*</span>' : '' ) . '</label><input id="email" name="email" class="form-control" type="email"' . $aria_req . ' /></div></div></div>',
+                    'cookies'   => '<div id="comment-cookies"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes" ' . $consent . ' />' .
+                                    '<label for="wp-comment-cookies-consent">' . __( 'Save my name and email in this browser for the next time I comment.', 'mloc' ) . '</label></div>',
+                    'author'    => '<div class="row"><div class="col-xs-12 col-sm-6"><div class="form-group">' .
+                                    '<label for="name" class="control-label label">' . __( 'Name', 'mloc' ) . ( $req ? '<span class="required">*</span>' : '' ) . '</label>' .
+                                    '<input id="author" name="author" class="form-control" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" ' . $aria_req . ' /></div></div>',
+                    'email'     => '<div class="col-xs-12 col-sm-6"><div class="form-group">' .
+                                    '<label for="email" class="control-label label">' . __( 'Email', 'mloc' ) . ( $req ? '<span class="required">*</span>' : '' ) . '</label>' .
+                                    '<input id="email" name="email" class="form-control" type="email" value="' . esc_attr( $commenter['comment_author_email'] ) . '" ' . $aria_req . ' /></div></div></div>',
                 )
             ),
-            'comment_field'        => '<div class="form-group"><label class="control-label label">' . esc_html__( 'Comment', 'mloc' ) . '<span class="required">*</span>' . '</label><textarea id="comment" name="comment" class="form-control" rows="7" aria-required="true"></textarea></div>',
+            'comment_field'        => '<div class="form-group"><label class="control-label label">' . esc_html__( 'Comment', 'mloc' ) . '<span class="required">*</span>' . '</label>' .
+                                        '<textarea id="comment" name="comment" class="form-control" rows="7" aria-required="true"></textarea></div>',
             'must_log_in'          => '<p class="must-log-in">' .
                 sprintf(
                     wp_kses(

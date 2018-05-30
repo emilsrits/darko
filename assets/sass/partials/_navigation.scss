@@ -57,10 +57,8 @@
 
 #main-navigation {
   background-color: $c-grey-dark;
-}
 
-#menu-main-menu {
-  li {
+  ul.navbar-nav > li {
     display: inline-block;
     text-transform: uppercase;
     letter-spacing: 0.3px;
