@@ -18,30 +18,7 @@
   }
 }
 
-.page, .single-post, .archive {
-  .hero-img {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: -1;
-    background-position: center center;
-    background-size: cover;
-    &:before, &:after {
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      content: "";
-    }
-    &:before {
-      background-color: rgba(0, 0, 0, 0.6);
-    }
-  }
-
+.page, .single-post, .archive, .home.blog {
   #main {
     margin-top: 0;
   }

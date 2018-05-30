@@ -32,11 +32,22 @@ if ( ! function_exists( 'mloc_setup_theme' ) ) {
          * Enable support for title tag
          */
         add_theme_support( 'title-tag' );
-
         /**
          * Enable support for post thumbnails
          */
         add_theme_support( 'post-thumbnails' );
+
+        /**
+         * Enable support for custom header
+         */
+        $header_config = array(
+            'flex-width'    => true,
+            'width'         => 1000,
+            'flex-height'   => true,
+            'height'        => 250,
+            'header-text'   => false,
+        );
+        add_theme_support( 'custom-header', $header_config );
 
         /**
          * Enable support for custom navigation menus

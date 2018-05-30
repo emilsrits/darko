@@ -5,20 +5,26 @@
  * @package Mloc
  */
 
-$current_object_id = get_queried_object_id() ;
+$current_object_id = get_queried_object_id();
+$is_home = is_home();
+$is_single = is_single();
+$is_page = is_page();
+$is_archive = is_archive();
+$has_header_image = get_header_image();
 
-if ( is_single() || is_page() || is_archive() ) : ?>
+if ( $is_single || $is_page || $is_archive ) : ?>
     <div class="hero">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
                     <?php
-                    if ( is_single() || is_page() ) :
+                    if ( $is_single || $is_page ) :
                         the_title( '<h1 class="hero-title">', '</h1>' );
-                    elseif ( is_archive() ) :
+                    endif;
+                    if ( $is_archive ) :
                         the_archive_title( '<h1 class="hero-title">', '</h1>' );
                     endif;
-                    if ( is_single() ) : ?>
+                    if ( $is_single ) : ?>
                         <div class="post-author">
                             <?php
                             $author = $post->post_author;
@@ -42,9 +48,29 @@ if ( is_single() || is_page() || is_archive() ) : ?>
                 <!-- empty div -->
             </div> <!-- .hero-img -->
         <?php else : ?>
-            <div class="hero-img">
-                <!-- empty div -->
-            </div> <!-- .hero-img -->
+            <?php if ( $has_header_image ) : ?>
+                <div class="hero-img" style="background-image: url('<?php header_image(); ?>')">
+                    <!-- empty div -->
+                </div> <!-- .hero-img -->
+            <?php else : ?>
+                <div class="hero-img">
+                    <!-- empty div -->
+                </div> <!-- .hero-img -->
+            <?php endif; ?>
         <?php endif; ?>
+    </div> <!-- .hero -->
+<?php endif; ?>
+<?php if ( $is_home && $has_header_image ) : ?>
+    <div class="hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1 class="hero-title"><?php bloginfo( 'description' ); ?></h1>
+                </div> <!-- .col-xs-12 -->
+            </div> <!-- .row -->
+        </div> <!-- .container -->
+        <div class="hero-img" style="background-image: url('<?php header_image(); ?>')">
+            <!-- empty div -->
+        </div> <!-- .hero-img -->
     </div> <!-- .hero -->
 <?php endif; ?>
