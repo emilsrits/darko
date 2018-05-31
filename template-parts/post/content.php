@@ -24,25 +24,25 @@
         <?php else : ?>
             <div class="col-xs-12">
         <?php endif;
-            if ( is_single() ) {
+            if ( is_single() ) :
                 the_title( '<h1 class="post-title">', '</h1>' );
-            } else {
+            else :
                 the_title( '<h2 class="post-title"><a href="' . esc_url( get_permalink() ) . '">', '</a></h2>' );
-            }
+            endif;
             ?>
             <div class="post-content">
                 <p>
                     <?php
-                    if ( is_single() ) {
+                    if ( is_single() ) :
                         echo mloc_get_the_content_with_formatting();
-                    } else {
+                    else :
                         $read_more = strpos( $post->post_content, '<!--more' );
                         if ( $read_more ) :
                             echo get_the_content();
                         else :
                             echo get_the_excerpt();
                         endif;
-                    }
+                    endif;
                     ?>
                 </p>
             </div> <!-- .post-content -->

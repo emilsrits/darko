@@ -18,7 +18,7 @@
   }
 }
 
-.page, .single-post, .archive, .home.blog {
+.page, .single-post, .archive, .home, .blog {
   #main {
     margin-top: 0;
   }
@@ -38,6 +38,12 @@
 /*--------------------------------------------------------------
 ## Posts
 --------------------------------------------------------------*/
+.home, .blog {
+  .post.sticky {
+    box-shadow: 0 5px 5px -5px $c-red-darker;
+  }
+}
+
 .home, .blog, .archive {
   article .row {
     justify-content: center;
