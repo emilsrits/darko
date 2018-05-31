@@ -691,39 +691,50 @@ span.required {
   margin-top: 0;
 }
 
+/* line 28, assets/sass/partials/_content.scss */
+.page .featured-img, .single-post .featured-img {
+  margin: 0 15% 20px;
+}
+/* line 31, assets/sass/partials/_content.scss */
+.page .featured-img img, .single-post .featured-img img {
+  display: block;
+  margin: auto;
+  width: 100%;
+}
+
 /*--------------------------------------------------------------
 ## Posts
 --------------------------------------------------------------*/
-/* line 30, assets/sass/partials/_content.scss */
+/* line 42, assets/sass/partials/_content.scss */
 .home article .row, .blog article .row, .archive article .row {
   justify-content: center;
   align-items: center;
 }
-/* line 35, assets/sass/partials/_content.scss */
+/* line 47, assets/sass/partials/_content.scss */
 .home p, .blog p, .archive p {
   font-size: 0.875em;
 }
 
-/* line 40, assets/sass/partials/_content.scss */
+/* line 52, assets/sass/partials/_content.scss */
 .post {
   margin-bottom: 30px;
   padding-bottom: 15px;
 }
 
-/* line 46, assets/sass/partials/_content.scss */
+/* line 58, assets/sass/partials/_content.scss */
 .post-title a {
   color: #eee;
 }
-/* line 48, assets/sass/partials/_content.scss */
+/* line 60, assets/sass/partials/_content.scss */
 .post-title a:hover {
   color: #bebebe;
 }
 
-/* line 54, assets/sass/partials/_content.scss */
+/* line 66, assets/sass/partials/_content.scss */
 .post-featured-img {
   padding: 0 10px;
 }
-/* line 57, assets/sass/partials/_content.scss */
+/* line 69, assets/sass/partials/_content.scss */
 .post-featured-img img {
   display: block;
   margin: auto;
@@ -732,20 +743,20 @@ span.required {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-/* line 66, assets/sass/partials/_content.scss */
+/* line 78, assets/sass/partials/_content.scss */
 .post-content p {
   line-height: 1.6;
 }
-/* line 69, assets/sass/partials/_content.scss */
+/* line 81, assets/sass/partials/_content.scss */
 .post-content p a {
   color: #CC4040;
 }
-/* line 71, assets/sass/partials/_content.scss */
+/* line 83, assets/sass/partials/_content.scss */
 .post-content p a:hover {
   color: #b73a3a;
 }
 
-/* line 77, assets/sass/partials/_content.scss */
+/* line 89, assets/sass/partials/_content.scss */
 .post-categories, .post-tags {
   margin: 10px 0 10px;
   font-size: 0.625em;
@@ -753,21 +764,21 @@ span.required {
   letter-spacing: 0.3px;
 }
 
-/* line 84, assets/sass/partials/_content.scss */
+/* line 96, assets/sass/partials/_content.scss */
 .post-categories .label {
   padding: 7px 12px;
 }
 
-/* line 89, assets/sass/partials/_content.scss */
+/* line 101, assets/sass/partials/_content.scss */
 .post-tags span {
   display: inline-block;
 }
-/* line 93, assets/sass/partials/_content.scss */
+/* line 105, assets/sass/partials/_content.scss */
 .post-tags .tag {
   margin: 5px;
 }
 
-/* line 98, assets/sass/partials/_content.scss */
+/* line 110, assets/sass/partials/_content.scss */
 .post-author {
   font-size: 0.75em;
 }
@@ -775,26 +786,16 @@ span.required {
 /*--------------------------------------------------------------
 ### Single post
 --------------------------------------------------------------*/
-/* line 105, assets/sass/partials/_content.scss */
-.single-post .featured-img {
-  margin: 0 15% 20px;
-}
-/* line 108, assets/sass/partials/_content.scss */
-.single-post .featured-img img {
-  display: block;
-  margin: auto;
-  width: 100%;
-}
-/* line 115, assets/sass/partials/_content.scss */
+/* line 117, assets/sass/partials/_content.scss */
 .single-post .post-content {
   margin-bottom: 40px;
 }
-/* line 120, assets/sass/partials/_content.scss */
+/* line 122, assets/sass/partials/_content.scss */
 .single-post .post-categories > span:first-child, .single-post .post-tags > span:first-child {
   color: #bebebe;
   letter-spacing: 0.5px;
 }
-/* line 126, assets/sass/partials/_content.scss */
+/* line 128, assets/sass/partials/_content.scss */
 .single-post .post-categories .label:first-child {
   margin-left: 5px;
 }
@@ -802,21 +803,21 @@ span.required {
 /*--------------------------------------------------------------
 ### Adjacent posts
 --------------------------------------------------------------*/
-/* line 133, assets/sass/partials/_content.scss */
+/* line 135, assets/sass/partials/_content.scss */
 #adjacent-posts {
   margin-top: 10px;
   margin-bottom: 30px;
 }
-/* line 137, assets/sass/partials/_content.scss */
+/* line 139, assets/sass/partials/_content.scss */
 #adjacent-posts span, #adjacent-posts a {
   display: block;
 }
-/* line 141, assets/sass/partials/_content.scss */
+/* line 143, assets/sass/partials/_content.scss */
 #adjacent-posts span {
   color: #bebebe;
   font-size: 0.75em;
 }
-/* line 146, assets/sass/partials/_content.scss */
+/* line 148, assets/sass/partials/_content.scss */
 #adjacent-posts a {
   margin: 10px 0 20px;
   font-size: 0.875em;
@@ -825,56 +826,56 @@ span.required {
 /*--------------------------------------------------------------
 ### Related posts
 --------------------------------------------------------------*/
-/* line 154, assets/sass/partials/_content.scss */
+/* line 156, assets/sass/partials/_content.scss */
 #related-posts {
   position: relative;
   margin: 10px 0 0;
 }
-/* line 158, assets/sass/partials/_content.scss */
+/* line 160, assets/sass/partials/_content.scss */
 #related-posts .related-post {
   text-align: center;
 }
-/* line 162, assets/sass/partials/_content.scss */
+/* line 164, assets/sass/partials/_content.scss */
 #related-posts .related-post-thumb {
   margin-bottom: 5px;
 }
-/* line 166, assets/sass/partials/_content.scss */
+/* line 168, assets/sass/partials/_content.scss */
 #related-posts .related-post-tags .label {
   font-size: 0.625em;
   letter-spacing: 0.3px;
 }
-/* line 171, assets/sass/partials/_content.scss */
+/* line 173, assets/sass/partials/_content.scss */
 #related-posts .related-post-title {
   margin: 10px 0 0;
 }
-/* line 174, assets/sass/partials/_content.scss */
+/* line 176, assets/sass/partials/_content.scss */
 #related-posts .related-post-title a {
   display: block;
   color: #bebebe;
   font-size: 1em;
 }
-/* line 178, assets/sass/partials/_content.scss */
+/* line 180, assets/sass/partials/_content.scss */
 #related-posts .related-post-title a:hover {
   color: #b73a3a;
 }
 
-/* line 185, assets/sass/partials/_content.scss */
+/* line 187, assets/sass/partials/_content.scss */
 #related-posts-navigation {
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
 }
-/* line 190, assets/sass/partials/_content.scss */
+/* line 192, assets/sass/partials/_content.scss */
 #related-posts-navigation .btn {
   color: #CC4040;
   background: none;
   border: none;
 }
-/* line 194, assets/sass/partials/_content.scss */
+/* line 196, assets/sass/partials/_content.scss */
 #related-posts-navigation .btn:hover {
   color: #b73a3a;
 }
-/* line 199, assets/sass/partials/_content.scss */
+/* line 201, assets/sass/partials/_content.scss */
 #related-posts-navigation .btn[disabled] {
   color: #bebebe;
 }
@@ -882,140 +883,140 @@ span.required {
 /*--------------------------------------------------------------
 ### Post comments
 --------------------------------------------------------------*/
-/* line 206, assets/sass/partials/_content.scss */
+/* line 208, assets/sass/partials/_content.scss */
 #comments {
   margin-top: 40px;
   border-top: 1px solid #303030;
 }
 
-/* line 211, assets/sass/partials/_content.scss */
+/* line 213, assets/sass/partials/_content.scss */
 .comments-header {
   margin-bottom: 30px;
   text-align: center;
 }
 
-/* line 216, assets/sass/partials/_content.scss */
+/* line 218, assets/sass/partials/_content.scss */
 .post-comments {
   overflow: auto;
 }
 
-/* line 220, assets/sass/partials/_content.scss */
+/* line 222, assets/sass/partials/_content.scss */
 #comments .children {
   padding-left: 35px;
 }
-/* line 223, assets/sass/partials/_content.scss */
+/* line 225, assets/sass/partials/_content.scss */
 #comments .children .comment {
   margin: 5px 0;
 }
-/* line 226, assets/sass/partials/_content.scss */
+/* line 228, assets/sass/partials/_content.scss */
 #comments .children .comment .author-avatar img {
   width: 40px;
   height: 40px;
 }
 
-/* line 233, assets/sass/partials/_content.scss */
+/* line 235, assets/sass/partials/_content.scss */
 .parent.comment {
   margin-bottom: 10px;
 }
 
-/* line 238, assets/sass/partials/_content.scss */
+/* line 240, assets/sass/partials/_content.scss */
 .comment .author-avatar, .comments-reply .author-avatar {
   padding-right: 20px;
 }
-/* line 241, assets/sass/partials/_content.scss */
+/* line 243, assets/sass/partials/_content.scss */
 .comment .author-avatar img, .comments-reply .author-avatar img {
   border-radius: 50%;
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.6);
 }
 
-/* line 248, assets/sass/partials/_content.scss */
+/* line 250, assets/sass/partials/_content.scss */
 .comment {
   display: flex;
   margin: 10px 0 20px;
   padding: 10px 0;
 }
-/* line 253, assets/sass/partials/_content.scss */
+/* line 255, assets/sass/partials/_content.scss */
 .comment .comment-body {
   width: 100%;
   padding-right: 20px;
 }
-/* line 259, assets/sass/partials/_content.scss */
+/* line 261, assets/sass/partials/_content.scss */
 .comment .comment-meta > h4 {
   margin: 0 0 10px;
 }
-/* line 262, assets/sass/partials/_content.scss */
+/* line 264, assets/sass/partials/_content.scss */
 .comment .comment-meta > h4 span {
   font-family: Roboto-Regular, sans-serif;
   font-size: 0.75em;
 }
-/* line 269, assets/sass/partials/_content.scss */
+/* line 271, assets/sass/partials/_content.scss */
 .comment .comment-content p {
   margin-bottom: 10px;
 }
-/* line 273, assets/sass/partials/_content.scss */
+/* line 275, assets/sass/partials/_content.scss */
 .comment .comment-footer {
   text-align: right;
 }
-/* line 276, assets/sass/partials/_content.scss */
+/* line 278, assets/sass/partials/_content.scss */
 .comment .comment-footer a, .comment .comment-footer i {
   font-size: 0.875em;
 }
 
-/* line 282, assets/sass/partials/_content.scss */
+/* line 284, assets/sass/partials/_content.scss */
 .comments-reply {
   margin-top: 60px;
   overflow: auto;
 }
-/* line 286, assets/sass/partials/_content.scss */
+/* line 288, assets/sass/partials/_content.scss */
 .comments-reply .comments-reply-header {
   margin: 10px 0 30px;
   text-align: center;
 }
-/* line 291, assets/sass/partials/_content.scss */
+/* line 293, assets/sass/partials/_content.scss */
 .comments-reply .comment-notes {
   font-size: 0.75em;
 }
-/* line 295, assets/sass/partials/_content.scss */
+/* line 297, assets/sass/partials/_content.scss */
 .comments-reply .form-body {
   display: flex;
 }
-/* line 300, assets/sass/partials/_content.scss */
+/* line 302, assets/sass/partials/_content.scss */
 .comments-reply #comment-cookies input[type="checkbox"] {
   vertical-align: middle;
   margin-right: 5px;
 }
-/* line 305, assets/sass/partials/_content.scss */
+/* line 307, assets/sass/partials/_content.scss */
 .comments-reply #comment-cookies label {
   color: #bebebe;
   font-size: 0.75em;
 }
-/* line 311, assets/sass/partials/_content.scss */
+/* line 313, assets/sass/partials/_content.scss */
 .comments-reply #commentform {
   width: 100%;
 }
-/* line 314, assets/sass/partials/_content.scss */
+/* line 316, assets/sass/partials/_content.scss */
 .comments-reply #commentform .logged-in-as {
   font-size: 0.75em;
 }
-/* line 318, assets/sass/partials/_content.scss */
+/* line 320, assets/sass/partials/_content.scss */
 .comments-reply #commentform .form-group {
   text-align: right;
 }
-/* line 322, assets/sass/partials/_content.scss */
+/* line 324, assets/sass/partials/_content.scss */
 .comments-reply #commentform .control-label {
   margin: 5px 0;
   font-size: 0.75em;
   letter-spacing: 0;
 }
-/* line 328, assets/sass/partials/_content.scss */
+/* line 330, assets/sass/partials/_content.scss */
 .comments-reply #commentform .row {
   margin: 20px 0;
 }
-/* line 331, assets/sass/partials/_content.scss */
+/* line 333, assets/sass/partials/_content.scss */
 .comments-reply #commentform .row input.form-control {
   padding: 5px;
 }
-/* line 336, assets/sass/partials/_content.scss */
+/* line 338, assets/sass/partials/_content.scss */
 .comments-reply #commentform input.form-control, .comments-reply #commentform textarea {
   width: 100%;
   font-size: 0.875em;
@@ -1026,27 +1027,27 @@ span.required {
   border-bottom: 3px solid #CC4040;
   transition: 0.3s ease;
 }
-/* line 345, assets/sass/partials/_content.scss */
+/* line 347, assets/sass/partials/_content.scss */
 .comments-reply #commentform input.form-control:hover, .comments-reply #commentform input.form-control:focus, .comments-reply #commentform textarea:hover, .comments-reply #commentform textarea:focus {
   border-color: #b73a3a;
 }
-/* line 350, assets/sass/partials/_content.scss */
+/* line 352, assets/sass/partials/_content.scss */
 .comments-reply #commentform textarea {
   display: block;
   margin-top: 10px;
   padding: 10px;
   resize: none;
 }
-/* line 355, assets/sass/partials/_content.scss */
+/* line 357, assets/sass/partials/_content.scss */
 .comments-reply #commentform textarea:hover, .comments-reply #commentform textarea:focus {
   background-color: #303030;
 }
-/* line 361, assets/sass/partials/_content.scss */
+/* line 363, assets/sass/partials/_content.scss */
 .comments-reply .form-submit {
   margin: 25px 0 30px;
   text-align: right;
 }
-/* line 365, assets/sass/partials/_content.scss */
+/* line 367, assets/sass/partials/_content.scss */
 .comments-reply .form-submit #submit {
   width: 45px;
   height: 45px;
@@ -1056,7 +1057,7 @@ span.required {
   background-color: #CC4040;
   transition: background 0.3s ease;
 }
-/* line 373, assets/sass/partials/_content.scss */
+/* line 375, assets/sass/partials/_content.scss */
 .comments-reply .form-submit #submit:hover {
   background-color: #b73a3a;
 }

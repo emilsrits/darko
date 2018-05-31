@@ -23,6 +23,18 @@
     margin-top: 0;
   }
 }
+
+.page, .single-post {
+  .featured-img {
+    margin: 0 15% 20px;
+
+    img {
+      display: block;
+      margin: auto;
+      width: 100%;
+    }
+  }
+}
 /*--------------------------------------------------------------
 ## Posts
 --------------------------------------------------------------*/
@@ -102,16 +114,6 @@
 ### Single post
 --------------------------------------------------------------*/
 .single-post {
-  .featured-img {
-    margin: 0 15% 20px;
-
-    img {
-      display: block;
-      margin: auto;
-      width: 100%;
-    }
-  }
-
   .post-content {
     margin-bottom: 40px;
   }
