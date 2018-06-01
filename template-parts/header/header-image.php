@@ -65,7 +65,16 @@ if ( $is_single || $is_page || $is_archive ) : ?>
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
-                    <h1 class="hero-title"><?php bloginfo( 'description' ); ?></h1>
+                    <h1 class="hero-title">
+                        <?php
+                        $buffer = single_post_title( '', false );
+                        if ( ! is_front_page() && $buffer ) :
+                            echo $buffer;
+                        else :
+                            bloginfo( 'description' );
+                        endif;
+                        ?>
+                    </h1>
                 </div> <!-- .col-xs-12 -->
             </div> <!-- .row -->
         </div> <!-- .container -->
