@@ -7,7 +7,7 @@
 ?>
 
 <?php
-if ( ! function_exists( 'mloc_categories' ) ) :
+if ( ! function_exists( 'mloc_categories' ) ) {
     /**
      * Display the first category of the post
      */
@@ -19,9 +19,9 @@ if ( ! function_exists( 'mloc_categories' ) ) :
             }
         }
     }
-endif;
+}
 
-if ( ! function_exists( 'mloc_tags_trimmed' ) ) :
+if ( ! function_exists( 'mloc_tags_trimmed' ) ) {
     /**
      * Returns string/html of post tags up to specified number
      *
@@ -46,9 +46,9 @@ if ( ! function_exists( 'mloc_tags_trimmed' ) ) :
             return $buffer;
         }
     }
-endif;
+}
 
-if ( ! function_exists( 'mloc_comments_list' ) ) :
+if ( ! function_exists( 'mloc_comments_list' ) ) {
     /**
      * Custom display of comments
      *
@@ -101,9 +101,9 @@ if ( ! function_exists( 'mloc_comments_list' ) ) :
         </div>
         <?php
     }
-endif;
+}
 
-if ( ! function_exists( 'mloc_comments_pagination' ) ) :
+if ( ! function_exists( 'mloc_comments_pagination' ) ) {
     /**
      * Custom template for comments pagination
      */
@@ -124,9 +124,9 @@ if ( ! function_exists( 'mloc_comments_pagination' ) ) :
             echo '</div>';
         }
     }
-endif;
+}
 
-if ( ! function_exists( 'mloc_comments_form_template' ) ) :
+if ( ! function_exists( 'mloc_comments_form_template' ) ) {
     /**
      * Custom comments form template
      */
@@ -138,7 +138,7 @@ if ( ! function_exists( 'mloc_comments_form_template' ) ) :
         }
         $commenter = wp_get_current_commenter();
         $req = get_option( 'require_name_email' );
-        $aria_req = ( $req ? " aria-required='true'" : '' );
+        $aria_req = ( $req ? 'required' : '' );
         $consent  = empty( $commenter['comment_author_email'] ) ? '' : ' checked="checked"';
         $args = array(
             'comment_notes_before' => '<p class="comment-notes"><span id="email-notes">' . __( 'Your email address will not be published.' ) . '</p>',
@@ -147,15 +147,15 @@ if ( ! function_exists( 'mloc_comments_form_template' ) ) :
                     'cookies'   => '<div id="comment-cookies"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes" ' . $consent . ' />' .
                                     '<label for="wp-comment-cookies-consent">' . __( 'Save my name and email in this browser for the next time I comment.', 'mloc' ) . '</label></div>',
                     'author'    => '<div class="row"><div class="col-xs-12 col-sm-6"><div class="form-group">' .
-                                    '<label for="name" class="control-label label">' . __( 'Name', 'mloc' ) . ( $req ? '<span class="required">*</span>' : '' ) . '</label>' .
-                                    '<input id="author" name="author" class="form-control" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" ' . $aria_req . ' /></div></div>',
+                                    '<label class="control-label label" for="author">' . __( 'Name', 'mloc' ) . ( $req ? '<span class="required">*</span>' : '' ) . '</label>' .
+                                    '<input id="author" class="form-control" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" ' . $aria_req . ' /></div></div>',
                     'email'     => '<div class="col-xs-12 col-sm-6"><div class="form-group">' .
-                                    '<label for="email" class="control-label label">' . __( 'Email', 'mloc' ) . ( $req ? '<span class="required">*</span>' : '' ) . '</label>' .
-                                    '<input id="email" name="email" class="form-control" type="email" value="' . esc_attr( $commenter['comment_author_email'] ) . '" ' . $aria_req . ' /></div></div></div>',
+                                    '<label class="control-label label" for="email">' . __( 'Email', 'mloc' ) . ( $req ? '<span class="required">*</span>' : '' ) . '</label>' .
+                                    '<input id="email" class="form-control" name="email" type="email" value="' . esc_attr( $commenter['comment_author_email'] ) . '" ' . $aria_req . ' /></div></div></div>',
                 )
             ),
-            'comment_field'        => '<div class="form-group"><label class="control-label label">' . esc_html__( 'Comment', 'mloc' ) . '<span class="required">*</span>' . '</label>' .
-                                        '<textarea id="comment" name="comment" class="form-control" rows="7" aria-required="true"></textarea></div>',
+            'comment_field'        => '<div class="form-group"><label class="control-label label" for="comment">' . esc_html__( 'Comment', 'mloc' ) . '<span class="required">*</span>' . '</label>' .
+                                        '<textarea id="comment" class="form-control" name="comment" rows="7" required></textarea></div>',
             'must_log_in'          => '<p class="must-log-in">' .
                 sprintf(
                     wp_kses(
@@ -178,9 +178,9 @@ if ( ! function_exists( 'mloc_comments_form_template' ) ) :
 
         return $args;
     }
-endif;
+}
 
-if ( ! function_exists( 'mloc_adjacent_posts' ) ) :
+if ( ! function_exists( 'mloc_adjacent_posts' ) ) {
     /**
      * Template for showing previous and next posts
      */
@@ -210,9 +210,9 @@ if ( ! function_exists( 'mloc_adjacent_posts' ) ) :
         <?php
         endif;
     }
-endif;
+}
 
-if ( ! function_exists( 'mloc_related_posts' ) ) :
+if ( ! function_exists( 'mloc_related_posts' ) ) {
     /**
      * Template for showing related posts
      *
@@ -315,9 +315,9 @@ if ( ! function_exists( 'mloc_related_posts' ) ) :
             endif;
         }
     }
-endif;
+}
 
-if ( ! function_exists( 'mloc_ajax_related_posts_navigation' ) ) :
+if ( ! function_exists( 'mloc_ajax_related_posts_navigation' ) ) {
     /**
      * Template for related posts navigation
      */
@@ -333,18 +333,19 @@ if ( ! function_exists( 'mloc_ajax_related_posts_navigation' ) ) :
         </div>
         <?php
     }
-endif;
+}
 
-if ( ! function_exists( 'mloc_go_top' ) ) :
+if ( ! function_exists( 'mloc_go_top' ) ) {
     /**
      * Template for displaying go to top button
      */
-    function mloc_go_top() {
+    function mloc_go_top()
+    {
         ?>
         <button id="mloc-go-top" class="faded-out">
             <i class="material-icons">&#xE316;</i>
         </button>
         <?php
     }
-    add_action( 'wp_footer', 'mloc_go_top' );
-endif;
+    add_action('wp_footer', 'mloc_go_top');
+}
