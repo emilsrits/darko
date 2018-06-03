@@ -74,6 +74,41 @@
       }
     }
   }
+
+  .mloc-nav-search-container {
+    position: relative;
+
+    input[type="search"] {
+      padding: 3px 36px 3px 8px;
+      width: 140px;
+      height: 26px;
+      color: $c-grey-light;
+      font-size: $f-small;
+      background: rgba(0, 0, 0, 0.3);
+      border: none;
+      border-radius: 8px;
+      outline: none;
+      vertical-align: middle;
+      transition: 0.3s ease-in-out;
+    }
+
+    button[type="submit"] {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: none;
+      border: none;
+      transition: 0.3s ease-in-out;
+      &:hover {
+        color: $c-red-darker;
+        background-color: $c-grey-dark;
+      }
+
+      > i {
+        vertical-align: middle;
+      }
+    }
+  }
 }
 
 #mloc-go-top {

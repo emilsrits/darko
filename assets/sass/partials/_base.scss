@@ -52,8 +52,6 @@ embed, iframe, img, .wp-caption {
   max-width: 100%;
 }
 
-
-
 blockquote {
   margin: 0;
   padding-left: 10px;
@@ -77,6 +75,16 @@ pre > code {
   padding: 1rem 1.5rem;
   white-space: pre;
 }
+
+/* clears the 'X' from Internet Explorer */
+input[type=search]::-ms-clear {  display: none; width : 0; height: 0; }
+input[type=search]::-ms-reveal {  display: none; width : 0; height: 0; }
+/* clears the 'X' from Chrome */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }
+
 
 span.required {
   padding-left: 3px;
@@ -174,7 +182,7 @@ span.required {
   text-align: center;
 }
 
-.page, .single-post, .archive, .home, .blog {
+.page, .single-post, .archive, .search, .home, .blog {
   .hero-img {
     position: absolute;
     top: 0;

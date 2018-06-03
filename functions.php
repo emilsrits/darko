@@ -110,6 +110,36 @@ function mloc_excerpt_more( $more ) {
 add_filter( 'excerpt_more', 'mloc_excerpt_more' );
 
 /**
+ * Append elements to primary navigation
+ */
+function mloc_after_primary_navigation() {
+    $buffer_nav = '<ul id="%1$s" class="%2$s">%3$s';
+    if ( function_exists( 'mloc_primary_menu_search' ) ) {
+        $buffer_nav .= mloc_primary_menu_search();
+    }
+    $buffer_nav .= '</ul>';
+
+    return $buffer_nav;
+}
+
+/**
+ * Display search form in primary menu
+ */
+function mloc_primary_menu_search() {
+    $search_form = '
+        <li class="mloc-nav-search">
+            <form action="' . esc_url( home_url( '/' ) ) . '" role="search" method="get">
+                <div class="mloc-nav-search-container">
+                    <input name="s" type="search" placeholder="' . __( 'Search...', 'mloc' ) . '" value="' . get_search_query() . '" required>
+                    <button type="submit" class="btn"><i class="material-icons">&#xE8B6;</i></button>
+                </div>
+            </form>
+        </li>';
+
+    return $search_form;
+}
+
+/**
  * Filter comment form fields,
  * remove website url field
  *

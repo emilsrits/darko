@@ -10,6 +10,7 @@ $is_home = is_home();
 $is_single = is_single();
 $is_page = is_page();
 $is_archive = is_archive();
+$is_search = is_search();
 $has_header_image = get_header_image();
 
 if ( $is_single || $is_page || $is_archive ) : ?>
@@ -60,18 +61,23 @@ if ( $is_single || $is_page || $is_archive ) : ?>
         <?php endif; ?>
     </div> <!-- .hero -->
 <?php endif; ?>
-<?php if ( $is_home && $has_header_image ) : ?>
+<?php if ( ( $is_home || $is_search ) && $has_header_image ) : ?>
     <div class="hero">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
                     <h1 class="hero-title">
                         <?php
-                        $buffer = single_post_title( '', false );
-                        if ( ! is_front_page() && $buffer ) :
-                            echo $buffer;
+                        if ( $is_search ) :
+                            /* translators: %s is search query */
+                            printf( esc_html__( 'Search results for: %s', 'mloc' ), get_search_query() );
                         else :
-                            bloginfo( 'description' );
+                            $buffer = single_post_title( '', false );
+                            if ( ! is_front_page() && $buffer ) :
+                                echo $buffer;
+                            else :
+                                bloginfo( 'description' );
+                            endif;
                         endif;
                         ?>
                     </h1>

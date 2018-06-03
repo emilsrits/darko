@@ -18,7 +18,7 @@
   }
 }
 
-.page, .single-post, .archive, .home, .blog {
+.page, .single-post, .archive, .search, .home, .blog {
   #main {
     margin-top: 0;
   }
@@ -44,7 +44,7 @@
   }
 }
 
-.home, .blog, .archive {
+.home, .blog, .archive, .search {
   article .row {
     justify-content: center;
     align-items: center;

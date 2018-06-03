@@ -38,6 +38,18 @@
         display: block;
       }
     }
+
+    .mloc-nav-search {
+      padding: 10px 15px;
+
+      form {
+        max-width: 200px;
+
+        input[type="search"] {
+          width: 200px;
+        }
+      }
+    }
   }
 
   #mloc-go-top {
@@ -133,6 +145,10 @@
     .navbar-toggle {
       display: none;
     }
+  }
+
+  #main-navigation .mloc-nav-search {
+    margin-left: 25px;
   }
 
   .container {
