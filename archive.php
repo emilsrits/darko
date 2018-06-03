@@ -16,6 +16,11 @@ get_header(); ?>
                     the_post();
                     get_template_part( 'template-parts/post/content' );
                 endwhile;
+                the_posts_pagination( array(
+                    'mid_size' => 2,
+                    'prev_text' => __( '<i class="material-icons">&#xE5CB;</i>' ),
+                    'next_text' => __( '<i class="material-icons">&#xE5CC;</i>' ),
+                ) );
             else :
                 get_template_part( 'template-parts/post/content', 'none' );
             endif;
