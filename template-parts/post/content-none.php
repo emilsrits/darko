@@ -6,7 +6,7 @@
  */
 ?>
 
-<section class="no-results not-found">
+<section class="no-results not-found align-center">
     <header class="section-header">
         <h1 class="section-title"><?php _e( 'Nothing Found', 'mloc' ); ?></h1>
     </header>
@@ -27,7 +27,7 @@
                 <?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'mloc' ); ?>
             </p>
             <?php
-            get_search_form();
+            mloc_content_area_search_form();
         endif;
         ?>
     </div> <!-- .page-content -->

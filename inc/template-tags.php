@@ -335,6 +335,23 @@ if ( ! function_exists( 'mloc_ajax_related_posts_navigation' ) ) {
     }
 }
 
+if ( ! function_exists( 'mloc_content_area_search_form' ) ) {
+    /**
+     * Template for content area search form
+     */
+    function mloc_content_area_search_form() {
+        $buffer = '
+        <div class="mloc-content-area-search">
+            <form action="' . esc_url( home_url( '/' ) ) . '" role="search" method="get">
+                <input name="s" type="search" placeholder="' . __( 'Search...', 'mloc' ) . '" value="' . get_search_query() . '" required>
+                <button type="submit" class="btn"><i class="material-icons">&#xE8B6;</i></button>
+            </form>
+        </div>';
+
+        echo $buffer;
+    }
+}
+
 if ( ! function_exists( 'mloc_go_top' ) ) {
     /**
      * Template for displaying go to top button

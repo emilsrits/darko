@@ -136,6 +136,12 @@
       text-align: center;
     }
   }
+
+  .search-no-results, .error404 {
+    .mloc-content-area-search input[type="search"] {
+      width: 200px;
+    }
+  }
 }
 /*--------------------------------------------------------------
 ## Tablet
