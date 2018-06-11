@@ -1416,14 +1416,23 @@ span.required {
   }
 }
 /*--------------------------------------------------------------
+## Widescreen
+--------------------------------------------------------------*/
+@media only screen and (min-width: 1200px) {
+  /* line 189, assets/sass/partials/_responsive.scss */
+  .container {
+    width: 1140px;
+  }
+}
+/*--------------------------------------------------------------
 ## Custom Media
 --------------------------------------------------------------*/
 @media only screen and (max-width: 600px) {
-  /* line 189, assets/sass/partials/_responsive.scss */
+  /* line 197, assets/sass/partials/_responsive.scss */
   .main-menu-fixed.admin-bar #main-menu {
     margin-top: 0;
   }
-  /* line 191, assets/sass/partials/_responsive.scss */
+  /* line 199, assets/sass/partials/_responsive.scss */
   .main-menu-fixed.admin-bar #main-menu.at-top {
     margin-top: 46px;
   }
