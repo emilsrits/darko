@@ -24,8 +24,8 @@
   }
 }
 
-.page, .single-post {
-  article.post, article.page {
+.page, .single-post, .attachment {
+  article.post, article.page, article.attachment {
     padding-top: 55px;
   }
 
@@ -387,6 +387,13 @@
       }
     }
   }
+}
+/*--------------------------------------------------------------
+## Attachment
+--------------------------------------------------------------*/
+.attachment-single img {
+  display: block;
+  margin: 0 auto;
 }
 /*--------------------------------------------------------------
 ## Search form

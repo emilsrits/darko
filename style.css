@@ -397,7 +397,7 @@ span.required {
 }
 
 /* line 215, assets/sass/partials/_base.scss */
-.page .hero-img, .single-post .hero-img, .archive .hero-img, .search .hero-img, .home .hero-img, .blog .hero-img {
+.page .hero-img, .single-post .hero-img, .archive .hero-img, .attachment .hero-img, .search .hero-img, .home .hero-img, .blog .hero-img {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -408,7 +408,7 @@ span.required {
   background-size: cover;
 }
 /* line 224, assets/sass/partials/_base.scss */
-.page .hero-img:before, .page .hero-img:after, .single-post .hero-img:before, .single-post .hero-img:after, .archive .hero-img:before, .archive .hero-img:after, .search .hero-img:before, .search .hero-img:after, .home .hero-img:before, .home .hero-img:after, .blog .hero-img:before, .blog .hero-img:after {
+.page .hero-img:before, .page .hero-img:after, .single-post .hero-img:before, .single-post .hero-img:after, .archive .hero-img:before, .archive .hero-img:after, .attachment .hero-img:before, .attachment .hero-img:after, .search .hero-img:before, .search .hero-img:after, .home .hero-img:before, .home .hero-img:after, .blog .hero-img:before, .blog .hero-img:after {
   display: block;
   position: absolute;
   top: 0;
@@ -418,7 +418,7 @@ span.required {
   content: "";
 }
 /* line 233, assets/sass/partials/_base.scss */
-.page .hero-img:before, .single-post .hero-img:before, .archive .hero-img:before, .search .hero-img:before, .home .hero-img:before, .blog .hero-img:before {
+.page .hero-img:before, .single-post .hero-img:before, .archive .hero-img:before, .attachment .hero-img:before, .search .hero-img:before, .home .hero-img:before, .blog .hero-img:before {
   background-color: rgba(0, 0, 0, 0.6);
 }
 
@@ -785,15 +785,15 @@ span.required {
 }
 
 /* line 28, assets/sass/partials/_content.scss */
-.page article.post, .page article.page, .single-post article.post, .single-post article.page {
+.page article.post, .page article.page, .page article.attachment, .single-post article.post, .single-post article.page, .single-post article.attachment, .attachment article.post, .attachment article.page, .attachment article.attachment {
   padding-top: 55px;
 }
 /* line 32, assets/sass/partials/_content.scss */
-.page .featured-img, .single-post .featured-img {
+.page .featured-img, .single-post .featured-img, .attachment .featured-img {
   margin: 0 15% 20px;
 }
 /* line 35, assets/sass/partials/_content.scss */
-.page .featured-img img, .single-post .featured-img img {
+.page .featured-img img, .single-post .featured-img img, .attachment .featured-img img {
   display: block;
   margin: auto;
   width: 100%;
@@ -1165,13 +1165,22 @@ span.required {
 }
 
 /*--------------------------------------------------------------
+## Attachment
+--------------------------------------------------------------*/
+/* line 394, assets/sass/partials/_content.scss */
+.attachment-single img {
+  display: block;
+  margin: 0 auto;
+}
+
+/*--------------------------------------------------------------
 ## Search form
 --------------------------------------------------------------*/
-/* line 395, assets/sass/partials/_content.scss */
+/* line 402, assets/sass/partials/_content.scss */
 .mloc-search form {
   display: flex;
 }
-/* line 399, assets/sass/partials/_content.scss */
+/* line 406, assets/sass/partials/_content.scss */
 .mloc-search input[type="search"] {
   padding: 3px 8px;
   width: 100%;
@@ -1185,21 +1194,21 @@ span.required {
   vertical-align: middle;
   transition: 0.3s ease-in-out;
 }
-/* line 411, assets/sass/partials/_content.scss */
+/* line 418, assets/sass/partials/_content.scss */
 .mloc-search input[type="search"]:active, .mloc-search input[type="search"]:focus {
   box-shadow: 0 0 5px #b73a3a;
 }
-/* line 416, assets/sass/partials/_content.scss */
+/* line 423, assets/sass/partials/_content.scss */
 .mloc-search button[type="submit"] {
   background: none;
   border: none;
   transition: 0.3s ease-in-out;
 }
-/* line 420, assets/sass/partials/_content.scss */
+/* line 427, assets/sass/partials/_content.scss */
 .mloc-search button[type="submit"]:hover {
   color: #b73a3a;
 }
-/* line 424, assets/sass/partials/_content.scss */
+/* line 431, assets/sass/partials/_content.scss */
 .mloc-search button[type="submit"] > i {
   font-size: 28px;
   vertical-align: middle;
@@ -1208,15 +1217,15 @@ span.required {
 /*--------------------------------------------------------------
 ## Search results
 --------------------------------------------------------------*/
-/* line 434, assets/sass/partials/_content.scss */
+/* line 441, assets/sass/partials/_content.scss */
 .search-no-results .mloc-content-area-search, .error404 .mloc-content-area-search {
   margin-top: 25px;
 }
-/* line 437, assets/sass/partials/_content.scss */
+/* line 444, assets/sass/partials/_content.scss */
 .search-no-results .mloc-content-area-search form, .error404 .mloc-content-area-search form {
   display: block;
 }
-/* line 441, assets/sass/partials/_content.scss */
+/* line 448, assets/sass/partials/_content.scss */
 .search-no-results .mloc-content-area-search input[type="search"], .error404 .mloc-content-area-search input[type="search"] {
   width: 250px;
 }
