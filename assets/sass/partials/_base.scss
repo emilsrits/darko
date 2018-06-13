@@ -70,6 +70,22 @@ code {
   border-radius: 4px;
 }
 
+select {
+  padding: 5px 8px;
+  color: $c-grey;
+  font-size: $f-medium;
+  background: rgba(0, 0, 0, 0.3);
+  border: none;
+  outline: none;
+  &:focus {
+    box-shadow: 0 0 5px $c-red-darker;
+  }
+
+  option {
+    background-color: $c-grey-darker;
+  }
+}
+
 pre > code {
   display: block;
   padding: 1rem 1.5rem;
@@ -123,6 +139,15 @@ span.required {
   letter-spacing: 0.5px;
   border-radius: 12px;
   background-color: $c-grey-dark;
+}
+
+.screen-reader-text {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  word-wrap: normal !important;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
 }
 
 .btn {

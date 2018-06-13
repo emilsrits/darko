@@ -6,6 +6,9 @@
  */
 
 define( 'MLOC_INC', trailingslashit( get_template_directory() ) . 'inc/' );
+const MLOC_SIDEBAR_PRIMARY = 'sidebar-primary';
+const MLOC_SIDEBAR_FOOTER1 = 'sidebar-footer-1';
+const MLOC_SIDEBAR_FOOTER2 = 'sidebar-footer-2';
 
 require_once( MLOC_INC . 'template-tags.php' );
 
@@ -71,6 +74,31 @@ if ( ! function_exists( 'mloc_setup_theme' ) ) {
     }
     add_action( 'after_setup_theme', 'mloc_setup_theme' );
 }
+
+/**
+ * Register widget areas
+ */
+function mloc_widgets_init() {
+    $sidebars_array = array(
+		MLOC_SIDEBAR_PRIMARY  => __( 'Primary', 'mloc' ),
+		MLOC_SIDEBAR_FOOTER1  => __( 'Footer 1', 'mloc' ),
+		MLOC_SIDEBAR_FOOTER2  => __( 'Footer 2', 'mloc' ),
+    );
+
+    foreach ( $sidebars_array as $sidebar_id => $sidebar_name ) {
+        $sidebar_config = array(
+            'name'          => $sidebar_name,
+            'id'            => $sidebar_id,
+            'before_widget' => '<div id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h2>',
+            'after_title'   => '</h2>',
+        );
+
+        register_sidebar( $sidebar_config );
+    }
+}
+add_action( 'widgets_init', 'mloc_widgets_init' );
 
 /**
  * Script and style registering/enqueuing
@@ -168,6 +196,30 @@ function mloc_move_comment_textarea( $fields ) {
 }
 add_filter( 'comment_form_fields', 'mloc_move_comment_textarea' );
 
+if ( function_exists( 'mloc_comments_form_template' ) ) {
+	/**
+	 * Adds missing closing tag after the comment form
+	 */
+	function mloc_comment_form_after() {
+		?>
+		</div>
+		<?php
+	}
+	add_action( 'comment_form_after', 'mloc_comment_form_after' );
+}
+
+/**
+ * Display go to top button which scrolls user to top of the page when clicked
+ */
+function mloc_go_top() {
+	?>
+	<button id="mloc-go-top" class="faded-out">
+		<i class="material-icons">&#xE316;</i>
+	</button>
+	<?php
+}
+add_action( 'wp_footer', 'mloc_go_top' );
+
 /**
  * Return formatted post content
  *
@@ -175,13 +227,16 @@ add_filter( 'comment_form_fields', 'mloc_move_comment_textarea' );
  * @param int $stripteaser
  * @return mixed|string
  */
-function mloc_get_the_content_with_formatting($more_link_text = '(more...)', $stripteaser = 0) {
-    $content = get_the_content($more_link_text, $stripteaser);
-    $content = apply_filters('the_content', $content);
-    $content = str_replace(']]>', ']]&gt;', $content);
+function mloc_get_the_content_with_formatting( $more_link_text = '(more...)', $stripteaser = 0 ) {
+    $content = get_the_content( $more_link_text, $stripteaser );
+    $content = apply_filters( 'the_content', $content );
+    $content = str_replace( ']]>', ']]&gt;', $content );
     return $content;
 }
 
+/**
+ * Hook adjacent and related post templates to their actions
+ */
 add_action( 'mloc_blog_adjacent_posts', 'mloc_adjacent_posts' );
 add_action( 'mloc_blog_related_posts', 'mloc_related_posts' );
 

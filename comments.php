@@ -30,14 +30,14 @@ if ( post_password_required() ) {
             );
         }
         ?>
-    </h4>
+	</h4>
     <div class="post-comments">
         <?php
         wp_list_comments( 'type=comment&callback=mloc_comments_list' );
         wp_list_comments( 'type=pings&callback=mloc_comments_list' );
         mloc_comments_pagination();
         ?>
-    </div> <!-- .post-comments -->
+	</div> <!-- .post-comments -->
     <div class="comments-reply">
         <?php
         comment_form( mloc_comments_form_template() );

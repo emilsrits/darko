@@ -1,0 +1,93 @@
+/*--------------------------------------------------------------
+# Sidebar
+--------------------------------------------------------------*/
+#sidebar-primary {
+  padding-top: 65px;
+}
+/*--------------------------------------------------------------
+# Widgets
+--------------------------------------------------------------*/
+.widget {
+  margin-bottom: 30px;
+
+  h1, h2, h3 {
+	font-size: $f-normal;
+  }
+
+  ul {
+	li {
+	  font-size: $f-medium;
+	  line-height: 1.6;
+	}
+  }
+}
+/*--------------------------------------------------------------
+## Search
+--------------------------------------------------------------*/
+.widget_search .mloc-search {
+  input[type="search"] {
+	max-width: 220px;
+  }
+}
+/*--------------------------------------------------------------
+## Archive
+--------------------------------------------------------------*/
+.widget_archive {
+	ul li {
+	  color: $c-grey;
+	}
+}
+/*--------------------------------------------------------------
+## Calendar
+--------------------------------------------------------------*/
+.widget_calendar {
+  caption {
+	padding: 0 0 10px;
+	color: $c-grey;
+	font-size: $f-medium;
+  }
+
+  table {
+	width: 100%;
+	max-width: 300px;
+	border-collapse: collapse;
+  }
+
+  tbody, tfoot {
+	tr {
+	  font-size: $f-medium;
+	}
+  }
+
+  tbody, tfoot {
+	tr:last-child {
+	  border-bottom: none;
+	}
+  }
+
+  tr {
+	border-bottom: 1px solid $c-grey-dark;
+  }
+
+  tr, th ,td {
+	padding: 6px 0;
+  }
+
+  th, td {
+	text-align: center;
+  }
+}
+/*--------------------------------------------------------------
+## Gallery
+--------------------------------------------------------------*/
+.gallery {
+  .gallery-item {
+	margin: 5px 0;
+	padding: 0 4px;
+  }
+
+  img {
+	border: 1px solid $c-grey-dark !important;
+	border-radius: 5px;
+  }
+}

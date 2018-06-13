@@ -4,9 +4,41 @@
  *
  * @package Mloc
  */
-?>
 
-<?php
+if ( ! function_exists( 'mloc_content_layout_classes' ) ) {
+	/**
+	 * Decide which classes to add for main content area depending on sidebar configuration
+	 *
+	 * @param string $layout Sidebar layout
+	 * @param int|string $sidebar Name or id of a sidebar
+	 * @param array $args Optional arguments for layout classes
+	 * @return mixed|string
+	 */
+    function mloc_content_layout_classes( $layout, $sidebar, $args ) {
+        if ( ! $args ) {
+            $args = array(
+                'full-width'    => 'col-md-12',
+                'sidebar-right' => 'col-xs-12 col-md-8',
+                'sidebar-left'  => 'col-xs-12 col-md-8 col-md-offset-1',
+            );
+        }
+
+        $class_to_add = ! ( empty( $args['full-width'] ) ) ? $args['full-width'] : 'col-md-12';
+        if ( is_active_sidebar( $sidebar ) ) {
+        	switch ( $layout ) {
+				case 'sidebar-right':
+					$class_to_add = $args['sidebar-right'];
+					break;
+				case 'sidebar-left':
+					$class_to_add = $args['sidebar-left'];
+					break;
+			}
+		}
+
+        return $class_to_add;
+    }
+}
+
 if ( ! function_exists( 'mloc_categories' ) ) {
     /**
      * Display the first category of the post
@@ -25,8 +57,8 @@ if ( ! function_exists( 'mloc_tags_trimmed' ) ) {
     /**
      * Returns string/html of post tags up to specified number
      *
-     * @param int $max
-     * @return string $buffer
+     * @param int $max Maximum number of tags
+     * @return string $buffer Buffer of html to be displayed
      */
     function mloc_tags_trimmed( $max = 3 ) {
         $tags = get_the_tags();
@@ -134,7 +166,7 @@ if ( ! function_exists( 'mloc_comments_form_template' ) ) {
         if ( is_user_logged_in() ) {
             $current_user = get_avatar( wp_get_current_user(), 60 );
         } else {
-            $current_user = '<img src="' . get_template_directory_uri() . '/assets/images/placeholder.png" height="64" width="64"/>';
+            $current_user = '<img src="' . get_template_directory_uri() . '/assets/images/placeholder.png" height="60" width="60"/>';
         }
         $commenter = wp_get_current_commenter();
         $req = get_option( 'require_name_email' );
@@ -216,8 +248,8 @@ if ( ! function_exists( 'mloc_related_posts' ) ) {
     /**
      * Template for showing related posts
      *
-     * @param int $page
-     * @param bool $ajax
+     * @param int $page Related posts page
+     * @param bool $ajax Whether this is a ajax request
      */
     function mloc_related_posts( $page, $ajax = false ) {
         global $post;
@@ -336,12 +368,14 @@ if ( ! function_exists( 'mloc_ajax_related_posts_navigation' ) ) {
 }
 
 if ( ! function_exists( 'mloc_content_area_search_form' ) ) {
-    /**
-     * Template for content area search form
-     */
-    function mloc_content_area_search_form() {
+	/**
+	 * Template for content area search form
+	 *
+	 * @param string $class_to_add Classes to add to search form container
+	 */
+    function mloc_content_area_search_form( $class_to_add = '' ) {
         $buffer = '
-        <div class="mloc-content-area-search">
+        <div class="mloc-search ' . $class_to_add . '">
             <form action="' . esc_url( home_url( '/' ) ) . '" role="search" method="get">
                 <input name="s" type="search" placeholder="' . __( 'Search...', 'mloc' ) . '" value="' . get_search_query() . '" required>
                 <button type="submit" class="btn"><i class="material-icons">&#xE8B6;</i></button>
@@ -350,19 +384,4 @@ if ( ! function_exists( 'mloc_content_area_search_form' ) ) {
 
         echo $buffer;
     }
-}
-
-if ( ! function_exists( 'mloc_go_top' ) ) {
-    /**
-     * Template for displaying go to top button
-     */
-    function mloc_go_top()
-    {
-        ?>
-        <button id="mloc-go-top" class="faded-out">
-            <i class="material-icons">&#xE316;</i>
-        </button>
-        <?php
-    }
-    add_action('wp_footer', 'mloc_go_top');
 }

@@ -27,7 +27,7 @@
                 <?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'mloc' ); ?>
             </p>
             <?php
-            mloc_content_area_search_form();
+            mloc_content_area_search_form( 'mloc-content-area-search' );
         endif;
         ?>
     </div> <!-- .page-content -->

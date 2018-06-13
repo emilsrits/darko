@@ -223,6 +223,24 @@ code {
 }
 
 /* line 73, assets/sass/partials/_base.scss */
+select {
+  padding: 5px 8px;
+  color: #bebebe;
+  font-size: 0.875em;
+  background: rgba(0, 0, 0, 0.3);
+  border: none;
+  outline: none;
+}
+/* line 80, assets/sass/partials/_base.scss */
+select:focus {
+  box-shadow: 0 0 5px #b73a3a;
+}
+/* line 84, assets/sass/partials/_base.scss */
+select option {
+  background-color: #3e3e3e;
+}
+
+/* line 89, assets/sass/partials/_base.scss */
 pre > code {
   display: block;
   padding: 1rem 1.5rem;
@@ -230,14 +248,14 @@ pre > code {
 }
 
 /* clears the 'X' from Internet Explorer */
-/* line 80, assets/sass/partials/_base.scss */
+/* line 96, assets/sass/partials/_base.scss */
 input[type=search]::-ms-clear {
   display: none;
   width: 0;
   height: 0;
 }
 
-/* line 81, assets/sass/partials/_base.scss */
+/* line 97, assets/sass/partials/_base.scss */
 input[type=search]::-ms-reveal {
   display: none;
   width: 0;
@@ -245,7 +263,7 @@ input[type=search]::-ms-reveal {
 }
 
 /* clears the 'X' from Chrome */
-/* line 83, assets/sass/partials/_base.scss */
+/* line 99, assets/sass/partials/_base.scss */
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,
@@ -253,7 +271,7 @@ input[type="search"]::-webkit-search-results-decoration {
   display: none;
 }
 
-/* line 89, assets/sass/partials/_base.scss */
+/* line 105, assets/sass/partials/_base.scss */
 span.required {
   padding-left: 3px;
   font-size: 0.625em;
@@ -261,7 +279,7 @@ span.required {
   vertical-align: super;
 }
 
-/* line 96, assets/sass/partials/_base.scss */
+/* line 112, assets/sass/partials/_base.scss */
 #main.boxed {
   margin: 20px 40px 0 40px;
   background-color: #3e3e3e;
@@ -270,14 +288,14 @@ span.required {
   box-shadow: 0 16px 24px 2px rgba(48, 48, 48, 0.5), 0 6px 30px 5px rgba(48, 48, 48, 0.5), 0 8px 10px -5px rgba(48, 48, 48, 0.5);
 }
 
-/* line 105, assets/sass/partials/_base.scss */
+/* line 121, assets/sass/partials/_base.scss */
 .container:after, .navbar-collapse:after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* line 112, assets/sass/partials/_base.scss */
+/* line 128, assets/sass/partials/_base.scss */
 .container {
   position: relative;
   margin: 0 auto;
@@ -285,7 +303,7 @@ span.required {
   max-width: 100%;
 }
 
-/* line 119, assets/sass/partials/_base.scss */
+/* line 135, assets/sass/partials/_base.scss */
 .label {
   display: inline-block;
   margin: 5px 5px 5px 0;
@@ -295,23 +313,33 @@ span.required {
   background-color: #303030;
 }
 
-/* line 128, assets/sass/partials/_base.scss */
+/* line 144, assets/sass/partials/_base.scss */
+.screen-reader-text {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  word-wrap: normal !important;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+/* line 153, assets/sass/partials/_base.scss */
 .btn {
   cursor: pointer;
   outline: none;
 }
 
-/* line 133, assets/sass/partials/_base.scss */
+/* line 158, assets/sass/partials/_base.scss */
 .align-left {
   text-align: left;
 }
 
-/* line 137, assets/sass/partials/_base.scss */
+/* line 162, assets/sass/partials/_base.scss */
 .align-center {
   text-align: center;
 }
 
-/* line 141, assets/sass/partials/_base.scss */
+/* line 166, assets/sass/partials/_base.scss */
 .align-right {
   text-align: right;
 }
@@ -319,35 +347,35 @@ span.required {
 /*--------------------------------------------------------------
 ## WP classes
 --------------------------------------------------------------*/
-/* line 147, assets/sass/partials/_base.scss */
+/* line 172, assets/sass/partials/_base.scss */
 .aligncenter {
   display: block;
   margin: 26px auto;
   text-align: center;
 }
 
-/* line 153, assets/sass/partials/_base.scss */
+/* line 178, assets/sass/partials/_base.scss */
 .alignleft {
   display: block;
   margin: 26px auto 26px 0;
   text-align: center;
 }
 
-/* line 159, assets/sass/partials/_base.scss */
+/* line 184, assets/sass/partials/_base.scss */
 .alignright {
   display: block;
   margin: 26px 0 26px auto;
   text-align: center;
 }
 
-/* line 165, assets/sass/partials/_base.scss */
+/* line 190, assets/sass/partials/_base.scss */
 .alignnone {
   display: block;
   margin: 26px 0;
   text-align: center;
 }
 
-/* line 171, assets/sass/partials/_base.scss */
+/* line 196, assets/sass/partials/_base.scss */
 .wp-caption-text {
   margin: 0;
   padding-top: 5px;
@@ -359,7 +387,7 @@ span.required {
 /*--------------------------------------------------------------
 ## Header
 --------------------------------------------------------------*/
-/* line 181, assets/sass/partials/_base.scss */
+/* line 206, assets/sass/partials/_base.scss */
 .hero {
   position: relative;
   padding: 60px 0;
@@ -368,7 +396,7 @@ span.required {
   text-align: center;
 }
 
-/* line 190, assets/sass/partials/_base.scss */
+/* line 215, assets/sass/partials/_base.scss */
 .page .hero-img, .single-post .hero-img, .archive .hero-img, .search .hero-img, .home .hero-img, .blog .hero-img {
   position: absolute;
   top: 0;
@@ -379,7 +407,7 @@ span.required {
   background-position: center center;
   background-size: cover;
 }
-/* line 199, assets/sass/partials/_base.scss */
+/* line 224, assets/sass/partials/_base.scss */
 .page .hero-img:before, .page .hero-img:after, .single-post .hero-img:before, .single-post .hero-img:after, .archive .hero-img:before, .archive .hero-img:after, .search .hero-img:before, .search .hero-img:after, .home .hero-img:before, .home .hero-img:after, .blog .hero-img:before, .blog .hero-img:after {
   display: block;
   position: absolute;
@@ -389,7 +417,7 @@ span.required {
   height: 100%;
   content: "";
 }
-/* line 208, assets/sass/partials/_base.scss */
+/* line 233, assets/sass/partials/_base.scss */
 .page .hero-img:before, .single-post .hero-img:before, .archive .hero-img:before, .search .hero-img:before, .home .hero-img:before, .blog .hero-img:before {
   background-color: rgba(0, 0, 0, 0.6);
 }
@@ -397,17 +425,17 @@ span.required {
 /*--------------------------------------------------------------
 ## Footer
 --------------------------------------------------------------*/
-/* line 216, assets/sass/partials/_base.scss */
+/* line 241, assets/sass/partials/_base.scss */
 #site-footer {
   position: relative;
   padding: 1em 0;
   background-color: #303030;
 }
-/* line 221, assets/sass/partials/_base.scss */
+/* line 246, assets/sass/partials/_base.scss */
 #site-footer .copyright {
   text-align: center;
 }
-/* line 223, assets/sass/partials/_base.scss */
+/* line 248, assets/sass/partials/_base.scss */
 #site-footer .copyright p {
   margin: 0;
 }
@@ -1133,16 +1161,16 @@ span.required {
 }
 
 /*--------------------------------------------------------------
-## Search results
+## Search form
 --------------------------------------------------------------*/
 /* line 391, assets/sass/partials/_content.scss */
-.search-no-results .mloc-content-area-search, .error404 .mloc-content-area-search {
-  margin-top: 25px;
+.mloc-search form {
+  display: flex;
 }
-/* line 394, assets/sass/partials/_content.scss */
-.search-no-results .mloc-content-area-search input[type="search"], .error404 .mloc-content-area-search input[type="search"] {
-  padding: 3px 36px 3px 8px;
-  width: 250px;
+/* line 395, assets/sass/partials/_content.scss */
+.mloc-search input[type="search"] {
+  padding: 3px 8px;
+  width: 100%;
   height: 30px;
   color: #eee;
   font-size: 0.875em;
@@ -1153,24 +1181,131 @@ span.required {
   vertical-align: middle;
   transition: 0.3s ease-in-out;
 }
-/* line 406, assets/sass/partials/_content.scss */
-.search-no-results .mloc-content-area-search input[type="search"]:active, .search-no-results .mloc-content-area-search input[type="search"]:focus, .error404 .mloc-content-area-search input[type="search"]:active, .error404 .mloc-content-area-search input[type="search"]:focus {
+/* line 407, assets/sass/partials/_content.scss */
+.mloc-search input[type="search"]:active, .mloc-search input[type="search"]:focus {
   box-shadow: 0 0 5px #b73a3a;
 }
-/* line 411, assets/sass/partials/_content.scss */
-.search-no-results .mloc-content-area-search button[type="submit"], .error404 .mloc-content-area-search button[type="submit"] {
+/* line 412, assets/sass/partials/_content.scss */
+.mloc-search button[type="submit"] {
   background: none;
   border: none;
   transition: 0.3s ease-in-out;
 }
-/* line 415, assets/sass/partials/_content.scss */
-.search-no-results .mloc-content-area-search button[type="submit"]:hover, .error404 .mloc-content-area-search button[type="submit"]:hover {
+/* line 416, assets/sass/partials/_content.scss */
+.mloc-search button[type="submit"]:hover {
   color: #b73a3a;
 }
-/* line 419, assets/sass/partials/_content.scss */
-.search-no-results .mloc-content-area-search button[type="submit"] > i, .error404 .mloc-content-area-search button[type="submit"] > i {
+/* line 420, assets/sass/partials/_content.scss */
+.mloc-search button[type="submit"] > i {
   font-size: 28px;
   vertical-align: middle;
+}
+
+/*--------------------------------------------------------------
+## Search results
+--------------------------------------------------------------*/
+/* line 430, assets/sass/partials/_content.scss */
+.search-no-results .mloc-content-area-search, .error404 .mloc-content-area-search {
+  margin-top: 25px;
+}
+/* line 433, assets/sass/partials/_content.scss */
+.search-no-results .mloc-content-area-search form, .error404 .mloc-content-area-search form {
+  display: block;
+}
+/* line 437, assets/sass/partials/_content.scss */
+.search-no-results .mloc-content-area-search input[type="search"], .error404 .mloc-content-area-search input[type="search"] {
+  width: 250px;
+}
+
+/*--------------------------------------------------------------
+# Sidebar
+--------------------------------------------------------------*/
+/* line 4, assets/sass/partials/_widget.scss */
+#sidebar-primary {
+  padding-top: 65px;
+}
+
+/*--------------------------------------------------------------
+# Widgets
+--------------------------------------------------------------*/
+/* line 10, assets/sass/partials/_widget.scss */
+.widget {
+  margin-bottom: 30px;
+}
+/* line 13, assets/sass/partials/_widget.scss */
+.widget h1, .widget h2, .widget h3 {
+  font-size: 1em;
+}
+/* line 18, assets/sass/partials/_widget.scss */
+.widget ul li {
+  font-size: 0.875em;
+  line-height: 1.6;
+}
+
+/*--------------------------------------------------------------
+## Search
+--------------------------------------------------------------*/
+/* line 28, assets/sass/partials/_widget.scss */
+.widget_search .mloc-search input[type="search"] {
+  max-width: 220px;
+}
+
+/*--------------------------------------------------------------
+## Archive
+--------------------------------------------------------------*/
+/* line 36, assets/sass/partials/_widget.scss */
+.widget_archive ul li {
+  color: #bebebe;
+}
+
+/*--------------------------------------------------------------
+## Calendar
+--------------------------------------------------------------*/
+/* line 44, assets/sass/partials/_widget.scss */
+.widget_calendar caption {
+  padding: 0 0 10px;
+  color: #bebebe;
+  font-size: 0.875em;
+}
+/* line 50, assets/sass/partials/_widget.scss */
+.widget_calendar table {
+  width: 100%;
+  max-width: 300px;
+  border-collapse: collapse;
+}
+/* line 57, assets/sass/partials/_widget.scss */
+.widget_calendar tbody tr, .widget_calendar tfoot tr {
+  font-size: 0.875em;
+}
+/* line 63, assets/sass/partials/_widget.scss */
+.widget_calendar tbody tr:last-child, .widget_calendar tfoot tr:last-child {
+  border-bottom: none;
+}
+/* line 68, assets/sass/partials/_widget.scss */
+.widget_calendar tr {
+  border-bottom: 1px solid #303030;
+}
+/* line 72, assets/sass/partials/_widget.scss */
+.widget_calendar tr, .widget_calendar th, .widget_calendar td {
+  padding: 6px 0;
+}
+/* line 76, assets/sass/partials/_widget.scss */
+.widget_calendar th, .widget_calendar td {
+  text-align: center;
+}
+
+/*--------------------------------------------------------------
+## Gallery
+--------------------------------------------------------------*/
+/* line 84, assets/sass/partials/_widget.scss */
+.gallery .gallery-item {
+  margin: 5px 0;
+  padding: 0 4px;
+}
+/* line 89, assets/sass/partials/_widget.scss */
+.gallery img {
+  border: 1px solid #303030 !important;
+  border-radius: 5px;
 }
 
 /*--------------------------------------------------------------
