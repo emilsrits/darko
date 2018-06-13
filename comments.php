@@ -11,26 +11,24 @@ if ( post_password_required() ) {
 ?>
 
 <div id="comments">
-    <h4 class="comments-header">
-        <?php
-        $comments_number = get_comments_number();
-        if ( 1 === $comments_number ) {
-            /* translators: %s: post title */
-            _x( 'One comment', 'comments title', 'hestia' );
-        } else {
-            printf(
-                _nx(
-                    '%1$s Comment',
-                    '%1$s Comments',
-                    $comments_number,
-                    'comments title',
-                    'mloc'
-                ),
-                number_format_i18n( $comments_number )
-            );
-        }
-        ?>
-	</h4>
+	<?php
+	$comments_count = get_comments_number();
+	if ( $comments_count == ! 0 ) : ?>
+		<h4 class="comments-header">
+			<?php
+			printf(
+				_nx(
+					'%1$s Comment',
+					'%1$s Comments',
+					$comments_count,
+					'comments title',
+					'mloc'
+				),
+				number_format_i18n( $comments_count )
+			);
+			?>
+		</h4>
+	<?php endif; ?>
     <div class="post-comments">
         <?php
         wp_list_comments( 'type=comment&callback=mloc_comments_list' );
