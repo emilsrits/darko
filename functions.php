@@ -112,6 +112,14 @@ function mloc_script() {
     wp_register_style( 'flexboxgrid', get_template_directory_uri() . '/assets/css/flexboxgrid.min.css' );
     wp_enqueue_style( 'flexboxgrid' );
 
+    // Google fonts
+    wp_register_style( 'mloc-google-fonts', 'https://fonts.googleapis.com/css?family=Open+Sans|Roboto|Roboto+Slab' );
+    wp_enqueue_style( 'mloc-google-fonts' );
+
+    // Material icons
+	wp_register_style( 'mloc-material-icons', 'https://fonts.googleapis.com/icon?family=Material+Icons' );
+	wp_enqueue_style( 'mloc-material-icons' );
+
     // Main styles
     wp_register_style( 'style', get_stylesheet_uri());
     wp_enqueue_style( 'style' );
@@ -119,6 +127,7 @@ function mloc_script() {
     // Main scripts
     wp_register_script( 'script', get_template_directory_uri() . '/assets/js/script.js', array( 'jquery' ), false, true );
     wp_enqueue_script( 'script' );
+
     wp_localize_script( 'script', 'phpVars', array( 'ajaxUrl' => admin_url( 'admin-ajax.php'), 'check_nonce' => wp_create_nonce( 'mloc-nonce' ) ) );
 }
 add_action( 'wp_enqueue_scripts', 'mloc_script' );

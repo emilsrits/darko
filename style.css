@@ -20,59 +20,6 @@ Use it to make something cool, have fun, and share what you've learned with othe
 /*--------------------------------------------------------------
 # Fonts
 --------------------------------------------------------------*/
-@font-face {
-  font-family: 'Material Icons';
-  font-style: normal;
-  font-weight: 400;
-  src: url(assets/fonts/MaterialIcons-Regular.eot);
-  /* For IE6-8 */
-  src: local("Material Icons"), local("MaterialIcons-Regular"), url(assets/fonts/MaterialIcons-Regular.woff2) format("woff2"), url(assets/fonts/MaterialIcons-Regular.woff) format("woff"), url(assets/fonts/MaterialIcons-Regular.ttf) format("truetype");
-}
-@font-face {
-  font-family: 'Roboto-Regular';
-  font-style: normal;
-  font-weight: normal;
-  src: url("assets/fonts/roboto-regular-webfont.woff2") format("woff2"), url("assets/fonts/roboto-regular-webfont.woff") format("woff"), url("assets/fonts/roboto-regular-webfont.ttf") format("truetype");
-}
-@font-face {
-  font-family: 'OpenSans-Regular';
-  font-style: normal;
-  font-weight: normal;
-  src: url("assets/fonts/OpenSans-Regular.ttf") format("truetype");
-}
-@font-face {
-  font-family: 'RobotoSlab-Regular';
-  font-style: normal;
-  font-weight: normal;
-  src: url("assets/fonts/RobotoSlab-Regular.ttf") format("truetype");
-}
-/*--------------------------------------------------------------
-# Icons
---------------------------------------------------------------*/
-/* line 62, assets/sass/modules/_variables.scss */
-.material-icons {
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;
-  /* Preferred icon size */
-  display: inline-block;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased;
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility;
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale;
-  /* Support for IE. */
-  font-feature-settings: 'liga';
-}
-
 /*--------------------------------------------------------------
 # Mixin - Breakpoints
 --------------------------------------------------------------*/
@@ -85,59 +32,6 @@ Use it to make something cool, have fun, and share what you've learned with othe
 /*--------------------------------------------------------------
 # Fonts
 --------------------------------------------------------------*/
-@font-face {
-  font-family: 'Material Icons';
-  font-style: normal;
-  font-weight: 400;
-  src: url(assets/fonts/MaterialIcons-Regular.eot);
-  /* For IE6-8 */
-  src: local("Material Icons"), local("MaterialIcons-Regular"), url(assets/fonts/MaterialIcons-Regular.woff2) format("woff2"), url(assets/fonts/MaterialIcons-Regular.woff) format("woff"), url(assets/fonts/MaterialIcons-Regular.ttf) format("truetype");
-}
-@font-face {
-  font-family: 'Roboto-Regular';
-  font-style: normal;
-  font-weight: normal;
-  src: url("assets/fonts/roboto-regular-webfont.woff2") format("woff2"), url("assets/fonts/roboto-regular-webfont.woff") format("woff"), url("assets/fonts/roboto-regular-webfont.ttf") format("truetype");
-}
-@font-face {
-  font-family: 'OpenSans-Regular';
-  font-style: normal;
-  font-weight: normal;
-  src: url("assets/fonts/OpenSans-Regular.ttf") format("truetype");
-}
-@font-face {
-  font-family: 'RobotoSlab-Regular';
-  font-style: normal;
-  font-weight: normal;
-  src: url("assets/fonts/RobotoSlab-Regular.ttf") format("truetype");
-}
-/*--------------------------------------------------------------
-# Icons
---------------------------------------------------------------*/
-/* line 62, assets/sass/modules/_variables.scss */
-.material-icons {
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;
-  /* Preferred icon size */
-  display: inline-block;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased;
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility;
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale;
-  /* Support for IE. */
-  font-feature-settings: 'liga';
-}
-
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
@@ -151,7 +45,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 /* line 11, assets/sass/partials/_base.scss */
 body {
-  font-family: OpenSans-Regular, sans-serif;
+  font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   word-wrap: break-word;
@@ -176,12 +70,12 @@ a:hover {
 
 /* line 32, assets/sass/partials/_base.scss */
 h1, h2, h3, h4, h5, h6 {
-  font-family: RobotoSlab-Regular, sans-serif;
+  font-family: 'Roboto Slab', serif;
 }
 
 /* line 36, assets/sass/partials/_base.scss */
 p {
-  font-family: Roboto-Regular, sans-serif;
+  font-family: 'Roboto', sans-serif;
   color: #eee;
 }
 
@@ -800,43 +694,51 @@ span.required {
 }
 
 /*--------------------------------------------------------------
+## Pages
+--------------------------------------------------------------*/
+/* line 45, assets/sass/partials/_content.scss */
+.page-content p {
+  line-height: 1.6;
+}
+
+/*--------------------------------------------------------------
 ## Posts
 --------------------------------------------------------------*/
-/* line 46, assets/sass/partials/_content.scss */
+/* line 52, assets/sass/partials/_content.scss */
 .home .post.sticky, .blog .post.sticky {
   box-shadow: 0 5px 5px -5px #b73a3a;
 }
 
-/* line 52, assets/sass/partials/_content.scss */
+/* line 58, assets/sass/partials/_content.scss */
 .home article .row, .blog article .row, .archive article .row, .search article .row {
   justify-content: center;
   align-items: center;
 }
-/* line 57, assets/sass/partials/_content.scss */
+/* line 63, assets/sass/partials/_content.scss */
 .home p, .blog p, .archive p, .search p {
   font-size: 0.875em;
 }
 
-/* line 62, assets/sass/partials/_content.scss */
+/* line 68, assets/sass/partials/_content.scss */
 .post {
   margin-bottom: 30px;
   padding-bottom: 15px;
 }
 
-/* line 68, assets/sass/partials/_content.scss */
+/* line 74, assets/sass/partials/_content.scss */
 .post-title a {
   color: #eee;
 }
-/* line 70, assets/sass/partials/_content.scss */
+/* line 76, assets/sass/partials/_content.scss */
 .post-title a:hover {
   color: #bebebe;
 }
 
-/* line 76, assets/sass/partials/_content.scss */
+/* line 82, assets/sass/partials/_content.scss */
 .post-featured-img {
   padding: 0 10px;
 }
-/* line 79, assets/sass/partials/_content.scss */
+/* line 85, assets/sass/partials/_content.scss */
 .post-featured-img img {
   display: block;
   margin: auto;
@@ -845,20 +747,20 @@ span.required {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-/* line 88, assets/sass/partials/_content.scss */
+/* line 94, assets/sass/partials/_content.scss */
 .post-content p {
   line-height: 1.6;
 }
-/* line 91, assets/sass/partials/_content.scss */
+/* line 97, assets/sass/partials/_content.scss */
 .post-content p a {
   color: #CC4040;
 }
-/* line 93, assets/sass/partials/_content.scss */
+/* line 99, assets/sass/partials/_content.scss */
 .post-content p a:hover {
   color: #b73a3a;
 }
 
-/* line 99, assets/sass/partials/_content.scss */
+/* line 105, assets/sass/partials/_content.scss */
 .post-categories, .post-tags {
   margin: 10px 0 10px;
   font-size: 0.625em;
@@ -866,21 +768,21 @@ span.required {
   letter-spacing: 0.3px;
 }
 
-/* line 106, assets/sass/partials/_content.scss */
+/* line 112, assets/sass/partials/_content.scss */
 .post-categories .label {
   padding: 7px 12px;
 }
 
-/* line 111, assets/sass/partials/_content.scss */
+/* line 117, assets/sass/partials/_content.scss */
 .post-tags span {
   display: inline-block;
 }
-/* line 115, assets/sass/partials/_content.scss */
+/* line 121, assets/sass/partials/_content.scss */
 .post-tags .tag {
   margin: 5px;
 }
 
-/* line 120, assets/sass/partials/_content.scss */
+/* line 126, assets/sass/partials/_content.scss */
 .post-author {
   font-size: 0.75em;
 }
@@ -888,16 +790,16 @@ span.required {
 /*--------------------------------------------------------------
 ### Single post
 --------------------------------------------------------------*/
-/* line 127, assets/sass/partials/_content.scss */
+/* line 133, assets/sass/partials/_content.scss */
 .single-post .post-content {
   margin-bottom: 40px;
 }
-/* line 132, assets/sass/partials/_content.scss */
+/* line 138, assets/sass/partials/_content.scss */
 .single-post .post-categories > span:first-child, .single-post .post-tags > span:first-child {
   color: #bebebe;
   letter-spacing: 0.5px;
 }
-/* line 138, assets/sass/partials/_content.scss */
+/* line 144, assets/sass/partials/_content.scss */
 .single-post .post-categories .label:first-child {
   margin-left: 5px;
 }
@@ -905,21 +807,21 @@ span.required {
 /*--------------------------------------------------------------
 ### Adjacent posts
 --------------------------------------------------------------*/
-/* line 145, assets/sass/partials/_content.scss */
+/* line 151, assets/sass/partials/_content.scss */
 #adjacent-posts {
   margin-top: 10px;
   margin-bottom: 30px;
 }
-/* line 149, assets/sass/partials/_content.scss */
+/* line 155, assets/sass/partials/_content.scss */
 #adjacent-posts span, #adjacent-posts a {
   display: block;
 }
-/* line 153, assets/sass/partials/_content.scss */
+/* line 159, assets/sass/partials/_content.scss */
 #adjacent-posts span {
   color: #bebebe;
   font-size: 0.75em;
 }
-/* line 158, assets/sass/partials/_content.scss */
+/* line 164, assets/sass/partials/_content.scss */
 #adjacent-posts a {
   margin: 10px 0 20px;
   font-size: 0.875em;
@@ -928,56 +830,56 @@ span.required {
 /*--------------------------------------------------------------
 ### Related posts
 --------------------------------------------------------------*/
-/* line 166, assets/sass/partials/_content.scss */
+/* line 172, assets/sass/partials/_content.scss */
 #related-posts {
   position: relative;
   margin: 10px 0 0;
 }
-/* line 170, assets/sass/partials/_content.scss */
+/* line 176, assets/sass/partials/_content.scss */
 #related-posts .related-post {
   text-align: center;
 }
-/* line 174, assets/sass/partials/_content.scss */
+/* line 180, assets/sass/partials/_content.scss */
 #related-posts .related-post-thumb {
   margin-bottom: 5px;
 }
-/* line 178, assets/sass/partials/_content.scss */
+/* line 184, assets/sass/partials/_content.scss */
 #related-posts .related-post-tags .label {
   font-size: 0.625em;
   letter-spacing: 0.3px;
 }
-/* line 183, assets/sass/partials/_content.scss */
+/* line 189, assets/sass/partials/_content.scss */
 #related-posts .related-post-title {
   margin: 10px 0 0;
 }
-/* line 186, assets/sass/partials/_content.scss */
+/* line 192, assets/sass/partials/_content.scss */
 #related-posts .related-post-title a {
   display: block;
   color: #bebebe;
   font-size: 1em;
 }
-/* line 190, assets/sass/partials/_content.scss */
+/* line 196, assets/sass/partials/_content.scss */
 #related-posts .related-post-title a:hover {
   color: #b73a3a;
 }
 
-/* line 197, assets/sass/partials/_content.scss */
+/* line 203, assets/sass/partials/_content.scss */
 #related-posts-navigation {
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
 }
-/* line 202, assets/sass/partials/_content.scss */
+/* line 208, assets/sass/partials/_content.scss */
 #related-posts-navigation .btn {
   color: #CC4040;
   background: none;
   border: none;
 }
-/* line 206, assets/sass/partials/_content.scss */
+/* line 212, assets/sass/partials/_content.scss */
 #related-posts-navigation .btn:hover {
   color: #b73a3a;
 }
-/* line 211, assets/sass/partials/_content.scss */
+/* line 217, assets/sass/partials/_content.scss */
 #related-posts-navigation .btn[disabled] {
   color: #bebebe;
 }
@@ -985,140 +887,140 @@ span.required {
 /*--------------------------------------------------------------
 ### Post comments
 --------------------------------------------------------------*/
-/* line 218, assets/sass/partials/_content.scss */
+/* line 224, assets/sass/partials/_content.scss */
 #comments {
   margin-top: 40px;
   border-top: 1px solid #303030;
 }
 
-/* line 223, assets/sass/partials/_content.scss */
+/* line 229, assets/sass/partials/_content.scss */
 .comments-header {
   margin-bottom: 30px;
   text-align: center;
 }
 
-/* line 228, assets/sass/partials/_content.scss */
+/* line 234, assets/sass/partials/_content.scss */
 .post-comments {
   overflow: auto;
 }
 
-/* line 232, assets/sass/partials/_content.scss */
+/* line 238, assets/sass/partials/_content.scss */
 #comments .children {
   padding-left: 35px;
 }
-/* line 235, assets/sass/partials/_content.scss */
+/* line 241, assets/sass/partials/_content.scss */
 #comments .children .comment {
   margin: 5px 0;
 }
-/* line 238, assets/sass/partials/_content.scss */
+/* line 244, assets/sass/partials/_content.scss */
 #comments .children .comment .author-avatar img {
   width: 40px;
 }
 
-/* line 244, assets/sass/partials/_content.scss */
+/* line 250, assets/sass/partials/_content.scss */
 .parent.comment {
   margin-bottom: 10px;
 }
 
-/* line 249, assets/sass/partials/_content.scss */
+/* line 255, assets/sass/partials/_content.scss */
 .comment .author-avatar, .comments-reply .author-avatar {
   padding-right: 20px;
 }
-/* line 252, assets/sass/partials/_content.scss */
+/* line 258, assets/sass/partials/_content.scss */
 .comment .author-avatar img, .comments-reply .author-avatar img {
   border-radius: 50%;
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.6);
 }
 
-/* line 259, assets/sass/partials/_content.scss */
+/* line 265, assets/sass/partials/_content.scss */
 .comment {
   display: flex;
   margin: 10px 0 20px;
   padding: 10px 0;
 }
-/* line 264, assets/sass/partials/_content.scss */
+/* line 270, assets/sass/partials/_content.scss */
 .comment .comment-body {
   width: 100%;
   padding-right: 20px;
 }
-/* line 270, assets/sass/partials/_content.scss */
+/* line 276, assets/sass/partials/_content.scss */
 .comment .comment-meta > h4 {
   margin: 0 0 10px;
 }
-/* line 273, assets/sass/partials/_content.scss */
+/* line 279, assets/sass/partials/_content.scss */
 .comment .comment-meta > h4 span {
-  font-family: Roboto-Regular, sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 0.75em;
 }
-/* line 280, assets/sass/partials/_content.scss */
+/* line 286, assets/sass/partials/_content.scss */
 .comment .comment-content p {
   margin-bottom: 10px;
   line-height: 1.5;
 }
-/* line 285, assets/sass/partials/_content.scss */
+/* line 291, assets/sass/partials/_content.scss */
 .comment .comment-footer {
   text-align: right;
 }
-/* line 288, assets/sass/partials/_content.scss */
+/* line 294, assets/sass/partials/_content.scss */
 .comment .comment-footer a, .comment .comment-footer i {
   font-size: 0.875em;
 }
 
-/* line 294, assets/sass/partials/_content.scss */
+/* line 300, assets/sass/partials/_content.scss */
 .comments-reply {
   margin-top: 60px;
   overflow: auto;
 }
-/* line 298, assets/sass/partials/_content.scss */
+/* line 304, assets/sass/partials/_content.scss */
 .comments-reply .comments-reply-header {
   margin: 10px 0 30px;
   text-align: center;
 }
-/* line 303, assets/sass/partials/_content.scss */
+/* line 309, assets/sass/partials/_content.scss */
 .comments-reply .comment-notes {
   font-size: 0.75em;
 }
-/* line 307, assets/sass/partials/_content.scss */
+/* line 313, assets/sass/partials/_content.scss */
 .comments-reply .form-body {
   display: flex;
 }
-/* line 312, assets/sass/partials/_content.scss */
+/* line 318, assets/sass/partials/_content.scss */
 .comments-reply #comment-cookies input[type="checkbox"] {
   vertical-align: middle;
   margin-right: 5px;
 }
-/* line 317, assets/sass/partials/_content.scss */
+/* line 323, assets/sass/partials/_content.scss */
 .comments-reply #comment-cookies label {
   color: #bebebe;
   font-size: 0.75em;
 }
-/* line 323, assets/sass/partials/_content.scss */
+/* line 329, assets/sass/partials/_content.scss */
 .comments-reply #commentform {
   width: 100%;
 }
-/* line 326, assets/sass/partials/_content.scss */
+/* line 332, assets/sass/partials/_content.scss */
 .comments-reply #commentform .logged-in-as {
   font-size: 0.75em;
 }
-/* line 330, assets/sass/partials/_content.scss */
+/* line 336, assets/sass/partials/_content.scss */
 .comments-reply #commentform .form-group {
   text-align: right;
 }
-/* line 334, assets/sass/partials/_content.scss */
+/* line 340, assets/sass/partials/_content.scss */
 .comments-reply #commentform .control-label {
   margin: 5px 0;
   font-size: 0.75em;
   letter-spacing: 0;
 }
-/* line 340, assets/sass/partials/_content.scss */
+/* line 346, assets/sass/partials/_content.scss */
 .comments-reply #commentform .row {
   margin: 20px 0;
 }
-/* line 343, assets/sass/partials/_content.scss */
+/* line 349, assets/sass/partials/_content.scss */
 .comments-reply #commentform .row input.form-control {
   padding: 5px;
 }
-/* line 348, assets/sass/partials/_content.scss */
+/* line 354, assets/sass/partials/_content.scss */
 .comments-reply #commentform input.form-control, .comments-reply #commentform textarea {
   width: 100%;
   font-size: 0.875em;
@@ -1129,27 +1031,27 @@ span.required {
   border-bottom: 3px solid #CC4040;
   transition: 0.3s ease;
 }
-/* line 357, assets/sass/partials/_content.scss */
+/* line 363, assets/sass/partials/_content.scss */
 .comments-reply #commentform input.form-control:hover, .comments-reply #commentform input.form-control:focus, .comments-reply #commentform textarea:hover, .comments-reply #commentform textarea:focus {
   border-color: #b73a3a;
 }
-/* line 362, assets/sass/partials/_content.scss */
+/* line 368, assets/sass/partials/_content.scss */
 .comments-reply #commentform textarea {
   display: block;
   margin-top: 10px;
   padding: 10px;
   resize: none;
 }
-/* line 367, assets/sass/partials/_content.scss */
+/* line 373, assets/sass/partials/_content.scss */
 .comments-reply #commentform textarea:hover, .comments-reply #commentform textarea:focus {
   background-color: #303030;
 }
-/* line 373, assets/sass/partials/_content.scss */
+/* line 379, assets/sass/partials/_content.scss */
 .comments-reply .form-submit {
   margin: 25px 0 30px;
   text-align: right;
 }
-/* line 377, assets/sass/partials/_content.scss */
+/* line 383, assets/sass/partials/_content.scss */
 .comments-reply .form-submit #submit {
   width: 45px;
   height: 45px;
@@ -1159,7 +1061,7 @@ span.required {
   background-color: #CC4040;
   transition: background 0.3s ease;
 }
-/* line 385, assets/sass/partials/_content.scss */
+/* line 391, assets/sass/partials/_content.scss */
 .comments-reply .form-submit #submit:hover {
   background-color: #b73a3a;
 }
@@ -1167,7 +1069,7 @@ span.required {
 /*--------------------------------------------------------------
 ## Attachment
 --------------------------------------------------------------*/
-/* line 394, assets/sass/partials/_content.scss */
+/* line 400, assets/sass/partials/_content.scss */
 .attachment-single img {
   display: block;
   margin: 0 auto;
@@ -1176,11 +1078,11 @@ span.required {
 /*--------------------------------------------------------------
 ## Search form
 --------------------------------------------------------------*/
-/* line 402, assets/sass/partials/_content.scss */
+/* line 408, assets/sass/partials/_content.scss */
 .mloc-search form {
   display: flex;
 }
-/* line 406, assets/sass/partials/_content.scss */
+/* line 412, assets/sass/partials/_content.scss */
 .mloc-search input[type="search"] {
   padding: 3px 8px;
   width: 100%;
@@ -1194,21 +1096,21 @@ span.required {
   vertical-align: middle;
   transition: 0.3s ease-in-out;
 }
-/* line 418, assets/sass/partials/_content.scss */
+/* line 424, assets/sass/partials/_content.scss */
 .mloc-search input[type="search"]:active, .mloc-search input[type="search"]:focus {
   box-shadow: 0 0 5px #b73a3a;
 }
-/* line 423, assets/sass/partials/_content.scss */
+/* line 429, assets/sass/partials/_content.scss */
 .mloc-search button[type="submit"] {
   background: none;
   border: none;
   transition: 0.3s ease-in-out;
 }
-/* line 427, assets/sass/partials/_content.scss */
+/* line 433, assets/sass/partials/_content.scss */
 .mloc-search button[type="submit"]:hover {
   color: #b73a3a;
 }
-/* line 431, assets/sass/partials/_content.scss */
+/* line 437, assets/sass/partials/_content.scss */
 .mloc-search button[type="submit"] > i {
   font-size: 28px;
   vertical-align: middle;
@@ -1217,15 +1119,15 @@ span.required {
 /*--------------------------------------------------------------
 ## Search results
 --------------------------------------------------------------*/
-/* line 441, assets/sass/partials/_content.scss */
+/* line 447, assets/sass/partials/_content.scss */
 .search-no-results .mloc-content-area-search, .error404 .mloc-content-area-search {
   margin-top: 25px;
 }
-/* line 444, assets/sass/partials/_content.scss */
+/* line 450, assets/sass/partials/_content.scss */
 .search-no-results .mloc-content-area-search form, .error404 .mloc-content-area-search form {
   display: block;
 }
-/* line 448, assets/sass/partials/_content.scss */
+/* line 454, assets/sass/partials/_content.scss */
 .search-no-results .mloc-content-area-search input[type="search"], .error404 .mloc-content-area-search input[type="search"] {
   width: 250px;
 }
