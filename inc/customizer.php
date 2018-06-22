@@ -97,7 +97,7 @@ function mloc_customize_register( $wp_customize ) {
 				'section'	=> 'mloc_layout',
 				'settings'	=> 'mloc_page_sidebar_layout',
 				'choices'	=> $sidebar_layouts,
-				'priority'	=> 20,
+				'priority'	=> 40,
 			) )
 		);
 
