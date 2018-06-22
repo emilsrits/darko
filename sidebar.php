@@ -6,9 +6,14 @@
  */
 
 $class_to_add = '';
-$mloc_blog_sidebar_layout = get_theme_mod( 'mloc_blog_sidebar_layout', 'full-width' );
 
-if ( $mloc_blog_sidebar_layout === 'sidebar-right' ) {
+if ( is_page() ) {
+	$mloc_sidebar_layout = get_theme_mod( 'mloc_page_sidebar_layout', 'full-width' );
+} else {
+	$mloc_sidebar_layout = get_theme_mod( 'mloc_blog_sidebar_layout', 'full-width' );
+}
+
+if ( $mloc_sidebar_layout === 'sidebar-right' ) {
 	$class_to_add = ' col-md-offset-1';
 }
 
