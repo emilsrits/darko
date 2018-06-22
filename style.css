@@ -1000,27 +1000,28 @@ span.required {
 }
 /* line 332, assets/sass/partials/_content.scss */
 .comments-reply #commentform .logged-in-as {
+  margin-bottom: 5px;
   font-size: 0.75em;
 }
-/* line 336, assets/sass/partials/_content.scss */
+/* line 337, assets/sass/partials/_content.scss */
 .comments-reply #commentform .form-group {
   text-align: right;
 }
-/* line 340, assets/sass/partials/_content.scss */
+/* line 341, assets/sass/partials/_content.scss */
 .comments-reply #commentform .control-label {
   margin: 5px 0;
   font-size: 0.75em;
   letter-spacing: 0;
 }
-/* line 346, assets/sass/partials/_content.scss */
+/* line 347, assets/sass/partials/_content.scss */
 .comments-reply #commentform .row {
   margin: 20px 0;
 }
-/* line 349, assets/sass/partials/_content.scss */
+/* line 350, assets/sass/partials/_content.scss */
 .comments-reply #commentform .row input.form-control {
   padding: 5px;
 }
-/* line 354, assets/sass/partials/_content.scss */
+/* line 355, assets/sass/partials/_content.scss */
 .comments-reply #commentform input.form-control, .comments-reply #commentform textarea {
   width: 100%;
   font-size: 0.875em;
@@ -1031,27 +1032,27 @@ span.required {
   border-bottom: 3px solid #CC4040;
   transition: 0.3s ease;
 }
-/* line 363, assets/sass/partials/_content.scss */
+/* line 364, assets/sass/partials/_content.scss */
 .comments-reply #commentform input.form-control:hover, .comments-reply #commentform input.form-control:focus, .comments-reply #commentform textarea:hover, .comments-reply #commentform textarea:focus {
   border-color: #b73a3a;
 }
-/* line 368, assets/sass/partials/_content.scss */
+/* line 369, assets/sass/partials/_content.scss */
 .comments-reply #commentform textarea {
   display: block;
   margin-top: 10px;
   padding: 10px;
   resize: none;
 }
-/* line 373, assets/sass/partials/_content.scss */
+/* line 374, assets/sass/partials/_content.scss */
 .comments-reply #commentform textarea:hover, .comments-reply #commentform textarea:focus {
   background-color: #303030;
 }
-/* line 379, assets/sass/partials/_content.scss */
+/* line 380, assets/sass/partials/_content.scss */
 .comments-reply .form-submit {
   margin: 25px 0 30px;
   text-align: right;
 }
-/* line 383, assets/sass/partials/_content.scss */
+/* line 384, assets/sass/partials/_content.scss */
 .comments-reply .form-submit #submit {
   width: 45px;
   height: 45px;
@@ -1061,7 +1062,7 @@ span.required {
   background-color: #CC4040;
   transition: background 0.3s ease;
 }
-/* line 391, assets/sass/partials/_content.scss */
+/* line 392, assets/sass/partials/_content.scss */
 .comments-reply .form-submit #submit:hover {
   background-color: #b73a3a;
 }
@@ -1069,7 +1070,7 @@ span.required {
 /*--------------------------------------------------------------
 ## Attachment
 --------------------------------------------------------------*/
-/* line 400, assets/sass/partials/_content.scss */
+/* line 401, assets/sass/partials/_content.scss */
 .attachment-single img {
   display: block;
   margin: 0 auto;
@@ -1078,11 +1079,11 @@ span.required {
 /*--------------------------------------------------------------
 ## Search form
 --------------------------------------------------------------*/
-/* line 408, assets/sass/partials/_content.scss */
+/* line 409, assets/sass/partials/_content.scss */
 .mloc-search form {
   display: flex;
 }
-/* line 412, assets/sass/partials/_content.scss */
+/* line 413, assets/sass/partials/_content.scss */
 .mloc-search input[type="search"] {
   padding: 3px 8px;
   width: 100%;
@@ -1096,21 +1097,21 @@ span.required {
   vertical-align: middle;
   transition: 0.3s ease-in-out;
 }
-/* line 424, assets/sass/partials/_content.scss */
+/* line 425, assets/sass/partials/_content.scss */
 .mloc-search input[type="search"]:active, .mloc-search input[type="search"]:focus {
   box-shadow: 0 0 5px #b73a3a;
 }
-/* line 429, assets/sass/partials/_content.scss */
+/* line 430, assets/sass/partials/_content.scss */
 .mloc-search button[type="submit"] {
   background: none;
   border: none;
   transition: 0.3s ease-in-out;
 }
-/* line 433, assets/sass/partials/_content.scss */
+/* line 434, assets/sass/partials/_content.scss */
 .mloc-search button[type="submit"]:hover {
   color: #b73a3a;
 }
-/* line 437, assets/sass/partials/_content.scss */
+/* line 438, assets/sass/partials/_content.scss */
 .mloc-search button[type="submit"] > i {
   font-size: 28px;
   vertical-align: middle;
@@ -1119,15 +1120,15 @@ span.required {
 /*--------------------------------------------------------------
 ## Search results
 --------------------------------------------------------------*/
-/* line 447, assets/sass/partials/_content.scss */
+/* line 448, assets/sass/partials/_content.scss */
 .search-no-results .mloc-content-area-search, .error404 .mloc-content-area-search {
   margin-top: 25px;
 }
-/* line 450, assets/sass/partials/_content.scss */
+/* line 451, assets/sass/partials/_content.scss */
 .search-no-results .mloc-content-area-search form, .error404 .mloc-content-area-search form {
   display: block;
 }
-/* line 454, assets/sass/partials/_content.scss */
+/* line 455, assets/sass/partials/_content.scss */
 .search-no-results .mloc-content-area-search input[type="search"], .error404 .mloc-content-area-search input[type="search"] {
   width: 250px;
 }
