@@ -7,8 +7,8 @@
 
 get_header();
 
-$mloc_sidebar_blog_layout = 'sidebar-right';
-$class_to_add = mloc_content_layout_classes( 'sidebar-right', MLOC_SIDEBAR_PRIMARY, null );
+$mloc_blog_sidebar_layout = get_theme_mod( 'mloc_blog_sidebar_layout', 'full-width' );
+$class_to_add = mloc_content_layout_classes( $mloc_blog_sidebar_layout, MLOC_SIDEBAR_PRIMARY, null );
 ?>
 
 <div id="primary" class="content-area">
@@ -16,7 +16,7 @@ $class_to_add = mloc_content_layout_classes( 'sidebar-right', MLOC_SIDEBAR_PRIMA
         <div class="content-container container">
 			<div class="row">
 				<?php
-				if ( $mloc_sidebar_blog_layout === 'sidebar-left' ) :
+				if ( $mloc_blog_sidebar_layout === 'sidebar-left' ) :
 					get_sidebar();
 				endif;
 				?>
@@ -33,7 +33,7 @@ $class_to_add = mloc_content_layout_classes( 'sidebar-right', MLOC_SIDEBAR_PRIMA
 					?>
 				</div>
 				<?php
-				if ( $mloc_sidebar_blog_layout === 'sidebar-right' ) :
+				if ( $mloc_blog_sidebar_layout === 'sidebar-right' ) :
 					get_sidebar();
 				endif;
 				?>

@@ -6,11 +6,13 @@
  */
 
 define( 'MLOC_INC', trailingslashit( get_template_directory() ) . 'inc/' );
+define( 'MLOC_IMG', trailingslashit( get_template_directory_uri() ) . 'assets/images/');
 const MLOC_SIDEBAR_PRIMARY = 'sidebar-primary';
 const MLOC_SIDEBAR_FOOTER1 = 'sidebar-footer-1';
 const MLOC_SIDEBAR_FOOTER2 = 'sidebar-footer-2';
 
 require_once( MLOC_INC . 'template-tags.php' );
+require_once( MLOC_INC . 'customizer.php' );
 
 if ( ! function_exists( 'mloc_setup_theme' ) ) {
     /**
