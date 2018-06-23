@@ -11,6 +11,7 @@ $is_single = is_single();
 $is_page = is_page();
 $is_archive = is_archive();
 $is_search = is_search();
+$is_404 = is_404();
 $has_header_image = get_header_image();
 
 if ( $is_single || $is_page || $is_archive ) : ?>
@@ -61,7 +62,7 @@ if ( $is_single || $is_page || $is_archive ) : ?>
         <?php endif; ?>
     </div> <!-- .hero -->
 <?php endif; ?>
-<?php if ( ( $is_home || $is_search ) && $has_header_image ) : ?>
+<?php if ( ( $is_home || $is_search || $is_404 ) && $has_header_image ) : ?>
     <div class="hero">
         <div class="container">
             <div class="row">

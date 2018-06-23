@@ -445,6 +445,11 @@
 ## Search results
 --------------------------------------------------------------*/
 .search-no-results, .error404 {
+  section.no-results.not-found {
+    margin-bottom: 25px;
+    padding-top: 45px;
+  }
+
   .mloc-content-area-search {
     margin-top: 25px;
 

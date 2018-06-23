@@ -291,7 +291,7 @@ span.required {
 }
 
 /* line 215, assets/sass/partials/_base.scss */
-.page .hero-img, .single-post .hero-img, .archive .hero-img, .attachment .hero-img, .search .hero-img, .home .hero-img, .blog .hero-img {
+.page .hero-img, .single-post .hero-img, .archive .hero-img, .attachment .hero-img, .search .hero-img, .error404 .hero-img, .home .hero-img, .blog .hero-img {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -302,7 +302,7 @@ span.required {
   background-size: cover;
 }
 /* line 224, assets/sass/partials/_base.scss */
-.page .hero-img:before, .page .hero-img:after, .single-post .hero-img:before, .single-post .hero-img:after, .archive .hero-img:before, .archive .hero-img:after, .attachment .hero-img:before, .attachment .hero-img:after, .search .hero-img:before, .search .hero-img:after, .home .hero-img:before, .home .hero-img:after, .blog .hero-img:before, .blog .hero-img:after {
+.page .hero-img:before, .page .hero-img:after, .single-post .hero-img:before, .single-post .hero-img:after, .archive .hero-img:before, .archive .hero-img:after, .attachment .hero-img:before, .attachment .hero-img:after, .search .hero-img:before, .search .hero-img:after, .error404 .hero-img:before, .error404 .hero-img:after, .home .hero-img:before, .home .hero-img:after, .blog .hero-img:before, .blog .hero-img:after {
   display: block;
   position: absolute;
   top: 0;
@@ -312,7 +312,7 @@ span.required {
   content: "";
 }
 /* line 233, assets/sass/partials/_base.scss */
-.page .hero-img:before, .single-post .hero-img:before, .archive .hero-img:before, .attachment .hero-img:before, .search .hero-img:before, .home .hero-img:before, .blog .hero-img:before {
+.page .hero-img:before, .single-post .hero-img:before, .archive .hero-img:before, .attachment .hero-img:before, .search .hero-img:before, .error404 .hero-img:before, .home .hero-img:before, .blog .hero-img:before {
   background-color: rgba(0, 0, 0, 0.6);
 }
 
@@ -1121,14 +1121,19 @@ span.required {
 ## Search results
 --------------------------------------------------------------*/
 /* line 448, assets/sass/partials/_content.scss */
+.search-no-results section.no-results.not-found, .error404 section.no-results.not-found {
+  margin-bottom: 25px;
+  padding-top: 45px;
+}
+/* line 453, assets/sass/partials/_content.scss */
 .search-no-results .mloc-content-area-search, .error404 .mloc-content-area-search {
   margin-top: 25px;
 }
-/* line 451, assets/sass/partials/_content.scss */
+/* line 456, assets/sass/partials/_content.scss */
 .search-no-results .mloc-content-area-search form, .error404 .mloc-content-area-search form {
   display: block;
 }
-/* line 455, assets/sass/partials/_content.scss */
+/* line 460, assets/sass/partials/_content.scss */
 .search-no-results .mloc-content-area-search input[type="search"], .error404 .mloc-content-area-search input[type="search"] {
   width: 250px;
 }
