@@ -38,13 +38,15 @@ add_action( 'customize_register', 'mloc_register_customizer_objects', 0 );
  * @param $wp_customize
  */
 function mloc_customize_register( $wp_customize ) {
+	/**
+	 * Appearance settings
+	 */
 	$wp_customize->add_panel( 'mloc_appearance_settings', array(
 		'title'		=> __( 'Appearance Settings', 'mloc' ),
 		'priority'	=> 25,
 	) );
 
 	if ( class_exists( 'Mloc_Control_Image_Select' ) ) {
-
 		$sidebar_layouts = array(
 			'sidebar-left'	=> array(
 				'label'	=> esc_html__( 'Sidebar on left side', 'mloc' ),
@@ -60,6 +62,7 @@ function mloc_customize_register( $wp_customize ) {
 			),
 		);
 
+		// Section: Layout
 		$wp_customize->add_section( 'mloc_layout', array(
 			'title'			=> __( 'Layout', 'mloc' ),
 			'description'	=> __( 'Layout for posts and pages', 'mloc' ),
@@ -67,9 +70,7 @@ function mloc_customize_register( $wp_customize ) {
 			'priority'		=> 20,
 		) );
 
-		/**
-		 * Blog sidebar layout
-		 */
+		// Blog sidebar layout
 		$wp_customize->add_setting( 'mloc_blog_sidebar_layout', array(
 			'default'			=> 'full-width',
 			'sanitize_callback'	=> 'sanitize_key',
@@ -84,9 +85,7 @@ function mloc_customize_register( $wp_customize ) {
 			) )
 		);
 
-		/**
-		 * Page sidebar layout
-		 */
+		// Page sidebar layout
 		$wp_customize->add_setting( 'mloc_page_sidebar_layout', array(
 			'default'			=> 'full-width',
 			'sanitize_callback'	=> 'sanitize_key',
@@ -100,7 +99,46 @@ function mloc_customize_register( $wp_customize ) {
 				'priority'	=> 40,
 			) )
 		);
-
 	}
+
+	/**
+	 * Header settings
+	 */
+	$wp_customize->add_panel( 'mloc_header_settings', array(
+		'title'		=> __( 'Header Settings', 'mloc' ),
+		'priority'	=> 45,
+	) );
+
+	// Section: Navigation
+	$wp_customize->add_section( 'mloc_navigation', array(
+		'title'			=> __( 'Navigation', 'mloc' ),
+		'panel'			=> 'mloc_header_settings',
+		'priority'		=> 20,
+	) );
+
+	// Navigation search input
+	$wp_customize->add_setting( 'mloc_navigation_search', array(
+		'default'			=> false,
+		'sanitize_callback'	=> 'mloc_sanitize_checkbox',
+	) );
+	$wp_customize->add_control( 'mloc_navigation_search', array(
+		'type'		=> 'checkbox',
+		'label'		=> __( 'Enable search in primary navigation' ),
+		'section'	=> 'mloc_navigation',
+		'settings'	=> 'mloc_navigation_search',
+		'priority'	=> 20,
+	) );
 }
 add_action( 'customize_register', 'mloc_customize_register' );
+
+if ( ! function_exists( 'mloc_sanitize_checkbox' ) ) {
+	/**
+	 * Sanitize checkbox input
+	 *
+	 * @param $input
+	 * @return bool
+	 */
+	function mloc_sanitize_checkbox( $input ) {
+		return ( isset( $input ) && $input === true ? true : false );
+	}
+}
