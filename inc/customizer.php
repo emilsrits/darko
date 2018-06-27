@@ -152,6 +152,27 @@ function mloc_customize_register( $wp_customize ) {
 		'settings'		=> 'mloc_page_featured_image',
 		'priority'		=> 20,
 	) );
+
+	/**
+	 * Single post settings
+	 */
+	$wp_customize->add_section( 'mloc_single_post_settings', array(
+		'title'		=> __( 'Single Post Settings', 'mloc' ),
+		'priority'	=> 65,
+	) );
+
+	// Page featured image display
+	$wp_customize->add_setting( 'mloc_single_post_featured_image', array(
+		'default' => true,
+	) );
+	$wp_customize->add_control( 'mloc_single_post_featured_image', array(
+		'type'			=> 'checkbox',
+		'label'			=> esc_html__( 'Enable featured image display', 'mloc' ),
+		'description'	=> __( 'Display featured image of the post at the beginning of its content', 'mloc' ),
+		'section'		=> 'mloc_single_post_settings',
+		'settings'		=> 'mloc_single_post_featured_image',
+		'priority'		=> 20,
+	) );
 }
 add_action( 'customize_register', 'mloc_customize_register' );
 

@@ -6,16 +6,17 @@
  *
  * @package Mloc
  */
+
+$post_featured_image_enabled = get_theme_mod( 'mloc_single_post_featured_image', true );
+$post_featured_image = get_the_post_thumbnail( get_the_ID() );
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-    <?php
-    $post_featured_img = get_the_post_thumbnail( get_the_ID() );
-    if ( ! empty( $post_featured_img ) ) : ?>
+    <?php if ( $post_featured_image_enabled && ! empty( $post_featured_image ) ) : ?>
         <div class="row">
             <div class="col-xs-12">
                 <div class="featured-img">
-                    <?php echo $post_featured_img; ?>
+                    <?php echo $post_featured_image; ?>
                 </div>
             </div>
         </div> <!-- .row -->
