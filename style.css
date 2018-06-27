@@ -1145,19 +1145,23 @@ span.required {
 #sidebar-primary {
   padding-top: 65px;
 }
+/* line 7, assets/sass/partials/_widget.scss */
+#sidebar-primary.sidebar-left {
+  margin-bottom: 55px;
+}
 
 /*--------------------------------------------------------------
 # Widgets
 --------------------------------------------------------------*/
-/* line 10, assets/sass/partials/_widget.scss */
+/* line 14, assets/sass/partials/_widget.scss */
 .widget {
   margin-bottom: 30px;
 }
-/* line 13, assets/sass/partials/_widget.scss */
+/* line 17, assets/sass/partials/_widget.scss */
 .widget h1, .widget h2, .widget h3 {
   font-size: 1em;
 }
-/* line 18, assets/sass/partials/_widget.scss */
+/* line 22, assets/sass/partials/_widget.scss */
 .widget ul li {
   font-size: 0.875em;
   line-height: 1.6;
@@ -1166,7 +1170,7 @@ span.required {
 /*--------------------------------------------------------------
 ## Search
 --------------------------------------------------------------*/
-/* line 28, assets/sass/partials/_widget.scss */
+/* line 32, assets/sass/partials/_widget.scss */
 .widget_search .mloc-search input[type="search"] {
   max-width: 220px;
 }
@@ -1174,7 +1178,7 @@ span.required {
 /*--------------------------------------------------------------
 ## Archive
 --------------------------------------------------------------*/
-/* line 36, assets/sass/partials/_widget.scss */
+/* line 40, assets/sass/partials/_widget.scss */
 .widget_archive ul li {
   color: #bebebe;
 }
@@ -1182,35 +1186,35 @@ span.required {
 /*--------------------------------------------------------------
 ## Calendar
 --------------------------------------------------------------*/
-/* line 44, assets/sass/partials/_widget.scss */
+/* line 48, assets/sass/partials/_widget.scss */
 .widget_calendar caption {
   padding: 0 0 10px;
   color: #bebebe;
   font-size: 0.875em;
 }
-/* line 50, assets/sass/partials/_widget.scss */
+/* line 54, assets/sass/partials/_widget.scss */
 .widget_calendar table {
   width: 100%;
   max-width: 300px;
   border-collapse: collapse;
 }
-/* line 57, assets/sass/partials/_widget.scss */
+/* line 61, assets/sass/partials/_widget.scss */
 .widget_calendar tbody tr, .widget_calendar tfoot tr {
   font-size: 0.875em;
 }
-/* line 63, assets/sass/partials/_widget.scss */
+/* line 67, assets/sass/partials/_widget.scss */
 .widget_calendar tbody tr:last-child, .widget_calendar tfoot tr:last-child {
   border-bottom: none;
 }
-/* line 68, assets/sass/partials/_widget.scss */
+/* line 72, assets/sass/partials/_widget.scss */
 .widget_calendar tr {
   border-bottom: 1px solid #303030;
 }
-/* line 72, assets/sass/partials/_widget.scss */
+/* line 76, assets/sass/partials/_widget.scss */
 .widget_calendar tr, .widget_calendar th, .widget_calendar td {
   padding: 6px 0;
 }
-/* line 76, assets/sass/partials/_widget.scss */
+/* line 80, assets/sass/partials/_widget.scss */
 .widget_calendar th, .widget_calendar td {
   text-align: center;
 }
@@ -1218,12 +1222,12 @@ span.required {
 /*--------------------------------------------------------------
 ## Gallery
 --------------------------------------------------------------*/
-/* line 84, assets/sass/partials/_widget.scss */
+/* line 88, assets/sass/partials/_widget.scss */
 .gallery .gallery-item {
   margin: 5px 0;
   padding: 0 4px;
 }
-/* line 89, assets/sass/partials/_widget.scss */
+/* line 93, assets/sass/partials/_widget.scss */
 .gallery img {
   border: 1px solid #303030 !important;
   border-radius: 5px;
