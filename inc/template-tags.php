@@ -220,7 +220,9 @@ if ( ! function_exists( 'mloc_adjacent_posts' ) ) {
         $prev_post = get_previous_post();
         $next_post = get_next_post();
 
-        if ( $prev_post || $next_post ) : ?>
+        if ( $prev_post || $next_post ) :
+			do_action( 'mloc_before_adjacent_posts' );
+			?>
             <div id="adjacent-posts" class="row">
                 <div class="col-xs-6 align-left">
                     <?php
@@ -238,8 +240,9 @@ if ( ! function_exists( 'mloc_adjacent_posts' ) ) {
                     }
                     ?>
                 </div>
-            </div>
-        <?php
+            </div> <!-- #adjacent-posts -->
+        	<?php
+			do_action( 'mloc_after_adjacent_posts' );
         endif;
     }
 }
@@ -290,7 +293,9 @@ if ( ! function_exists( 'mloc_related_posts' ) ) {
                 return;
             }
             if( $query->have_posts() ) {
-                if ( $ajax == false ) : ?>
+                if ( $ajax == false ) :
+					do_action( 'mloc_before_related_posts' );
+					?>
                     <div id="related-posts" data-id="<?php echo $post_id; ?>">
                         <div class="row center-xs">
                 <?php
@@ -334,8 +339,11 @@ if ( ! function_exists( 'mloc_related_posts' ) ) {
                         </div> <!-- .sk-fading-circle -->
                     </div> <!-- #related_posts -->
                     <?php
+					do_action( 'mloc_after_related_posts' );
+
                     if ( $max_pages != 1 ) :
                         mloc_ajax_related_posts_navigation();
+						do_action( 'mloc_after_related_posts_navigation' );
                     endif;
                 endif;
             }
