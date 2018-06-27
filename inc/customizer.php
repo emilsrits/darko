@@ -126,10 +126,31 @@ function mloc_customize_register( $wp_customize ) {
 	) );
 	$wp_customize->add_control( 'mloc_navigation_search', array(
 		'type'		=> 'checkbox',
-		'label'		=> esc_html__( 'Enable search in primary navigation' ),
+		'label'		=> esc_html__( 'Enable search in primary navigation', 'mloc' ),
 		'section'	=> 'mloc_navigation',
 		'settings'	=> 'mloc_navigation_search',
 		'priority'	=> 20,
+	) );
+
+	/**
+	 * Page settings
+	 */
+	$wp_customize->add_section( 'mloc_page_settings', array(
+		'title'		=> __( 'Page Settings', 'mloc' ),
+		'priority'	=> 55,
+	) );
+
+	// Page featured image display
+	$wp_customize->add_setting( 'mloc_page_featured_image', array(
+		'default' => true,
+	) );
+	$wp_customize->add_control( 'mloc_page_featured_image', array(
+		'type'			=> 'checkbox',
+		'label'			=> esc_html__( 'Enable featured image display', 'mloc' ),
+		'description'	=> __( 'Display featured image of the page at the beginning of its content', 'mloc' ),
+		'section'		=> 'mloc_page_settings',
+		'settings'		=> 'mloc_page_featured_image',
+		'priority'		=> 20,
 	) );
 }
 add_action( 'customize_register', 'mloc_customize_register' );
