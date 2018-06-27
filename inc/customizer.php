@@ -64,10 +64,9 @@ function mloc_customize_register( $wp_customize ) {
 
 		// Section: Layout
 		$wp_customize->add_section( 'mloc_layout', array(
-			'title'			=> __( 'Layout', 'mloc' ),
-			'description'	=> __( 'Layout for posts and pages', 'mloc' ),
-			'panel'			=> 'mloc_appearance_settings',
-			'priority'		=> 20,
+			'title'		=> __( 'Layout', 'mloc' ),
+			'panel'		=> 'mloc_appearance_settings',
+			'priority' 	=> 20,
 		) );
 
 		// Blog sidebar layout
@@ -142,12 +141,13 @@ function mloc_customize_register( $wp_customize ) {
 
 	// Page featured image display
 	$wp_customize->add_setting( 'mloc_page_featured_image', array(
-		'default' => true,
+		'default' 			=> true,
+		'sanitize_callback'	=> 'mloc_sanitize_checkbox',
 	) );
 	$wp_customize->add_control( 'mloc_page_featured_image', array(
 		'type'			=> 'checkbox',
 		'label'			=> esc_html__( 'Enable featured image display', 'mloc' ),
-		'description'	=> __( 'Display featured image of the page at the beginning of its content', 'mloc' ),
+		'description'	=> __( 'Display featured image of the page at the beginning of its content.', 'mloc' ),
 		'section'		=> 'mloc_page_settings',
 		'settings'		=> 'mloc_page_featured_image',
 		'priority'		=> 20,
@@ -161,17 +161,46 @@ function mloc_customize_register( $wp_customize ) {
 		'priority'	=> 65,
 	) );
 
-	// Page featured image display
+	// Single post featured image display
 	$wp_customize->add_setting( 'mloc_single_post_featured_image', array(
-		'default' => true,
+		'default' 			=> true,
+		'sanitize_callback'	=> 'mloc_sanitize_checkbox',
 	) );
 	$wp_customize->add_control( 'mloc_single_post_featured_image', array(
 		'type'			=> 'checkbox',
 		'label'			=> esc_html__( 'Enable featured image display', 'mloc' ),
-		'description'	=> __( 'Display featured image of the post at the beginning of its content', 'mloc' ),
+		'description'	=> __( 'Display featured image of the post at the beginning of its content.', 'mloc' ),
 		'section'		=> 'mloc_single_post_settings',
 		'settings'		=> 'mloc_single_post_featured_image',
 		'priority'		=> 20,
+	) );
+
+	// Adjacent posts
+	$wp_customize->add_setting( 'mloc_adjacent_posts', array(
+		'default' => true,
+		'sanitize_callback'	=> 'mloc_sanitize_checkbox',
+	) );
+	$wp_customize->add_control( 'mloc_adjacent_posts', array(
+		'type'			=> 'checkbox',
+		'label'			=> esc_html__( 'Enable adjacent posts', 'mloc' ),
+		'description'	=> __( 'Display links to previous and next post.', 'mloc' ),
+		'section'		=> 'mloc_single_post_settings',
+		'settings'		=> 'mloc_adjacent_posts',
+		'priority'		=> 40,
+	) );
+
+	// Related posts
+	$wp_customize->add_setting( 'mloc_related_posts', array(
+		'default' => true,
+		'sanitize_callback'	=> 'mloc_sanitize_checkbox',
+	) );
+	$wp_customize->add_control( 'mloc_related_posts', array(
+		'type'			=> 'checkbox',
+		'label'			=> esc_html__( 'Enable related posts', 'mloc' ),
+		'description'	=> __( 'Display related posts based on relevant tags or categories.', 'mloc' ),
+		'section'		=> 'mloc_single_post_settings',
+		'settings'		=> 'mloc_related_posts',
+		'priority'		=> 60,
 	) );
 }
 add_action( 'customize_register', 'mloc_customize_register' );

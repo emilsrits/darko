@@ -39,9 +39,13 @@ $post_featured_image = get_the_post_thumbnail( get_the_ID() );
 </article>
 <?php
 
-do_action( 'mloc_blog_adjacent_posts' );
+if ( get_theme_mod( 'mloc_adjacent_posts', true ) ) :
+	do_action( 'mloc_blog_adjacent_posts' );
+endif;
 
-do_action( 'mloc_blog_related_posts' );
+if ( get_theme_mod( 'mloc_related_posts', true ) ) :
+	do_action( 'mloc_blog_related_posts' );
+endif;
 
 if ( comments_open() || get_comments_number() ) :
     comments_template();
