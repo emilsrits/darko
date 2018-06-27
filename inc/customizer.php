@@ -109,6 +109,9 @@ function mloc_customize_register( $wp_customize ) {
 		'priority'	=> 45,
 	) );
 
+	// Move core header image customization under this theme header settings
+	$wp_customize->get_section( 'header_image' )->panel = 'mloc_header_settings';
+
 	// Section: Navigation
 	$wp_customize->add_section( 'mloc_navigation', array(
 		'title'			=> __( 'Navigation', 'mloc' ),
@@ -123,7 +126,7 @@ function mloc_customize_register( $wp_customize ) {
 	) );
 	$wp_customize->add_control( 'mloc_navigation_search', array(
 		'type'		=> 'checkbox',
-		'label'		=> __( 'Enable search in primary navigation' ),
+		'label'		=> esc_html__( 'Enable search in primary navigation' ),
 		'section'	=> 'mloc_navigation',
 		'settings'	=> 'mloc_navigation_search',
 		'priority'	=> 20,
