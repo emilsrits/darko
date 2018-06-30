@@ -177,7 +177,7 @@ function mloc_customize_register( $wp_customize ) {
 
 	// Adjacent posts
 	$wp_customize->add_setting( 'mloc_adjacent_posts', array(
-		'default' => true,
+		'default' 			=> true,
 		'sanitize_callback'	=> 'mloc_sanitize_checkbox',
 	) );
 	$wp_customize->add_control( 'mloc_adjacent_posts', array(
@@ -191,7 +191,7 @@ function mloc_customize_register( $wp_customize ) {
 
 	// Related posts
 	$wp_customize->add_setting( 'mloc_related_posts', array(
-		'default' => true,
+		'default' 			=> true,
 		'sanitize_callback'	=> 'mloc_sanitize_checkbox',
 	) );
 	$wp_customize->add_control( 'mloc_related_posts', array(
@@ -201,6 +201,20 @@ function mloc_customize_register( $wp_customize ) {
 		'section'		=> 'mloc_single_post_settings',
 		'settings'		=> 'mloc_related_posts',
 		'priority'		=> 60,
+	) );
+
+	// Copyright
+	$wp_customize->add_setting( 'mloc_copyright', array(
+		'default'			=> '© Copyright - ' . get_bloginfo( 'name' ),
+		'sanitize_callback'	=> 'wp_filter_nohtml_kses',
+	) );
+	$wp_customize->add_control( 'mloc_copyright', array(
+		'type'			=> 'text',
+		'label'			=> esc_html__( 'Copyright', 'mloc' ),
+		'description'	=> __( 'Change site copyright in footer.', 'mloc' ),
+		'section'		=> 'title_tagline',
+		'settings'		=> 'mloc_copyright',
+		'priority'		=> 65,
 	) );
 }
 add_action( 'customize_register', 'mloc_customize_register' );

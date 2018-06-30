@@ -4,8 +4,10 @@
  *
  * @package Mloc
  */
+
+$copyright = get_theme_mod( 'mloc_copyright', '© Copyright - ' . get_bloginfo( 'name' ) );
 ?>
 
 <div class="copyright">
-	<p><?php echo '© Copyright - ' . get_bloginfo( 'name' ); ?></p>
+	<p><?php echo $copyright; ?></p>
 </div> <!-- .copyright -->

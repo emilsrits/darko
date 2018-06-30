@@ -325,13 +325,11 @@ span.required {
   padding: 1em 0;
   background-color: #303030;
 }
-/* line 246, assets/sass/partials/_base.scss */
-#site-footer .copyright {
-  text-align: center;
-}
-/* line 248, assets/sass/partials/_base.scss */
+/* line 247, assets/sass/partials/_base.scss */
 #site-footer .copyright p {
   margin: 0;
+  color: #bebebe;
+  font-size: 0.875em;
 }
 
 /*--------------------------------------------------------------
