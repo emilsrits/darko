@@ -7,9 +7,6 @@
 
 define( 'MLOC_INC', trailingslashit( get_template_directory() ) . 'inc/' );
 define( 'MLOC_IMG', trailingslashit( get_template_directory_uri() ) . 'assets/images/');
-const MLOC_SIDEBAR_PRIMARY = 'sidebar-primary';
-const MLOC_SIDEBAR_FOOTER1 = 'sidebar-footer-1';
-const MLOC_SIDEBAR_FOOTER2 = 'sidebar-footer-2';
 
 require_once( MLOC_INC . 'template-tags.php' );
 require_once( MLOC_INC . 'customizer.php' );
@@ -82,9 +79,9 @@ if ( ! function_exists( 'mloc_setup_theme' ) ) {
  */
 function mloc_widgets_init() {
     $sidebars_array = array(
-		MLOC_SIDEBAR_PRIMARY  => __( 'Primary', 'mloc' ),
-		MLOC_SIDEBAR_FOOTER1  => __( 'Footer 1', 'mloc' ),
-		MLOC_SIDEBAR_FOOTER2  => __( 'Footer 2', 'mloc' ),
+		'sidebar-1'  => __( 'Primary', 'mloc' ),
+		'sidebar-footer1'  => __( 'Footer 1', 'mloc' ),
+		'sidebar-footer2'  => __( 'Footer 2', 'mloc' ),
     );
 
     foreach ( $sidebars_array as $sidebar_id => $sidebar_name ) {
@@ -244,12 +241,6 @@ function mloc_get_the_content_with_formatting( $more_link_text = '(more...)', $s
     $content = str_replace( ']]>', ']]&gt;', $content );
     return $content;
 }
-
-/**
- * Hook adjacent and related post templates to their actions
- */
-add_action( 'mloc_blog_adjacent_posts', 'mloc_adjacent_posts' );
-add_action( 'mloc_blog_related_posts', 'mloc_related_posts' );
 
 /**
  * Display a different page of related posts from ajax request

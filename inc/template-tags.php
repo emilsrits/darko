@@ -245,6 +245,7 @@ if ( ! function_exists( 'mloc_adjacent_posts' ) ) {
 			do_action( 'mloc_after_adjacent_posts' );
         endif;
     }
+	add_action( 'mloc_blog_adjacent_posts', 'mloc_adjacent_posts' );
 }
 
 if ( ! function_exists( 'mloc_related_posts' ) ) {
@@ -355,6 +356,7 @@ if ( ! function_exists( 'mloc_related_posts' ) ) {
             endif;
         }
     }
+	add_action( 'mloc_blog_related_posts', 'mloc_related_posts' );
 }
 
 if ( ! function_exists( 'mloc_ajax_related_posts_navigation' ) ) {

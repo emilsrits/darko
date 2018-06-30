@@ -17,10 +17,10 @@ if ( $mloc_sidebar_layout === 'sidebar-right' ) {
 	$class_to_add = ' col-md-offset-1';
 }
 
-if ( is_active_sidebar( MLOC_SIDEBAR_PRIMARY ) ) : ?>
+if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
     <div class="col-xs-12 col-md-3 <?php echo esc_attr( $class_to_add ); ?>">
         <aside id="sidebar-primary" class="<?php echo esc_attr( $mloc_sidebar_layout ) ?>" role="complementary">
-            <?php dynamic_sidebar( MLOC_SIDEBAR_PRIMARY ); ?>
+            <?php dynamic_sidebar( 'sidebar-1' ); ?>
         </aside> <!-- #secondary -->
     </div>
 <?php endif; ?>

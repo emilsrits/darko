@@ -8,9 +8,11 @@
 
     <footer id="site-footer">
         <div class="container">
-            <div class="copyright">
-                <p><?php echo "mloc" ?></p>
-            </div> <!-- .copyright -->
+			<?php
+			get_template_part( 'template-parts/footer/footer', 'widgets' );
+
+			get_template_part( 'template-parts/footer/footer', 'info' );
+			?>
         </div> <!-- .container -->
     </footer> <!-- #site-footer -->
 </div> <!-- #wrapper -->

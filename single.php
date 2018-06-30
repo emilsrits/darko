@@ -8,7 +8,7 @@
 get_header();
 
 $mloc_blog_sidebar_layout = get_theme_mod( 'mloc_blog_sidebar_layout', 'full-width' );
-$class_to_add = mloc_content_layout_classes( $mloc_blog_sidebar_layout, MLOC_SIDEBAR_PRIMARY, null );
+$class_to_add = mloc_content_layout_classes( $mloc_blog_sidebar_layout, 'sidebar-1', null );
 ?>
 
 <div id="primary" class="content-area">
