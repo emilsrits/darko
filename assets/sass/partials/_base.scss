@@ -243,6 +243,16 @@ span.required {
   padding: 1em 0;
   background-color: $c-grey-dark;
 
+  .footer-menu {
+    padding: 0 15px 0 0;
+  }
+
+  .footer-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   .copyright {
     p {
       margin: 0;

@@ -55,25 +55,25 @@
   }
 }
 
-#main-navigation {
-  background-color: $c-grey-dark;
+#main-navigation ul.navbar-nav li, #site-footer .footer-menu li {
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
 
-  ul.navbar-nav > li {
-    display: inline-block;
-    text-transform: uppercase;
-    letter-spacing: 0.3px;
-
-    > a {
-      display: block;
-      padding: 15px 15px;
-      color: $c-white;
-      font-size: $f-small;
-      transition: color 0.2s ease;
-      &:hover {
-        color: $c-red;
-      }
+  > a {
+    display: block;
+    padding: 15px 15px;
+    color: $c-white;
+    font-size: $f-small;
+    transition: color 0.2s ease;
+    &:hover {
+      color: $c-red;
     }
   }
+}
+
+#main-navigation {
+  background-color: $c-grey-dark;
 
   .mloc-nav-search-container {
     position: relative;

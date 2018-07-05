@@ -52,6 +52,24 @@
     }
   }
 
+  #site-footer .footer-info {
+    flex-direction: column-reverse;
+    justify-content: center;
+
+    .footer-menu {
+      margin-bottom: 15px;
+      padding: 0;
+
+      li > a {
+        padding: 10px 10px;
+      }
+    }
+
+    .copyright {
+      order: -1;
+    }
+  }
+
   #mloc-go-top {
     display: none;
   }

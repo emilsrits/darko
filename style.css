@@ -325,7 +325,17 @@ span.required {
   padding: 1em 0;
   background-color: #303030;
 }
-/* line 247, assets/sass/partials/_base.scss */
+/* line 246, assets/sass/partials/_base.scss */
+#site-footer .footer-menu {
+  padding: 0 15px 0 0;
+}
+/* line 250, assets/sass/partials/_base.scss */
+#site-footer .footer-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* line 257, assets/sass/partials/_base.scss */
 #site-footer .copyright p {
   margin: 0;
   color: #bebebe;
@@ -389,26 +399,27 @@ span.required {
 }
 
 /* line 58, assets/sass/partials/_navigation.scss */
-#main-navigation {
-  background-color: #303030;
-}
-/* line 61, assets/sass/partials/_navigation.scss */
-#main-navigation ul.navbar-nav > li {
+#main-navigation ul.navbar-nav li, #site-footer .footer-menu li {
   display: inline-block;
   text-transform: uppercase;
   letter-spacing: 0.3px;
 }
-/* line 66, assets/sass/partials/_navigation.scss */
-#main-navigation ul.navbar-nav > li > a {
+/* line 63, assets/sass/partials/_navigation.scss */
+#main-navigation ul.navbar-nav li > a, #site-footer .footer-menu li > a {
   display: block;
   padding: 15px 15px;
   color: #fff;
   font-size: 0.75em;
   transition: color 0.2s ease;
 }
-/* line 72, assets/sass/partials/_navigation.scss */
-#main-navigation ul.navbar-nav > li > a:hover {
+/* line 69, assets/sass/partials/_navigation.scss */
+#main-navigation ul.navbar-nav li > a:hover, #site-footer .footer-menu li > a:hover {
   color: #CC4040;
+}
+
+/* line 75, assets/sass/partials/_navigation.scss */
+#main-navigation {
+  background-color: #303030;
 }
 /* line 78, assets/sass/partials/_navigation.scss */
 #main-navigation .mloc-nav-search-container {
@@ -1356,90 +1367,109 @@ span.required {
   }
 
   /* line 55, assets/sass/partials/_responsive.scss */
+  #site-footer .footer-info {
+    flex-direction: column-reverse;
+    justify-content: center;
+  }
+  /* line 59, assets/sass/partials/_responsive.scss */
+  #site-footer .footer-info .footer-menu {
+    margin-bottom: 15px;
+    padding: 0;
+  }
+  /* line 63, assets/sass/partials/_responsive.scss */
+  #site-footer .footer-info .footer-menu li > a {
+    padding: 10px 10px;
+  }
+  /* line 68, assets/sass/partials/_responsive.scss */
+  #site-footer .footer-info .copyright {
+    order: -1;
+  }
+
+  /* line 73, assets/sass/partials/_responsive.scss */
   #mloc-go-top {
     display: none;
   }
 
-  /* line 59, assets/sass/partials/_responsive.scss */
+  /* line 77, assets/sass/partials/_responsive.scss */
   #main {
     margin: 0;
   }
 
-  /* line 63, assets/sass/partials/_responsive.scss */
+  /* line 81, assets/sass/partials/_responsive.scss */
   .single-post .featured-img {
     margin: 0 5% 20px;
   }
 
-  /* line 67, assets/sass/partials/_responsive.scss */
+  /* line 85, assets/sass/partials/_responsive.scss */
   .post-title {
     margin-top: 25px;
   }
 
-  /* line 71, assets/sass/partials/_responsive.scss */
+  /* line 89, assets/sass/partials/_responsive.scss */
   #related-posts .related-post {
     display: flex;
     margin-bottom: 20px;
     text-align: left;
   }
-  /* line 76, assets/sass/partials/_responsive.scss */
+  /* line 94, assets/sass/partials/_responsive.scss */
   #related-posts .related-post .related-post-thumb {
     padding-right: 15px;
   }
-  /* line 79, assets/sass/partials/_responsive.scss */
+  /* line 97, assets/sass/partials/_responsive.scss */
   #related-posts .related-post .related-post-thumb img {
     max-width: 140px;
     height: auto;
   }
-  /* line 86, assets/sass/partials/_responsive.scss */
+  /* line 104, assets/sass/partials/_responsive.scss */
   #related-posts .related-post .related-post-meta .related-post-title {
     font-size: 0.875em;
   }
 
-  /* line 93, assets/sass/partials/_responsive.scss */
+  /* line 111, assets/sass/partials/_responsive.scss */
   #comments .children {
     padding-left: 5px;
     border-left: 1px solid #303030;
   }
-  /* line 97, assets/sass/partials/_responsive.scss */
+  /* line 115, assets/sass/partials/_responsive.scss */
   #comments .children .comment {
     margin: 10px 0 5px;
   }
-  /* line 103, assets/sass/partials/_responsive.scss */
+  /* line 121, assets/sass/partials/_responsive.scss */
   #comments .comment .comment-body {
     padding-right: 5px;
   }
-  /* line 107, assets/sass/partials/_responsive.scss */
+  /* line 125, assets/sass/partials/_responsive.scss */
   #comments .comment .author-avatar {
     padding-right: 15px;
   }
-  /* line 111, assets/sass/partials/_responsive.scss */
+  /* line 129, assets/sass/partials/_responsive.scss */
   #comments .comment .comment-meta > h4, #comments .comment .comment-content p {
     font-size: 0.875em;
   }
 
-  /* line 117, assets/sass/partials/_responsive.scss */
+  /* line 135, assets/sass/partials/_responsive.scss */
   .comments-reply {
     margin-top: 40px;
   }
-  /* line 120, assets/sass/partials/_responsive.scss */
+  /* line 138, assets/sass/partials/_responsive.scss */
   .comments-reply .author-avatar {
     display: none;
   }
-  /* line 124, assets/sass/partials/_responsive.scss */
+  /* line 142, assets/sass/partials/_responsive.scss */
   .comments-reply #comment-cookies {
     text-align: center;
   }
-  /* line 129, assets/sass/partials/_responsive.scss */
+  /* line 147, assets/sass/partials/_responsive.scss */
   .comments-reply #commentform .control-label {
     margin: 10px 0 5px;
     font-size: 0.625em;
   }
-  /* line 135, assets/sass/partials/_responsive.scss */
+  /* line 153, assets/sass/partials/_responsive.scss */
   .comments-reply .comment-notes {
     text-align: center;
   }
 
-  /* line 141, assets/sass/partials/_responsive.scss */
+  /* line 159, assets/sass/partials/_responsive.scss */
   .search-no-results .mloc-content-area-search input[type="search"], .error404 .mloc-content-area-search input[type="search"] {
     width: 200px;
   }
@@ -1448,22 +1478,22 @@ span.required {
 ## Tablet
 --------------------------------------------------------------*/
 @media only screen and (min-width: 768px) {
-  /* line 151, assets/sass/partials/_responsive.scss */
+  /* line 169, assets/sass/partials/_responsive.scss */
   #main-menu .navbar-toggle {
     display: none;
   }
 
-  /* line 156, assets/sass/partials/_responsive.scss */
+  /* line 174, assets/sass/partials/_responsive.scss */
   #main-navigation .mloc-nav-search {
     margin-left: 25px;
   }
 
-  /* line 160, assets/sass/partials/_responsive.scss */
+  /* line 178, assets/sass/partials/_responsive.scss */
   .container {
     width: 750px;
   }
 
-  /* line 164, assets/sass/partials/_responsive.scss */
+  /* line 182, assets/sass/partials/_responsive.scss */
   .content-container {
     min-height: 700px;
   }
@@ -1472,7 +1502,7 @@ span.required {
 ## To desktop
 --------------------------------------------------------------*/
 @media only screen and (max-width: 1023px) {
-  /* line 172, assets/sass/partials/_responsive.scss */
+  /* line 190, assets/sass/partials/_responsive.scss */
   #main {
     margin: 20px 0 0;
     box-shadow: none;
@@ -1482,7 +1512,7 @@ span.required {
 ## Desktop
 --------------------------------------------------------------*/
 @media only screen and (min-width: 1024px) {
-  /* line 181, assets/sass/partials/_responsive.scss */
+  /* line 199, assets/sass/partials/_responsive.scss */
   .container {
     width: 970px;
   }
@@ -1491,7 +1521,7 @@ span.required {
 ## Widescreen
 --------------------------------------------------------------*/
 @media only screen and (min-width: 1200px) {
-  /* line 189, assets/sass/partials/_responsive.scss */
+  /* line 207, assets/sass/partials/_responsive.scss */
   .container {
     width: 1140px;
   }
@@ -1500,11 +1530,11 @@ span.required {
 ## Custom Media
 --------------------------------------------------------------*/
 @media only screen and (max-width: 600px) {
-  /* line 197, assets/sass/partials/_responsive.scss */
+  /* line 215, assets/sass/partials/_responsive.scss */
   .main-menu-fixed.admin-bar #main-menu {
     margin-top: 0;
   }
-  /* line 199, assets/sass/partials/_responsive.scss */
+  /* line 217, assets/sass/partials/_responsive.scss */
   .main-menu-fixed.admin-bar #main-menu.at-top {
     margin-top: 46px;
   }
