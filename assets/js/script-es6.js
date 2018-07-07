@@ -8,6 +8,7 @@
     const
         mainMenu = $( '#main-menu' ),
         menuToggle = mainMenu.find( '.navbar-toggle' ),
+        navItemToggle = $( '#main-navigation' ).find( '.nav-children-icon' ),
         goTop = $( '#mloc-go-top' ),
         rp = $( '#related-posts' ),
         rpRow = rp.find( '.row' ),
@@ -46,6 +47,15 @@
             } else {
                 mainMenu.addClass( 'at-top' );
             }
+        } );
+    }) ();
+
+    ( () => {
+		navItemToggle.click( 'click', ( e ) => {
+		    e.preventDefault();
+			let currentItem = $( e.target );
+			currentItem.toggleClass( 'collapsed' );
+			currentItem.parent().siblings().toggleClass( 'open' );
         } );
     }) ();
 

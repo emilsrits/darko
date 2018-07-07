@@ -10,6 +10,7 @@ define( 'MLOC_IMG', trailingslashit( get_template_directory_uri() ) . 'assets/im
 
 require_once( MLOC_INC . 'template-tags.php' );
 require_once( MLOC_INC . 'customizer.php' );
+require_once( MLOC_INC . 'walker/mloc-navwalker.php' );
 
 if ( ! function_exists( 'mloc_setup_theme' ) ) {
     /**

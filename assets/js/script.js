@@ -9,6 +9,7 @@
 (function ($) {
     var mainMenu = $('#main-menu'),
         menuToggle = mainMenu.find('.navbar-toggle'),
+        navItemToggle = $('#main-navigation').find('.nav-children-icon'),
         goTop = $('#mloc-go-top'),
         rp = $('#related-posts'),
         rpRow = rp.find('.row'),
@@ -46,6 +47,15 @@
             } else {
                 mainMenu.addClass('at-top');
             }
+        });
+    })();
+
+    (function () {
+        navItemToggle.click('click', function (e) {
+            e.preventDefault();
+            var currentItem = $(e.target);
+            currentItem.toggleClass('collapsed');
+            currentItem.parent().siblings().toggleClass('open');
         });
     })();
 

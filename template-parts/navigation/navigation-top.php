@@ -25,12 +25,13 @@ $logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
         <?php
         wp_nav_menu( array(
             'theme_location'    => 'primary',
-            'depth'             => 2,
+            'depth'             => 4,
             'container'         => 'div',
             'container_class'   => 'collapse navbar-collapse',
             'container_id'      => 'main-navigation',
             'menu_class'        => 'navbar-nav',
             'items_wrap'        => ( function_exists( 'mloc_after_primary_navigation' ) && $primary_menu_search ) ? mloc_after_primary_navigation() : '<ul id="%1$s" class="%2$s">%3$s</ul>',
+			'walker'			=> new Mloc_Navwalker(),
         ) );
         ?>
     </div>

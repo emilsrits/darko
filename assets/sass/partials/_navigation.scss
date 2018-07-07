@@ -56,6 +56,7 @@
 }
 
 #main-navigation ul.navbar-nav li, #site-footer .footer-menu li {
+  position: relative;
   display: inline-block;
   text-transform: uppercase;
   letter-spacing: 0.3px;
@@ -70,6 +71,10 @@
       color: $c-red;
     }
   }
+}
+
+#main-navigation ul.navbar-nav li .sub-menu {
+  display: none;
 }
 
 #main-navigation {
