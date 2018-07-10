@@ -7,7 +7,8 @@
  */
 
 (function ($) {
-    var mainMenu = $('#main-menu'),
+    var win = $(window),
+        mainMenu = $('#main-menu'),
         menuToggle = mainMenu.find('.navbar-toggle'),
         navItemToggle = $('#main-navigation').find('.nav-children-icon'),
         goTop = $('#mloc-go-top'),
@@ -20,7 +21,6 @@
     var data = void 0,
         rpnFirst = void 0,
         rpnLast = void 0,
-        isCollapsed = void 0,
         toggleTarget = void 0,
         scrollTop = void 0,
         rpNavPage = void 0;
@@ -30,12 +30,12 @@
      * scroll location
      */
     (function () {
-        if (!window.scrollTop) {
+        if (!win.scrollTop()) {
             mainMenu.addClass('at-top');
         }
 
-        window.addEventListener('scroll', function () {
-            scrollTop = window.pageYOffset;
+        win.on('scroll', function () {
+            scrollTop = $(this).scrollTop();
 
             if (scrollTop > 0) {
                 mainMenu.removeClass('at-top');
@@ -50,10 +50,13 @@
         });
     })();
 
+    /**
+     * Toggle main navigation dropdown items
+     */
     (function () {
         navItemToggle.click('click', function (e) {
             e.preventDefault();
-            var currentItem = $(e.target);
+            var currentItem = $(this);
             currentItem.toggleClass('collapsed');
             currentItem.parent().siblings().toggleClass('open');
         });
@@ -70,57 +73,27 @@
         toggleTarget = $(menuToggle.attr('data-target'));
 
         menuToggle.on('click', function () {
-            if (menuToggle.hasClass('collapsed')) {
-                isCollapsed = true;
-            } else {
-                isCollapsed = false;
-            }
+            $(this).attr('aria-expanded', $(this).hasClass('collapsed'));
+            $(this).toggleClass('collapsed');
 
-            menuToggle.attr('aria-expanded', isCollapsed);
-            menuToggle.toggleClass('collapsed');
+            toggleTarget = $($(this).data('target'));
             toggleTarget.toggleClass('in');
+
+            if (toggleTarget.hasClass('in')) {
+                toggleTarget.slideDown();
+            } else {
+                toggleTarget.slideUp();
+            }
         });
     })();
-
-    /**
-     * Smooth scroll to location
-     * @param to
-     * @param duration
-     */
-    function scrollTo(to, duration) {
-        var element = document.scrollingElement || document.documentElement,
-            start = element.scrollTop,
-            change = to - start,
-            startDate = new Date().getTime();
-
-        var easeInOutAnimation = function easeInOutAnimation(pCurrentTime, pStart, pChange, pDuration) {
-            pCurrentTime /= pDuration / 2;
-            if (pCurrentTime < 1) {
-                return pChange / 2 * pCurrentTime * pCurrentTime + pStart;
-            }
-            pCurrentTime--;
-            return -pChange / 2 * (pCurrentTime * (pCurrentTime - 2) - 1) + pStart;
-        };
-
-        var animateScroll = function animateScroll() {
-            var currentDate = new Date().getTime();
-            var currentTime = currentDate - startDate;
-            element.scrollTop = parseInt(easeInOutAnimation(currentTime, start, change, duration));
-            if (currentTime < duration) {
-                requestAnimationFrame(animateScroll);
-            } else {
-                element.scrollTop = to;
-            }
-        };
-        animateScroll();
-    }
 
     /**
      * Scroll to top on click
      */
     (function () {
         goTop.on('click', function () {
-            scrollTo(0, 800);
+            $('html, body').animate({ scrollTop: 0 }, 800);
+            return false;
         });
     })();
 

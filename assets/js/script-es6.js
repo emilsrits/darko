@@ -6,6 +6,7 @@
 
 ( ($) => {
     const
+        win = $( window ),
         mainMenu = $( '#main-menu' ),
         menuToggle = mainMenu.find( '.navbar-toggle' ),
         navItemToggle = $( '#main-navigation' ).find( '.nav-children-icon' ),
@@ -20,7 +21,6 @@
         data,
         rpnFirst,
         rpnLast,
-        isCollapsed,
         toggleTarget,
         scrollTop,
         rpNavPage;
@@ -29,13 +29,13 @@
      * Change elements depending on window
      * scroll location
      */
-    ( () => {
-        if ( ! window.scrollTop ) {
+    ( function () {
+        if ( ! win.scrollTop() ) {
             mainMenu.addClass( 'at-top' );
         }
 
-        window.addEventListener( 'scroll', () => {
-            scrollTop = window.pageYOffset;
+        win.on( 'scroll', function () {
+            scrollTop = $( this ).scrollTop();
 
             if ( scrollTop > 0 ) {
                 mainMenu.removeClass( 'at-top' );
@@ -50,10 +50,13 @@
         } );
     }) ();
 
-    ( () => {
-		navItemToggle.click( 'click', ( e ) => {
+    /**
+     * Toggle main navigation dropdown items
+     */
+    ( function () {
+		navItemToggle.click( 'click', function ( e ) {
 		    e.preventDefault();
-			let currentItem = $( e.target );
+			let currentItem = $( this );
 			currentItem.toggleClass( 'collapsed' );
 			currentItem.parent().siblings().toggleClass( 'open' );
         } );
@@ -62,67 +65,35 @@
     /**
      * Navigation bar toggle for mobile
      */
-    ( () => {
+    ( function () {
         if ( ! menuToggle ) {
             return;
         }
 
         toggleTarget = $( menuToggle.attr( 'data-target' ) );
 
-        menuToggle.on( 'click', () => {
-            if ( menuToggle.hasClass( 'collapsed' ) ) {
-                isCollapsed = true;
-            } else {
-                isCollapsed = false;
-            }
+        menuToggle.on( 'click', function () {
+            $( this ).attr( 'aria-expanded', $( this ).hasClass( 'collapsed' ) );
+            $( this ).toggleClass( 'collapsed' );
 
-            menuToggle.attr( 'aria-expanded', isCollapsed );
-            menuToggle.toggleClass( 'collapsed' );
+            toggleTarget = $( $( this ).data( 'target' ) );
             toggleTarget.toggleClass( 'in' );
+
+            if ( toggleTarget.hasClass( 'in' ) ) {
+                toggleTarget.slideDown();
+            } else {
+                toggleTarget.slideUp();
+            }
         } );
     }) ();
 
     /**
-     * Smooth scroll to location
-     * @param to
-     * @param duration
-     */
-    function scrollTo( to, duration ) {
-        const
-            element = document.scrollingElement || document.documentElement,
-            start = element.scrollTop,
-            change = to - start,
-            startDate = new Date().getTime();
-
-        const easeInOutAnimation = function( pCurrentTime, pStart, pChange, pDuration ) {
-            pCurrentTime /= pDuration / 2;
-            if ( pCurrentTime < 1 ) {
-                return pChange / 2 * pCurrentTime * pCurrentTime + pStart;
-            }
-            pCurrentTime--;
-            return -pChange / 2 * ( pCurrentTime * ( pCurrentTime - 2 ) - 1 ) + pStart;
-        };
-
-        const animateScroll = function() {
-            const currentDate = new Date().getTime();
-            const currentTime = currentDate - startDate;
-            element.scrollTop = parseInt( easeInOutAnimation( currentTime, start, change, duration ) );
-            if ( currentTime < duration ) {
-                requestAnimationFrame( animateScroll );
-            }
-            else {
-                element.scrollTop = to;
-            }
-        };
-        animateScroll();
-    }
-
-    /**
      * Scroll to top on click
      */
-    ( () => {
-        goTop.on( 'click', () => {
-            scrollTo( 0, 800 );
+    ( function () {
+        goTop.on( 'click', function () {
+            $( 'html, body' ).animate( {scrollTop: 0}, 800 );
+            return false;
         } );
     }) ();
 
