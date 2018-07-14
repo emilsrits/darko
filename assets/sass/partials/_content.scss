@@ -280,7 +280,7 @@
     > h4 {
       margin: 0 0 10px;
 
-      span {
+      .comment-date {
         font-family: 'Roboto', sans-serif;
         font-size: $f-small;
       }
@@ -298,6 +298,15 @@
     a, i {
       font-size: $f-medium;
     }
+  }
+}
+
+.comment.bypostauthor {
+  .comment-meta .author-name {
+    display: inline-block;
+    padding: 4px 6px;
+    border-radius: 12px;
+    background-color: $c-grey-dark;
   }
 }
 

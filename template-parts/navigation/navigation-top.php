@@ -12,7 +12,7 @@ $logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
 
 <nav id="main-menu">
     <div class="container">
-        <a class="navbar-brand" href="<?php bloginfo( 'url' )?>">
+        <a class="navbar-brand" href="<?php echo esc_url( home_url() ); ?>">
             <?php if ( has_custom_logo() ) : ?>
                 <img src="<?php echo esc_url( $logo[0] ); ?>" alt="<?php bloginfo( 'name' ); ?>">
             <?php else :

@@ -99,8 +99,8 @@ if ( ! function_exists( 'mloc_comments_list' ) ) {
             <div class="comment-body">
                 <div class="comment-meta">
                     <h4>
-                        <?php echo get_comment_author(); ?>
-                        <span>
+                        <span class="author-name"><?php echo get_comment_author(); ?></span>
+                        <span class="comment-date">
                             <?php
                             printf(
                             /* translators: %1$s is date, %2$s is time */
@@ -144,8 +144,8 @@ if ( ! function_exists( 'mloc_comments_pagination' ) ) {
             'type' => 'array',
             'echo' => false,
             'mid_size' => 2,
-            'prev_text' => __( '<i class="material-icons">&#xE5CB;</i>' ),
-            'next_text' => __( '<i class="material-icons">&#xE5CC;</i>' ),
+            'prev_text' => '<i class="material-icons">&#xE5CB;</i>',
+            'next_text' => '<i class="material-icons">&#xE5CC;</i>',
         ) );
 
         if ( is_array( $pages ) ) {
@@ -173,7 +173,7 @@ if ( ! function_exists( 'mloc_comments_form_template' ) ) {
         $aria_req = ( $req ? 'required' : '' );
         $consent  = empty( $commenter['comment_author_email'] ) ? '' : ' checked="checked"';
         $args = array(
-            'comment_notes_before' => '<p class="comment-notes"><span id="email-notes">' . __( 'Your email address will not be published.' ) . '</p>',
+            'comment_notes_before' => '<p class="comment-notes"><span id="email-notes">' . __( 'Your email address will not be published.', 'mloc' ) . '</p>',
             'fields'               => apply_filters(
                 'comment_form_default_fields', array(
                     'cookies'   => '<div id="comment-cookies"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes" ' . $consent . ' />' .
@@ -200,12 +200,12 @@ if ( ! function_exists( 'mloc_comments_form_template' ) ) {
                     ), esc_url( wp_login_url( apply_filters( 'the_permalink', get_permalink() ) ) )
                 ) . '</p> </div>',
             'class_submit'         => 'material-icons btn',
-            'label_submit'         => __( '&#xE163;' ),
+            'label_submit'         => '&#xE163;',
             'title_reply_before'   => '<h3 class="comments-reply-header">',
             'title_reply_after'    => '</h3><div class="form-body"><div class="author-avatar">' . $current_user . '</div>',
             'cancel_reply_before'  => ' <span class="required">',
             'cancel_reply_after'   => '</span>',
-            'cancel_reply_link'    => __( '[Cancel reply]' ),
+            'cancel_reply_link'    => __( '[Cancel reply]', 'mloc' ),
         );
 
         return $args;

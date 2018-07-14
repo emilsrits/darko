@@ -17,33 +17,26 @@ if ( ! function_exists( 'mloc_setup_theme' ) ) {
      * Theme setup
      */
     function mloc_setup_theme() {
-        /**
-         * This will limit the width of all uploaded images and embeds
-         */
+        // This will limit the width of all uploaded images and embeds
         global $content_width;
         if ( ! isset( $content_width ) ) {
             $content_width = 750;
         }
 
-        /**
-         * Adds image sizes
-         */
+        // Adds image sizes
         add_image_size( 'mloc-blog', 360, 240, true );
         add_image_size( 'mloc-post-thumb', 218, 150, true );
 
-        /**
-         * Enable support for title tag
-         */
+        // Enable support for title tag
         add_theme_support( 'title-tag' );
 
-        /**
-         * Enable support for post thumbnails
-         */
+        // Enable support for automatic feed links
+        add_theme_support( 'automatic-feed-links' );
+
+        // Enable support for post thumbnails
         add_theme_support( 'post-thumbnails' );
 
-        /**
-         * Enable support for custom logo
-         */
+        // Enable support for custom logo
         $logo_config = array(
             'flex-width'    => true,
             'width'         => 50,
@@ -52,9 +45,7 @@ if ( ! function_exists( 'mloc_setup_theme' ) ) {
         );
         add_theme_support( 'custom-logo', $logo_config );
 
-        /**
-         * Enable support for custom header
-         */
+        // Enable support for custom header
         $header_config = array(
             'flex-width'    => true,
             'width'         => 1000,
@@ -64,9 +55,7 @@ if ( ! function_exists( 'mloc_setup_theme' ) ) {
         );
         add_theme_support( 'custom-header', $header_config );
 
-        /**
-         * Enable support for custom navigation menus
-         */
+        // Enable support for custom navigation menus
         register_nav_menus( array(
             'primary'   => __( 'Primary Menu', 'mloc' ),
             'footer'    => __( 'Footer Menu', 'mloc' ),

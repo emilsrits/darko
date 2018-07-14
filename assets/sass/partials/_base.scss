@@ -193,16 +193,20 @@ span.required {
   text-align: center;
 }
 
-.wp-caption-text {
+.wp-caption-text, .gallery-caption {
   margin: 0;
   padding-top: 5px;
   color: $c-grey;
   font-size: $f-small;
   text-align: center;
 }
-/*--------------------------------------------------------------
-## Header
---------------------------------------------------------------*/
+
+.attachment .wp-caption-text {
+  padding-top: 10px;
+}
+  /*--------------------------------------------------------------
+  ## Header
+  --------------------------------------------------------------*/
 .hero {
   position: relative;
   padding: 60px 0;
