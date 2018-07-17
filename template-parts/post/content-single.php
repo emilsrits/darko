@@ -6,26 +6,25 @@
  *
  * @package Mloc
  */
-
-$post_featured_image_enabled = get_theme_mod( 'mloc_single_post_featured_image', true );
-$post_featured_image = get_the_post_thumbnail( get_the_ID() );
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-    <?php if ( $post_featured_image_enabled && ! empty( $post_featured_image ) ) : ?>
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="featured-img">
-                    <?php echo $post_featured_image; ?>
-                </div>
-            </div>
-        </div> <!-- .row -->
-    <?php endif; ?>
+    <?php mloc_get_the_post_thumbnail( get_the_ID() ); ?>
 
     <div class="row">
         <div class="col-xs-12">
             <div class="post-content">
-                <?php the_content(); ?>
+                <?php
+                the_content();
+                wp_link_pages(
+                    array(
+                        'before'        => '<div class="content-pages">' . __( 'Pages:', 'mloc' ) . ' <ul>',
+                        'after'         => '</ul></div>',
+                        'link_before'   => '<li>',
+                        'link_after'    => '</li>',
+                    )
+                );
+                ?>
             </div> <!-- .post-content -->
 
             <div class="post-categories">

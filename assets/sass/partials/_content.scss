@@ -20,6 +20,24 @@
       color: $c-red-darker;
     }
   }
+
+  .content-pages {
+    margin: 10px 0;
+    padding: 5px;
+    border-left: 2px solid $c-grey;
+
+    ul, li {
+      display: inline-block;
+    }
+
+    li {
+      padding: 0 3px;
+    }
+
+    a > li:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 .page, .single-post, .archive, .search, .home, .blog {

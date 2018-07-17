@@ -39,6 +39,35 @@ if ( ! function_exists( 'mloc_content_layout_classes' ) ) {
     }
 }
 
+if ( ! function_exists( 'mloc_get_the_post_thumbnail' ) ) {
+    /**
+     * Display featured image of post
+     *
+     * @param $post_id
+     */
+    function mloc_get_the_post_thumbnail( $post_id ) {
+        global $multipage;
+        if ( is_single() ) {
+            $post_featured_image_enabled = get_theme_mod( 'mloc_single_post_featured_image', false );
+        } else {
+            $post_featured_image_enabled = get_theme_mod( 'mloc_page_featured_image', false );
+        }
+        $post_featured_image = get_the_post_thumbnail( $post_id );
+
+        if ( $post_featured_image_enabled && ! empty( $post_featured_image )  && ! $multipage ) {
+            $buffer = '<div class="row">';
+                $buffer .= '<div class="col-xs-12">';
+                    $buffer .= '<div class="featured-img">';
+                        $buffer .= $post_featured_image;
+                    $buffer .= '</div>';
+                $buffer .= '</div>';
+            $buffer .= '</div> <!-- .row -->';
+
+            echo $buffer;
+        }
+    }
+}
+
 if ( ! function_exists( 'mloc_categories' ) ) {
     /**
      * Display the first category of the post
@@ -141,9 +170,9 @@ if ( ! function_exists( 'mloc_comments_pagination' ) ) {
      */
     function mloc_comments_pagination() {
         $pages = paginate_comments_links( array(
-            'type' => 'array',
-            'echo' => false,
-            'mid_size' => 2,
+            'type'      => 'array',
+            'echo'      => false,
+            'mid_size'  => 2,
             'prev_text' => '<i class="material-icons">&#xE5CB;</i>',
             'next_text' => '<i class="material-icons">&#xE5CC;</i>',
         ) );
