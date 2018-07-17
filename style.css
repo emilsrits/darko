@@ -514,8 +514,10 @@ span.required {
   margin: auto;
   width: 40px;
   height: 40px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
 }
-/* line 15, assets/sass/partials/_animation.scss */
+/* line 17, assets/sass/partials/_animation.scss */
 .mloc-ajax-spinner .mloc-spinner {
   width: 100%;
   height: 100%;
@@ -523,7 +525,7 @@ span.required {
   left: 0;
   top: 0;
 }
-/* line 21, assets/sass/partials/_animation.scss */
+/* line 23, assets/sass/partials/_animation.scss */
 .mloc-ajax-spinner .mloc-spinner:before {
   content: '';
   display: block;
@@ -535,123 +537,123 @@ span.required {
   -webkit-animation: mloc-spinner-circleFadeDelay 1.2s infinite ease-in-out both;
   animation: mloc-spinner-circleFadeDelay 1.2s infinite ease-in-out both;
 }
-/* line 34, assets/sass/partials/_animation.scss */
+/* line 36, assets/sass/partials/_animation.scss */
 .mloc-ajax-spinner .mloc-spinner2 {
   -webkit-transform: rotate(30deg);
   -ms-transform: rotate(30deg);
   transform: rotate(30deg);
 }
-/* line 38, assets/sass/partials/_animation.scss */
+/* line 40, assets/sass/partials/_animation.scss */
 .mloc-ajax-spinner .mloc-spinner2:before {
   -webkit-animation-delay: -1.1s;
   animation-delay: -1.1s;
 }
-/* line 43, assets/sass/partials/_animation.scss */
+/* line 45, assets/sass/partials/_animation.scss */
 .mloc-ajax-spinner .mloc-spinner3 {
   -webkit-transform: rotate(60deg);
   -ms-transform: rotate(60deg);
   transform: rotate(60deg);
 }
-/* line 47, assets/sass/partials/_animation.scss */
+/* line 49, assets/sass/partials/_animation.scss */
 .mloc-ajax-spinner .mloc-spinner3:before {
   -webkit-animation-delay: -1s;
   animation-delay: -1s;
 }
-/* line 52, assets/sass/partials/_animation.scss */
+/* line 54, assets/sass/partials/_animation.scss */
 .mloc-ajax-spinner .mloc-spinner4 {
   -webkit-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);
 }
-/* line 56, assets/sass/partials/_animation.scss */
+/* line 58, assets/sass/partials/_animation.scss */
 .mloc-ajax-spinner .mloc-spinner4:before {
   -webkit-animation-delay: -0.9s;
   animation-delay: -0.9s;
 }
-/* line 61, assets/sass/partials/_animation.scss */
+/* line 63, assets/sass/partials/_animation.scss */
 .mloc-ajax-spinner .mloc-spinner5 {
   -webkit-transform: rotate(120deg);
   -ms-transform: rotate(120deg);
   transform: rotate(120deg);
 }
-/* line 65, assets/sass/partials/_animation.scss */
+/* line 67, assets/sass/partials/_animation.scss */
 .mloc-ajax-spinner .mloc-spinner5:before {
   -webkit-animation-delay: -0.8s;
   animation-delay: -0.8s;
 }
-/* line 70, assets/sass/partials/_animation.scss */
+/* line 72, assets/sass/partials/_animation.scss */
 .mloc-ajax-spinner .mloc-spinner6 {
   -webkit-transform: rotate(150deg);
   -ms-transform: rotate(150deg);
   transform: rotate(150deg);
 }
-/* line 74, assets/sass/partials/_animation.scss */
+/* line 76, assets/sass/partials/_animation.scss */
 .mloc-ajax-spinner .mloc-spinner6:before {
   -webkit-animation-delay: -0.7s;
   animation-delay: -0.7s;
 }
-/* line 79, assets/sass/partials/_animation.scss */
+/* line 81, assets/sass/partials/_animation.scss */
 .mloc-ajax-spinner .mloc-spinner7 {
   -webkit-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
 }
-/* line 83, assets/sass/partials/_animation.scss */
+/* line 85, assets/sass/partials/_animation.scss */
 .mloc-ajax-spinner .mloc-spinner7:before {
   -webkit-animation-delay: -0.6s;
   animation-delay: -0.6s;
 }
-/* line 88, assets/sass/partials/_animation.scss */
+/* line 90, assets/sass/partials/_animation.scss */
 .mloc-ajax-spinner .mloc-spinner8 {
   -webkit-transform: rotate(210deg);
   -ms-transform: rotate(210deg);
   transform: rotate(210deg);
 }
-/* line 92, assets/sass/partials/_animation.scss */
+/* line 94, assets/sass/partials/_animation.scss */
 .mloc-ajax-spinner .mloc-spinner8:before {
   -webkit-animation-delay: -0.5s;
   animation-delay: -0.5s;
 }
-/* line 97, assets/sass/partials/_animation.scss */
+/* line 99, assets/sass/partials/_animation.scss */
 .mloc-ajax-spinner .mloc-spinner9 {
   -webkit-transform: rotate(240deg);
   -ms-transform: rotate(240deg);
   transform: rotate(240deg);
 }
-/* line 101, assets/sass/partials/_animation.scss */
+/* line 103, assets/sass/partials/_animation.scss */
 .mloc-ajax-spinner .mloc-spinner9:before {
   -webkit-animation-delay: -0.4s;
   animation-delay: -0.4s;
 }
-/* line 106, assets/sass/partials/_animation.scss */
+/* line 108, assets/sass/partials/_animation.scss */
 .mloc-ajax-spinner .mloc-spinner10 {
   -webkit-transform: rotate(270deg);
   -ms-transform: rotate(270deg);
   transform: rotate(270deg);
 }
-/* line 110, assets/sass/partials/_animation.scss */
+/* line 112, assets/sass/partials/_animation.scss */
 .mloc-ajax-spinner .mloc-spinner10:before {
   -webkit-animation-delay: -0.3s;
   animation-delay: -0.3s;
 }
-/* line 115, assets/sass/partials/_animation.scss */
+/* line 117, assets/sass/partials/_animation.scss */
 .mloc-ajax-spinner .mloc-spinner11 {
   -webkit-transform: rotate(300deg);
   -ms-transform: rotate(300deg);
   transform: rotate(300deg);
 }
-/* line 119, assets/sass/partials/_animation.scss */
+/* line 121, assets/sass/partials/_animation.scss */
 .mloc-ajax-spinner .mloc-spinner11:before {
   -webkit-animation-delay: -0.2s;
   animation-delay: -0.2s;
 }
-/* line 124, assets/sass/partials/_animation.scss */
+/* line 126, assets/sass/partials/_animation.scss */
 .mloc-ajax-spinner .mloc-spinner12 {
   -webkit-transform: rotate(330deg);
   -ms-transform: rotate(330deg);
   transform: rotate(330deg);
 }
-/* line 128, assets/sass/partials/_animation.scss */
+/* line 130, assets/sass/partials/_animation.scss */
 .mloc-ajax-spinner .mloc-spinner12:before {
   -webkit-animation-delay: -0.1s;
   animation-delay: -0.1s;
@@ -1291,6 +1293,14 @@ span.required {
 .gallery img {
   border: 1px solid #303030 !important;
   border-radius: 5px;
+}
+
+/*--------------------------------------------------------------
+## Pages
+--------------------------------------------------------------*/
+/* line 109, assets/sass/partials/_widget.scss */
+.widget_pages .children {
+  padding-left: 10px;
 }
 
 /*--------------------------------------------------------------
