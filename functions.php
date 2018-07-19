@@ -36,6 +36,13 @@ if ( ! function_exists( 'mloc_setup_theme' ) ) {
         // Enable support for post thumbnails
         add_theme_support( 'post-thumbnails' );
 
+        // Enable support for custom background
+        add_theme_support(
+            'custom-background', array(
+                'default-color' => '3e3e3e',
+            )
+        );
+
         // Enable support for custom logo
         $logo_config = array(
             'flex-width'    => true,

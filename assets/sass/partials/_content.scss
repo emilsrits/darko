@@ -1,14 +1,14 @@
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
-#primary {
-  margin-bottom: 25px;
+.custom-background #main .content-container {
+  background-color: rgba(62, 62, 62, 0.97);
 }
 
 #main {
   .content-container {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 25px;
+    padding-bottom: 30px;
     background-color: $c-grey-darker;
   }
 

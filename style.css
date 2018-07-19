@@ -679,14 +679,14 @@ span.required {
 # Content
 --------------------------------------------------------------*/
 /* line 4, assets/sass/partials/_content.scss */
-#primary {
-  margin-bottom: 25px;
+.custom-background #main .content-container {
+  background-color: rgba(62, 62, 62, 0.97);
 }
 
 /* line 9, assets/sass/partials/_content.scss */
 #main .content-container {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 25px;
+  padding-bottom: 30px;
   background-color: #3e3e3e;
 }
 /* line 15, assets/sass/partials/_content.scss */
