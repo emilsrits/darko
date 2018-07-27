@@ -31,7 +31,7 @@ function mloc_layout_customize_register( $wp_customize ) {
 
         // Section: Layout
         $wp_customize->add_section( 'mloc_layout', array(
-            'title'		=> __( 'Layout', 'mloc' ),
+            'title'		=> __( 'Sidebar Layout', 'mloc' ),
             'panel'		=> 'mloc_appearance_settings',
             'priority' 	=> 20,
         ) );
@@ -65,6 +65,19 @@ function mloc_layout_customize_register( $wp_customize ) {
                 'priority'	=> 40,
             ) )
         );
+
+        // Hide sidebar on mobile
+        $wp_customize->add_setting( 'mloc_sidebar_mobile', array(
+            'default'			=> false,
+            'sanitize_callback'	=> 'mloc_sanitize_checkbox',
+        ) );
+        $wp_customize->add_control( 'mloc_sidebar_mobile', array(
+            'type'		=> 'checkbox',
+            'label'		=> esc_html__( 'Hide sidebar on mobile', 'mloc' ),
+            'section'	=> 'mloc_layout',
+            'settings'	=> 'mloc_sidebar_mobile',
+            'priority'	=> 60,
+        ) );
 
     }
 }

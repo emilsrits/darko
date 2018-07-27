@@ -5,6 +5,10 @@
 ## Mobile
 --------------------------------------------------------------*/
 @include mobile {
+  .hidden-xs {
+    display: none;
+  }
+
   .main-menu-fixed {
     #wrapper {
       margin-top: 55px;

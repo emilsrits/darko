@@ -6,6 +6,11 @@
  */
 
 $class_to_add = '';
+$hide_on_mobile = get_theme_mod( 'mloc_sidebar_mobile', false );
+
+if ( $hide_on_mobile ) {
+    $class_to_add .= ' hidden-xs';
+}
 
 if ( is_page() ) {
 	$mloc_sidebar_layout = get_theme_mod( 'mloc_page_sidebar_layout', 'full-width' );
@@ -14,7 +19,7 @@ if ( is_page() ) {
 }
 
 if ( $mloc_sidebar_layout === 'sidebar-right' ) {
-	$class_to_add = ' col-md-offset-1';
+	$class_to_add .= ' col-md-offset-1';
 }
 
 if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
