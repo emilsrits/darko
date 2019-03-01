@@ -27,10 +27,14 @@
   }
 
   ul {
+    padding-left: 0;
 	li {
 	  font-size: $f-medium;
-	  line-height: 1.6;
 	}
+  }
+
+  .children {
+    padding-left: 10px;
   }
 }
 /*--------------------------------------------------------------
@@ -102,10 +106,4 @@
 	border: 1px solid $c-grey-dark !important;
 	border-radius: 5px;
   }
-}
-/*--------------------------------------------------------------
-## Pages
---------------------------------------------------------------*/
-.widget_pages .children {
-  padding-left: 10px;
 }

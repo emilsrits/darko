@@ -26,6 +26,11 @@
     padding: 5px;
     border-left: 2px solid $c-grey;
 
+    ul {
+      padding-left: 0;
+      margin-bottom: 0;
+    }
+
     ul, li {
       display: inline-block;
     }
@@ -40,9 +45,25 @@
   }
 }
 
+
+
 .page, .single-post, .archive, .search, .home, .blog {
   #main {
     margin-top: 0;
+  }
+}
+
+.page, .single-post {
+  article.post, article.page {
+    ul {
+      margin-bottom: 30px;
+    }
+    ul li {
+      list-style-type: disc;
+    }
+    li ul li {
+      list-style-type: circle;
+    }
   }
 }
 
@@ -259,6 +280,7 @@
 
 #comments .children {
   padding-left: 35px;
+  line-height: 1.1;
 
   .comment {
     margin: 5px 0;

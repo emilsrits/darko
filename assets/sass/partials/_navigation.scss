@@ -55,6 +55,14 @@
   }
 }
 
+#main-navigation .navbar-nav, #site-footer .footer-menu {
+  padding-left: 0;
+
+  .sub-menu {
+    padding-left: 0;
+  }
+}
+
 #main-navigation ul.navbar-nav li, #site-footer .footer-menu li {
   position: relative;
   display: inline-block;
