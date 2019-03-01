@@ -91,13 +91,13 @@
 /*--------------------------------------------------------------
 ## Posts
 --------------------------------------------------------------*/
-.home, .blog {
+.blog {
   .post.sticky {
     box-shadow: 0 5px 5px -5px $c-red-darker;
   }
 }
 
-.home, .blog, .archive, .search {
+.blog, .archive, .search {
   article .row {
     justify-content: center;
     align-items: center;

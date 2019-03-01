@@ -788,17 +788,17 @@ span.required {
 ## Posts
 --------------------------------------------------------------*/
 /* line 95, assets/sass/partials/_content.scss */
-.home .post.sticky, .blog .post.sticky {
+.blog .post.sticky {
   box-shadow: 0 5px 5px -5px #b73a3a;
 }
 
 /* line 101, assets/sass/partials/_content.scss */
-.home article .row, .blog article .row, .archive article .row, .search article .row {
+.blog article .row, .archive article .row, .search article .row {
   justify-content: center;
   align-items: center;
 }
 /* line 106, assets/sass/partials/_content.scss */
-.home p, .blog p, .archive p, .search p {
+.blog p, .archive p, .search p {
   font-size: 0.875em;
 }
 
