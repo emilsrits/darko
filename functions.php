@@ -116,6 +116,10 @@ function mloc_script() {
 	wp_register_style( 'mloc-material-icons', 'https://fonts.googleapis.com/icon?family=Material+Icons' );
 	wp_enqueue_style( 'mloc-material-icons' );
 
+	// Font Awesome
+    wp_register_style( 'mloc-font-awesome', 'https://use.fontawesome.com/releases/v5.7.2/css/all.css' );
+    wp_enqueue_style( 'mloc-font-awesome' );
+
     // Main styles
     wp_register_style( 'style', get_stylesheet_uri());
     wp_enqueue_style( 'style' );

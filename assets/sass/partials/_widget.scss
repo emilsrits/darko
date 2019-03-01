@@ -20,7 +20,7 @@
 # Widgets
 --------------------------------------------------------------*/
 .widget {
-  margin-bottom: 30px;
+  margin-bottom: 35px;
 
   h1, h2, h3 {
 	font-size: $f-normal;
@@ -30,6 +30,17 @@
     padding-left: 0;
 	li {
 	  font-size: $f-medium;
+
+      > a::before, > span::before {
+        display: inline-block;
+        margin-right: 5px;
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        font-style: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+      }
 	}
   }
 
@@ -49,18 +60,58 @@
 ## Archive
 --------------------------------------------------------------*/
 .widget_archive {
-	ul li {
-	  color: $c-grey;
-	}
+  select {
+    width: 100%;
+    max-width: 100%;
+  }
+  ul li {
+    color: $c-grey-accent;
+
+    a {
+      color: $c-grey;
+      &:hover {
+        color: $c-red-darker;
+      }
+      &::before {
+        content: "\f073";
+        position: relative;
+        top: -1px;
+      }
+    }
+  }
+}
+/*--------------------------------------------------------------
+## Categories
+--------------------------------------------------------------*/
+.widget_categories {
+  select {
+    width: 100%;
+    max-width: 100%;
+  }
+  ul li {
+    color: $c-grey-accent;
+
+    a {
+      color: $c-grey;
+      &:hover {
+        color: $c-red-darker;
+      }
+      &::before {
+        content: "\f07b";
+        position: relative;
+      }
+    }
+  }
 }
 /*--------------------------------------------------------------
 ## Calendar
 --------------------------------------------------------------*/
 .widget_calendar {
   caption {
-	padding: 0 0 10px;
+	padding: 5px 0;
 	color: $c-grey;
 	font-size: $f-medium;
+    background: $c-red-darker;
   }
 
   table {
@@ -69,28 +120,60 @@
 	border-collapse: collapse;
   }
 
-  tbody, tfoot {
-	tr {
-	  font-size: $f-medium;
-	}
+  thead {
+    background: $c-grey-dark;
   }
 
   tbody, tfoot {
-	tr:last-child {
-	  border-bottom: none;
-	}
+    font-size: $f-medium;
   }
 
-  tr {
-	border-bottom: 1px solid $c-grey-dark;
+  tfoot td {
+    border: none;
   }
 
-  tr, th ,td {
+  tr, th, td {
 	padding: 6px 0;
   }
 
   th, td {
 	text-align: center;
+    border: 1px solid $c-black;
+  }
+}
+/*--------------------------------------------------------------
+## Recent Comments
+--------------------------------------------------------------*/
+.widget_recent_comments {
+  ul li {
+    color: $c-grey;
+    font-size: $f-small;
+
+    > span {
+      &::before {
+        content: "\f075";
+        position: relative;
+      }
+    }
+  }
+}
+/*--------------------------------------------------------------
+## Recent Posts
+--------------------------------------------------------------*/
+.widget_recent_entries {
+  ul li {
+    color: $c-grey-accent;
+  }
+}
+/*--------------------------------------------------------------
+## Pages
+--------------------------------------------------------------*/
+.widget_pages {
+  ul li a {
+    color: $c-grey;
+    &:hover {
+      color: $c-red-darker;
+    }
   }
 }
 /*--------------------------------------------------------------

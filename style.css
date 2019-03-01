@@ -1256,7 +1256,7 @@ span.required {
 --------------------------------------------------------------*/
 /* line 22, assets/sass/partials/_widget.scss */
 .widget {
-  margin-bottom: 30px;
+  margin-bottom: 35px;
 }
 /* line 25, assets/sass/partials/_widget.scss */
 .widget h1, .widget h2, .widget h3 {
@@ -1270,7 +1270,18 @@ span.required {
 .widget ul li {
   font-size: 0.875em;
 }
-/* line 36, assets/sass/partials/_widget.scss */
+/* line 34, assets/sass/partials/_widget.scss */
+.widget ul li > a::before, .widget ul li > span::before {
+  display: inline-block;
+  margin-right: 5px;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+/* line 47, assets/sass/partials/_widget.scss */
 .widget .children {
   padding-left: 10px;
 }
@@ -1278,7 +1289,7 @@ span.required {
 /*--------------------------------------------------------------
 ## Search
 --------------------------------------------------------------*/
-/* line 44, assets/sass/partials/_widget.scss */
+/* line 55, assets/sass/partials/_widget.scss */
 .widget_search .mloc-search input[type="search"] {
   max-width: 220px;
 }
@@ -1286,56 +1297,137 @@ span.required {
 /*--------------------------------------------------------------
 ## Archive
 --------------------------------------------------------------*/
-/* line 52, assets/sass/partials/_widget.scss */
+/* line 63, assets/sass/partials/_widget.scss */
+.widget_archive select {
+  width: 100%;
+  max-width: 100%;
+}
+/* line 67, assets/sass/partials/_widget.scss */
 .widget_archive ul li {
+  color: #747474;
+}
+/* line 70, assets/sass/partials/_widget.scss */
+.widget_archive ul li a {
   color: #bebebe;
+}
+/* line 72, assets/sass/partials/_widget.scss */
+.widget_archive ul li a:hover {
+  color: #b73a3a;
+}
+/* line 75, assets/sass/partials/_widget.scss */
+.widget_archive ul li a::before {
+  content: "\f073";
+  position: relative;
+  top: -1px;
+}
+
+/*--------------------------------------------------------------
+## Categories
+--------------------------------------------------------------*/
+/* line 87, assets/sass/partials/_widget.scss */
+.widget_categories select {
+  width: 100%;
+  max-width: 100%;
+}
+/* line 91, assets/sass/partials/_widget.scss */
+.widget_categories ul li {
+  color: #747474;
+}
+/* line 94, assets/sass/partials/_widget.scss */
+.widget_categories ul li a {
+  color: #bebebe;
+}
+/* line 96, assets/sass/partials/_widget.scss */
+.widget_categories ul li a:hover {
+  color: #b73a3a;
+}
+/* line 99, assets/sass/partials/_widget.scss */
+.widget_categories ul li a::before {
+  content: "\f07b";
+  position: relative;
 }
 
 /*--------------------------------------------------------------
 ## Calendar
 --------------------------------------------------------------*/
-/* line 60, assets/sass/partials/_widget.scss */
+/* line 110, assets/sass/partials/_widget.scss */
 .widget_calendar caption {
-  padding: 0 0 10px;
+  padding: 5px 0;
   color: #bebebe;
   font-size: 0.875em;
+  background: #b73a3a;
 }
-/* line 66, assets/sass/partials/_widget.scss */
+/* line 117, assets/sass/partials/_widget.scss */
 .widget_calendar table {
   width: 100%;
   max-width: 300px;
   border-collapse: collapse;
 }
-/* line 73, assets/sass/partials/_widget.scss */
-.widget_calendar tbody tr, .widget_calendar tfoot tr {
+/* line 123, assets/sass/partials/_widget.scss */
+.widget_calendar thead {
+  background: #303030;
+}
+/* line 127, assets/sass/partials/_widget.scss */
+.widget_calendar tbody, .widget_calendar tfoot {
   font-size: 0.875em;
 }
-/* line 79, assets/sass/partials/_widget.scss */
-.widget_calendar tbody tr:last-child, .widget_calendar tfoot tr:last-child {
-  border-bottom: none;
+/* line 131, assets/sass/partials/_widget.scss */
+.widget_calendar tfoot td {
+  border: none;
 }
-/* line 84, assets/sass/partials/_widget.scss */
-.widget_calendar tr {
-  border-bottom: 1px solid #303030;
-}
-/* line 88, assets/sass/partials/_widget.scss */
+/* line 135, assets/sass/partials/_widget.scss */
 .widget_calendar tr, .widget_calendar th, .widget_calendar td {
   padding: 6px 0;
 }
-/* line 92, assets/sass/partials/_widget.scss */
+/* line 139, assets/sass/partials/_widget.scss */
 .widget_calendar th, .widget_calendar td {
   text-align: center;
+  border: 1px solid #000;
+}
+
+/*--------------------------------------------------------------
+## Recent Comments
+--------------------------------------------------------------*/
+/* line 148, assets/sass/partials/_widget.scss */
+.widget_recent_comments ul li {
+  color: #bebebe;
+  font-size: 0.75em;
+}
+/* line 153, assets/sass/partials/_widget.scss */
+.widget_recent_comments ul li > span::before {
+  content: "\f075";
+  position: relative;
+}
+
+/*--------------------------------------------------------------
+## Recent Posts
+--------------------------------------------------------------*/
+/* line 164, assets/sass/partials/_widget.scss */
+.widget_recent_entries ul li {
+  color: #747474;
+}
+
+/*--------------------------------------------------------------
+## Pages
+--------------------------------------------------------------*/
+/* line 172, assets/sass/partials/_widget.scss */
+.widget_pages ul li a {
+  color: #bebebe;
+}
+/* line 174, assets/sass/partials/_widget.scss */
+.widget_pages ul li a:hover {
+  color: #b73a3a;
 }
 
 /*--------------------------------------------------------------
 ## Gallery
 --------------------------------------------------------------*/
-/* line 100, assets/sass/partials/_widget.scss */
+/* line 183, assets/sass/partials/_widget.scss */
 .gallery .gallery-item {
   margin: 5px 0;
   padding: 0 4px;
 }
-/* line 105, assets/sass/partials/_widget.scss */
+/* line 188, assets/sass/partials/_widget.scss */
 .gallery img {
   border: 1px solid #303030 !important;
   border-radius: 5px;
