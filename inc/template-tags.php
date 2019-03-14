@@ -151,7 +151,7 @@ if ( ! function_exists( 'mloc_comments_list' ) ) {
                         array(
                             'depth'      => $depth,
                             'max_depth'  => $args['max_depth'],
-                            'reply_text' => sprintf( '<i class="material-icons">&#xE15E;</i> %s', esc_html__( 'Reply', 'mloc' ) ),
+                            'reply_text' => sprintf( '<i class="fas fa-reply"></i> %s', esc_html__( 'Reply', 'mloc' ) ),
                         ),
                         $comment->comment_ID,
                         $comment->comment_post_ID
@@ -173,8 +173,8 @@ if ( ! function_exists( 'mloc_comments_pagination' ) ) {
             'type'      => 'array',
             'echo'      => false,
             'mid_size'  => 2,
-            'prev_text' => '<i class="material-icons">&#xE5CB;</i>',
-            'next_text' => '<i class="material-icons">&#xE5CC;</i>',
+            'prev_text' => '<i class="fas fa-angle-left"></i>',
+            'next_text' => '<i class="fas fa-angle-right"></i>',
         ) );
 
         if ( is_array( $pages ) ) {
@@ -228,8 +228,8 @@ if ( ! function_exists( 'mloc_comments_form_template' ) ) {
                         )
                     ), esc_url( wp_login_url( apply_filters( 'the_permalink', get_permalink() ) ) )
                 ) . '</p> </div>',
-            'class_submit'         => 'material-icons btn',
-            'label_submit'         => '&#xE163;',
+            'class_submit'         => 'fas fa-paper-plane btn',
+            'label_submit'         => '&#xf1d8;',
             'title_reply_before'   => '<h3 class="comments-reply-header">',
             'title_reply_after'    => '</h3><div class="form-body"><div class="author-avatar">' . $current_user . '</div>',
             'cancel_reply_before'  => ' <span class="required">',
@@ -396,10 +396,10 @@ if ( ! function_exists( 'mloc_ajax_related_posts_navigation' ) ) {
         ?>
         <div id="related-posts-navigation">
             <button class="ajax-prev-page btn" disabled>
-                <i class="material-icons">&#xE5CB;</i>
+                <i class="fas fa-angle-left"></i>
             </button>
             <button class="ajax-next-page btn">
-                <i class="material-icons">&#xE5CC;</i>
+                <i class="fas fa-angle-right"></i>
             </button>
         </div>
         <?php
@@ -417,7 +417,7 @@ if ( ! function_exists( 'mloc_content_area_search_form' ) ) {
         <div class="mloc-search ' . $class_to_add . '">
             <form action="' . esc_url( home_url( '/' ) ) . '" role="search" method="get">
                 <input name="s" type="search" placeholder="' . __( 'Search...', 'mloc' ) . '" value="' . get_search_query() . '" required>
-                <button type="submit" class="btn"><i class="material-icons">&#xE8B6;</i></button>
+                <button type="submit" class="btn"><i class="fas fa-search"></i></button>
             </form>
         </div>';
 

@@ -112,10 +112,6 @@ function mloc_script() {
     wp_register_style( 'mloc-google-fonts', 'https://fonts.googleapis.com/css?family=Open+Sans|Roboto|Roboto+Slab' );
     wp_enqueue_style( 'mloc-google-fonts' );
 
-    // Material icons
-	wp_register_style( 'mloc-material-icons', 'https://fonts.googleapis.com/icon?family=Material+Icons' );
-	wp_enqueue_style( 'mloc-material-icons' );
-
 	// Font Awesome
     wp_register_style( 'mloc-font-awesome', 'https://use.fontawesome.com/releases/v5.7.2/css/all.css' );
     wp_enqueue_style( 'mloc-font-awesome' );
@@ -168,7 +164,7 @@ function mloc_primary_menu_search() {
             <form action="' . esc_url( home_url( '/' ) ) . '" role="search" method="get">
                 <div class="mloc-nav-search-container">
                     <input name="s" type="search" placeholder="' . __( 'Search...', 'mloc' ) . '" value="' . get_search_query() . '" required>
-                    <button type="submit" class="btn"><i class="material-icons">&#xE8B6;</i></button>
+                    <button type="submit" class="btn"><i class="fas fa-search"></i></button>
                 </div>
             </form>
         </li>';
@@ -223,7 +219,7 @@ if ( function_exists( 'mloc_comments_form_template' ) ) {
 function mloc_go_top() {
 	?>
 	<button id="mloc-go-top" class="faded-out">
-		<i class="material-icons">&#xE316;</i>
+        <i class="fas fa-angle-up"></i>
 	</button>
 	<?php
 }

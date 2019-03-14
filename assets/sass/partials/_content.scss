@@ -255,6 +255,11 @@
     &:hover {
       color: $c-red-darker;
     }
+
+    i {
+      padding: 0 6px;
+      font-size: $f-very-large;
+    }
   }
 
   .btn[disabled] {
@@ -319,6 +324,7 @@
   .comment-meta {
     > h4 {
       margin: 0 0 10px;
+      line-height: 1.15;
 
       .comment-date {
         font-family: 'Roboto', sans-serif;
@@ -335,8 +341,12 @@
   .comment-footer {
     text-align: right;
 
-    a, i {
+    a {
       font-size: $f-medium;
+    }
+
+    i {
+      font-size: $f-small;
     }
   }
 }
@@ -486,11 +496,6 @@
     transition: 0.3s ease-in-out;
     &:hover {
       color: $c-red-darker;
-    }
-
-    > i {
-      font-size: 28px;
-      vertical-align: middle;
     }
   }
 }

@@ -29,8 +29,8 @@ $class_to_add = mloc_content_layout_classes( $mloc_blog_sidebar_layout, 'sidebar
 						endwhile;
 						the_posts_pagination( array(
 							'mid_size' => 2,
-							'prev_text' => '<i class="material-icons">&#xE5CB;</i>',
-							'next_text' => '<i class="material-icons">&#xE5CC;</i>',
+							'prev_text' => '<i class="fas fa-angle-left"></i>',
+							'next_text' => '<i class="fas fa-angle-right"></i>',
 						) );
 					else :
 						get_template_part( 'template-parts/post/content', 'none' );

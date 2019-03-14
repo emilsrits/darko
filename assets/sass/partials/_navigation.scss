@@ -28,6 +28,10 @@
     background: none;
     border: none;
     outline: none;
+
+    i {
+      font-size: $f-very-large;
+    }
   }
 }
 
@@ -109,6 +113,8 @@
       position: absolute;
       top: 0;
       right: 0;
+      padding: 1px 8px;
+      line-height: 1.6;
       background: none;
       border: none;
       transition: 0.3s ease-in-out;
