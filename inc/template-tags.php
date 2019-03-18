@@ -17,7 +17,7 @@ if ( ! function_exists( 'mloc_content_layout_classes' ) ) {
     function mloc_content_layout_classes( $layout, $sidebar, $args ) {
         if ( ! $args ) {
             $args = array(
-                'full-width'    => 'col-md-12',
+                'full-width'    => 'col-xs-12',
                 'sidebar-right' => 'col-xs-12 col-md-8',
                 'sidebar-left'  => 'col-xs-12 col-md-8 col-md-offset-1',
             );

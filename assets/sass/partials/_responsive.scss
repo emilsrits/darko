@@ -9,6 +9,10 @@
     display: none;
   }
 
+  .container {
+    padding: 0 20px;
+  }
+
   .main-menu-fixed {
     #wrapper {
       margin-top: 55px;
@@ -248,7 +252,7 @@
       position: absolute;
       left: 0;
       min-width: 140px;
-      background: rgba(33, 33, 33, 0.8);
+      background: rgba(33, 33, 33, 0.9);
       z-index: 50;
       &:hover {
         display: block;
