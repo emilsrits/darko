@@ -1,5 +1,5 @@
 http_path = "/" #root level target path
-css_dir = "." #targets our default style.css file at the root level of our theme
+css_dir = "assets/css" #targets our default style.css file at the root level of our theme
 sass_dir = "assets/sass" #targets our sass directory
 images_dir = "assets/images" #targets our pre existing image directory
 javascripts_dir = "assets/js" #targets our JavaScript directory
@@ -11,3 +11,11 @@ javascripts_dir = "assets/js" #targets our JavaScript directory
 # note: this is important in wordpress themes for sprites
 
 relative_assets = true
+
+require 'fileutils'
+on_stylesheet_saved do |file|
+  if File.exists?(file) && File.basename(file) == "style.css"
+    puts "Moving: #{file}"
+    FileUtils.mv(file, File.dirname(file) + "/../../" + File.basename(file))
+  end
+end

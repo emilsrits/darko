@@ -1,0 +1,59 @@
+/*--------------------------------------------------------------
+# Breakpoints
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Colors
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Fonts
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Mixin - Breakpoints
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Breakpoints
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Colors
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Fonts
+--------------------------------------------------------------*/
+/* line 4, ../sass/gutenberg-editor-style.scss */
+.edit-post-visual-editor .editor-block-list__block {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+}
+/* line 7, ../sass/gutenberg-editor-style.scss */
+.edit-post-visual-editor .editor-block-list__block a {
+  color: #CC4040;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+/* line 11, ../sass/gutenberg-editor-style.scss */
+.edit-post-visual-editor .editor-block-list__block a:focus, .edit-post-visual-editor .editor-block-list__block a:visited {
+  color: #CC4040;
+}
+/* line 14, ../sass/gutenberg-editor-style.scss */
+.edit-post-visual-editor .editor-block-list__block a:hover {
+  color: #b73a3a;
+}
+/* line 19, ../sass/gutenberg-editor-style.scss */
+.edit-post-visual-editor .editor-block-list__block blockquote {
+  margin: 0;
+  padding-left: 10px;
+  font-style: italic;
+  border-left: 3px solid #b73a3a;
+}
+/* line 26, ../sass/gutenberg-editor-style.scss */
+.edit-post-visual-editor .editor-block-list__block pre {
+  margin: 0 0 10px;
+  padding: 8px;
+  font-size: 0.875em;
+  color: #303030;
+  background: #eee;
+  border: 1px solid #bebebe;
+  border-radius: 3px;
+  word-break: break-all;
+  word-wrap: break-word;
+  overflow: auto;
+}

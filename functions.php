@@ -67,8 +67,20 @@ if ( ! function_exists( 'mloc_setup_theme' ) ) {
             'primary'   => __( 'Primary Menu', 'mloc' ),
             'footer'    => __( 'Footer Menu', 'mloc' ),
         ) );
+
+        // Enable support for editor style
+        add_editor_style();
     }
     add_action( 'after_setup_theme', 'mloc_setup_theme' );
+}
+
+add_action( 'enqueue_block_editor_assets', 'mloc_add_gutenberg_assets' );
+
+/**
+ * Load Gutenberg stylesheet
+ */
+function mloc_add_gutenberg_assets() {
+    wp_enqueue_style( 'mloc-gutenberg', get_theme_file_uri('/assets/css/gutenberg-editor-style.css'), false );
 }
 
 /**
@@ -109,7 +121,7 @@ function mloc_script() {
     wp_enqueue_style( 'flexboxgrid' );
 
     // Google fonts
-    wp_register_style( 'mloc-google-fonts', 'https://fonts.googleapis.com/css?family=Open+Sans|Roboto|Roboto+Slab' );
+    wp_register_style( 'mloc-google-fonts', 'https://fonts.googleapis.com/css?family=Open+Sans|Roboto' );
     wp_enqueue_style( 'mloc-google-fonts' );
 
 	// Font Awesome

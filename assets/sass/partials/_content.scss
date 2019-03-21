@@ -55,11 +55,11 @@
 
 .page, .single-post {
   article.post, article.page {
-    ul {
-      margin-bottom: 30px;
-    }
     ul li {
       list-style-type: disc;
+    }
+    ul.is-grid li {
+      list-style-type: none;
     }
     li ul li {
       list-style-type: circle;
@@ -327,7 +327,7 @@
       line-height: 1.15;
 
       .comment-date {
-        font-family: 'Roboto', sans-serif;
+        font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
         font-size: $f-small;
       }
     }
