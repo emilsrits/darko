@@ -24,13 +24,66 @@
 
   .navbar-toggle {
     display: block;
+    position: relative;
+    padding: 0;
+    width: 30px;
+    height: 24px;
     color: $c-black;
     background: none;
     border: none;
     outline: none;
+    cursor: pointer;
 
-    i {
-      font-size: $f-very-large;
+    .hamburger-bar, .hamburger-bar::before, .hamburger-bar::after {
+      position: absolute;
+      width: 30px;
+      height: 4px;
+      border-radius: 4px;
+      background-color: $c-black;
+      transition: transform 0.15s ease;
+    }
+
+    .hamburger-bar {
+      display: block;
+      top: 50%;
+      margin-top: -2px;
+      transition-timing-function: cubic-bezier(.55,.055,.675,.19);
+      transition-duration: 75ms;
+      &::before, &::after {
+        display: block;
+        content: "";
+      }
+    }
+  }
+
+  .navbar-toggle.collapsed {
+    .hamburger-bar {
+      &::before {
+        top: -10px;
+        transition: top 75ms ease .12s,opacity 75ms ease;
+      }
+      &::after {
+        bottom: -10px;
+        transition: bottom 75ms ease .12s, transform 75ms cubic-bezier(.55,.055,.675,.19);
+      }
+    }
+  }
+
+  .navbar-toggle:not(.collapsed) {
+    .hamburger-bar {
+      transition-delay: .12s;
+      transition-timing-function: cubic-bezier(.215,.61,.355,1);
+      transform: rotate(45deg);
+      &::before {
+        top: 0;
+        opacity: 0;
+        transition: top 75ms ease,opacity 75ms ease .12s;
+      }
+      &::after {
+        bottom: 0;
+        transition: bottom 75ms ease,transform 75ms cubic-bezier(.215,.61,.355,1) .12s;
+        transform: rotate(-90deg);
+      }
     }
   }
 }
@@ -135,6 +188,7 @@
   position: fixed;
   right: 15px;
   bottom: 15px;
+  padding: 2px;
   width: 40px;
   height: 40px;
   color: $c-grey-light;

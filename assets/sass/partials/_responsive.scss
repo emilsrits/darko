@@ -28,6 +28,8 @@
     top: 100%;
     left: 0;
     width: 100%;
+    border-top: 1px solid transparent;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
     transition: max-height 0.3s ease-in-out;
     overflow: hidden;
     z-index: 1;
@@ -40,7 +42,6 @@
 
     ul.navbar-nav {
       padding: 10px 0;
-      border-top: 1px solid $c-grey-darker;
 
       > li {
         display: block;
@@ -75,7 +76,7 @@
           border: 1px solid $c-black;
           cursor: pointer;
           z-index: 70;
-          &:before {
+          &::before {
             content: "";
             position: absolute;
             top: calc(50% - 2px);
@@ -87,7 +88,7 @@
             border-left: 4px solid transparent;
             transition: 0.3s ease;
           }
-          &.collapsed:before {
+          &.collapsed::before {
             transform: rotate(180deg);
           }
         }
@@ -224,13 +225,17 @@
     .navbar-toggle {
       display: none;
     }
+
+    #main-navigation {
+      display: block;
+    }
   }
 
   #main-navigation .mloc-nav-search {
     margin-left: 25px;
   }
 
-  #main-navigation ul.navbar-nav > .menu-item-has-children:hover:before {
+  #main-navigation ul.navbar-nav > .menu-item-has-children:hover::before {
     content: "";
     position: absolute;
     bottom: -2px;

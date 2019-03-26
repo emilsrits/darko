@@ -1,7 +1,7 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
-*, *:before, *:after {
+*, *::before, *::after {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -329,7 +329,7 @@ table.wp-block-table.is-style-stripes {
     z-index: -1;
     background-position: center center;
     background-size: cover;
-    &:before, &:after {
+    &::before, &::after {
       display: block;
       position: absolute;
       top: 0;
@@ -338,7 +338,7 @@ table.wp-block-table.is-style-stripes {
       height: 100%;
       content: "";
     }
-    &:before {
+    &::before {
       background-color: rgba(0, 0, 0, 0.65);
     }
   }

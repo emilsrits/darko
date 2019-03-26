@@ -82,7 +82,9 @@
             if ( toggleTarget.hasClass( 'in' ) ) {
                 toggleTarget.slideDown();
             } else {
-                toggleTarget.slideUp();
+                toggleTarget.slideUp(400, function () {
+                    toggleTarget.css('display', '');
+                });
             }
         } );
     }) ();

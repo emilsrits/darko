@@ -20,7 +20,7 @@ $logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
             endif; ?>
         </a>
         <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navigation" aria-controls="main-navigation" aria-expanded="false" aria-label="Toggle navigation">
-            <span><i class="fas fa-bars"></i></span>
+            <div class="hamburger-bar"></div>
         </button>
         <?php
         wp_nav_menu( array(
