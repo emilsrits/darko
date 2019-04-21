@@ -70,13 +70,19 @@ if ( ! function_exists( 'mloc_get_the_post_thumbnail' ) ) {
 
 if ( ! function_exists( 'mloc_categories' ) ) {
     /**
-     * Display the first category of the post
+     * Display categories of the post
      */
     function mloc_categories() {
         $categories = get_the_category();
+        $count = 0;
+
         if ( $categories ) {
-            foreach ($categories as $category) {
+            foreach ( $categories as $category ) {
+                $count++;
                 echo '<span><a class="label" href="' . esc_url( get_category_link( $category->term_id ) ) . '" title="' . esc_attr( sprintf( __( 'View all posts in %s', 'mloc' ), $category->name ) ) . '">' . esc_html( $category->name ) . '</a></span>';
+                if ( ! is_single() && $count >= 5 ) {
+                    break;
+                }
             }
         }
     }
