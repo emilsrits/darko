@@ -50,7 +50,7 @@ add_action( 'customize_register', 'mloc_register_customizer_objects', 0 );
  * @param $wp_customize
  */
 function mloc_customize_register( $wp_customize ) {
-	// Panel: Appearance settings
+    // Panel: Appearance settings
 	$wp_customize->add_panel( 'mloc_appearance_settings', array(
 		'title'		=> __( 'Appearance Settings', 'mloc' ),
 		'priority'	=> 25,
@@ -72,6 +72,7 @@ function mloc_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'mloc_copyright', array(
 		'default'			=> '© Copyright - ' . get_bloginfo( 'name' ),
 		'sanitize_callback'	=> 'wp_filter_nohtml_kses',
+        'transport'         => 'postMessage',
 	) );
 	$wp_customize->add_control( 'mloc_copyright', array(
 		'type'			=> 'text',
@@ -81,6 +82,43 @@ function mloc_customize_register( $wp_customize ) {
 		'settings'		=> 'mloc_copyright',
 		'priority'		=> 65,
 	) );
+
+	// Add selective refresh
+    $wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
+
+    $wp_customize->get_setting( 'custom_logo' )->transport = 'postMessage';
+
+    $wp_customize->selective_refresh->add_partial( 'blogname', array(
+        'selector'          => '.navbar-brand p',
+        'render_callback'   => function() {
+            return get_bloginfo( 'name' );
+        },
+    ) );
+
+    $wp_customize->selective_refresh->add_partial( 'custom_logo', array(
+        'selector'          => '.navbar-brand',
+        'render_callback'   => function() {
+            $custom_logo_id = get_theme_mod( 'custom_logo' );
+            $logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+
+            if ( $custom_logo_id ) {
+                $logo_callback = '<img src="' . esc_url( $logo[0] ) . '" alt="' . get_bloginfo( 'name' ) . '">';
+            } else {
+                $logo_callback = '<p>' . get_bloginfo( 'name' ) . '</p>';
+            }
+
+            return $logo_callback;
+        },
+    ) );
+
+    $wp_customize->selective_refresh->add_partial( 'mloc_copyright', array(
+        'selector'          => '.copyright p',
+        'render_callback'   => function() {
+            $copyright = get_theme_mod( 'mloc_copyright', '© Copyright - ' . get_bloginfo( 'name' ) );
+
+            return $copyright;
+        },
+    ) );
 }
 add_action( 'customize_register', 'mloc_customize_register' );
 

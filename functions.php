@@ -62,6 +62,9 @@ if ( ! function_exists( 'mloc_setup_theme' ) ) {
         );
         add_theme_support( 'custom-header', $header_config );
 
+        // Enable support for selective refresh widgets
+        add_theme_support( 'customize-selective-refresh-widgets' );
+
         // Enable support for custom navigation menus
         register_nav_menus( array(
             'primary'   => __( 'Primary Menu', 'mloc' ),

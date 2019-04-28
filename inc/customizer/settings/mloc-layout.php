@@ -30,8 +30,8 @@ function mloc_layout_customize_register( $wp_customize ) {
         );
 
         // Section: Layout
-        $wp_customize->add_section( 'mloc_layout', array(
-            'title'		=> __( 'Sidebar Layout', 'mloc' ),
+        $wp_customize->add_section( 'mloc_appearance_general', array(
+            'title'		=> __( 'General', 'mloc' ),
             'panel'		=> 'mloc_appearance_settings',
             'priority' 	=> 20,
         ) );
@@ -44,7 +44,7 @@ function mloc_layout_customize_register( $wp_customize ) {
         $wp_customize->add_control(
             new Mloc_Control_Image_Select( $wp_customize, 'mloc_blog_sidebar_layout', array(
                 'label'		=> esc_html__( 'Blog Layout', 'mloc' ),
-                'section'	=> 'mloc_layout',
+                'section'	=> 'mloc_appearance_general',
                 'settings'	=> 'mloc_blog_sidebar_layout',
                 'choices'	=> $sidebar_layouts,
                 'priority'	=> 20,
@@ -59,7 +59,7 @@ function mloc_layout_customize_register( $wp_customize ) {
         $wp_customize->add_control(
             new Mloc_Control_Image_Select( $wp_customize, 'mloc_page_sidebar_layout', array(
                 'label'		=> esc_html__( 'Page Layout', 'mloc' ),
-                'section'	=> 'mloc_layout',
+                'section'	=> 'mloc_appearance_general',
                 'settings'	=> 'mloc_page_sidebar_layout',
                 'choices'	=> $sidebar_layouts,
                 'priority'	=> 40,
@@ -74,7 +74,7 @@ function mloc_layout_customize_register( $wp_customize ) {
         $wp_customize->add_control( 'mloc_sidebar_mobile', array(
             'type'		=> 'checkbox',
             'label'		=> esc_html__( 'Hide sidebar on mobile', 'mloc' ),
-            'section'	=> 'mloc_layout',
+            'section'	=> 'mloc_appearance_general',
             'settings'	=> 'mloc_sidebar_mobile',
             'priority'	=> 60,
         ) );

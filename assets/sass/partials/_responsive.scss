@@ -23,6 +23,12 @@
     }
   }
 
+  #main-menu {
+    .navbar-brand p {
+      margin: 0;
+    }
+  }
+
   #main-navigation {
     position: absolute;
     top: 100%;
