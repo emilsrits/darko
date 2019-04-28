@@ -30,6 +30,10 @@
      * scroll location
      */
     (function () {
+        if (!goTop.length) {
+            return;
+        }
+
         if (!win.scrollTop()) {
             mainMenu.addClass('at-top');
         }
@@ -66,7 +70,7 @@
      * Navigation bar toggle for mobile
      */
     (function () {
-        if (!menuToggle) {
+        if (!menuToggle.length) {
             return;
         }
 

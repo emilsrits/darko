@@ -20,7 +20,7 @@ function mloc_setup_customizer_files() {
     }
 
     $settings_array = array(
-        'customizer/settings/mloc-layout.php',
+        'customizer/settings/mloc-appearance-general.php',
         'customizer/settings/mloc-navigation.php',
         'customizer/settings/mloc-page.php',
         'customizer/settings/mloc-single-post.php'

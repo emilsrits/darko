@@ -232,11 +232,15 @@ if ( function_exists( 'mloc_comments_form_template' ) ) {
  * Display go to top button which scrolls user to top of the page when clicked
  */
 function mloc_go_top() {
-	?>
-	<button id="mloc-go-top" class="faded-out">
-        <i class="fas fa-angle-up"></i>
-	</button>
-	<?php
+    $go_top = get_theme_mod( 'mloc_go_top' );
+
+    if ( $go_top ) {
+        ?>
+        <button id="mloc-go-top" class="faded-out">
+            <i class="fas fa-angle-up"></i>
+        </button>
+        <?php
+    }
 }
 add_action( 'wp_footer', 'mloc_go_top' );
 

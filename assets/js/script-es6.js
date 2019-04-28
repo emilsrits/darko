@@ -29,7 +29,11 @@
      * Change elements depending on window
      * scroll location
      */
-    ( function () {
+    ( () => {
+        if ( ! goTop.length ) {
+            return;
+        }
+
         if ( ! win.scrollTop() ) {
             mainMenu.addClass( 'at-top' );
         }
@@ -53,7 +57,7 @@
     /**
      * Toggle main navigation dropdown items
      */
-    ( function () {
+    ( () => {
 		navItemToggle.click( 'click', function ( e ) {
 		    e.preventDefault();
 			let currentItem = $( this );
@@ -65,8 +69,8 @@
     /**
      * Navigation bar toggle for mobile
      */
-    ( function () {
-        if ( ! menuToggle ) {
+    ( () => {
+        if ( ! menuToggle.length ) {
             return;
         }
 
@@ -92,7 +96,7 @@
     /**
      * Scroll to top on click
      */
-    ( function () {
+    ( () => {
         goTop.on( 'click', function () {
             $( 'html, body' ).animate( {scrollTop: 0}, 800 );
             return false;

@@ -10,7 +10,7 @@
  *
  * @param $wp_customize
  */
-function mloc_layout_customize_register( $wp_customize ) {
+function mloc_appearance_general_customize_register( $wp_customize ) {
     // Check if class for custom radio image exists
     if ( class_exists( 'Mloc_Control_Image_Select' ) ) {
 
@@ -79,6 +79,19 @@ function mloc_layout_customize_register( $wp_customize ) {
             'priority'	=> 60,
         ) );
 
+        // Enable scroll to top button
+        $wp_customize->add_setting( 'mloc_go_top', array(
+            'default'           => true,
+            'sanitize_callback' => 'mloc_sanitize_checkbox',
+        ) );
+        $wp_customize->add_control( 'mloc_go_top', array(
+            'type'		=> 'checkbox',
+            'label'		=> esc_html__( 'Enable scroll to top button', 'mloc' ),
+            'section'	=> 'mloc_appearance_general',
+            'settings'	=> 'mloc_go_top',
+            'priority'	=> 80,
+        ) );
+
     }
 }
-add_action( 'customize_register', 'mloc_layout_customize_register' );
+add_action( 'customize_register', 'mloc_appearance_general_customize_register' );
