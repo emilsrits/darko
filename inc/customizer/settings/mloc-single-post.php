@@ -14,7 +14,8 @@ function mloc_single_post_customize_register( $wp_customize ) {
     // Section: Single post settings
     $wp_customize->add_section( 'mloc_single_post_settings', array(
         'title'		=> __( 'Single Post Settings', 'mloc' ),
-        'priority'	=> 65,
+        'panel'     => 'mloc_content_settings',
+        'priority'	=> 60,
     ) );
 
     // Single post featured image display

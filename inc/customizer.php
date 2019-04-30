@@ -21,6 +21,7 @@ function mloc_setup_customizer_files() {
 
     $settings_array = array(
         'customizer/settings/mloc-appearance-general.php',
+        'customizer/settings/mloc-blog.php',
         'customizer/settings/mloc-navigation.php',
         'customizer/settings/mloc-page.php',
         'customizer/settings/mloc-single-post.php'
@@ -67,6 +68,12 @@ function mloc_customize_register( $wp_customize ) {
 	) );
 	// Move core header image customization under theme header settings
 	$wp_customize->get_section( 'header_image' )->panel = 'mloc_header_settings';
+
+	// Panel: Content settings
+    $wp_customize->add_panel( 'mloc_content_settings', array(
+        'title'     => __( 'Content Settings', 'mloc' ),
+        'priority'  => 65,
+    ) );
 
 	// Copyright
 	$wp_customize->add_setting( 'mloc_copyright', array(

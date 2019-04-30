@@ -14,7 +14,8 @@ function mloc_page_customize_register( $wp_customize ) {
     // Section: Page settings
     $wp_customize->add_section( 'mloc_page_settings', array(
         'title'		=> __( 'Page Settings', 'mloc' ),
-        'priority'	=> 55,
+        'panel'     => 'mloc_content_settings',
+        'priority'	=> 40,
     ) );
 
     // Page featured image display

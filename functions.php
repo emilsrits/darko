@@ -158,6 +158,22 @@ function mloc_excerpt_more( $more ) {
 add_filter( 'excerpt_more', 'mloc_excerpt_more' );
 
 /**
+ * Filter excerpt length default value to custom one
+ *
+ * @param integer $length
+ * @return integer
+ */
+function mloc_custom_excerpt_length( $length ) {
+    $custom = get_theme_mod( 'mloc_blog_excerpt_length' );
+    if ( $custom ) {
+        return $length = intval( $custom );
+    } else {
+        return $length;
+    }
+}
+add_filter( 'excerpt_length', 'mloc_custom_excerpt_length' );
+
+/**
  * Append elements to primary navigation
  */
 function mloc_after_primary_navigation() {
@@ -191,7 +207,7 @@ function mloc_primary_menu_search() {
  * Filter comment form fields,
  * remove website url field
  *
- * @param $fields
+ * @param array $fields
  * @return mixed
  */
 function mloc_filter_comment_fields( $fields ) {
@@ -202,9 +218,9 @@ function mloc_filter_comment_fields( $fields ) {
 add_filter( 'comment_form_default_fields', 'mloc_filter_comment_fields' );
 
 /**
- * Move comment textarea to bottom
+ * Move comment text area to bottom
  *
- * @param $fields
+ * @param array $fields
  * @return mixed
  */
 function mloc_move_comment_textarea( $fields ) {
