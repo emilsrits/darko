@@ -19,6 +19,23 @@ function mloc_blog_customize_register( $wp_customize ) {
     ) );
 
     // Blog excerpt length
+    $wp_customize->add_setting( 'mloc_blog_post_content_type', array(
+        'default' 			=> 'excerpt',
+        'sanitize_callback'	=> 'sanitize_text_field',
+    ) );
+    $wp_customize->add_control( 'mloc_blog_post_content_type', array(
+        'type'			=> 'select',
+        'choices'       => array(
+            'full'      => esc_html__( 'Full', 'mloc' ),
+            'excerpt'   => esc_html__( 'Excerpt', 'mloc' ),
+        ),
+        'label'			=> esc_html__( 'Blog post content type', 'mloc' ),
+        'section'		=> 'mloc_blog_settings',
+        'settings'		=> 'mloc_blog_post_content_type',
+        'priority'		=> 20,
+    ) );
+
+    // Blog excerpt length
     $wp_customize->add_setting( 'mloc_blog_excerpt_length', array(
         'default' 			=> 55,
         'sanitize_callback'	=> 'absint',
@@ -28,7 +45,7 @@ function mloc_blog_customize_register( $wp_customize ) {
         'label'			=> esc_html__( 'Excerpt length', 'mloc' ),
         'section'		=> 'mloc_blog_settings',
         'settings'		=> 'mloc_blog_excerpt_length',
-        'priority'		=> 20,
+        'priority'		=> 40,
     ) );
 }
 add_action( 'customize_register', 'mloc_blog_customize_register' );

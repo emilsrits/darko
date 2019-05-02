@@ -53,7 +53,7 @@
   }
 }
 
-.page, .single-post {
+.page, .single-post, .blog {
   article.post, article.page {
     ul li {
       list-style-type: disc;
@@ -93,7 +93,20 @@
 --------------------------------------------------------------*/
 .blog {
   .post.sticky {
-    box-shadow: 0 5px 5px -5px $c-red-darker;
+    position: relative;
+    padding: 5px 20px 15px 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+
+    .sticky-post-icon {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+
+      > i {
+        color: $c-grey;
+        transform: rotate(45deg);
+      }
+    }
   }
 }
 
@@ -103,8 +116,12 @@
     align-items: center;
   }
 
-  p {
+  p, ul, ol {
     font-size: $f-medium;
+  }
+
+  .post-categories {
+    margin: 7px 0 20px;
   }
 }
 
@@ -132,6 +149,14 @@
     max-width: 400px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
+}
+
+.post-content:after {
+  content: "";
+  display: block;
+  visibility: hidden;
+  height: 0;
+  clear: both;
 }
 
 .post-content p {

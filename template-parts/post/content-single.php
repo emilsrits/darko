@@ -6,10 +6,12 @@
  *
  * @package Mloc
  */
+
+$post_id = get_the_ID();
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-    <?php mloc_get_the_post_thumbnail( get_the_ID() ); ?>
+<article id="post-<?php echo $post_id; ?>" <?php post_class(); ?>>
+    <?php mloc_get_the_post_thumbnail( $post_id ); ?>
 
     <div class="row">
         <div class="col-xs-12">

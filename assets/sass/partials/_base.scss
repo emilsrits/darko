@@ -304,6 +304,10 @@ table.wp-block-table.is-style-stripes {
   }
 }
 
+.wp-block-image figcaption {
+  color: $c-grey-accent;
+}
+
 .wp-block-gallery, .wp-block-embed {
   margin-top: 30px;
   margin-bottom: 30px;
