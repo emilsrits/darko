@@ -116,8 +116,10 @@
     align-items: center;
   }
 
-  p, ul, ol {
-    font-size: $f-medium;
+  main article {
+    p, ul, ol {
+      font-size: $f-medium;
+    }
   }
 
   .post-categories {
