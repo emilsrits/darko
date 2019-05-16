@@ -41,10 +41,10 @@ $content_type = get_theme_mod( 'mloc_blog_post_content_type', 'excerpt' );
             <div class="post-author">
                 <?php
                 echo sprintf(
-                /* translators: %1$s is author name, %2$s is date */
+                    /* translators: %1$s is author name, %2$s is date */
                     esc_html( 'By %1$s, %2$s' ),
-                    /* translators: %1$s is author name, %2$s is author link */
                     sprintf(
+                        /* translators: %1$s is author name, %2$s is author link */
                         '<a href="%2$s" title="%1$s" class="author"><strong>%1$s</strong></a>',
                         esc_html( get_the_author() ),
                         esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) )

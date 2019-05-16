@@ -31,8 +31,10 @@ if ( $is_single || $is_page || $is_archive ) : ?>
                             <?php
                             $author = $post->post_author;
                             echo sprintf(
+                                /* translators: %1$s is author name, %2$s is date */
                                 esc_html( 'By %1$s, %2$s' ),
                                 sprintf(
+                                    /* translators: %1$s is author name, %2$s is author link */
                                     '<a href="%2$s" title="%1$s" class="author"><strong>%1$s</strong></a>',
                                     get_user_option('display_name', $author ),
                                     esc_url( get_author_posts_url( $author ) )

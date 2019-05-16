@@ -21,6 +21,7 @@ function mloc_setup_customizer_files() {
 
     $settings_array = array(
         'customizer/settings/mloc-appearance-general.php',
+        'customizer/settings/mloc-appearance-typography.php',
         'customizer/settings/mloc-blog.php',
         'customizer/settings/mloc-navigation.php',
         'customizer/settings/mloc-page.php',

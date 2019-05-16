@@ -123,25 +123,128 @@ function mloc_script() {
     wp_register_style( 'flexboxgrid', get_template_directory_uri() . '/assets/css/flexboxgrid.min.css' );
     wp_enqueue_style( 'flexboxgrid' );
 
-    // Google fonts
-    wp_register_style( 'mloc-google-fonts', 'https://fonts.googleapis.com/css?family=Open+Sans|Roboto' );
-    wp_enqueue_style( 'mloc-google-fonts' );
-
 	// Font Awesome
     wp_register_style( 'mloc-font-awesome', 'https://use.fontawesome.com/releases/v5.7.2/css/all.css' );
     wp_enqueue_style( 'mloc-font-awesome' );
 
     // Main styles
-    wp_register_style( 'style', get_stylesheet_uri());
-    wp_enqueue_style( 'style' );
+    wp_register_style( 'mloc_style', get_stylesheet_uri());
+    wp_enqueue_style( 'mloc_style' );
+
+    // Fonts from customizer
+    mloc_enqueue_custom_fonts();
 
     // Main scripts
-    wp_register_script( 'script', get_template_directory_uri() . '/assets/js/script.js', array( 'jquery' ), false, true );
-    wp_enqueue_script( 'script' );
+    wp_register_script( 'mloc_script', get_template_directory_uri() . '/assets/js/script.js', array( 'jquery' ), false, true );
+    wp_enqueue_script( 'mloc_script' );
 
     wp_localize_script( 'script', 'phpVars', array( 'ajaxUrl' => admin_url( 'admin-ajax.php'), 'check_nonce' => wp_create_nonce( 'mloc-nonce' ) ) );
 }
 add_action( 'wp_enqueue_scripts', 'mloc_script' );
+
+/**
+ * Enqueues selected Google fonts from theme customizer
+ */
+function mloc_enqueue_custom_fonts() {
+    $heading_font = get_theme_mod( 'mloc_typography_heading' );
+    $body_font = get_theme_mod( 'mloc_typography_body' );
+    $fonts_url = 'https://fonts.googleapis.com/css?family=';
+
+    if ( ! $heading_font || ! $body_font ) {
+        if ( ( $heading_font && ! $body_font ) || ( ! $body_font && ! $heading_font ) ) {
+            // Default Google fonts
+            wp_register_style( 'mloc-google-fonts', 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700' );
+            wp_enqueue_style( 'mloc-google-fonts' );
+
+            $css = "
+                body {
+                    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+                }
+            ";
+            wp_add_inline_style( 'mloc_style', $css );
+        }
+
+        if ( ! $body_font && ! $heading_font ) {
+            return;
+        }
+    }
+
+    if ( $heading_font ) {
+        $heading_font = str_replace( ' ', '+', $heading_font );
+    }
+
+    if ( $body_font ) {
+        $body_font = str_replace( ' ', '+', $body_font );
+    }
+
+    if ( $heading_font === $body_font ) {
+        if ( strpos( $body_font, '_sys' ) === false ) {
+            $fonts = $body_font . ':300,400,500,700';
+        } else {
+            $fonts = '';
+        }
+    } else {
+        $fonts = sprintf(
+            /* translators: %1$s is heading font, %2$s separator, %3$s is body font */
+            '%1$s%2$s%3$s',
+            ( $heading_font && strpos( $heading_font, '_sys' ) === false ? $heading_font . ':300,400,500,700' : '' ),
+            ( ( $heading_font && $body_font ) && ( strpos( $heading_font, '_sys' ) === false && strpos( $body_font, '_sys' ) === false ) ? '|' : '' ),
+            ( $body_font && strpos( $body_font, '_sys' ) === false ? $body_font . ':300,400,500,700' : '' )
+        );
+    }
+
+    // If both fonts are system fonts
+    if ( ! $fonts ) {
+        mloc_inline_styles();
+        return;
+    }
+
+    $fonts_url .= $fonts;
+
+    wp_register_style( 'mloc-custom-fonts', $fonts_url );
+    wp_enqueue_style( 'mloc-custom-fonts' );
+
+    mloc_inline_styles();
+}
+
+/**
+ * Add inline styles
+ */
+function mloc_inline_styles() {
+    $heading_font = get_theme_mod( 'mloc_typography_heading' );
+    $body_font = get_theme_mod( 'mloc_typography_body' );
+    $css = '';
+
+    if ( $heading_font ) {
+        if ( strpos( $heading_font, '_sys' ) !== false ) {
+            $heading_font = str_replace( '_sys ', '', $heading_font );
+        }
+
+        $css .= "
+            h1, h2, h3, h4, h5, .hero-title, .post-title, .widget h2 {
+                font-family: '" . esc_html( $heading_font ) . "';
+            }
+        ";
+    }
+
+    if ( $body_font ) {
+        if ( strpos( $body_font, '_sys' ) !== false ) {
+            $body_font = str_replace( '_sys ', '', $body_font );
+        }
+
+        $css .= "
+            body {
+                font-family: '" . esc_html( $body_font ) . "';
+            }
+        ";
+    }
+
+    if ( $css ) {
+        wp_add_inline_style( 'mloc_style', $css );
+    } else {
+        return;
+    }
+}
 
 /**
  * Filter the excerpt "read more" string.
@@ -174,36 +277,6 @@ function mloc_custom_excerpt_length( $length ) {
 add_filter( 'excerpt_length', 'mloc_custom_excerpt_length' );
 
 /**
- * Append elements to primary navigation
- */
-function mloc_after_primary_navigation() {
-    $buffer_nav = '<ul id="%1$s" class="%2$s">%3$s';
-    if ( function_exists( 'mloc_primary_menu_search' ) ) {
-        $buffer_nav .= mloc_primary_menu_search();
-    }
-    $buffer_nav .= '</ul>';
-
-    return $buffer_nav;
-}
-
-/**
- * Display search form in primary menu
- */
-function mloc_primary_menu_search() {
-    $search_form = '
-        <li class="mloc-nav-search">
-            <form action="' . esc_url( home_url( '/' ) ) . '" role="search" method="get">
-                <div class="mloc-nav-search-container">
-                    <input name="s" type="search" placeholder="' . __( 'Search...', 'mloc' ) . '" value="' . get_search_query() . '" required>
-                    <button type="submit" class="btn"><i class="fas fa-search"></i></button>
-                </div>
-            </form>
-        </li>';
-
-    return $search_form;
-}
-
-/**
  * Filter comment form fields,
  * remove website url field
  *
@@ -231,60 +304,3 @@ function mloc_move_comment_textarea( $fields ) {
     return $fields;
 }
 add_filter( 'comment_form_fields', 'mloc_move_comment_textarea' );
-
-if ( function_exists( 'mloc_comments_form_template' ) ) {
-	/**
-	 * Adds missing closing tag after the comment form
-	 */
-	function mloc_comment_form_after() {
-		?>
-		</div>
-		<?php
-	}
-	add_action( 'comment_form_after', 'mloc_comment_form_after' );
-}
-
-/**
- * Display go to top button which scrolls user to top of the page when clicked
- */
-function mloc_go_top() {
-    $go_top = get_theme_mod( 'mloc_go_top' );
-
-    if ( $go_top ) {
-        ?>
-        <button id="mloc-go-top" class="faded-out">
-            <i class="fas fa-angle-up"></i>
-        </button>
-        <?php
-    }
-}
-add_action( 'wp_footer', 'mloc_go_top' );
-
-/**
- * Return formatted post content
- *
- * @param string $more_link_text
- * @param int $stripteaser
- * @return mixed|string
- */
-function mloc_get_the_content_with_formatting( $more_link_text = '(more...)', $stripteaser = 0 ) {
-    $content = get_the_content( $more_link_text, $stripteaser );
-    $content = apply_filters( 'the_content', $content );
-    $content = str_replace( ']]>', ']]&gt;', $content );
-    return $content;
-}
-
-/**
- * Display a different page of related posts from ajax request
- */
-function mloc_ajax_related_posts() {
-    check_ajax_referer( 'mloc-nonce', 'security' );
-    $page = $_POST['paged'];
-    if ( empty( $page ) ) {
-        $page = 1;
-    }
-    mloc_related_posts( $page, true );
-    die();
-}
-add_action( 'wp_ajax_mloc_related_posts', 'mloc_ajax_related_posts' );
-add_action( 'wp_ajax_nopriv_mloc_related_posts', 'mloc_ajax_related_posts' );

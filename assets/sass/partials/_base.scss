@@ -9,9 +9,6 @@
 }
 
 body {
-  font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   word-wrap: break-word;
   color: $c-grey-light;
   background-color: $c-grey-darker;
@@ -30,12 +27,10 @@ a {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   line-height: 1.6;
 }
 
 p {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   color: $c-grey-light;
 }
 

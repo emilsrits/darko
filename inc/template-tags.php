@@ -226,7 +226,7 @@ if ( ! function_exists( 'mloc_comments_form_template' ) ) {
             'must_log_in'          => '<p class="must-log-in">' .
                 sprintf(
                     wp_kses(
-                    /* translators: %s is a link to login */
+                        /* translators: %s is a link to login */
                         __( 'You must be <a href="%s">logged in</a> to post a comment.', 'mloc' ), array(
                             'a' => array(
                                 'href' => array(),
