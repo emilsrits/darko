@@ -5,20 +5,20 @@
  * @package Mloc
  */
 
-class Mloc_Control_Image_Select extends WP_Customize_Control {
+class Mloc_Customize_Image_Select_Control extends WP_Customize_Control {
 	/**
 	 * Customize control type
 	 *
 	 * @var string
 	 */
-	public $type = 'radio-image';
+	public $type = 'mloc-image-select';
 
 	/**
 	 * Add this customize control JS and CSS to customizer
 	 */
 	public function enqueue() {
-		wp_enqueue_style( 'mloc-control-image-select', get_template_directory_uri() . '/inc/customizer/mloc-control-image-select/mloc-control-image-select.css' );
-		wp_enqueue_script( 'mloc-control-image-select', get_template_directory_uri() . '/inc/customizer/mloc-control-image-select/mloc-control-image-select.js', array( 'jquery' ), false, true );
+		wp_enqueue_style( 'mloc-image-select-control', get_template_directory_uri() . '/inc/customizer/controls/image-select/style.css' );
+		wp_enqueue_script( 'mloc-image-select-control', get_template_directory_uri() . '/inc/customizer/controls/image-select/script.js', array( 'jquery' ), false, true );
 	}
 
 	/**
@@ -59,7 +59,7 @@ class Mloc_Control_Image_Select extends WP_Customize_Control {
 		<# } #>
 
 		<# for ( key in data.choices ) { #>
-			<label for="{{ data.id }}-{{ key }}" class="radio-image">
+			<label for="{{ data.id }}-{{ key }}" class="mloc-image-select">
 				<span class="screen-reader-text">{{ data.choices[ key ]['label'] }}</span>
 				<input type="radio" value="{{ key }}" name="_customize-{{ data.type }}-{{ data.id }}" id="{{ data.id }}-{{ key }}" {{{ data.link }}} <# if ( key === data.value ) { #> checked="checked" <# } #> />
 				<img src="{{ data.choices[ key ]['url'] }}" alt="{{ data.choices[ key ]['label'] }}" />

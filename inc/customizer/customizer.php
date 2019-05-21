@@ -10,7 +10,7 @@
  */
 function mloc_setup_customizer_files() {
     $objects_array = array(
-        'customizer/mloc-control-image-select/mloc-control-image-select.php'
+        'customizer/controls/image-select/class-mloc-customize-image-select-control.php'
     );
     foreach ( $objects_array as $object ) {
         $object_path = MLOC_INC . $object;
@@ -42,7 +42,7 @@ add_action( 'customize_register', 'mloc_setup_customizer_files', 0 );
  * @param $wp_customize
  */
 function mloc_register_customizer_objects( $wp_customize ) {
-	$wp_customize->register_control_type( 'Mloc_Control_Image_Select' );
+	$wp_customize->register_control_type( 'Mloc_Customize_Image_Select_Control' );
 }
 add_action( 'customize_register', 'mloc_register_customizer_objects', 0 );
 

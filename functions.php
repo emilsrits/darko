@@ -9,8 +9,8 @@ define( 'MLOC_INC', trailingslashit( get_template_directory() ) . 'inc/' );
 define( 'MLOC_IMG', trailingslashit( get_template_directory_uri() ) . 'assets/images/');
 
 require_once( MLOC_INC . 'template-tags.php' );
-require_once( MLOC_INC . 'customizer.php' );
-require_once( MLOC_INC . 'walker/mloc-navwalker.php' );
+require_once( MLOC_INC . 'customizer/customizer.php' );
+require_once( MLOC_INC . 'walker/class-mloc-navwalker.php' );
 
 if ( ! function_exists( 'mloc_setup_theme' ) ) {
     /**

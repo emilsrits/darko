@@ -12,7 +12,7 @@
  */
 function mloc_appearance_general_customize_register( $wp_customize ) {
     // Check if class for custom radio image exists
-    if ( class_exists( 'Mloc_Control_Image_Select' ) ) {
+    if ( class_exists( 'Mloc_Customize_Image_Select_Control' ) ) {
 
         $sidebar_layouts = array(
             'sidebar-left'	=> array(
@@ -42,7 +42,7 @@ function mloc_appearance_general_customize_register( $wp_customize ) {
             'sanitize_callback'	=> 'sanitize_key',
         ) );
         $wp_customize->add_control(
-            new Mloc_Control_Image_Select( $wp_customize, 'mloc_blog_sidebar_layout', array(
+            new Mloc_Customize_Image_Select_Control( $wp_customize, 'mloc_blog_sidebar_layout', array(
                 'label'		=> esc_html__( 'Blog Layout', 'mloc' ),
                 'section'	=> 'mloc_appearance_general',
                 'settings'	=> 'mloc_blog_sidebar_layout',
@@ -57,7 +57,7 @@ function mloc_appearance_general_customize_register( $wp_customize ) {
             'sanitize_callback'	=> 'sanitize_key',
         ) );
         $wp_customize->add_control(
-            new Mloc_Control_Image_Select( $wp_customize, 'mloc_page_sidebar_layout', array(
+            new Mloc_Customize_Image_Select_Control( $wp_customize, 'mloc_page_sidebar_layout', array(
                 'label'		=> esc_html__( 'Page Layout', 'mloc' ),
                 'section'	=> 'mloc_appearance_general',
                 'settings'	=> 'mloc_page_sidebar_layout',
