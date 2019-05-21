@@ -193,11 +193,11 @@ if ( ! function_exists( 'mloc_comments_pagination' ) ) {
     }
 }
 
-if ( ! function_exists( 'mloc_comments_form_template' ) ) {
+if ( ! function_exists( 'mloc_comment_form_template' ) ) {
     /**
      * Custom comments form template
      */
-    function mloc_comments_form_template() {
+    function mloc_comment_form_template() {
         if ( is_user_logged_in() ) {
             $current_user = get_avatar( wp_get_current_user(), 60 );
         } else {

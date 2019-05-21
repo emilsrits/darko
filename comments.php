@@ -38,7 +38,7 @@ if ( post_password_required() ) {
 	</div> <!-- .post-comments -->
     <div class="comments-reply">
         <?php
-        comment_form( mloc_comments_form_template() );
+        comment_form( mloc_comment_form_template() );
         if ( ! comments_open() && get_comments_number() ) :
             if ( is_single() ) : ?>
                 <h4 class="no-comments"><?php esc_html_e( 'Comments are closed', 'mloc' ); ?></h4>

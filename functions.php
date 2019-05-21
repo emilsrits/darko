@@ -9,6 +9,7 @@ define( 'MLOC_INC', trailingslashit( get_template_directory() ) . 'inc/' );
 define( 'MLOC_IMG', trailingslashit( get_template_directory_uri() ) . 'assets/images/');
 
 require_once( MLOC_INC . 'template-tags.php' );
+require_once( MLOC_INC . 'template-functions.php' );
 require_once( MLOC_INC . 'customizer/customizer.php' );
 require_once( MLOC_INC . 'walker/class-mloc-navwalker.php' );
 
@@ -138,7 +139,7 @@ function mloc_script() {
     wp_register_script( 'mloc_script', get_template_directory_uri() . '/assets/js/script.js', array( 'jquery' ), false, true );
     wp_enqueue_script( 'mloc_script' );
 
-    wp_localize_script( 'script', 'phpVars', array( 'ajaxUrl' => admin_url( 'admin-ajax.php'), 'check_nonce' => wp_create_nonce( 'mloc-nonce' ) ) );
+    wp_localize_script( 'mloc_script', 'phpVars', array( 'ajaxUrl' => admin_url( 'admin-ajax.php'), 'check_nonce' => wp_create_nonce( 'mloc-nonce' ) ) );
 }
 add_action( 'wp_enqueue_scripts', 'mloc_script' );
 
@@ -245,62 +246,3 @@ function mloc_inline_styles() {
         return;
     }
 }
-
-/**
- * Filter the excerpt "read more" string.
- *
- * @param string $more "Read more" excerpt string
- * @return string
- */
-function mloc_excerpt_more( $more ) {
-    return sprintf( '<a class="read-more" href="%1$s">%2$s</a>',
-        get_permalink( get_the_ID() ),
-        __( 'Read more...', 'mloc' )
-    );
-}
-add_filter( 'excerpt_more', 'mloc_excerpt_more' );
-
-/**
- * Filter excerpt length default value to custom one
- *
- * @param integer $length
- * @return integer
- */
-function mloc_custom_excerpt_length( $length ) {
-    $custom = get_theme_mod( 'mloc_blog_excerpt_length' );
-    if ( $custom ) {
-        return $length = intval( $custom );
-    } else {
-        return $length;
-    }
-}
-add_filter( 'excerpt_length', 'mloc_custom_excerpt_length' );
-
-/**
- * Filter comment form fields,
- * remove website url field
- *
- * @param array $fields
- * @return mixed
- */
-function mloc_filter_comment_fields( $fields ) {
-    unset( $fields['url'] );
-
-    return $fields;
-}
-add_filter( 'comment_form_default_fields', 'mloc_filter_comment_fields' );
-
-/**
- * Move comment text area to bottom
- *
- * @param array $fields
- * @return mixed
- */
-function mloc_move_comment_textarea( $fields ) {
-    $comments_field = $fields['comment'];
-    unset( $fields['comment'] );
-    $fields['comment'] = $comments_field;
-
-    return $fields;
-}
-add_filter( 'comment_form_fields', 'mloc_move_comment_textarea' );
