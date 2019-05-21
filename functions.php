@@ -222,7 +222,7 @@ function mloc_inline_styles() {
         }
 
         $css .= "
-            h1, h2, h3, h4, h5, .hero-title, .post-title, .widget h2 {
+            h1, h2, h3, h4, h5, h6, .hero-title, .post-title, .widget h2 {
                 font-family: '" . esc_html( $heading_font ) . "';
             }
         ";
