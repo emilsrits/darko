@@ -129,15 +129,15 @@ function mloc_script() {
     wp_enqueue_style( 'mloc-font-awesome' );
 
     // Main styles
-    wp_register_style( 'mloc_style', get_stylesheet_uri());
-    wp_enqueue_style( 'mloc_style' );
+    wp_register_style( 'mloc-style', get_stylesheet_uri());
+    wp_enqueue_style( 'mloc-style' );
 
     // Fonts from customizer
     mloc_enqueue_custom_fonts();
 
     // Main scripts
-    wp_register_script( 'mloc_script', get_template_directory_uri() . '/assets/js/script.js', array( 'jquery' ), false, true );
-    wp_enqueue_script( 'mloc_script' );
+    wp_register_script( 'mloc-script', get_template_directory_uri() . '/assets/js/script.js', array( 'jquery' ), false, true );
+    wp_enqueue_script( 'mloc-script' );
 
     wp_localize_script( 'mloc_script', 'phpVars', array( 'ajaxUrl' => admin_url( 'admin-ajax.php'), 'check_nonce' => wp_create_nonce( 'mloc-nonce' ) ) );
 }
@@ -162,7 +162,7 @@ function mloc_enqueue_custom_fonts() {
                     font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
                 }
             ";
-            wp_add_inline_style( 'mloc_style', $css );
+            wp_add_inline_style( 'mloc-style', $css );
         }
 
         if ( ! $body_font && ! $heading_font ) {
@@ -241,7 +241,7 @@ function mloc_inline_styles() {
     }
 
     if ( $css ) {
-        wp_add_inline_style( 'mloc_style', $css );
+        wp_add_inline_style( 'mloc-style', $css );
     } else {
         return;
     }
