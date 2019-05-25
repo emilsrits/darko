@@ -19,13 +19,6 @@ if ( ! function_exists( 'mloc_enqueue_custom_fonts' ) ) {
                 // Default Google fonts
                 wp_register_style( 'mloc-google-fonts', 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700' );
                 wp_enqueue_style( 'mloc-google-fonts' );
-
-                $css = "
-                body {
-                    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-                }
-            ";
-                wp_add_inline_style( 'mloc-style', $css );
             }
 
             if ( ! $body_font && ! $heading_font ) {

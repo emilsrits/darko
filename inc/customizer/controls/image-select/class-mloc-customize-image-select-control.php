@@ -41,11 +41,6 @@ class Mloc_Customize_Image_Select_Control extends WP_Customize_Control {
 		return $json;
 	}
 
-    /**
-     * Don't render the control content from PHP, as it's rendered via JS
-     */
-    protected function render_content() {}
-
 	/**
 	 * An Underscore (JS) template for this control's content
 	 */
