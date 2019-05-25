@@ -8,9 +8,12 @@
 define( 'MLOC_INC', trailingslashit( get_template_directory() ) . 'inc/' );
 define( 'MLOC_IMG', trailingslashit( get_template_directory_uri() ) . 'assets/images/');
 
+require_once( MLOC_INC . 'helpers.php' );
+require_once( MLOC_INC . 'inline.php' );
 require_once( MLOC_INC . 'template-tags.php' );
 require_once( MLOC_INC . 'template-functions.php' );
 require_once( MLOC_INC . 'customizer/customizer.php' );
+require_once( MLOC_INC . 'customizer/settings/webfonts.php' );
 require_once( MLOC_INC . 'walker/class-mloc-navwalker.php' );
 
 if ( ! function_exists( 'mloc_setup_theme' ) ) {
@@ -78,14 +81,13 @@ if ( ! function_exists( 'mloc_setup_theme' ) ) {
     add_action( 'after_setup_theme', 'mloc_setup_theme' );
 }
 
-add_action( 'enqueue_block_editor_assets', 'mloc_add_gutenberg_assets' );
-
 /**
  * Load Gutenberg stylesheet
  */
 function mloc_add_gutenberg_assets() {
     wp_enqueue_style( 'mloc-gutenberg', get_theme_file_uri('/assets/css/gutenberg-editor-style.css'), false );
 }
+add_action( 'enqueue_block_editor_assets', 'mloc_add_gutenberg_assets' );
 
 /**
  * Register widget areas
@@ -132,8 +134,7 @@ function mloc_script() {
     wp_register_style( 'mloc-style', get_stylesheet_uri());
     wp_enqueue_style( 'mloc-style' );
 
-    // Fonts from customizer
-    mloc_enqueue_custom_fonts();
+    do_action( 'mloc_after_styles' );
 
     // Main scripts
     wp_register_script( 'mloc-script', get_template_directory_uri() . '/assets/js/script.js', array( 'jquery' ), false, true );
@@ -144,105 +145,11 @@ function mloc_script() {
 add_action( 'wp_enqueue_scripts', 'mloc_script' );
 
 /**
- * Enqueues selected Google fonts from theme customizer
+ * Apply custom theme styles
  */
-function mloc_enqueue_custom_fonts() {
-    $heading_font = get_theme_mod( 'mloc_typography_heading' );
-    $body_font = get_theme_mod( 'mloc_typography_body' );
-    $fonts_url = 'https://fonts.googleapis.com/css?family=';
+function mloc_custom_css( $output = '' ) {
+    $output = apply_filters( 'mloc_head_css', $output );
 
-    if ( ! $heading_font || ! $body_font ) {
-        if ( ( $heading_font && ! $body_font ) || ( ! $body_font && ! $heading_font ) ) {
-            // Default Google fonts
-            wp_register_style( 'mloc-google-fonts', 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700' );
-            wp_enqueue_style( 'mloc-google-fonts' );
-
-            $css = "
-                body {
-                    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-                }
-            ";
-            wp_add_inline_style( 'mloc-style', $css );
-        }
-
-        if ( ! $body_font && ! $heading_font ) {
-            return;
-        }
-    }
-
-    if ( $heading_font ) {
-        $heading_font = str_replace( ' ', '+', $heading_font );
-    }
-
-    if ( $body_font ) {
-        $body_font = str_replace( ' ', '+', $body_font );
-    }
-
-    if ( $heading_font === $body_font ) {
-        if ( strpos( $body_font, '_sys' ) === false ) {
-            $fonts = $body_font . ':300,400,500,700';
-        } else {
-            $fonts = '';
-        }
-    } else {
-        $fonts = sprintf(
-            /* translators: %1$s is heading font, %2$s separator, %3$s is body font */
-            '%1$s%2$s%3$s',
-            ( $heading_font && strpos( $heading_font, '_sys' ) === false ? $heading_font . ':300,400,500,700' : '' ),
-            ( ( $heading_font && $body_font ) && ( strpos( $heading_font, '_sys' ) === false && strpos( $body_font, '_sys' ) === false ) ? '|' : '' ),
-            ( $body_font && strpos( $body_font, '_sys' ) === false ? $body_font . ':300,400,500,700' : '' )
-        );
-    }
-
-    // If both fonts are system fonts
-    if ( ! $fonts ) {
-        mloc_inline_styles();
-        return;
-    }
-
-    $fonts_url .= $fonts;
-
-    wp_register_style( 'mloc-custom-fonts', $fonts_url );
-    wp_enqueue_style( 'mloc-custom-fonts' );
-
-    mloc_inline_styles();
+    wp_add_inline_style( 'mloc-style', $output );
 }
-
-/**
- * Add inline styles
- */
-function mloc_inline_styles() {
-    $heading_font = get_theme_mod( 'mloc_typography_heading' );
-    $body_font = get_theme_mod( 'mloc_typography_body' );
-    $css = '';
-
-    if ( $heading_font ) {
-        if ( strpos( $heading_font, '_sys' ) !== false ) {
-            $heading_font = str_replace( '_sys ', '', $heading_font );
-        }
-
-        $css .= "
-            h1, h2, h3, h4, h5, h6, .hero-title, .post-title, .widget h2 {
-                font-family: '" . esc_html( $heading_font ) . "';
-            }
-        ";
-    }
-
-    if ( $body_font ) {
-        if ( strpos( $body_font, '_sys' ) !== false ) {
-            $body_font = str_replace( '_sys ', '', $body_font );
-        }
-
-        $css .= "
-            body {
-                font-family: '" . esc_html( $body_font ) . "';
-            }
-        ";
-    }
-
-    if ( $css ) {
-        wp_add_inline_style( 'mloc-style', $css );
-    } else {
-        return;
-    }
-}
+add_action( 'mloc_after_styles', 'mloc_custom_css' );

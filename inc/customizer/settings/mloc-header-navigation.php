@@ -10,7 +10,7 @@
  *
  * @param $wp_customize
  */
-function mloc_navigation_customize_register( $wp_customize ) {
+function mloc_header_navigation_customize_register( $wp_customize ) {
     // Section: Navigation
     $wp_customize->add_section( 'mloc_navigation', array(
         'title'			=> __( 'Navigation', 'mloc' ),
@@ -31,4 +31,4 @@ function mloc_navigation_customize_register( $wp_customize ) {
         'priority'	=> 20,
     ) );
 }
-add_action( 'customize_register', 'mloc_navigation_customize_register' );
+add_action( 'customize_register', 'mloc_header_navigation_customize_register' );

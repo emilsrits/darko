@@ -41,6 +41,11 @@ class Mloc_Customize_Image_Select_Control extends WP_Customize_Control {
 		return $json;
 	}
 
+    /**
+     * Don't render the control content from PHP, as it's rendered via JS
+     */
+    protected function render_content() {}
+
 	/**
 	 * An Underscore (JS) template for this control's content
 	 */
@@ -51,7 +56,7 @@ class Mloc_Customize_Image_Select_Control extends WP_Customize_Control {
 		} #>
 
 		<# if ( data.label ) { #>
-			<span class="customize-control-title">{{ data.label }}</span>
+			<span class="customize-control-title">{{{ data.label }}}</span>
 		<# } #>
 
 		<# if ( data.description ) { #>
@@ -60,9 +65,9 @@ class Mloc_Customize_Image_Select_Control extends WP_Customize_Control {
 
 		<# for ( key in data.choices ) { #>
 			<label for="{{ data.id }}-{{ key }}" class="mloc-image-select">
-				<span class="screen-reader-text">{{ data.choices[ key ]['label'] }}</span>
-				<input type="radio" value="{{ key }}" name="_customize-{{ data.type }}-{{ data.id }}" id="{{ data.id }}-{{ key }}" {{{ data.link }}} <# if ( key === data.value ) { #> checked="checked" <# } #> />
-				<img src="{{ data.choices[ key ]['url'] }}" alt="{{ data.choices[ key ]['label'] }}" />
+				<span class="screen-reader-text">{{ data.choices[key]['label'] }}</span>
+				<input type="radio" value="{{ key }}" name="_customize-{{ data.type }}-{{ data.id }}" id="{{ data.id }}-{{ key }}" <# if ( key === data.value ) { #> checked="checked" <# } #> {{{ data.link }}} />
+				<img src="{{ data.choices[key]['url'] }}" alt="{{ data.choices[key]['label'] }}" />
 			</label>
 		<# } #>
 		<?php

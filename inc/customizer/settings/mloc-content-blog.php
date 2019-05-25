@@ -10,7 +10,7 @@
  *
  * @param $wp_customize
  */
-function mloc_blog_customize_register( $wp_customize ) {
+function mloc_content_blog_customize_register( $wp_customize ) {
     // Section: Blog settings
     $wp_customize->add_section( 'mloc_blog_settings', array(
         'title'		=> __( 'Blog Settings', 'mloc' ),
@@ -48,4 +48,4 @@ function mloc_blog_customize_register( $wp_customize ) {
         'priority'		=> 40,
     ) );
 }
-add_action( 'customize_register', 'mloc_blog_customize_register' );
+add_action( 'customize_register', 'mloc_content_blog_customize_register' );

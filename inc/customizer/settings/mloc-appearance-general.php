@@ -43,7 +43,7 @@ function mloc_appearance_general_customize_register( $wp_customize ) {
         ) );
         $wp_customize->add_control(
             new Mloc_Customize_Image_Select_Control( $wp_customize, 'mloc_blog_sidebar_layout', array(
-                'label'		=> esc_html__( 'Blog Layout', 'mloc' ),
+                'label'		=> esc_html__( 'Blog layout', 'mloc' ),
                 'section'	=> 'mloc_appearance_general',
                 'settings'	=> 'mloc_blog_sidebar_layout',
                 'choices'	=> $sidebar_layouts,
@@ -58,7 +58,7 @@ function mloc_appearance_general_customize_register( $wp_customize ) {
         ) );
         $wp_customize->add_control(
             new Mloc_Customize_Image_Select_Control( $wp_customize, 'mloc_page_sidebar_layout', array(
-                'label'		=> esc_html__( 'Page Layout', 'mloc' ),
+                'label'		=> esc_html__( 'Page layout', 'mloc' ),
                 'section'	=> 'mloc_appearance_general',
                 'settings'	=> 'mloc_page_sidebar_layout',
                 'choices'	=> $sidebar_layouts,

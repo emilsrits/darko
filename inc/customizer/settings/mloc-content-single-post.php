@@ -10,7 +10,7 @@
  *
  * @param $wp_customize
  */
-function mloc_single_post_customize_register( $wp_customize ) {
+function mloc_content_single_post_customize_register( $wp_customize ) {
     // Section: Single post settings
     $wp_customize->add_section( 'mloc_single_post_settings', array(
         'title'		=> __( 'Single Post Settings', 'mloc' ),
@@ -60,4 +60,4 @@ function mloc_single_post_customize_register( $wp_customize ) {
         'priority'		=> 60,
     ) );
 }
-add_action( 'customize_register', 'mloc_single_post_customize_register' );
+add_action( 'customize_register', 'mloc_content_single_post_customize_register' );

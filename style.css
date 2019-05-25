@@ -611,7 +611,7 @@ table.wp-block-table.is-style-stripes tr:nth-child(2n+1) {
   padding: 15px 15px;
   color: #fff;
   font-size: 0.75em;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease;
 }
 /* line 135, ../sass/partials/_navigation.scss */
 #main-navigation ul.navbar-nav li > a:hover, #site-footer .footer-menu li > a:hover {
@@ -1946,7 +1946,7 @@ table.wp-block-table.is-style-stripes tr:nth-child(2n+1) {
 
   /* line 240, ../sass/partials/_responsive.scss */
   #main-navigation .mloc-nav-search {
-    margin-left: 25px;
+    margin-left: 20px;
   }
 
   /* line 244, ../sass/partials/_responsive.scss */

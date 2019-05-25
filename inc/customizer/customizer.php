@@ -10,7 +10,8 @@
  */
 function mloc_setup_customizer_files() {
     $objects_array = array(
-        'customizer/controls/image-select/class-mloc-customize-image-select-control.php'
+        'customizer/controls/image-select/class-mloc-customize-image-select-control.php',
+        'customizer/controls/slider/class-mloc-customize-slider-control.php'
     );
     foreach ( $objects_array as $object ) {
         $object_path = MLOC_INC . $object;
@@ -22,10 +23,10 @@ function mloc_setup_customizer_files() {
     $settings_array = array(
         'customizer/settings/mloc-appearance-general.php',
         'customizer/settings/mloc-appearance-typography.php',
-        'customizer/settings/mloc-blog.php',
-        'customizer/settings/mloc-navigation.php',
-        'customizer/settings/mloc-page.php',
-        'customizer/settings/mloc-single-post.php'
+        'customizer/settings/mloc-content-blog.php',
+        'customizer/settings/mloc-content-page.php',
+        'customizer/settings/mloc-content-single-post.php',
+        'customizer/settings/mloc-header-navigation.php'
     );
     foreach ( $settings_array as $setting ) {
         $setting_path = MLOC_INC . $setting;
@@ -43,6 +44,7 @@ add_action( 'customize_register', 'mloc_setup_customizer_files', 0 );
  */
 function mloc_register_customizer_objects( $wp_customize ) {
 	$wp_customize->register_control_type( 'Mloc_Customize_Image_Select_Control' );
+    $wp_customize->register_control_type( 'Mloc_Customize_Slider_Control' );
 }
 add_action( 'customize_register', 'mloc_register_customizer_objects', 0 );
 
@@ -93,7 +95,6 @@ function mloc_customize_register( $wp_customize ) {
 
 	// Add selective refresh
     $wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
-
     $wp_customize->get_setting( 'custom_logo' )->transport = 'postMessage';
 
     $wp_customize->selective_refresh->add_partial( 'blogname', array(
@@ -129,6 +130,14 @@ function mloc_customize_register( $wp_customize ) {
     ) );
 }
 add_action( 'customize_register', 'mloc_customize_register' );
+
+/**
+ * Load customize preview JS file
+ */
+function mloc_customize_preview_init() {
+    wp_enqueue_script( 'mloc-customize-preview', get_template_directory_uri() . '/assets/js/typography-customize-preview.js', array( 'customize-preview' ), false, true );
+}
+add_action( 'customize_preview_init', 'mloc_customize_preview_init' );
 
 if ( ! function_exists( 'mloc_sanitize_checkbox' ) ) {
 	/**

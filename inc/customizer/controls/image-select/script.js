@@ -1,8 +1,8 @@
 wp.customize.controlConstructor['mloc-image-select'] = wp.customize.Control.extend({
 
 	ready: function() {
-		var control = this;
-		var value = ( undefined !== control.setting._value ) ? control.setting._value : '';
+		var control = this,
+            value = ( undefined !== control.setting._value ) ? control.setting._value : '';
 
 		this.container.on( 'change', 'input:radio', function() {
 			value = jQuery( this ).val();

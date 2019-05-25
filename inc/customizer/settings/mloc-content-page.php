@@ -10,7 +10,7 @@
  *
  * @param $wp_customize
  */
-function mloc_page_customize_register( $wp_customize ) {
+function mloc_content_page_customize_register( $wp_customize ) {
     // Section: Page settings
     $wp_customize->add_section( 'mloc_page_settings', array(
         'title'		=> __( 'Page Settings', 'mloc' ),
@@ -32,4 +32,4 @@ function mloc_page_customize_register( $wp_customize ) {
         'priority'		=> 20,
     ) );
 }
-add_action( 'customize_register', 'mloc_page_customize_register' );
+add_action( 'customize_register', 'mloc_content_page_customize_register' );

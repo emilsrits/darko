@@ -131,7 +131,7 @@
     padding: 15px 15px;
     color: $c-white;
     font-size: $f-small;
-    transition: color 0.2s ease;
+    transition: all 0.2s ease;
     &:hover {
       color: $c-red;
     }
