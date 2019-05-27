@@ -678,7 +678,7 @@ table.wp-block-table.is-style-stripes tr:nth-child(2n+1) {
   height: 40px;
   color: #eee;
   background-color: #000;
-  opacity: 0.6;
+  opacity: 0.7;
   outline: none;
   border: none;
   border-radius: 50%;
@@ -884,7 +884,7 @@ table.wp-block-table.is-style-stripes tr:nth-child(2n+1) {
 
 /* line 9, ../sass/partials/_content.scss */
 #main .content-container {
-  padding-top: 25px;
+  padding-top: 30px;
   padding-bottom: 30px;
   background-color: #3e3e3e;
 }
@@ -1448,7 +1448,7 @@ table.wp-block-table.is-style-stripes tr:nth-child(2n+1) {
 --------------------------------------------------------------*/
 /* line 4, ../sass/partials/_widget.scss */
 #sidebar-primary {
-  padding-top: 65px;
+  padding-top: 55px;
 }
 /* line 7, ../sass/partials/_widget.scss */
 #sidebar-primary.sidebar-left {

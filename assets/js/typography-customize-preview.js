@@ -22,6 +22,21 @@
             }
         } );
     } );
+    api( 'mloc_typography_size_hero', function ( setting ) {
+        setting.bind( function ( to ) {
+            var inlineOld = $( '.customizer-typography-size-hero-inline' );
+            if ( to ) {
+                var inline = '<style class="customizer-typography-size-hero-inline">.hero .hero-title { font-size: ' + to + 'px; }</style>';
+                if ( inlineOld.length ) {
+                    inlineOld.replaceWith( inline );
+                } else {
+                    $( 'head' ).append( inline );
+                }
+            } else {
+                inlineOld.remove();
+            }
+        } );
+    } );
     api( 'mloc_typography_size_blog_heading', function ( setting ) {
         setting.bind( function ( to ) {
             var inlineOld = $( '.customizer-typography-size-blog-heading-inline' );

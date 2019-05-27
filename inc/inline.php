@@ -12,6 +12,7 @@ function mloc_inline_typography( $output ) {
     $heading_font = get_theme_mod( 'mloc_typography_heading' );
     $body_font = get_theme_mod( 'mloc_typography_body' );
     $menu_font_size = get_theme_mod( 'mloc_typography_size_menu' );
+    $hero_font_size = get_theme_mod( 'mloc_typography_size_hero' );
     $blog_heading_font_size = get_theme_mod( 'mloc_typography_size_blog_heading' );
     $blog_body_font_size = get_theme_mod( 'mloc_typography_size_blog_body' );
     $page_body_font_size = get_theme_mod( 'mloc_typography_size_page_body' );
@@ -22,6 +23,8 @@ function mloc_inline_typography( $output ) {
     $css = '';
     // Default font size for content body
     $default_p = 16;
+    // Default font size for h1 heading
+    $default_h1 = 32;
     // Default font size for h2 heading
     $default_h2 = 24;
 
@@ -51,6 +54,13 @@ function mloc_inline_typography( $output ) {
     if ( $menu_font_size != $default_p ) {
         $css .= "
             #main-menu #main-navigation .navbar-nav { font-size: " . esc_html( $menu_font_size ) . "px; }
+        ";
+    }
+
+    // Hero font size
+    if ( $hero_font_size != $default_h1 ) {
+        $css .= "
+            .hero .hero-title { font-size: " . esc_html( $hero_font_size ) . "px; }
         ";
     }
 

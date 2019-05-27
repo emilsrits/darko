@@ -11,6 +11,13 @@
  * @param $wp_customize
  */
 function mloc_appearance_typography_customize_register( $wp_customize ) {
+    $default_p = 16;
+    $default_h1 = 32;
+    $default_h2 = 24;
+    $f_min = 1;
+    $f_max = 40;
+    $f_step = 1;
+
     // Section: Typography settings
     $wp_customize->add_section( 'mloc_appearance_typography', array(
         'title'		=> __( 'Typography', 'mloc' ),
@@ -48,7 +55,7 @@ function mloc_appearance_typography_customize_register( $wp_customize ) {
 
     // Menu font size
     $wp_customize->add_setting( 'mloc_typography_size_menu', array(
-        'default' 			=> 16,
+        'default' 			=> $default_p,
         'sanitize_callback'	=> 'absint',
         'transport'         => 'postMessage',
     ) );
@@ -58,18 +65,39 @@ function mloc_appearance_typography_customize_register( $wp_customize ) {
             'section'	    => 'mloc_appearance_typography',
             'settings'	    => 'mloc_typography_size_menu',
             'input_attrs'   => array(
-                'min'   => 1,
-                'max'   => 32,
-                'value' => 16,
-                'step'  => 1,
+                'min'   => $f_min,
+                'max'   => $f_max,
+                'value' => $default_p,
+                'step'  => $f_step,
             ),
             'priority'      => 20,
         ) )
     );
 
+    // Hero font size
+    $wp_customize->add_setting( 'mloc_typography_size_hero', array(
+        'default' 			=> $default_h1,
+        'sanitize_callback'	=> 'absint',
+        'transport'         => 'postMessage',
+    ) );
+    $wp_customize->add_control(
+        new Mloc_Customize_Slider_Control( $wp_customize, 'mloc_typography_size_hero', array(
+            'label'		    => esc_html__( 'Hero font size', 'mloc' ),
+            'section'	    => 'mloc_appearance_typography',
+            'settings'	    => 'mloc_typography_size_hero',
+            'input_attrs'   => array(
+                'min'   => $f_min,
+                'max'   => $f_max,
+                'value' => $default_h1,
+                'step'  => $f_step,
+            ),
+            'priority'      => 25,
+        ) )
+    );
+
     // Blog post heading font size
     $wp_customize->add_setting( 'mloc_typography_size_blog_heading', array(
-        'default' 			=> 24,
+        'default' 			=> $default_h2,
         'sanitize_callback'	=> 'absint',
         'transport'         => 'postMessage',
     ) );
@@ -79,18 +107,18 @@ function mloc_appearance_typography_customize_register( $wp_customize ) {
             'section'	    => 'mloc_appearance_typography',
             'settings'	    => 'mloc_typography_size_blog_heading',
             'input_attrs'   => array(
-                'min'   => 1,
-                'max'   => 32,
-                'value' => 24,
-                'step'  => 1,
+                'min'   => $f_min,
+                'max'   => $f_max,
+                'value' => $default_h2,
+                'step'  => $f_step,
             ),
-            'priority'      => 25,
+            'priority'      => 30,
         ) )
     );
 
     // Blog post body font size
     $wp_customize->add_setting( 'mloc_typography_size_blog_body', array(
-        'default' 			=> 16,
+        'default' 			=> $default_p,
         'sanitize_callback'	=> 'absint',
         'transport'         => 'postMessage',
     ) );
@@ -100,20 +128,18 @@ function mloc_appearance_typography_customize_register( $wp_customize ) {
             'section'	    => 'mloc_appearance_typography',
             'settings'	    => 'mloc_typography_size_blog_body',
             'input_attrs'   => array(
-                'min'   => 1,
-                'max'   => 32,
-                'value' => 16,
-                'step'  => 1,
+                'min'   => $f_min,
+                'max'   => $f_max,
+                'value' => $default_p,
+                'step'  => $f_step,
             ),
-            'priority'      => 30,
+            'priority'      => 35,
         ) )
     );
 
     // Single post/page body font size
-
-    // Blog post body font size
     $wp_customize->add_setting( 'mloc_typography_size_page_body', array(
-        'default' 			=> 16,
+        'default' 			=> $default_p,
         'sanitize_callback'	=> 'absint',
         'transport'         => 'postMessage',
     ) );
@@ -123,18 +149,18 @@ function mloc_appearance_typography_customize_register( $wp_customize ) {
             'section'	    => 'mloc_appearance_typography',
             'settings'	    => 'mloc_typography_size_page_body',
             'input_attrs'   => array(
-                'min'   => 1,
-                'max'   => 32,
-                'value' => 16,
-                'step'  => 1,
+                'min'   => $f_min,
+                'max'   => $f_max,
+                'value' => $default_p,
+                'step'  => $f_step
             ),
-            'priority'      => 35,
+            'priority'      => 40,
         ) )
     );
 
     // Sidebar font size
     $wp_customize->add_setting( 'mloc_typography_size_sidebar', array(
-        'default' 			=> 16,
+        'default' 			=> $default_p,
         'sanitize_callback'	=> 'absint',
         'transport'         => 'postMessage',
     ) );
@@ -144,18 +170,18 @@ function mloc_appearance_typography_customize_register( $wp_customize ) {
             'section'	    => 'mloc_appearance_typography',
             'settings'	    => 'mloc_typography_size_sidebar',
             'input_attrs'   => array(
-                'min'   => 1,
-                'max'   => 32,
-                'value' => 16,
-                'step'  => 1,
+                'min'   => $f_min,
+                'max'   => $f_max,
+                'value' => $default_p,
+                'step'  => $f_step,
             ),
-            'priority'      => 40,
+            'priority'      => 45,
         ) )
     );
 
     // Footer sidebar font size
     $wp_customize->add_setting( 'mloc_typography_size_footer_sidebar', array(
-        'default' 			=> 16,
+        'default' 			=> $default_p,
         'sanitize_callback'	=> 'absint',
         'transport'         => 'postMessage',
     ) );
@@ -165,18 +191,18 @@ function mloc_appearance_typography_customize_register( $wp_customize ) {
             'section'	    => 'mloc_appearance_typography',
             'settings'	    => 'mloc_typography_size_footer_sidebar',
             'input_attrs'   => array(
-                'min'   => 1,
-                'max'   => 32,
-                'value' => 16,
-                'step'  => 1,
+                'min'   => $f_min,
+                'max'   => $f_max,
+                'value' => $default_p,
+                'step'  => $f_step,
             ),
-            'priority'      => 45,
+            'priority'      => 50,
         ) )
     );
 
     // Footer copyright font size
     $wp_customize->add_setting( 'mloc_typography_size_copyright', array(
-        'default' 			=> 16,
+        'default' 			=> $default_p,
         'sanitize_callback'	=> 'absint',
         'transport'         => 'postMessage',
     ) );
@@ -186,12 +212,12 @@ function mloc_appearance_typography_customize_register( $wp_customize ) {
             'section'	    => 'mloc_appearance_typography',
             'settings'	    => 'mloc_typography_size_copyright',
             'input_attrs'   => array(
-                'min'   => 1,
-                'max'   => 32,
-                'value' => 16,
-                'step'  => 1,
+                'min'   => $f_min,
+                'max'   => $f_max,
+                'value' => $default_p,
+                'step'  => $f_step,
             ),
-            'priority'      => 50,
+            'priority'      => 55,
         ) )
     );
 }
