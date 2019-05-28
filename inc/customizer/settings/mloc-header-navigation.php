@@ -28,7 +28,7 @@ function mloc_header_navigation_customize_register( $wp_customize ) {
         'label'		=> esc_html__( 'Enable search in primary navigation', 'mloc' ),
         'section'	=> 'mloc_navigation',
         'settings'	=> 'mloc_navigation_search',
-        'priority'	=> 20,
+        'priority'	=> 10,
     ) );
 }
 add_action( 'customize_register', 'mloc_header_navigation_customize_register' );

@@ -1,8 +1,15 @@
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
-.custom-background #main .content-container {
-  background-color: rgba(62, 62, 62, 0.97);
+.custom-background {
+  #main {
+    background-color: rgba(62, 62, 62, 0.97);
+    transition: background 0.5s ease;
+  }
+
+  #main .content-container {
+    background-color: transparent;
+  }
 }
 
 #main {

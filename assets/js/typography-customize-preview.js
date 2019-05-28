@@ -1,5 +1,5 @@
 /**
- * Theme customizer preview JS file
+ * Theme customizer typography preview JS file
  *
  * @package Mloc
  */
@@ -26,7 +26,7 @@
         setting.bind( function ( to ) {
             var inlineOld = $( '.customizer-typography-size-hero-inline' );
             if ( to ) {
-                var inline = '<style class="customizer-typography-size-hero-inline">.hero .hero-title { font-size: ' + to + 'px; }</style>';
+                var inline = '<style class="customizer-typography-size-hero-inline">header .hero .hero-title { font-size: ' + to + 'px; }</style>';
                 if ( inlineOld.length ) {
                     inlineOld.replaceWith( inline );
                 } else {

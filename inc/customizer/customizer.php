@@ -21,11 +21,13 @@ function mloc_setup_customizer_files() {
     }
 
     $settings_array = array(
+        'customizer/settings/mloc-appearance-background-image.php',
         'customizer/settings/mloc-appearance-general.php',
         'customizer/settings/mloc-appearance-typography.php',
         'customizer/settings/mloc-content-blog.php',
         'customizer/settings/mloc-content-page.php',
         'customizer/settings/mloc-content-single-post.php',
+        'customizer/settings/mloc-footer.php',
         'customizer/settings/mloc-header-navigation.php'
     );
     foreach ( $settings_array as $setting ) {
@@ -75,26 +77,12 @@ function mloc_customize_register( $wp_customize ) {
 	// Panel: Content settings
     $wp_customize->add_panel( 'mloc_content_settings', array(
         'title'     => __( 'Content Settings', 'mloc' ),
-        'priority'  => 65,
+        'priority'  => 50,
     ) );
-
-	// Copyright
-	$wp_customize->add_setting( 'mloc_copyright', array(
-		'default'			=> '© Copyright - ' . get_bloginfo( 'name' ),
-		'sanitize_callback'	=> 'wp_filter_nohtml_kses',
-        'transport'         => 'postMessage',
-	) );
-	$wp_customize->add_control( 'mloc_copyright', array(
-		'type'			=> 'text',
-		'label'			=> esc_html__( 'Copyright', 'mloc' ),
-		'description'	=> __( 'Change site copyright in footer.', 'mloc' ),
-		'section'		=> 'title_tagline',
-		'settings'		=> 'mloc_copyright',
-		'priority'		=> 65,
-	) );
 
 	// Add selective refresh
     $wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
+    $wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
     $wp_customize->get_setting( 'custom_logo' )->transport = 'postMessage';
 
     $wp_customize->selective_refresh->add_partial( 'blogname', array(
@@ -103,7 +91,12 @@ function mloc_customize_register( $wp_customize ) {
             return get_bloginfo( 'name' );
         },
     ) );
-
+    $wp_customize->selective_refresh->add_partial( 'blogdescription', array(
+        'selector'          => '.home.blog .hero .hero-title',
+        'render_callback'   => function() {
+            return get_bloginfo( 'description' );
+        },
+    ) );
     $wp_customize->selective_refresh->add_partial( 'custom_logo', array(
         'selector'          => '.navbar-brand',
         'render_callback'   => function() {
@@ -119,7 +112,6 @@ function mloc_customize_register( $wp_customize ) {
             return $logo_callback;
         },
     ) );
-
     $wp_customize->selective_refresh->add_partial( 'mloc_copyright', array(
         'selector'          => '.copyright p',
         'render_callback'   => function() {
@@ -135,9 +127,18 @@ add_action( 'customize_register', 'mloc_customize_register' );
  * Load customize preview JS file
  */
 function mloc_customize_preview_init() {
-    wp_enqueue_script( 'mloc-customize-preview', get_template_directory_uri() . '/assets/js/typography-customize-preview.js', array( 'customize-preview' ), false, true );
+    wp_enqueue_script( 'mloc-customize-preview', get_template_directory_uri() . '/assets/js/customize-preview.js', array( 'customize-preview' ), false, true );
+    wp_enqueue_script( 'mloc-typography-customize-preview', get_template_directory_uri() . '/assets/js/typography-customize-preview.js', array( 'customize-preview' ), false, true );
 }
 add_action( 'customize_preview_init', 'mloc_customize_preview_init' );
+
+/**
+ * Load customize control context JS file
+ */
+function mloc_customize_controls_context_init() {
+    wp_enqueue_script( 'mloc-customize-context', get_template_directory_uri() . '/assets/js/customize-context.js', array( 'customize-controls' ), false, true );
+}
+add_action( 'customize_controls_enqueue_scripts', 'mloc_customize_controls_context_init' );
 
 if ( ! function_exists( 'mloc_sanitize_checkbox' ) ) {
 	/**
@@ -149,4 +150,16 @@ if ( ! function_exists( 'mloc_sanitize_checkbox' ) ) {
 	function mloc_sanitize_checkbox( $input ) {
 		return ( isset( $input ) && $input === true ? true : false );
 	}
+}
+
+if ( ! function_exists( 'mloc_sanitize_float' ) ) {
+    /**
+     * Sanitize float number
+     *
+     * @param $input
+     * @return float|bool Returns sanitized float or false
+     */
+    function mloc_sanitize_float( $input ) {
+        return filter_var( $input, FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION );
+    }
 }

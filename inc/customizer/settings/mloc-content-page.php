@@ -29,7 +29,7 @@ function mloc_content_page_customize_register( $wp_customize ) {
         'description'	=> __( 'Display featured image of the page at the beginning of its content.', 'mloc' ),
         'section'		=> 'mloc_page_settings',
         'settings'		=> 'mloc_page_featured_image',
-        'priority'		=> 20,
+        'priority'		=> 10,
     ) );
 }
 add_action( 'customize_register', 'mloc_content_page_customize_register' );

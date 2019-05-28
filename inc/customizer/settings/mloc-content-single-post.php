@@ -29,7 +29,7 @@ function mloc_content_single_post_customize_register( $wp_customize ) {
         'description'	=> __( 'Display featured image of the post at the beginning of its content.', 'mloc' ),
         'section'		=> 'mloc_single_post_settings',
         'settings'		=> 'mloc_single_post_featured_image',
-        'priority'		=> 20,
+        'priority'		=> 10,
     ) );
 
     // Adjacent posts
@@ -43,7 +43,7 @@ function mloc_content_single_post_customize_register( $wp_customize ) {
         'description'	=> __( 'Display links to previous and next post.', 'mloc' ),
         'section'		=> 'mloc_single_post_settings',
         'settings'		=> 'mloc_adjacent_posts',
-        'priority'		=> 40,
+        'priority'		=> 15,
     ) );
 
     // Related posts
@@ -57,7 +57,7 @@ function mloc_content_single_post_customize_register( $wp_customize ) {
         'description'	=> __( 'Display related posts based on relevant tags or categories.', 'mloc' ),
         'section'		=> 'mloc_single_post_settings',
         'settings'		=> 'mloc_related_posts',
-        'priority'		=> 60,
+        'priority'		=> 20,
     ) );
 }
 add_action( 'customize_register', 'mloc_content_single_post_customize_register' );

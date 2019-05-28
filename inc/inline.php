@@ -6,6 +6,27 @@
  */
 
 /**
+ * Inline styles
+ */
+function mloc_inline( $output ) {
+    $background_transparency = get_theme_mod( 'mloc_background_transparency' );
+
+    $css = '';
+
+    // Background transparency
+    if ( $background_transparency != 0.97 ) {
+        $css .= "
+            body.custom-background #main { background-color: rgba(62, 62, 62, " . esc_html( $background_transparency ) . "); }
+        ";
+    }
+
+    $output .= $css;
+
+    return $output;
+}
+add_filter( 'mloc_head_css', 'mloc_inline' );
+
+/**
  * Typography inline styles
  */
 function mloc_inline_typography( $output ) {
@@ -51,64 +72,62 @@ function mloc_inline_typography( $output ) {
     }
 
     // Menu font size
-    if ( $menu_font_size != $default_p ) {
+    if ( $menu_font_size && $menu_font_size != $default_p ) {
         $css .= "
             #main-menu #main-navigation .navbar-nav { font-size: " . esc_html( $menu_font_size ) . "px; }
         ";
     }
 
     // Hero font size
-    if ( $hero_font_size != $default_h1 ) {
+    if ( $hero_font_size && $hero_font_size != $default_h1 ) {
         $css .= "
-            .hero .hero-title { font-size: " . esc_html( $hero_font_size ) . "px; }
+            header .hero .hero-title { font-size: " . esc_html( $hero_font_size ) . "px; }
         ";
     }
 
     // Blog post heading font size
-    if ( $blog_heading_font_size != $default_h2 ) {
+    if ( $blog_heading_font_size && $blog_heading_font_size != $default_h2 ) {
         $css .= "
             .blog .post .post-title { font-size: " . esc_html( $blog_heading_font_size ) . "px; }
         ";
     }
 
     // Blog post body font size
-    if ( $blog_body_font_size != $default_p ) {
+    if ( $blog_body_font_size && $blog_body_font_size != $default_p ) {
         $css .= "
             .blog .post .post-content { font-size: " . esc_html( $blog_body_font_size ) . "px; }
         ";
     }
 
     // Page body font size
-    if ( $page_body_font_size != $default_p ) {
+    if ( $page_body_font_size && $page_body_font_size != $default_p ) {
         $css .= "
             .page .page-content, .single-post .post-content { font-size: " . esc_html( $page_body_font_size ) . "px; }
         ";
     }
 
     // Main sidebar font size
-    if ( $sidebar_font_size != $default_p ) {
+    if ( $sidebar_font_size &&  $sidebar_font_size != $default_p ) {
         $css .= "
             #sidebar-primary { font-size: " . esc_html( $sidebar_font_size ) . "px; }
         ";
     }
 
     // Footer sidebar font size
-    if ( $footer_sidebar_font_size != $default_p ) {
+    if ( $footer_sidebar_font_size && $footer_sidebar_font_size != $default_p ) {
         $css .= "
             #site-footer .sidebar-footer-item { font-size: " . esc_html( $footer_sidebar_font_size ) . "px; }
         ";
     }
 
     // Footer copyright font size
-    if ( $footer_copyright_font_size != $default_p ) {
+    if ( $footer_copyright_font_size && $footer_copyright_font_size != $default_p ) {
         $css .= "
             #site-footer .copyright { font-size: " . esc_html( $footer_copyright_font_size ) . "px; }
         ";
     }
 
-    if ( $css != '' ) {
-        $output = $css;
-    }
+    $output .= $css;
 
     return $output;
 }

@@ -32,7 +32,7 @@ function mloc_content_blog_customize_register( $wp_customize ) {
         'label'			=> esc_html__( 'Blog post content type', 'mloc' ),
         'section'		=> 'mloc_blog_settings',
         'settings'		=> 'mloc_blog_post_content_type',
-        'priority'		=> 20,
+        'priority'		=> 10,
     ) );
 
     // Blog excerpt length
@@ -45,7 +45,7 @@ function mloc_content_blog_customize_register( $wp_customize ) {
         'label'			=> esc_html__( 'Excerpt length', 'mloc' ),
         'section'		=> 'mloc_blog_settings',
         'settings'		=> 'mloc_blog_excerpt_length',
-        'priority'		=> 40,
+        'priority'		=> 15,
     ) );
 }
 add_action( 'customize_register', 'mloc_content_blog_customize_register' );

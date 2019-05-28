@@ -47,7 +47,7 @@ function mloc_appearance_general_customize_register( $wp_customize ) {
                 'section'	=> 'mloc_appearance_general',
                 'settings'	=> 'mloc_blog_sidebar_layout',
                 'choices'	=> $sidebar_layouts,
-                'priority'	=> 20,
+                'priority'	=> 10,
             ) )
         );
 
@@ -62,7 +62,7 @@ function mloc_appearance_general_customize_register( $wp_customize ) {
                 'section'	=> 'mloc_appearance_general',
                 'settings'	=> 'mloc_page_sidebar_layout',
                 'choices'	=> $sidebar_layouts,
-                'priority'	=> 40,
+                'priority'	=> 15,
             ) )
         );
 
@@ -76,7 +76,7 @@ function mloc_appearance_general_customize_register( $wp_customize ) {
             'label'		=> esc_html__( 'Hide sidebar on mobile', 'mloc' ),
             'section'	=> 'mloc_appearance_general',
             'settings'	=> 'mloc_sidebar_mobile',
-            'priority'	=> 60,
+            'priority'	=> 20,
         ) );
 
         // Enable scroll to top button
@@ -89,7 +89,7 @@ function mloc_appearance_general_customize_register( $wp_customize ) {
             'label'		=> esc_html__( 'Enable scroll to top button', 'mloc' ),
             'section'	=> 'mloc_appearance_general',
             'settings'	=> 'mloc_go_top',
-            'priority'	=> 80,
+            'priority'	=> 25,
         ) );
 
     }
