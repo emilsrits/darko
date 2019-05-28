@@ -140,7 +140,7 @@ function mloc_script() {
     wp_register_script( 'mloc-script', get_template_directory_uri() . '/assets/js/script.js', array( 'jquery' ), false, true );
     wp_enqueue_script( 'mloc-script' );
 
-    wp_localize_script( 'mloc_script', 'phpVars', array( 'ajaxUrl' => admin_url( 'admin-ajax.php'), 'check_nonce' => wp_create_nonce( 'mloc-nonce' ) ) );
+    wp_localize_script( 'mloc-script', 'phpVars', array( 'ajaxUrl' => admin_url( 'admin-ajax.php'), 'check_nonce' => wp_create_nonce( 'mloc-nonce' ) ) );
 }
 add_action( 'wp_enqueue_scripts', 'mloc_script' );
 
