@@ -5,60 +5,38 @@
  * @package Mloc
  */
 
-if ( ! function_exists( 'mloc_enqueue_custom_fonts' ) ) {
-    /**
-     * Enqueues selected Google fonts from theme customizer
-     */
-    function mloc_enqueue_custom_fonts() {
-        $heading_font = get_theme_mod( 'mloc_typography_heading' );
-        $body_font = get_theme_mod( 'mloc_typography_body' );
-        $fonts_url = 'https://fonts.googleapis.com/css?family=';
-
-        if ( ! $heading_font || ! $body_font ) {
-            if ( ( $heading_font && ! $body_font ) || ( ! $body_font && ! $heading_font ) ) {
-                // Default Google fonts
-                wp_register_style( 'mloc-google-fonts', 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700' );
-                wp_enqueue_style( 'mloc-google-fonts' );
-            }
-
-            if ( ! $body_font && ! $heading_font ) {
-                return;
-            }
+if ( ! function_exists( 'mloc_minify_css' ) ) {
+    function mloc_minify_css( $css ) {
+        // remove comments
+        $css = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $css);
+        // backup values within single or double quotes
+        preg_match_all('/(\'[^\']*?\'|"[^"]*?")/ims', $css, $hit, PREG_PATTERN_ORDER);
+        for ($i=0; $i < count($hit[1]); $i++) {
+            $css = str_replace($hit[1][$i], '##########' . $i . '##########', $css);
+        }
+        // remove traling semicolon of selector's last property
+        $css = preg_replace('/;[\s\r\n\t]*?}[\s\r\n\t]*/ims', "}\r\n", $css);
+        // remove any whitespace between semicolon and property-name
+        $css = preg_replace('/;[\s\r\n\t]*?([\r\n]?[^\s\r\n\t])/ims', ';$1', $css);
+        // remove any whitespace surrounding property-colon
+        $css = preg_replace('/[\s\r\n\t]*:[\s\r\n\t]*?([^\s\r\n\t])/ims', ':$1', $css);
+        // remove any whitespace surrounding selector-comma
+        $css = preg_replace('/[\s\r\n\t]*,[\s\r\n\t]*?([^\s\r\n\t])/ims', ',$1', $css);
+        // remove any whitespace surrounding opening parenthesis
+        $css = preg_replace('/[\s\r\n\t]*{[\s\r\n\t]*?([^\s\r\n\t])/ims', '{$1', $css);
+        // remove any whitespace between numbers and units
+        $css = preg_replace('/([\d\.]+)[\s\r\n\t]+(px|em|pt|%)/ims', '$1$2', $css);
+        // shorten zero-values
+        $css = preg_replace('/([^\d\.]0)(px|em|pt|%)/ims', '$1', $css);
+        // constrain multiple whitespaces
+        $css = preg_replace('/\p{Zs}+/ims',' ', $css);
+        // remove newlines
+        $css = str_replace(array("\r\n", "\r", "\n"), '', $css);
+        // Restore backupped values within single or double quotes
+        for ($i=0; $i < count($hit[1]); $i++) {
+            $css = str_replace('##########' . $i . '##########', $hit[1][$i], $css);
         }
 
-        if ( $heading_font ) {
-            $heading_font = str_replace( ' ', '+', $heading_font );
-        }
-
-        if ( $body_font ) {
-            $body_font = str_replace( ' ', '+', $body_font );
-        }
-
-        if ( $heading_font === $body_font ) {
-            if ( strpos( $body_font, '_sys' ) === false ) {
-                $fonts = $body_font . ':300,400,500,700';
-            } else {
-                $fonts = '';
-            }
-        } else {
-            $fonts = sprintf(
-            /* translators: %1$s is heading font, %2$s separator, %3$s is body font */
-                '%1$s%2$s%3$s',
-                ( $heading_font && strpos( $heading_font, '_sys' ) === false ? $heading_font . ':300,400,500,700' : '' ),
-                ( ( $heading_font && $body_font ) && ( strpos( $heading_font, '_sys' ) === false && strpos( $body_font, '_sys' ) === false ) ? '|' : '' ),
-                ( $body_font && strpos( $body_font, '_sys' ) === false ? $body_font . ':300,400,500,700' : '' )
-            );
-        }
-
-        // If both fonts are system fonts
-        if ( ! $fonts ) {
-            return;
-        }
-
-        $fonts_url .= $fonts;
-
-        wp_register_style( 'mloc-custom-fonts', $fonts_url );
-        wp_enqueue_style( 'mloc-custom-fonts' );
+        return $css;
     }
-    add_action( 'mloc_after_styles', 'mloc_enqueue_custom_fonts' );
 }
