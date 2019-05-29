@@ -57,6 +57,7 @@ class Mloc_Customize_Slider_Control extends WP_Customize_Control {
             <div class="mloc-slider-container"></div>
             <div class="mloc-slider-input-container">
                 <input type="number" min="{{ data.inputAttrs['min'] }}" max="{{ data.inputAttrs['max'] }}" step="{{ data.inputAttrs['step'] }}" value="{{ data.inputAttrs['value'] }}" id="{{ data.id }}" class="mloc-slider-input" {{{ data.link }}}>
+                <span class="mloc-slider-reset" data-default="{{ data.inputAttrs['value'] }}"></span>
             </div>
         <# } #>
         <?php

@@ -128,7 +128,7 @@ add_action( 'customize_register', 'mloc_customize_register' );
  */
 function mloc_customize_preview_init() {
     wp_enqueue_script( 'mloc-customize-preview', get_template_directory_uri() . '/assets/js/customize-preview.js', array( 'customize-preview' ), false, true );
-    wp_enqueue_script( 'mloc-typography-customize-preview', get_template_directory_uri() . '/assets/js/typography-customize-preview.js', array( 'customize-preview' ), false, true );
+    wp_enqueue_script( 'mloc-customize-typography-preview', get_template_directory_uri() . '/assets/js/customize-typography-preview.js', array( 'customize-preview' ), false, true );
 }
 add_action( 'customize_preview_init', 'mloc_customize_preview_init' );
 
@@ -136,6 +136,7 @@ add_action( 'customize_preview_init', 'mloc_customize_preview_init' );
  * Load customize control context JS file
  */
 function mloc_customize_controls_context_init() {
+    wp_enqueue_style( 'mloc-customize-style', get_template_directory_uri() . '/assets/css/customize-styles.css' );
     wp_enqueue_script( 'mloc-customize-context', get_template_directory_uri() . '/assets/js/customize-context.js', array( 'customize-controls' ), false, true );
 }
 add_action( 'customize_controls_enqueue_scripts', 'mloc_customize_controls_context_init' );

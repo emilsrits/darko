@@ -4,6 +4,7 @@ wp.customize.controlConstructor['mloc-slider'] = wp.customize.Control.extend({
         var control = this,
             sliderContainer = control.container.find( '.mloc-slider-container' ),
             sliderInput = sliderContainer.next( '.mloc-slider-input-container' ).find( '.mloc-slider-input' ),
+            sliderReset = sliderContainer.next( '.mloc-slider-input-container' ).find( '.mloc-slider-reset' ),
             inputDefault = sliderInput.val(),
             inputMin = +sliderInput.attr( 'min' ),
             inputMax = +sliderInput.attr( 'max' ),
@@ -28,6 +29,12 @@ wp.customize.controlConstructor['mloc-slider'] = wp.customize.Control.extend({
             val = $this.val();
             sliderUi = $this.parent().prev( '.mloc-slider-container' );
             sliderUi.slider( 'value', val );
+        } );
+
+        sliderReset.on( 'click', function () {
+            $this = jQuery( this );
+            val = +$this.attr( 'data-default' );
+            sliderInput.val( val ).change();
         } );
     }
 
