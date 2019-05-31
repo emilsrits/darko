@@ -569,44 +569,49 @@ table.wp-block-table.is-style-stripes tr:nth-child(2n+1) {
 }
 
 /* line 92, ../sass/partials/_navigation.scss */
+#main-menu.no-brand .navbar-toggle, #main-menu.no-brand #main-navigation {
+  margin-left: auto;
+}
+
+/* line 98, ../sass/partials/_navigation.scss */
 .main-menu-fixed #main-menu {
   position: fixed;
   top: 0;
 }
-/* line 95, ../sass/partials/_navigation.scss */
+/* line 101, ../sass/partials/_navigation.scss */
 .main-menu-fixed #main-menu.at-top {
   box-shadow: none;
 }
-/* line 100, ../sass/partials/_navigation.scss */
+/* line 106, ../sass/partials/_navigation.scss */
 .main-menu-fixed.admin-bar #main-menu {
   margin-top: 32px;
 }
-/* line 105, ../sass/partials/_navigation.scss */
+/* line 111, ../sass/partials/_navigation.scss */
 .main-menu-fixed.home #wrapper {
   margin-top: 83px;
 }
-/* line 110, ../sass/partials/_navigation.scss */
+/* line 116, ../sass/partials/_navigation.scss */
 .main-menu-fixed #wrapper {
   margin-top: 63px;
 }
 
-/* line 115, ../sass/partials/_navigation.scss */
+/* line 121, ../sass/partials/_navigation.scss */
 #main-navigation .navbar-nav, #site-footer .footer-menu {
   padding-left: 0;
 }
-/* line 118, ../sass/partials/_navigation.scss */
+/* line 124, ../sass/partials/_navigation.scss */
 #main-navigation .navbar-nav .sub-menu, #site-footer .footer-menu .sub-menu {
   padding-left: 0;
 }
 
-/* line 123, ../sass/partials/_navigation.scss */
+/* line 129, ../sass/partials/_navigation.scss */
 #main-navigation ul.navbar-nav li, #site-footer .footer-menu li {
   position: relative;
   display: inline-block;
   text-transform: uppercase;
   letter-spacing: 0.3px;
 }
-/* line 129, ../sass/partials/_navigation.scss */
+/* line 135, ../sass/partials/_navigation.scss */
 #main-navigation ul.navbar-nav li > a, #site-footer .footer-menu li > a {
   display: block;
   padding: 15px 15px;
@@ -614,25 +619,25 @@ table.wp-block-table.is-style-stripes tr:nth-child(2n+1) {
   font-size: 0.75em;
   transition: all 0.2s ease;
 }
-/* line 135, ../sass/partials/_navigation.scss */
+/* line 141, ../sass/partials/_navigation.scss */
 #main-navigation ul.navbar-nav li > a:hover, #site-footer .footer-menu li > a:hover {
   color: #CC4040;
 }
 
-/* line 141, ../sass/partials/_navigation.scss */
+/* line 147, ../sass/partials/_navigation.scss */
 #main-navigation ul.navbar-nav li .sub-menu {
   display: none;
 }
 
-/* line 145, ../sass/partials/_navigation.scss */
+/* line 151, ../sass/partials/_navigation.scss */
 #main-navigation {
   background-color: #303030;
 }
-/* line 148, ../sass/partials/_navigation.scss */
+/* line 154, ../sass/partials/_navigation.scss */
 #main-navigation .mloc-nav-search-container {
   position: relative;
 }
-/* line 151, ../sass/partials/_navigation.scss */
+/* line 157, ../sass/partials/_navigation.scss */
 #main-navigation .mloc-nav-search-container input[type="search"] {
   padding: 3px 36px 3px 8px;
   width: 140px;
@@ -646,7 +651,7 @@ table.wp-block-table.is-style-stripes tr:nth-child(2n+1) {
   vertical-align: middle;
   transition: 0.3s ease-in-out;
 }
-/* line 165, ../sass/partials/_navigation.scss */
+/* line 171, ../sass/partials/_navigation.scss */
 #main-navigation .mloc-nav-search-container button[type="submit"] {
   position: absolute;
   top: 0;
@@ -657,17 +662,39 @@ table.wp-block-table.is-style-stripes tr:nth-child(2n+1) {
   border: none;
   transition: 0.3s ease-in-out;
 }
-/* line 174, ../sass/partials/_navigation.scss */
+/* line 180, ../sass/partials/_navigation.scss */
 #main-navigation .mloc-nav-search-container button[type="submit"]:hover {
   color: #b73a3a;
   background-color: #303030;
 }
-/* line 179, ../sass/partials/_navigation.scss */
+/* line 185, ../sass/partials/_navigation.scss */
 #main-navigation .mloc-nav-search-container button[type="submit"] > i {
   vertical-align: middle;
 }
 
-/* line 186, ../sass/partials/_navigation.scss */
+/* line 192, ../sass/partials/_navigation.scss */
+header.nav-transparent {
+  position: relative;
+}
+/* line 195, ../sass/partials/_navigation.scss */
+header.nav-transparent #main-menu, header.nav-transparent #main-navigation {
+  background-color: transparent;
+}
+/* line 199, ../sass/partials/_navigation.scss */
+header.nav-transparent #main-menu {
+  box-shadow: none;
+  transition: background 0.3s ease;
+}
+/* line 202, ../sass/partials/_navigation.scss */
+header.nav-transparent #main-menu:hover {
+  background-color: rgba(48, 48, 48, 0.8);
+}
+/* line 207, ../sass/partials/_navigation.scss */
+header.nav-transparent .hero {
+  position: static;
+}
+
+/* line 212, ../sass/partials/_navigation.scss */
 #mloc-go-top {
   display: block;
   position: fixed;
@@ -686,15 +713,15 @@ table.wp-block-table.is-style-stripes tr:nth-child(2n+1) {
   transition: opacity 0.3s ease;
   z-index: 900;
 }
-/* line 203, ../sass/partials/_navigation.scss */
+/* line 229, ../sass/partials/_navigation.scss */
 #mloc-go-top.faded-out {
   opacity: 0;
 }
-/* line 206, ../sass/partials/_navigation.scss */
+/* line 232, ../sass/partials/_navigation.scss */
 #mloc-go-top:hover {
   opacity: 0.8;
 }
-/* line 210, ../sass/partials/_navigation.scss */
+/* line 236, ../sass/partials/_navigation.scss */
 #mloc-go-top > i {
   font-size: 1.125em;
 }
@@ -947,7 +974,7 @@ table.wp-block-table.is-style-stripes tr:nth-child(2n+1) {
 
 /* line 78, ../sass/partials/_content.scss */
 .page article.post, .page article.page, .page article.attachment, .single-post article.post, .single-post article.page, .single-post article.attachment, .attachment article.post, .attachment article.page, .attachment article.attachment {
-  padding-top: 55px;
+  padding-top: 35px;
 }
 /* line 82, ../sass/partials/_content.scss */
 .page .featured-img, .single-post .featured-img, .attachment .featured-img {
@@ -1748,7 +1775,7 @@ table.wp-block-table.is-style-stripes tr:nth-child(2n+1) {
     width: 100%;
     border-top: 1px solid transparent;
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    transition: max-height 0.3s ease-in-out;
+    transition: all 0.3s ease-in;
     overflow: hidden;
     z-index: 1;
   }
@@ -1829,110 +1856,119 @@ table.wp-block-table.is-style-stripes tr:nth-child(2n+1) {
     width: 200px;
   }
 
-  /* line 117, ../sass/partials/_responsive.scss */
+  /* line 118, ../sass/partials/_responsive.scss */
+  header.nav-transparent #main-menu.open {
+    background-color: rgba(48, 48, 48, 0.8);
+  }
+  /* line 122, ../sass/partials/_responsive.scss */
+  header.nav-transparent #main-navigation.collapse.in {
+    background-color: #303030;
+  }
+
+  /* line 127, ../sass/partials/_responsive.scss */
   #site-footer .footer-info {
     flex-direction: column-reverse;
     justify-content: center;
   }
-  /* line 121, ../sass/partials/_responsive.scss */
+  /* line 131, ../sass/partials/_responsive.scss */
   #site-footer .footer-info .footer-menu {
     margin-bottom: 15px;
     padding: 0;
   }
-  /* line 125, ../sass/partials/_responsive.scss */
+  /* line 135, ../sass/partials/_responsive.scss */
   #site-footer .footer-info .footer-menu li > a {
     padding: 10px 10px;
   }
-  /* line 130, ../sass/partials/_responsive.scss */
+  /* line 140, ../sass/partials/_responsive.scss */
   #site-footer .footer-info .copyright {
     order: -1;
   }
 
-  /* line 135, ../sass/partials/_responsive.scss */
+  /* line 145, ../sass/partials/_responsive.scss */
   #mloc-go-top {
     display: none;
   }
 
-  /* line 139, ../sass/partials/_responsive.scss */
+  /* line 149, ../sass/partials/_responsive.scss */
   #main {
     margin: 0;
   }
 
-  /* line 143, ../sass/partials/_responsive.scss */
+  /* line 153, ../sass/partials/_responsive.scss */
   .single-post .featured-img {
     margin: 0 5% 20px;
   }
 
-  /* line 147, ../sass/partials/_responsive.scss */
+  /* line 157, ../sass/partials/_responsive.scss */
   .post-title {
     margin-top: 25px;
   }
 
-  /* line 151, ../sass/partials/_responsive.scss */
+  /* line 161, ../sass/partials/_responsive.scss */
   #related-posts .related-post {
     display: flex;
     margin-bottom: 20px;
     text-align: left;
   }
-  /* line 156, ../sass/partials/_responsive.scss */
+  /* line 166, ../sass/partials/_responsive.scss */
   #related-posts .related-post .related-post-thumb {
     padding-right: 15px;
   }
-  /* line 159, ../sass/partials/_responsive.scss */
+  /* line 169, ../sass/partials/_responsive.scss */
   #related-posts .related-post .related-post-thumb img {
     max-width: 140px;
     height: auto;
   }
-  /* line 166, ../sass/partials/_responsive.scss */
+  /* line 176, ../sass/partials/_responsive.scss */
   #related-posts .related-post .related-post-meta .related-post-title {
     font-size: 0.875em;
   }
 
-  /* line 173, ../sass/partials/_responsive.scss */
+  /* line 183, ../sass/partials/_responsive.scss */
   #comments .children {
     padding-left: 5px;
     border-left: 1px solid #303030;
   }
-  /* line 177, ../sass/partials/_responsive.scss */
+  /* line 187, ../sass/partials/_responsive.scss */
   #comments .children .comment {
     margin: 10px 0 5px;
   }
-  /* line 183, ../sass/partials/_responsive.scss */
+  /* line 193, ../sass/partials/_responsive.scss */
   #comments .comment .comment-body {
     padding-right: 5px;
   }
-  /* line 187, ../sass/partials/_responsive.scss */
+  /* line 197, ../sass/partials/_responsive.scss */
   #comments .comment .author-avatar {
     padding-right: 15px;
   }
-  /* line 191, ../sass/partials/_responsive.scss */
+  /* line 201, ../sass/partials/_responsive.scss */
   #comments .comment .comment-meta > h4, #comments .comment .comment-content p {
     font-size: 0.875em;
   }
 
-  /* line 197, ../sass/partials/_responsive.scss */
+  /* line 207, ../sass/partials/_responsive.scss */
   .comments-reply {
     margin-top: 40px;
   }
-  /* line 200, ../sass/partials/_responsive.scss */
+  /* line 210, ../sass/partials/_responsive.scss */
   .comments-reply .author-avatar {
     display: none;
   }
-  /* line 204, ../sass/partials/_responsive.scss */
+  /* line 214, ../sass/partials/_responsive.scss */
   .comments-reply #comment-cookies {
     text-align: center;
   }
-  /* line 209, ../sass/partials/_responsive.scss */
+  /* line 219, ../sass/partials/_responsive.scss */
   .comments-reply #commentform .control-label {
     margin: 10px 0 5px;
     font-size: 0.625em;
   }
-  /* line 215, ../sass/partials/_responsive.scss */
+  /* line 225, ../sass/partials/_responsive.scss */
   .comments-reply .comment-notes {
     text-align: center;
   }
 
-  /* line 221, ../sass/partials/_responsive.scss */
+  /* line 231, ../sass/partials/_responsive.scss */
   .search-no-results .mloc-content-area-search input[type="search"], .error404 .mloc-content-area-search input[type="search"] {
     width: 200px;
   }
@@ -1941,21 +1977,21 @@ table.wp-block-table.is-style-stripes tr:nth-child(2n+1) {
 ## Tablet
 --------------------------------------------------------------*/
 @media only screen and (min-width: 768px) {
-  /* line 231, ../sass/partials/_responsive.scss */
+  /* line 241, ../sass/partials/_responsive.scss */
   #main-menu .navbar-toggle {
     display: none;
   }
-  /* line 235, ../sass/partials/_responsive.scss */
+  /* line 245, ../sass/partials/_responsive.scss */
   #main-menu #main-navigation {
     display: block;
   }
 
-  /* line 240, ../sass/partials/_responsive.scss */
+  /* line 250, ../sass/partials/_responsive.scss */
   #main-navigation .mloc-nav-search {
     margin-left: 20px;
   }
 
-  /* line 244, ../sass/partials/_responsive.scss */
+  /* line 254, ../sass/partials/_responsive.scss */
   #main-navigation ul.navbar-nav > .menu-item-has-children:hover::before {
     content: "";
     position: absolute;
@@ -1967,11 +2003,11 @@ table.wp-block-table.is-style-stripes tr:nth-child(2n+1) {
     border-color: transparent transparent rgba(33, 33, 33, 0.8) transparent;
   }
 
-  /* line 257, ../sass/partials/_responsive.scss */
+  /* line 267, ../sass/partials/_responsive.scss */
   #main-navigation ul.navbar-nav li:hover > .sub-menu {
     display: block;
   }
-  /* line 262, ../sass/partials/_responsive.scss */
+  /* line 272, ../sass/partials/_responsive.scss */
   #main-navigation ul.navbar-nav li .sub-menu {
     position: absolute;
     left: 0;
@@ -1979,28 +2015,28 @@ table.wp-block-table.is-style-stripes tr:nth-child(2n+1) {
     background: rgba(33, 33, 33, 0.9);
     z-index: 50;
   }
-  /* line 268, ../sass/partials/_responsive.scss */
+  /* line 278, ../sass/partials/_responsive.scss */
   #main-navigation ul.navbar-nav li .sub-menu:hover {
     display: block;
   }
-  /* line 272, ../sass/partials/_responsive.scss */
+  /* line 282, ../sass/partials/_responsive.scss */
   #main-navigation ul.navbar-nav li .sub-menu li {
     display: block;
   }
-  /* line 275, ../sass/partials/_responsive.scss */
+  /* line 285, ../sass/partials/_responsive.scss */
   #main-navigation ul.navbar-nav li .sub-menu li > a {
     padding: 15px 10px;
   }
-  /* line 280, ../sass/partials/_responsive.scss */
+  /* line 290, ../sass/partials/_responsive.scss */
   #main-navigation ul.navbar-nav li .sub-menu .nav-children-icon {
     transform: rotate(270deg);
   }
-  /* line 284, ../sass/partials/_responsive.scss */
+  /* line 294, ../sass/partials/_responsive.scss */
   #main-navigation ul.navbar-nav li .sub-menu .sub-menu {
     top: 0;
     left: 100%;
   }
-  /* line 290, ../sass/partials/_responsive.scss */
+  /* line 300, ../sass/partials/_responsive.scss */
   #main-navigation ul.navbar-nav li .nav-children-icon {
     display: inline-block;
     margin-left: 2px;
@@ -2012,12 +2048,12 @@ table.wp-block-table.is-style-stripes tr:nth-child(2n+1) {
     border-left: 5px solid transparent;
   }
 
-  /* line 302, ../sass/partials/_responsive.scss */
+  /* line 312, ../sass/partials/_responsive.scss */
   .container {
     width: 750px;
   }
 
-  /* line 306, ../sass/partials/_responsive.scss */
+  /* line 316, ../sass/partials/_responsive.scss */
   .content-container {
     min-height: 700px;
   }
@@ -2026,7 +2062,7 @@ table.wp-block-table.is-style-stripes tr:nth-child(2n+1) {
 ## To desktop
 --------------------------------------------------------------*/
 @media only screen and (max-width: 1023px) {
-  /* line 314, ../sass/partials/_responsive.scss */
+  /* line 324, ../sass/partials/_responsive.scss */
   #main {
     margin: 20px 0 0;
     box-shadow: none;
@@ -2036,7 +2072,7 @@ table.wp-block-table.is-style-stripes tr:nth-child(2n+1) {
 ## Desktop
 --------------------------------------------------------------*/
 @media only screen and (min-width: 1024px) {
-  /* line 323, ../sass/partials/_responsive.scss */
+  /* line 333, ../sass/partials/_responsive.scss */
   .container {
     width: 970px;
   }
@@ -2045,7 +2081,7 @@ table.wp-block-table.is-style-stripes tr:nth-child(2n+1) {
 ## Widescreen
 --------------------------------------------------------------*/
 @media only screen and (min-width: 1200px) {
-  /* line 331, ../sass/partials/_responsive.scss */
+  /* line 341, ../sass/partials/_responsive.scss */
   .container {
     width: 1140px;
   }
@@ -2054,11 +2090,11 @@ table.wp-block-table.is-style-stripes tr:nth-child(2n+1) {
 ## Custom Media
 --------------------------------------------------------------*/
 @media only screen and (max-width: 600px) {
-  /* line 339, ../sass/partials/_responsive.scss */
+  /* line 349, ../sass/partials/_responsive.scss */
   .main-menu-fixed.admin-bar #main-menu {
     margin-top: 0;
   }
-  /* line 341, ../sass/partials/_responsive.scss */
+  /* line 351, ../sass/partials/_responsive.scss */
   .main-menu-fixed.admin-bar #main-menu.at-top {
     margin-top: 46px;
   }

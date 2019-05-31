@@ -14,7 +14,7 @@ function mloc_inline( $output ) {
     $css = '';
 
     // Background transparency
-    if ( $background_transparency != 0.97 ) {
+    if ( $background_transparency && $background_transparency != 0.97 ) {
         $css .= "
             body.custom-background #main { background-color: rgba(62, 62, 62, " . esc_html( $background_transparency ) . "); }
         ";

@@ -36,7 +36,7 @@
     width: 100%;
     border-top: 1px solid transparent;
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    transition: max-height 0.3s ease-in-out;
+    transition: all 0.3s ease-in;
     overflow: hidden;
     z-index: 1;
     &.collapse {
@@ -111,6 +111,16 @@
           width: 200px;
         }
       }
+    }
+  }
+
+  header.nav-transparent {
+    #main-menu.open {
+      background-color: rgba(48, 48, 48, 0.8);
+    }
+
+    #main-navigation.collapse.in {
+      background-color: $c-grey-dark;
     }
   }
 

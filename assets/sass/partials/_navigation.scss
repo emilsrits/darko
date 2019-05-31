@@ -88,6 +88,12 @@
   }
 }
 
+#main-menu.no-brand {
+  .navbar-toggle, #main-navigation {
+    margin-left: auto;
+  }
+}
+
 .main-menu-fixed {
   #main-menu {
     position: fixed;
@@ -180,6 +186,26 @@
         vertical-align: middle;
       }
     }
+  }
+}
+
+header.nav-transparent {
+  position: relative;
+
+  #main-menu, #main-navigation {
+    background-color: transparent;
+  }
+
+  #main-menu {
+    box-shadow: none;
+    transition: background 0.3s ease;
+    &:hover {
+      background-color: rgba(48, 48, 48, 0.8);
+    }
+  }
+
+  .hero {
+    position: static;
   }
 }
 

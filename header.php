@@ -4,6 +4,8 @@
  *
  * @package Mloc
  */
+
+$navigation_transparency = get_theme_mod( 'mloc_navigation_transparency' );
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +20,7 @@
 </head>
 <body <?php body_class(); ?>>
     <div id="wrapper">
-        <header>
+        <header <?php echo ( $navigation_transparency && $navigation_transparency != false ) ? 'class="nav-transparent"' : ''; ?>>
             <?php get_template_part( 'template-parts/navigation/navigation', 'top' ); ?>
             <?php get_template_part( 'template-parts/header/header', 'image' ); ?>
         </header>

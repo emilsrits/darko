@@ -82,6 +82,7 @@
 
             toggleTarget = $( $( this ).data( 'target' ) );
             toggleTarget.toggleClass( 'in' );
+            mainMenu.toggleClass( 'open' );
 
             if ( toggleTarget.hasClass( 'in' ) ) {
                 toggleTarget.slideDown();
