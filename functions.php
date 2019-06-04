@@ -206,10 +206,15 @@ add_action( 'darko_after_styles', 'darko_enqueue_custom_fonts' );
 function darko_enqueue_custom_css( $output = '' ) {
     $output = apply_filters( 'darko_head_css', $output );
 
-    $upload_dir = wp_upload_dir();
+    // Use inline styles if customizer is open
+    if ( is_customize_preview() ) {
+        wp_add_inline_style( 'darko-style', $output );
+    } else {
+        $upload_dir = wp_upload_dir();
 
-    if ( file_exists( $upload_dir['basedir'] . '/darko/custom-styles.css' ) && ! empty( $output ) ) {
-        wp_enqueue_style( 'darko-custom', trailingslashit( $upload_dir['baseurl'] ) . 'darko/custom-styles.css', false, null );
+        if ( file_exists( $upload_dir['basedir'] . '/darko/custom-styles.css' ) && ! empty( $output ) ) {
+            wp_enqueue_style( 'darko-custom', trailingslashit( $upload_dir['baseurl'] ) . 'darko/custom-styles.css', false, null );
+        }
     }
 }
 add_action( 'darko_after_styles', 'darko_enqueue_custom_css' );
