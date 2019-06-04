@@ -2,11 +2,11 @@
 /**
  * Helper functions for the theme
  *
- * @package Mloc
+ * @package Darko
  */
 
-if ( ! function_exists( 'mloc_minify_css' ) ) {
-    function mloc_minify_css( $css ) {
+if ( ! function_exists( 'darko_minify_css' ) ) {
+    function darko_minify_css( $css ) {
         // remove comments
         $css = preg_replace( '!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $css );
         // backup values within single or double quotes

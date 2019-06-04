@@ -2,10 +2,10 @@
 /**
  * Template for footer info
  *
- * @package Mloc
+ * @package Darko
  */
 
-$copyright = get_theme_mod( 'mloc_copyright', '© Copyright - ' . get_bloginfo( 'name' ) );
+$copyright = get_theme_mod( 'darko_copyright', '© Copyright - ' . get_bloginfo( 'name' ) );
 ?>
 
 <div class="footer-info">

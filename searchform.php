@@ -2,9 +2,9 @@
 /**
  * Search form template file
  *
- * @package Mloc
+ * @package Darko
  */
 
-if ( function_exists( 'mloc_content_area_search_form' ) ) {
-	mloc_content_area_search_form();
+if ( function_exists( 'darko_content_area_search_form' ) ) {
+	darko_content_area_search_form();
 }

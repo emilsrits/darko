@@ -3,7 +3,7 @@
 /**
  * Main scripts file
  *
- * @package Mloc
+ * @package Darko
  */
 
 (function ($) {
@@ -11,13 +11,13 @@
         mainMenu = $('#main-menu'),
         menuToggle = mainMenu.find('.navbar-toggle'),
         navItemToggle = $('#main-navigation').find('.nav-children-icon'),
-        goTop = $('#mloc-go-top'),
+        goTop = $('#darko-go-top'),
         rp = $('#related-posts'),
         rpRow = rp.find('.row'),
         rpNav = $('#related-posts-navigation'),
         rpnNext = rpNav.find('.ajax-next-page'),
         rpnPrev = rpNav.find('.ajax-prev-page'),
-        rpSpinner = rp.find('.mloc-ajax-spinner');
+        rpSpinner = rp.find('.darko-ajax-spinner');
     var data = void 0,
         rpnFirst = void 0,
         rpnLast = void 0,
@@ -116,7 +116,7 @@
                 type: 'POST',
                 url: phpVars.ajaxUrl,
                 data: {
-                    action: 'mloc_related_posts',
+                    action: 'darko_related_posts',
                     security: phpVars.check_nonce,
                     postId: rp.data('id'),
                     paged: rpNavPage + 1
@@ -156,7 +156,7 @@
                 type: 'POST',
                 url: phpVars.ajaxUrl,
                 data: {
-                    action: 'mloc_related_posts',
+                    action: 'darko_related_posts',
                     security: phpVars.check_nonce,
                     postId: rp.data('id'),
                     paged: rpNavPage - 1

@@ -4,7 +4,7 @@
  *
  * Used for attachments
  *
- * @package Mloc
+ * @package Darko
  */
 
 $post_id = get_the_ID();

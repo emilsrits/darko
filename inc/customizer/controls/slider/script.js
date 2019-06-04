@@ -1,10 +1,10 @@
-wp.customize.controlConstructor['mloc-slider'] = wp.customize.Control.extend({
+wp.customize.controlConstructor['darko-slider'] = wp.customize.Control.extend({
 
     ready: function() {
         var control = this,
-            sliderContainer = control.container.find( '.mloc-slider-container' ),
-            sliderInput = sliderContainer.next( '.mloc-slider-input-container' ).find( '.mloc-slider-input' ),
-            sliderReset = sliderContainer.next( '.mloc-slider-input-container' ).find( '.mloc-slider-reset' ),
+            sliderContainer = control.container.find( '.darko-slider-container' ),
+            sliderInput = sliderContainer.next( '.darko-slider-input-container' ).find( '.darko-slider-input' ),
+            sliderReset = sliderContainer.next( '.darko-slider-input-container' ).find( '.darko-slider-reset' ),
             inputDefault = sliderInput.val(),
             inputMin = +sliderInput.attr( 'min' ),
             inputMax = +sliderInput.attr( 'max' ),
@@ -27,7 +27,7 @@ wp.customize.controlConstructor['mloc-slider'] = wp.customize.Control.extend({
         sliderInput.on( 'change', function() {
             $this = jQuery( this );
             val = $this.val();
-            sliderUi = $this.parent().prev( '.mloc-slider-container' );
+            sliderUi = $this.parent().prev( '.darko-slider-container' );
             sliderUi.slider( 'value', val );
         } );
 

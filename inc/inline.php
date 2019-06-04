@@ -2,14 +2,14 @@
 /**
  * Generate custom inline styles for theme
  *
- * @package Mloc
+ * @package Darko
  */
 
 /**
  * Inline styles
  */
-function mloc_inline( $output ) {
-    $background_transparency = get_theme_mod( 'mloc_background_transparency' );
+function darko_inline( $output ) {
+    $background_transparency = get_theme_mod( 'darko_background_transparency' );
 
     $css = '';
 
@@ -24,22 +24,22 @@ function mloc_inline( $output ) {
 
     return $output;
 }
-add_filter( 'mloc_head_css', 'mloc_inline' );
+add_filter( 'darko_head_css', 'darko_inline' );
 
 /**
  * Typography inline styles
  */
-function mloc_inline_typography( $output ) {
-    $heading_font = get_theme_mod( 'mloc_typography_heading' );
-    $body_font = get_theme_mod( 'mloc_typography_body' );
-    $menu_font_size = get_theme_mod( 'mloc_typography_size_menu' );
-    $hero_font_size = get_theme_mod( 'mloc_typography_size_hero' );
-    $blog_heading_font_size = get_theme_mod( 'mloc_typography_size_blog_heading' );
-    $blog_body_font_size = get_theme_mod( 'mloc_typography_size_blog_body' );
-    $page_body_font_size = get_theme_mod( 'mloc_typography_size_page_body' );
-    $sidebar_font_size = get_theme_mod( 'mloc_typography_size_sidebar' );
-    $footer_sidebar_font_size = get_theme_mod( 'mloc_typography_size_footer_sidebar' );
-    $footer_copyright_font_size = get_theme_mod( 'mloc_typography_size_copyright' );
+function darko_inline_typography( $output ) {
+    $heading_font = get_theme_mod( 'darko_typography_heading' );
+    $body_font = get_theme_mod( 'darko_typography_body' );
+    $menu_font_size = get_theme_mod( 'darko_typography_size_menu' );
+    $hero_font_size = get_theme_mod( 'darko_typography_size_hero' );
+    $blog_heading_font_size = get_theme_mod( 'darko_typography_size_blog_heading' );
+    $blog_body_font_size = get_theme_mod( 'darko_typography_size_blog_body' );
+    $page_body_font_size = get_theme_mod( 'darko_typography_size_page_body' );
+    $sidebar_font_size = get_theme_mod( 'darko_typography_size_sidebar' );
+    $footer_sidebar_font_size = get_theme_mod( 'darko_typography_size_footer_sidebar' );
+    $footer_copyright_font_size = get_theme_mod( 'darko_typography_size_copyright' );
 
     $css = '';
     // Default font size for content body
@@ -131,4 +131,4 @@ function mloc_inline_typography( $output ) {
 
     return $output;
 }
-add_filter( 'mloc_head_css', 'mloc_inline_typography' );
+add_filter( 'darko_head_css', 'darko_inline_typography' );

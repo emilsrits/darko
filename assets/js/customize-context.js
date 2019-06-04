@@ -1,7 +1,7 @@
 /**
  * Theme customizer context JS file
  *
- * @package Mloc
+ * @package Darko
  */
 
 ( function ( $ ) {
@@ -9,7 +9,7 @@
 
     api.bind( 'ready', function() {
         // Background transparency setting control
-        bgTransparency = api.control( 'mloc_background_transparency' );
+        bgTransparency = api.control( 'darko_background_transparency' );
 
         // Toggle visibility of background transparency setting depending on background image setting status
         api( 'background_image', function ( setting ) {

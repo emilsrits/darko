@@ -8,7 +8,7 @@
 # Fonts
 --------------------------------------------------------------*/
 /* line 3, ../sass/customize-styles.scss */
-.customize-control-mloc-slider .mloc-slider-reset {
+.customize-control-darko-slider .darko-slider-reset {
   display: inline-block;
   margin-left: 4px;
   color: rgba(0, 0, 0, 0.25);
@@ -16,11 +16,11 @@
   cursor: pointer;
 }
 /* line 9, ../sass/customize-styles.scss */
-.customize-control-mloc-slider .mloc-slider-reset:hover {
+.customize-control-darko-slider .darko-slider-reset:hover {
   color: rgba(0, 0, 0, 0.45);
 }
 /* line 12, ../sass/customize-styles.scss */
-.customize-control-mloc-slider .mloc-slider-reset::before {
+.customize-control-darko-slider .darko-slider-reset::before {
   content: "\f531";
   position: relative;
   top: 3px;

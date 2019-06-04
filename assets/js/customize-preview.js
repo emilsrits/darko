@@ -1,13 +1,13 @@
 /**
  * Theme customizer preview JS file
  *
- * @package Mloc
+ * @package Darko
  */
 
 ( function ( $ ) {
     var api = wp.customize;
 
-    api( 'mloc_background_transparency', function ( setting ) {
+    api( 'darko_background_transparency', function ( setting ) {
         setting.bind( function ( to ) {
             var inlineOld = $( '.customizer-appearance-background-transparency-inline' );
             if ( to ) {

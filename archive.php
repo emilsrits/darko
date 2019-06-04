@@ -2,13 +2,13 @@
 /**
  * Template for displaying archive
  *
- * @package Mloc
+ * @package Darko
  */
 
 get_header();
 
-$mloc_blog_sidebar_layout = get_theme_mod( 'mloc_blog_sidebar_layout', 'full-width' );
-$class_to_add = mloc_content_layout_classes( $mloc_blog_sidebar_layout, 'sidebar-1', null );
+$darko_blog_sidebar_layout = get_theme_mod( 'darko_blog_sidebar_layout', 'full-width' );
+$class_to_add = darko_content_layout_classes( $darko_blog_sidebar_layout, 'sidebar-1', null );
 ?>
 
 <div id="primary" class="content-area">
@@ -16,7 +16,7 @@ $class_to_add = mloc_content_layout_classes( $mloc_blog_sidebar_layout, 'sidebar
         <div class="content-container container">
 			<div class="row">
 				<?php
-				if ( $mloc_blog_sidebar_layout === 'sidebar-left' ) :
+				if ( $darko_blog_sidebar_layout === 'sidebar-left' ) :
 					get_sidebar();
 				endif;
 				?>
@@ -38,7 +38,7 @@ $class_to_add = mloc_content_layout_classes( $mloc_blog_sidebar_layout, 'sidebar
 					?>
 				</div>
 				<?php
-				if ( $mloc_blog_sidebar_layout === 'sidebar-right' ) :
+				if ( $darko_blog_sidebar_layout === 'sidebar-right' ) :
 					get_sidebar();
 				endif;
 				?>

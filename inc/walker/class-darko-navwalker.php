@@ -4,10 +4,10 @@
  *
  * https://developer.wordpress.org/reference/classes/walker/
  *
- * @package Mloc
+ * @package Darko
  */
 
-class Mloc_Navwalker extends Walker_Nav_Menu {
+class Darko_Navwalker extends Walker_Nav_Menu {
 	/**
 	 * Fixes error of parent display_element not getting $args->has_children
 	 *

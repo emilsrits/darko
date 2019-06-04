@@ -2,7 +2,7 @@
 /**
  * Template for attachment
  *
- * @package Mloc
+ * @package Darko
  */
 
 get_header(); ?>

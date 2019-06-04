@@ -1,6 +1,6 @@
-.customize-control-mloc-image-select label.mloc-image-select {  display: inline-block;  padding: 4px;  max-width: 33.3%;  box-sizing: border-box;  }
-.customize-control-mloc-image-select label.mloc-image-select:first-of-type {  float: left;  }
-.customize-control-mloc-image-select label.mloc-image-select:last-of-type {  float: right;  }
-.customize-control-mloc-image-select input[type="radio"] {  visibility: hidden;  position: absolute;  }
-.customize-control-mloc-image-select img {  padding: 1px;  border: 4px solid transparent;  box-sizing: border-box;  }
-.customize-control-mloc-image-select input:checked + img {  border-color: #00a0d2;  }
+.customize-control-darko-image-select label.darko-image-select {  display: inline-block;  padding: 4px;  max-width: 33.3%;  box-sizing: border-box;  }
+.customize-control-darko-image-select label.darko-image-select:first-of-type {  float: left;  }
+.customize-control-darko-image-select label.darko-image-select:last-of-type {  float: right;  }
+.customize-control-darko-image-select input[type="radio"] {  visibility: hidden;  position: absolute;  }
+.customize-control-darko-image-select img {  padding: 1px;  border: 4px solid transparent;  box-sizing: border-box;  }
+.customize-control-darko-image-select input:checked + img {  border-color: #00a0d2;  }

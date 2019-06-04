@@ -1,13 +1,13 @@
 /**
  * Theme customizer typography preview JS file
  *
- * @package Mloc
+ * @package Darko
  */
 
 ( function ( $ ) {
     var api = wp.customize;
 
-    api( 'mloc_typography_size_menu', function ( setting ) {
+    api( 'darko_typography_size_menu', function ( setting ) {
         setting.bind( function ( to ) {
             var inlineOld = $( '.customizer-typography-size-menu-inline' );
             if ( to ) {
@@ -22,7 +22,7 @@
             }
         } );
     } );
-    api( 'mloc_typography_size_hero', function ( setting ) {
+    api( 'darko_typography_size_hero', function ( setting ) {
         setting.bind( function ( to ) {
             var inlineOld = $( '.customizer-typography-size-hero-inline' );
             if ( to ) {
@@ -37,7 +37,7 @@
             }
         } );
     } );
-    api( 'mloc_typography_size_blog_heading', function ( setting ) {
+    api( 'darko_typography_size_blog_heading', function ( setting ) {
         setting.bind( function ( to ) {
             var inlineOld = $( '.customizer-typography-size-blog-heading-inline' );
             if ( to ) {
@@ -52,7 +52,7 @@
             }
         } );
     } );
-    api( 'mloc_typography_size_blog_body', function ( setting ) {
+    api( 'darko_typography_size_blog_body', function ( setting ) {
         setting.bind( function ( to ) {
             var inlineOld = $( '.customizer-typography-size-blog-body-inline' );
             if ( to ) {
@@ -67,7 +67,7 @@
             }
         } );
     } );
-    api( 'mloc_typography_size_page_body', function ( setting ) {
+    api( 'darko_typography_size_page_body', function ( setting ) {
         setting.bind( function ( to ) {
             var inlineOld = $( '.customizer-typography-size-page-body-inline' );
             if ( to ) {
@@ -82,7 +82,7 @@
             }
         } );
     } );
-    api( 'mloc_typography_size_sidebar', function ( setting ) {
+    api( 'darko_typography_size_sidebar', function ( setting ) {
         setting.bind( function ( to ) {
             var inlineOld = $( '.customizer-typography-size-sidebar-inline' );
             if ( to ) {
@@ -97,7 +97,7 @@
             }
         } );
     } );
-    api( 'mloc_typography_size_footer_sidebar', function ( setting ) {
+    api( 'darko_typography_size_footer_sidebar', function ( setting ) {
         setting.bind( function ( to ) {
             var inlineOld = $( '.customizer-typography-size-footer-sidebar-inline' );
             if ( to ) {
@@ -112,7 +112,7 @@
             }
         } );
     } );
-    api( 'mloc_typography_size_copyright', function ( setting ) {
+    api( 'darko_typography_size_copyright', function ( setting ) {
         setting.bind( function ( to ) {
             var inlineOld = $( '.customizer-typography-size-copyright-inline' );
             if ( to ) {

@@ -2,23 +2,23 @@
 /**
  * Custom customizer control for image select
  *
- * @package Mloc
+ * @package Darko
  */
 
-class Mloc_Customize_Image_Select_Control extends WP_Customize_Control {
+class Darko_Customize_Image_Select_Control extends WP_Customize_Control {
 	/**
 	 * Customize control type
 	 *
 	 * @var string
 	 */
-	public $type = 'mloc-image-select';
+	public $type = 'darko-image-select';
 
 	/**
 	 * Add this customize control JS and CSS to customizer
 	 */
 	public function enqueue() {
-		wp_enqueue_style( 'mloc-image-select-control', get_template_directory_uri() . '/inc/customizer/controls/image-select/style.css' );
-		wp_enqueue_script( 'mloc-image-select-control', get_template_directory_uri() . '/inc/customizer/controls/image-select/script.js', array( 'jquery' ), false, true );
+		wp_enqueue_style( 'darko-image-select-control', get_template_directory_uri() . '/inc/customizer/controls/image-select/style.css' );
+		wp_enqueue_script( 'darko-image-select-control', get_template_directory_uri() . '/inc/customizer/controls/image-select/script.js', array( 'jquery' ), false, true );
 	}
 
 	/**
@@ -30,7 +30,7 @@ class Mloc_Customize_Image_Select_Control extends WP_Customize_Control {
 		$json = parent::json();
 
 		foreach ( $this->choices as $value => $args ) {
-			$this->choices[$value]['url'] = esc_url( sprintf( $args['url'], MLOC_IMG ) );
+			$this->choices[$value]['url'] = esc_url( sprintf( $args['url'], DARKO_IMG ) );
 		}
 
 		$json['choices'] = $this->choices;
@@ -59,7 +59,7 @@ class Mloc_Customize_Image_Select_Control extends WP_Customize_Control {
 		<# } #>
 
 		<# for ( key in data.choices ) { #>
-			<label for="{{ data.id }}-{{ key }}" class="mloc-image-select">
+			<label for="{{ data.id }}-{{ key }}" class="darko-image-select">
 				<span class="screen-reader-text">{{ data.choices[key]['label'] }}</span>
 				<input type="radio" value="{{ key }}" name="_customize-{{ data.type }}-{{ data.id }}" id="{{ data.id }}-{{ key }}" <# if ( key === data.value ) { #> checked="checked" <# } #> {{{ data.link }}} />
 				<img src="{{ data.choices[key]['url'] }}" alt="{{ data.choices[key]['label'] }}" />

@@ -2,25 +2,25 @@
 /**
  * Theme functions and definitions
  *
- * @package Mloc
+ * @package Darko
  */
 
-define( 'MLOC_INC', trailingslashit( get_template_directory() ) . 'inc/' );
-define( 'MLOC_IMG', trailingslashit( get_template_directory_uri() ) . 'assets/images/');
+define( 'DARKO_INC', trailingslashit( get_template_directory() ) . 'inc/' );
+define( 'DARKO_IMG', trailingslashit( get_template_directory_uri() ) . 'assets/images/');
 
-require_once( MLOC_INC . 'helpers.php' );
-require_once( MLOC_INC . 'inline.php' );
-require_once( MLOC_INC . 'template-tags.php' );
-require_once( MLOC_INC . 'template-functions.php' );
-require_once( MLOC_INC . 'customizer/customizer.php' );
-require_once( MLOC_INC . 'customizer/settings/webfonts.php' );
-require_once( MLOC_INC . 'walker/class-mloc-navwalker.php' );
+require_once( DARKO_INC . 'helpers.php' );
+require_once( DARKO_INC . 'inline.php' );
+require_once( DARKO_INC . 'template-tags.php' );
+require_once( DARKO_INC . 'template-functions.php' );
+require_once( DARKO_INC . 'customizer/customizer.php' );
+require_once( DARKO_INC . 'customizer/settings/webfonts.php' );
+require_once( DARKO_INC . 'walker/class-darko-navwalker.php' );
 
-if ( ! function_exists( 'mloc_setup_theme' ) ) {
+if ( ! function_exists( 'darko_setup_theme' ) ) {
     /**
      * Theme setup
      */
-    function mloc_setup_theme() {
+    function darko_setup_theme() {
         // This will limit the width of all uploaded images and embeds
         global $content_width;
         if ( ! isset( $content_width ) ) {
@@ -28,8 +28,8 @@ if ( ! function_exists( 'mloc_setup_theme' ) ) {
         }
 
         // Adds image sizes
-        add_image_size( 'mloc-blog', 360, 240, true );
-        add_image_size( 'mloc-post-thumb', 218, 150, true );
+        add_image_size( 'darko-blog', 360, 240, true );
+        add_image_size( 'darko-post-thumb', 218, 150, true );
 
         // Enable support for title tag
         add_theme_support( 'title-tag' );
@@ -71,32 +71,32 @@ if ( ! function_exists( 'mloc_setup_theme' ) ) {
 
         // Enable support for custom navigation menus
         register_nav_menus( array(
-            'primary'   => __( 'Primary Menu', 'mloc' ),
-            'footer'    => __( 'Footer Menu', 'mloc' ),
+            'primary'   => __( 'Primary Menu', 'darko' ),
+            'footer'    => __( 'Footer Menu', 'darko' ),
         ) );
 
         // Enable support for editor style
         add_editor_style();
     }
-    add_action( 'after_setup_theme', 'mloc_setup_theme' );
+    add_action( 'after_setup_theme', 'darko_setup_theme' );
 }
 
 /**
  * Load Gutenberg stylesheet
  */
-function mloc_add_gutenberg_assets() {
-    wp_enqueue_style( 'mloc-gutenberg', get_theme_file_uri('/assets/css/gutenberg-editor-style.css'), false );
+function darko_add_gutenberg_assets() {
+    wp_enqueue_style( 'darko-gutenberg', get_theme_file_uri('/assets/css/gutenberg-editor-style.css'), false );
 }
-add_action( 'enqueue_block_editor_assets', 'mloc_add_gutenberg_assets' );
+add_action( 'enqueue_block_editor_assets', 'darko_add_gutenberg_assets' );
 
 /**
  * Register widget areas
  */
-function mloc_widgets_init() {
+function darko_widgets_init() {
     $sidebars_array = array(
-		'sidebar-1'  => __( 'Primary', 'mloc' ),
-		'sidebar-footer1'  => __( 'Footer 1', 'mloc' ),
-		'sidebar-footer2'  => __( 'Footer 2', 'mloc' ),
+		'sidebar-1'  => __( 'Primary', 'darko' ),
+		'sidebar-footer1'  => __( 'Footer 1', 'darko' ),
+		'sidebar-footer2'  => __( 'Footer 2', 'darko' ),
     );
 
     foreach ( $sidebars_array as $sidebar_id => $sidebar_name ) {
@@ -112,12 +112,12 @@ function mloc_widgets_init() {
         register_sidebar( $sidebar_config );
     }
 }
-add_action( 'widgets_init', 'mloc_widgets_init' );
+add_action( 'widgets_init', 'darko_widgets_init' );
 
 /**
  * Script and style registering/enqueuing
  */
-function mloc_script() {
+function darko_script() {
     // Normalize styles
     wp_register_style( 'normalize', get_template_directory_uri() . '/assets/css/normalize.min.css' );
     wp_enqueue_style( 'normalize' );
@@ -127,36 +127,36 @@ function mloc_script() {
     wp_enqueue_style( 'flexboxgrid' );
 
 	// Font Awesome
-    wp_register_style( 'mloc-font-awesome', 'https://use.fontawesome.com/releases/v5.7.2/css/all.css' );
-    wp_enqueue_style( 'mloc-font-awesome' );
+    wp_register_style( 'darko-font-awesome', 'https://use.fontawesome.com/releases/v5.7.2/css/all.css' );
+    wp_enqueue_style( 'darko-font-awesome' );
 
     // Main styles
-    wp_register_style( 'mloc-style', get_stylesheet_uri());
-    wp_enqueue_style( 'mloc-style' );
+    wp_register_style( 'darko-style', get_stylesheet_uri());
+    wp_enqueue_style( 'darko-style' );
 
-    do_action( 'mloc_after_styles' );
+    do_action( 'darko_after_styles' );
 
     // Main scripts
-    wp_register_script( 'mloc-script', get_template_directory_uri() . '/assets/js/script.js', array( 'jquery' ), false, true );
-    wp_enqueue_script( 'mloc-script' );
+    wp_register_script( 'darko-script', get_template_directory_uri() . '/assets/js/script.js', array( 'jquery' ), false, true );
+    wp_enqueue_script( 'darko-script' );
 
-    wp_localize_script( 'mloc-script', 'phpVars', array( 'ajaxUrl' => admin_url( 'admin-ajax.php'), 'check_nonce' => wp_create_nonce( 'mloc-nonce' ) ) );
+    wp_localize_script( 'darko-script', 'phpVars', array( 'ajaxUrl' => admin_url( 'admin-ajax.php'), 'check_nonce' => wp_create_nonce( 'darko-nonce' ) ) );
 }
-add_action( 'wp_enqueue_scripts', 'mloc_script' );
+add_action( 'wp_enqueue_scripts', 'darko_script' );
 
 /**
  * Enqueues selected Google fonts from theme customizer
  */
-function mloc_enqueue_custom_fonts() {
-    $heading_font = get_theme_mod( 'mloc_typography_heading' );
-    $body_font = get_theme_mod( 'mloc_typography_body' );
+function darko_enqueue_custom_fonts() {
+    $heading_font = get_theme_mod( 'darko_typography_heading' );
+    $body_font = get_theme_mod( 'darko_typography_body' );
     $fonts_url = 'https://fonts.googleapis.com/css?family=';
 
     if ( ! $heading_font || ! $body_font ) {
         if ( ( $heading_font && ! $body_font ) || ( ! $body_font && ! $heading_font ) ) {
             // Default Google fonts
-            wp_register_style( 'mloc-google-fonts', 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700' );
-            wp_enqueue_style( 'mloc-google-fonts' );
+            wp_register_style( 'darko-google-fonts', 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700' );
+            wp_enqueue_style( 'darko-google-fonts' );
         }
 
         if ( ! $body_font && ! $heading_font ) {
@@ -195,41 +195,41 @@ function mloc_enqueue_custom_fonts() {
 
     $fonts_url .= $fonts;
 
-    wp_register_style( 'mloc-custom-fonts', $fonts_url );
-    wp_enqueue_style( 'mloc-custom-fonts' );
+    wp_register_style( 'darko-custom-fonts', $fonts_url );
+    wp_enqueue_style( 'darko-custom-fonts' );
 }
-add_action( 'mloc_after_styles', 'mloc_enqueue_custom_fonts' );
+add_action( 'darko_after_styles', 'darko_enqueue_custom_fonts' );
 
 /**
  * Apply custom theme styles
  */
-function mloc_enqueue_custom_css( $output = '' ) {
-    $output = apply_filters( 'mloc_head_css', $output );
+function darko_enqueue_custom_css( $output = '' ) {
+    $output = apply_filters( 'darko_head_css', $output );
 
     $upload_dir = wp_upload_dir();
 
-    if ( file_exists( $upload_dir['basedir'] . '/mloc/custom-styles.css' ) && ! empty( $output ) ) {
-        wp_enqueue_style( 'mloc-custom', trailingslashit( $upload_dir['baseurl'] ) . 'mloc/custom-styles.css', false, null );
+    if ( file_exists( $upload_dir['basedir'] . '/darko/custom-styles.css' ) && ! empty( $output ) ) {
+        wp_enqueue_style( 'darko-custom', trailingslashit( $upload_dir['baseurl'] ) . 'darko/custom-styles.css', false, null );
     }
 }
-add_action( 'mloc_after_styles', 'mloc_enqueue_custom_css' );
+add_action( 'darko_after_styles', 'darko_enqueue_custom_css' );
 
 /**
  * Save custom css to a file
  */
-function mloc_save_custom_css( $output = '' ) {
+function darko_save_custom_css( $output = '' ) {
     // WP_Filesystem
     require_once( ABSPATH . 'wp-admin/includes/file.php' );
 
-    $output = apply_filters( 'mloc_head_css', $output );
-    $output = mloc_minify_css( $output );
+    $output = apply_filters( 'darko_head_css', $output );
+    $output = darko_minify_css( $output );
 
     global $wp_filesystem;
     $upload_dir = wp_upload_dir();
-    $dir = trailingslashit( $upload_dir['basedir'] ) . 'mloc/';
+    $dir = trailingslashit( $upload_dir['basedir'] ) . 'darko/';
 
     WP_Filesystem();
     $wp_filesystem->mkdir( $dir );
     $wp_filesystem->put_contents( $dir . 'custom-styles.css', $output, 0644 );
 }
-add_action( 'admin_bar_init', 'mloc_save_custom_css' );
+add_action( 'admin_bar_init', 'darko_save_custom_css' );

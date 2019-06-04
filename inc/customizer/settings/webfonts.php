@@ -2,7 +2,7 @@
 /**
  * Fonts used for theme customize settings
  *
- * @package Mloc
+ * @package Darko
  */
 
 /**
@@ -10,8 +10,8 @@
  *
  * @return array
  */
-function mloc_get_combined_fonts() {
-    $combined_fonts = array_merge( mloc_get_sys_fonts(), mloc_get_ggl_fonts() );
+function darko_get_combined_fonts() {
+    $combined_fonts = array_merge( darko_get_sys_fonts(), darko_get_ggl_fonts() );
     asort( $combined_fonts );
     array_unshift( $combined_fonts, '' );
 
@@ -23,9 +23,9 @@ function mloc_get_combined_fonts() {
  *
  * @return array
  */
-function mloc_get_sys_fonts() {
+function darko_get_sys_fonts() {
     return apply_filters(
-        'mloc_system_fonts_array',
+        'darko_system_fonts_array',
         array(
             '_sys Arial' => 'Arial, Helvetica, sans-serif',
             '_sys Arial Black' => 'Arial Black, Gadget, sans-serif',
@@ -49,9 +49,9 @@ function mloc_get_sys_fonts() {
  *
  * @return array
  */
-function mloc_get_ggl_fonts() {
+function darko_get_ggl_fonts() {
     return apply_filters(
-        'mloc_get_ggl_fonts',
+        'darko_get_ggl_fonts',
         array(
             'ABeeZee' => 'ABeeZee',
             'Abel' => 'Abel',

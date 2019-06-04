@@ -4,14 +4,14 @@
  *
  * Used for pages
  *
- * @package Mloc
+ * @package Darko
  */
 
 $post_id = get_the_ID();
 ?>
 
 <article id="post-<?php echo $post_id; ?>" <?php post_class(); ?>>
-    <?php mloc_get_the_post_thumbnail( $post_id ); ?>
+    <?php darko_get_the_post_thumbnail( $post_id ); ?>
 
     <div class="row">
         <div class="col-xs-12">
@@ -20,7 +20,7 @@ $post_id = get_the_ID();
                 the_content();
                 wp_link_pages(
                     array(
-                        'before'        => '<div class="content-pages">' . __( 'Pages:', 'mloc' ) . ' <ul>',
+                        'before'        => '<div class="content-pages">' . __( 'Pages:', 'darko' ) . ' <ul>',
                         'after'         => '</ul></div>',
                         'link_before'   => '<li>',
                         'link_after'    => '</li>',

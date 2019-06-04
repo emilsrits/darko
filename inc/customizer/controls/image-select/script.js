@@ -1,4 +1,4 @@
-wp.customize.controlConstructor['mloc-image-select'] = wp.customize.Control.extend({
+wp.customize.controlConstructor['darko-image-select'] = wp.customize.Control.extend({
 
 	ready: function() {
 		var control = this,

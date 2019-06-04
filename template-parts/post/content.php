@@ -4,11 +4,11 @@
  *
  * Used for index
  *
- * @package Mloc
+ * @package Darko
  */
 
 $post_id = get_the_ID();
-$content_type = get_theme_mod( 'mloc_blog_post_content_type', 'excerpt' );
+$content_type = get_theme_mod( 'darko_blog_post_content_type', 'excerpt' );
 ?>
 
 <article id="post-<?php echo $post_id; ?>" <?php post_class(); ?>>
@@ -19,7 +19,7 @@ $content_type = get_theme_mod( 'mloc_blog_post_content_type', 'excerpt' );
     <?php endif; ?>
     <div class="row">
         <?php
-        $post_featured_img = get_the_post_thumbnail( $post_id, 'mloc-blog' );
+        $post_featured_img = get_the_post_thumbnail( $post_id, 'darko-blog' );
         if ( $content_type === 'excerpt' && ! empty( $post_featured_img ) ) : ?>
             <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
                 <div class="post-featured-img">
@@ -55,14 +55,14 @@ $content_type = get_theme_mod( 'mloc_blog_post_content_type', 'excerpt' );
             </div> <!-- .post-author -->
 
             <div class="post-categories">
-                <?php mloc_categories(); ?>
+                <?php darko_categories(); ?>
             </div> <!-- .post-category -->
 
             <div class="post-content content-<?php echo $content_type ?>">
                 <p>
                     <?php
                     if ( is_single() || $content_type === 'full' ) :
-                        echo mloc_get_the_content_with_formatting();
+                        echo darko_get_the_content_with_formatting();
                     else :
                         $read_more = strpos( $post->post_content, '<!--more' );
                         if ( $read_more ) :

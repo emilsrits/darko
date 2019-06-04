@@ -2,12 +2,12 @@
 /**
  * Template for top navigation
  * 
- * @package Mloc
+ * @package Darko
  */
 
 $custom_logo_id = get_theme_mod( 'custom_logo' );
-$navbar_brand = get_theme_mod( 'mloc_navigation_brand', true );
-$primary_menu_search = get_theme_mod( 'mloc_navigation_search', false );
+$navbar_brand = get_theme_mod( 'darko_navigation_brand', true );
+$primary_menu_search = get_theme_mod( 'darko_navigation_search', false );
 $logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
 ?>
 
@@ -33,8 +33,8 @@ $logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
             'container_class'   => 'collapse navbar-collapse',
             'container_id'      => 'main-navigation',
             'menu_class'        => 'navbar-nav',
-            'items_wrap'        => ( function_exists( 'mloc_after_primary_navigation' ) && $primary_menu_search ) ? mloc_after_primary_navigation() : '<ul id="%1$s" class="%2$s">%3$s</ul>',
-			'walker'			=> new Mloc_Navwalker(),
+            'items_wrap'        => ( function_exists( 'darko_after_primary_navigation' ) && $primary_menu_search ) ? darko_after_primary_navigation() : '<ul id="%1$s" class="%2$s">%3$s</ul>',
+			'walker'			=> new Darko_Navwalker(),
         ) );
         ?>
     </div>

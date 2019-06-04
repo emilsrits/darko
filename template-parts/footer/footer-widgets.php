@@ -2,14 +2,14 @@
 /**
  * Template for footer widgets
  *
- * @package Mloc
+ * @package Darko
  */
 
 $sidebar_footer1 = is_active_sidebar( 'sidebar-footer1' );
 $sidebar_footer2 = is_active_sidebar( 'sidebar-footer2' );
 
 if ( $sidebar_footer1 || $sidebar_footer2 ) :
-	do_action( 'mloc_before_sidebar_footer' );
+	do_action( 'darko_before_sidebar_footer' );
 	?>
 	<aside id="sidebar-footer" role="complementary">
 		<div class="row">
@@ -31,5 +31,5 @@ if ( $sidebar_footer1 || $sidebar_footer2 ) :
 		</div> <!-- .row -->
 	</aside>
 	<?php
-	do_action( 'mloc_after_sidebar_footer' );
+	do_action( 'darko_after_sidebar_footer' );
 endif; ?>

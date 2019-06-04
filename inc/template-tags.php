@@ -2,10 +2,10 @@
 /**
  * Custom template tags
  *
- * @package Mloc
+ * @package Darko
  */
 
-if ( ! function_exists( 'mloc_content_layout_classes' ) ) {
+if ( ! function_exists( 'darko_content_layout_classes' ) ) {
 	/**
 	 * Decide which classes to add for main content area depending on sidebar configuration
 	 *
@@ -14,7 +14,7 @@ if ( ! function_exists( 'mloc_content_layout_classes' ) ) {
 	 * @param array $args Optional arguments for layout classes
 	 * @return mixed|string
 	 */
-    function mloc_content_layout_classes( $layout, $sidebar, $args ) {
+    function darko_content_layout_classes( $layout, $sidebar, $args ) {
         if ( ! $args ) {
             $args = array(
                 'full-width'    => 'col-xs-12',
@@ -39,18 +39,18 @@ if ( ! function_exists( 'mloc_content_layout_classes' ) ) {
     }
 }
 
-if ( ! function_exists( 'mloc_get_the_post_thumbnail' ) ) {
+if ( ! function_exists( 'darko_get_the_post_thumbnail' ) ) {
     /**
      * Display featured image of post
      *
      * @param $post_id
      */
-    function mloc_get_the_post_thumbnail( $post_id ) {
+    function darko_get_the_post_thumbnail( $post_id ) {
         global $multipage;
         if ( is_single() ) {
-            $post_featured_image_enabled = get_theme_mod( 'mloc_single_post_featured_image', false );
+            $post_featured_image_enabled = get_theme_mod( 'darko_single_post_featured_image', false );
         } else {
-            $post_featured_image_enabled = get_theme_mod( 'mloc_page_featured_image', false );
+            $post_featured_image_enabled = get_theme_mod( 'darko_page_featured_image', false );
         }
         $post_featured_image = get_the_post_thumbnail( $post_id );
 
@@ -68,18 +68,18 @@ if ( ! function_exists( 'mloc_get_the_post_thumbnail' ) ) {
     }
 }
 
-if ( ! function_exists( 'mloc_categories' ) ) {
+if ( ! function_exists( 'darko_categories' ) ) {
     /**
      * Display categories of the post
      */
-    function mloc_categories() {
+    function darko_categories() {
         $categories = get_the_category();
         $count = 0;
 
         if ( $categories ) {
             foreach ( $categories as $category ) {
                 $count++;
-                echo '<span><a class="label" href="' . esc_url( get_category_link( $category->term_id ) ) . '" title="' . esc_attr( sprintf( __( 'View all posts in %s', 'mloc' ), $category->name ) ) . '">' . esc_html( $category->name ) . '</a></span>';
+                echo '<span><a class="label" href="' . esc_url( get_category_link( $category->term_id ) ) . '" title="' . esc_attr( sprintf( __( 'View all posts in %s', 'darko' ), $category->name ) ) . '">' . esc_html( $category->name ) . '</a></span>';
                 if ( ! is_single() && $count >= 5 ) {
                     break;
                 }
@@ -88,14 +88,14 @@ if ( ! function_exists( 'mloc_categories' ) ) {
     }
 }
 
-if ( ! function_exists( 'mloc_tags_trimmed' ) ) {
+if ( ! function_exists( 'darko_tags_trimmed' ) ) {
     /**
      * Returns string/html of post tags up to specified number
      *
      * @param int $max Maximum number of tags
      * @return string $buffer Buffer of html to be displayed
      */
-    function mloc_tags_trimmed( $max = 3 ) {
+    function darko_tags_trimmed( $max = 3 ) {
         $tags = get_the_tags();
         $count = 0;
 
@@ -115,7 +115,7 @@ if ( ! function_exists( 'mloc_tags_trimmed' ) ) {
     }
 }
 
-if ( ! function_exists( 'mloc_comments_list' ) ) {
+if ( ! function_exists( 'darko_comments_list' ) ) {
     /**
      * Custom display of comments
      *
@@ -123,7 +123,7 @@ if ( ! function_exists( 'mloc_comments_list' ) ) {
      * @param $args
      * @param $depth
      */
-    function mloc_comments_list( $comment, $args, $depth ) {
+    function darko_comments_list( $comment, $args, $depth ) {
         ?>
         <div id="<?php comment_ID(); ?>" <?php comment_class( empty( $args['has_children'] ) ? 'comment' : 'parent comment' ); ?>>
             <?php if ( $args['type'] != 'pings' ) : ?>
@@ -139,11 +139,11 @@ if ( ! function_exists( 'mloc_comments_list' ) ) {
                             <?php
                             printf(
                             /* translators: %1$s is date, %2$s is time */
-                                esc_html__( '- %1$s at %2$s', 'mloc' ),
+                                esc_html__( '- %1$s at %2$s', 'darko' ),
                                 get_comment_date(),
                                 get_comment_time()
                             );
-                            edit_comment_link( esc_html__( '[Edit]', 'mloc' ), '  ', '' );
+                            edit_comment_link( esc_html__( '[Edit]', 'darko' ), '  ', '' );
                             ?>
                         </span>
                     </h4>
@@ -157,7 +157,7 @@ if ( ! function_exists( 'mloc_comments_list' ) ) {
                         array(
                             'depth'      => $depth,
                             'max_depth'  => $args['max_depth'],
-                            'reply_text' => sprintf( '<i class="fas fa-reply"></i> %s', esc_html__( 'Reply', 'mloc' ) ),
+                            'reply_text' => sprintf( '<i class="fas fa-reply"></i> %s', esc_html__( 'Reply', 'darko' ) ),
                         ),
                         $comment->comment_ID,
                         $comment->comment_post_ID
@@ -170,11 +170,11 @@ if ( ! function_exists( 'mloc_comments_list' ) ) {
     }
 }
 
-if ( ! function_exists( 'mloc_comments_pagination' ) ) {
+if ( ! function_exists( 'darko_comments_pagination' ) ) {
     /**
      * Custom template for comments pagination
      */
-    function mloc_comments_pagination() {
+    function darko_comments_pagination() {
         $pages = paginate_comments_links( array(
             'type'      => 'array',
             'echo'      => false,
@@ -193,11 +193,11 @@ if ( ! function_exists( 'mloc_comments_pagination' ) ) {
     }
 }
 
-if ( ! function_exists( 'mloc_comment_form_template' ) ) {
+if ( ! function_exists( 'darko_comment_form_template' ) ) {
     /**
      * Custom comments form template
      */
-    function mloc_comment_form_template() {
+    function darko_comment_form_template() {
         if ( is_user_logged_in() ) {
             $current_user = get_avatar( wp_get_current_user(), 60 );
         } else {
@@ -208,26 +208,26 @@ if ( ! function_exists( 'mloc_comment_form_template' ) ) {
         $aria_req = ( $req ? 'required' : '' );
         $consent  = empty( $commenter['comment_author_email'] ) ? '' : ' checked="checked"';
         $args = array(
-            'comment_notes_before' => '<p class="comment-notes"><span id="email-notes">' . __( 'Your email address will not be published.', 'mloc' ) . '</p>',
+            'comment_notes_before' => '<p class="comment-notes"><span id="email-notes">' . __( 'Your email address will not be published.', 'darko' ) . '</p>',
             'fields'               => apply_filters(
                 'comment_form_default_fields', array(
                     'cookies'   => '<div id="comment-cookies"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes" ' . $consent . ' />' .
-                                    '<label for="wp-comment-cookies-consent">' . __( 'Save my name and email in this browser for the next time I comment.', 'mloc' ) . '</label></div>',
+                                    '<label for="wp-comment-cookies-consent">' . __( 'Save my name and email in this browser for the next time I comment.', 'darko' ) . '</label></div>',
                     'author'    => '<div class="row"><div class="col-xs-12 col-sm-6"><div class="form-group">' .
-                                    '<label class="control-label label" for="author">' . __( 'Name', 'mloc' ) . ( $req ? '<span class="required">*</span>' : '' ) . '</label>' .
+                                    '<label class="control-label label" for="author">' . __( 'Name', 'darko' ) . ( $req ? '<span class="required">*</span>' : '' ) . '</label>' .
                                     '<input id="author" class="form-control" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" ' . $aria_req . ' /></div></div>',
                     'email'     => '<div class="col-xs-12 col-sm-6"><div class="form-group">' .
-                                    '<label class="control-label label" for="email">' . __( 'Email', 'mloc' ) . ( $req ? '<span class="required">*</span>' : '' ) . '</label>' .
+                                    '<label class="control-label label" for="email">' . __( 'Email', 'darko' ) . ( $req ? '<span class="required">*</span>' : '' ) . '</label>' .
                                     '<input id="email" class="form-control" name="email" type="email" value="' . esc_attr( $commenter['comment_author_email'] ) . '" ' . $aria_req . ' /></div></div></div>',
                 )
             ),
-            'comment_field'        => '<div class="form-group"><label class="control-label label" for="comment">' . esc_html__( 'Comment', 'mloc' ) . '<span class="required">*</span>' . '</label>' .
+            'comment_field'        => '<div class="form-group"><label class="control-label label" for="comment">' . esc_html__( 'Comment', 'darko' ) . '<span class="required">*</span>' . '</label>' .
                                         '<textarea id="comment" class="form-control" name="comment" rows="7" required></textarea></div>',
             'must_log_in'          => '<p class="must-log-in">' .
                 sprintf(
                     wp_kses(
                         /* translators: %s is a link to login */
-                        __( 'You must be <a href="%s">logged in</a> to post a comment.', 'mloc' ), array(
+                        __( 'You must be <a href="%s">logged in</a> to post a comment.', 'darko' ), array(
                             'a' => array(
                                 'href' => array(),
                             ),
@@ -240,29 +240,29 @@ if ( ! function_exists( 'mloc_comment_form_template' ) ) {
             'title_reply_after'    => '</h3><div class="form-body"><div class="author-avatar">' . $current_user . '</div>',
             'cancel_reply_before'  => ' <span class="required">',
             'cancel_reply_after'   => '</span>',
-            'cancel_reply_link'    => __( '[Cancel reply]', 'mloc' ),
+            'cancel_reply_link'    => __( '[Cancel reply]', 'darko' ),
         );
 
         return $args;
     }
 }
 
-if ( ! function_exists( 'mloc_adjacent_posts' ) ) {
+if ( ! function_exists( 'darko_adjacent_posts' ) ) {
     /**
      * Template for showing previous and next posts
      */
-    function mloc_adjacent_posts() {
+    function darko_adjacent_posts() {
         $prev_post = get_previous_post();
         $next_post = get_next_post();
 
         if ( $prev_post || $next_post ) :
-			do_action( 'mloc_before_adjacent_posts' );
+			do_action( 'darko_before_adjacent_posts' );
 			?>
             <div id="adjacent-posts" class="row">
                 <div class="col-xs-6 align-left">
                     <?php
                     if ( $prev_post ) {
-                        echo '<span>' . esc_html__( 'Previous post', 'mloc' ) . '</span>';
+                        echo '<span>' . esc_html__( 'Previous post', 'darko' ) . '</span>';
                         previous_post_link( '%link' );
                     }
                     ?>
@@ -270,27 +270,27 @@ if ( ! function_exists( 'mloc_adjacent_posts' ) ) {
                 <div class="col-xs-6 align-right">
                     <?php
                     if ( $next_post ) {
-                        echo '<span>' . esc_html__( 'Next post', 'mloc' ) . '</span>';
+                        echo '<span>' . esc_html__( 'Next post', 'darko' ) . '</span>';
                         next_post_link( '%link' );
                     }
                     ?>
                 </div>
             </div> <!-- #adjacent-posts -->
         	<?php
-			do_action( 'mloc_after_adjacent_posts' );
+			do_action( 'darko_after_adjacent_posts' );
         endif;
     }
-	add_action( 'mloc_blog_adjacent_posts', 'mloc_adjacent_posts' );
+	add_action( 'darko_blog_adjacent_posts', 'darko_adjacent_posts' );
 }
 
-if ( ! function_exists( 'mloc_related_posts' ) ) {
+if ( ! function_exists( 'darko_related_posts' ) ) {
     /**
      * Template for showing related posts
      *
      * @param int $page Related posts page
      * @param bool $ajax Whether this is a ajax request
      */
-    function mloc_related_posts( $page, $ajax = false ) {
+    function darko_related_posts( $page, $ajax = false ) {
         global $post;
 
         if ( empty( $post ) ) {
@@ -330,14 +330,14 @@ if ( ! function_exists( 'mloc_related_posts' ) ) {
             }
             if( $query->have_posts() ) {
                 if ( $ajax == false ) :
-					do_action( 'mloc_before_related_posts' );
+					do_action( 'darko_before_related_posts' );
 					?>
                     <div id="related-posts" data-id="<?php echo $post_id; ?>">
                         <div class="row center-xs">
                 <?php
                 endif;
                 while ( $query->have_posts() ) : $query->the_post();
-                    $post_thumb = get_the_post_thumbnail( get_the_ID(), 'mloc-post-thumb' );
+                    $post_thumb = get_the_post_thumbnail( get_the_ID(), 'darko-post-thumb' );
 
                     $buffer .= '<div class="related-post col-xs-12 col-sm-4 col-md-4">';
                         $buffer .= '<div class="related-post-thumb">';
@@ -346,7 +346,7 @@ if ( ! function_exists( 'mloc_related_posts' ) ) {
 
                         $buffer .= '<div class="related-post-meta">';
                             $buffer .= '<div class="related-post-tags">';
-                                $buffer .= mloc_tags_trimmed();
+                                $buffer .= darko_tags_trimmed();
                             $buffer .= '</div>';
 
                             $buffer .= '<h3 class="related-post-title">';
@@ -359,27 +359,27 @@ if ( ! function_exists( 'mloc_related_posts' ) ) {
                             echo $buffer;
                             ?>
                         </div> <!-- .row -->
-                        <div class="mloc-ajax-spinner">
-                            <div class="mloc-spinner1 mloc-spinner"></div>
-                            <div class="mloc-spinner2 mloc-spinner"></div>
-                            <div class="mloc-spinner3 mloc-spinner"></div>
-                            <div class="mloc-spinner4 mloc-spinner"></div>
-                            <div class="mloc-spinner5 mloc-spinner"></div>
-                            <div class="mloc-spinner6 mloc-spinner"></div>
-                            <div class="mloc-spinner7 mloc-spinner"></div>
-                            <div class="mloc-spinner8 mloc-spinner"></div>
-                            <div class="mloc-spinner9 mloc-spinner"></div>
-                            <div class="mloc-spinner10 mloc-spinner"></div>
-                            <div class="mloc-spinner11 mloc-spinner"></div>
-                            <div class="mloc-spinner12 mloc-spinner"></div>
+                        <div class="darko-ajax-spinner">
+                            <div class="darko-spinner1 darko-spinner"></div>
+                            <div class="darko-spinner2 darko-spinner"></div>
+                            <div class="darko-spinner3 darko-spinner"></div>
+                            <div class="darko-spinner4 darko-spinner"></div>
+                            <div class="darko-spinner5 darko-spinner"></div>
+                            <div class="darko-spinner6 darko-spinner"></div>
+                            <div class="darko-spinner7 darko-spinner"></div>
+                            <div class="darko-spinner8 darko-spinner"></div>
+                            <div class="darko-spinner9 darko-spinner"></div>
+                            <div class="darko-spinner10 darko-spinner"></div>
+                            <div class="darko-spinner11 darko-spinner"></div>
+                            <div class="darko-spinner12 darko-spinner"></div>
                         </div> <!-- .sk-fading-circle -->
                     </div> <!-- #related_posts -->
                     <?php
-					do_action( 'mloc_after_related_posts' );
+					do_action( 'darko_after_related_posts' );
 
                     if ( $max_pages != 1 ) :
-                        mloc_ajax_related_posts_navigation();
-						do_action( 'mloc_after_related_posts_navigation' );
+                        darko_ajax_related_posts_navigation();
+						do_action( 'darko_after_related_posts_navigation' );
                     endif;
                 endif;
             }
@@ -391,14 +391,14 @@ if ( ! function_exists( 'mloc_related_posts' ) ) {
             endif;
         }
     }
-	add_action( 'mloc_blog_related_posts', 'mloc_related_posts' );
+	add_action( 'darko_blog_related_posts', 'darko_related_posts' );
 }
 
-if ( ! function_exists( 'mloc_ajax_related_posts_navigation' ) ) {
+if ( ! function_exists( 'darko_ajax_related_posts_navigation' ) ) {
     /**
      * Template for related posts navigation
      */
-    function mloc_ajax_related_posts_navigation() {
+    function darko_ajax_related_posts_navigation() {
         ?>
         <div id="related-posts-navigation">
             <button class="ajax-prev-page btn" disabled>
@@ -412,17 +412,17 @@ if ( ! function_exists( 'mloc_ajax_related_posts_navigation' ) ) {
     }
 }
 
-if ( ! function_exists( 'mloc_content_area_search_form' ) ) {
+if ( ! function_exists( 'darko_content_area_search_form' ) ) {
 	/**
 	 * Template for content area search form
 	 *
 	 * @param string $class_to_add Classes to add to search form container
 	 */
-    function mloc_content_area_search_form( $class_to_add = '' ) {
+    function darko_content_area_search_form( $class_to_add = '' ) {
         $buffer = '
-        <div class="mloc-search ' . $class_to_add . '">
+        <div class="darko-search ' . $class_to_add . '">
             <form action="' . esc_url( home_url( '/' ) ) . '" role="search" method="get">
-                <input name="s" type="search" placeholder="' . __( 'Search...', 'mloc' ) . '" value="' . get_search_query() . '" required>
+                <input name="s" type="search" placeholder="' . __( 'Search...', 'darko' ) . '" value="' . get_search_query() . '" required>
                 <button type="submit" class="btn"><i class="fas fa-search"></i></button>
             </form>
         </div>';

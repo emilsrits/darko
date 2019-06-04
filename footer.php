@@ -2,7 +2,7 @@
 /**
  * Template for displaying footer
  *
- * @package Mloc
+ * @package Darko
  */
 ?>
 

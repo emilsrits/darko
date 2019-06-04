@@ -2,7 +2,7 @@
 /**
  * Template for displaying header image
  *
- * @package Mloc
+ * @package Darko
  */
 
 $current_object_id = get_queried_object_id();
@@ -73,7 +73,7 @@ if ( $is_single || $is_page || $is_archive ) : ?>
                         <?php
                         if ( $is_search ) :
                             /* translators: %s is search query */
-                            printf( esc_html__( 'Search results for: %s', 'mloc' ), get_search_query() );
+                            printf( esc_html__( 'Search results for: %s', 'darko' ), get_search_query() );
                         else :
                             $buffer = single_post_title( '', false );
                             if ( ! is_front_page() && $buffer ) :

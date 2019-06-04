@@ -2,10 +2,10 @@
 /**
  * Template for displaying header
  *
- * @package Mloc
+ * @package Darko
  */
 
-$navigation_transparency = get_theme_mod( 'mloc_navigation_transparency' );
+$navigation_transparency = get_theme_mod( 'darko_navigation_transparency' );
 ?>
 
 <!DOCTYPE html>
