@@ -694,7 +694,59 @@ header.nav-transparent .hero {
   position: static;
 }
 
-/* line 212, ../sass/partials/_navigation.scss */
+/* line 213, ../sass/partials/_navigation.scss */
+#site-footer .footer-menu li a[href*="twitter.com"], #site-footer .footer-menu li a[href*="facebook.com"], #site-footer .footer-menu li a[href*="github.com"], #site-footer .footer-menu li a[href*="linkedin.com"], #site-footer .footer-menu li a[href*="instagram.com"] {
+  padding: 15px 7px;
+  font-size: 0;
+}
+/* line 216, ../sass/partials/_navigation.scss */
+#site-footer .footer-menu li a[href*="twitter.com"]:hover, #site-footer .footer-menu li a[href*="facebook.com"]:hover, #site-footer .footer-menu li a[href*="github.com"]:hover, #site-footer .footer-menu li a[href*="linkedin.com"]:hover, #site-footer .footer-menu li a[href*="instagram.com"]:hover {
+  color: #b73a3a;
+}
+/* line 219, ../sass/partials/_navigation.scss */
+#site-footer .footer-menu li a[href*="twitter.com"]::before, #site-footer .footer-menu li a[href*="facebook.com"]::before, #site-footer .footer-menu li a[href*="github.com"]::before, #site-footer .footer-menu li a[href*="linkedin.com"]::before, #site-footer .footer-menu li a[href*="instagram.com"]::before {
+  font-family: "Font Awesome 5 Brands";
+  font-size: 24px;
+  font-weight: 900;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+/* line 229, ../sass/partials/_navigation.scss */
+#site-footer .footer-menu li a[href*="twitter.com"]::before {
+  content: '\f099';
+}
+/* line 230, ../sass/partials/_navigation.scss */
+#site-footer .footer-menu li a[href*="facebook.com"]::before {
+  content: '\f39e';
+}
+/* line 231, ../sass/partials/_navigation.scss */
+#site-footer .footer-menu li a[href*="github.com"]::before {
+  content: '\f09b';
+}
+/* line 232, ../sass/partials/_navigation.scss */
+#site-footer .footer-menu li a[href*="linkedin.com"]::before {
+  content: '\f08c';
+}
+/* line 233, ../sass/partials/_navigation.scss */
+#site-footer .footer-menu li a[href*="instagram.com"]::before {
+  content: '\f16d';
+}
+/* line 234, ../sass/partials/_navigation.scss */
+#site-footer .footer-menu li a[href*="reddit.com"]::before {
+  content: '\f1a1';
+}
+/* line 235, ../sass/partials/_navigation.scss */
+#site-footer .footer-menu li a[href*="youtube.com"]::before {
+  content: '\f167';
+}
+/* line 236, ../sass/partials/_navigation.scss */
+#site-footer .footer-menu li a[href*="twitch.tv"]::before {
+  content: '\f1e8';
+}
+
+/* line 239, ../sass/partials/_navigation.scss */
 #darko-go-top {
   display: block;
   position: fixed;
@@ -713,15 +765,15 @@ header.nav-transparent .hero {
   transition: opacity 0.3s ease;
   z-index: 900;
 }
-/* line 229, ../sass/partials/_navigation.scss */
+/* line 256, ../sass/partials/_navigation.scss */
 #darko-go-top.faded-out {
   opacity: 0;
 }
-/* line 232, ../sass/partials/_navigation.scss */
+/* line 259, ../sass/partials/_navigation.scss */
 #darko-go-top:hover {
   opacity: 0.8;
 }
-/* line 236, ../sass/partials/_navigation.scss */
+/* line 263, ../sass/partials/_navigation.scss */
 #darko-go-top > i {
   font-size: 1.125em;
 }

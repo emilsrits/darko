@@ -209,6 +209,33 @@ header.nav-transparent {
   }
 }
 
+#site-footer .footer-menu li {
+  a[href*="twitter.com"], a[href*="facebook.com"], a[href*="github.com"], a[href*="linkedin.com"], a[href*="instagram.com"] {
+    padding: 15px 7px;
+    font-size: 0;
+    &:hover {
+      color: $c-red-darker;
+    }
+    &::before {
+      font-family: "Font Awesome 5 Brands";
+      font-size: 24px;
+      font-weight: 900;
+      font-style: normal;
+      font-variant: normal;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+    }
+  }
+  a[href*="twitter.com"]::before {  content: '\f099';  }
+  a[href*="facebook.com"]::before {  content: '\f39e';  }
+  a[href*="github.com"]::before {  content: '\f09b';  }
+  a[href*="linkedin.com"]::before {  content: '\f08c';  }
+  a[href*="instagram.com"]::before {  content: '\f16d';  }
+  a[href*="reddit.com"]::before {  content: '\f1a1';  }
+  a[href*="youtube.com"]::before {  content: '\f167';  }
+  a[href*="twitch.tv"]::before {  content: '\f1e8';  }
+}
+
 #darko-go-top {
   display: block;
   position: fixed;
