@@ -123,7 +123,7 @@ if ( ! function_exists( 'darko_go_top' ) ) {
      * Display go to top button which scrolls user to top of the page when clicked
      */
     function darko_go_top() {
-        $go_top = get_theme_mod( 'darko_go_top' );
+        $go_top = get_theme_mod( 'darko_go_top', true );
 
         if ( $go_top ) {
             ?>
