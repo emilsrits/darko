@@ -258,23 +258,25 @@ if ( ! function_exists( 'darko_adjacent_posts' ) ) {
         if ( $prev_post || $next_post ) :
 			do_action( 'darko_before_adjacent_posts' );
 			?>
-            <div id="adjacent-posts" class="row">
-                <div class="col-xs-6 align-left">
-                    <?php
-                    if ( $prev_post ) {
-                        echo '<span>' . esc_html__( 'Previous post', 'darko' ) . '</span>';
-                        previous_post_link( '%link' );
-                    }
-                    ?>
-                </div>
-                <div class="col-xs-6 align-right">
-                    <?php
-                    if ( $next_post ) {
-                        echo '<span>' . esc_html__( 'Next post', 'darko' ) . '</span>';
-                        next_post_link( '%link' );
-                    }
-                    ?>
-                </div>
+            <div id="adjacent-posts">
+                <div class="row">
+                    <div class="col-xs-6 align-left">
+                        <?php
+                        if ( $prev_post ) {
+                            echo '<span>' . esc_html__( 'Previous post', 'darko' ) . '</span>';
+                            previous_post_link( '%link' );
+                        }
+                        ?>
+                    </div>
+                    <div class="col-xs-6 align-right">
+                        <?php
+                        if ( $next_post ) {
+                            echo '<span>' . esc_html__( 'Next post', 'darko' ) . '</span>';
+                            next_post_link( '%link' );
+                        }
+                        ?>
+                    </div>
+                </div> <!-- .row -->
             </div> <!-- #adjacent-posts -->
         	<?php
 			do_action( 'darko_after_adjacent_posts' );

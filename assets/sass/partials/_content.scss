@@ -79,6 +79,10 @@
     padding-top: 35px;
   }
 
+  article.post {
+    margin-bottom: 35px;
+  }
+
   .featured-img {
     margin: 0 15% 20px;
 
@@ -227,7 +231,9 @@
 --------------------------------------------------------------*/
 #adjacent-posts {
   margin-top: 10px;
-  margin-bottom: 30px;
+  margin-bottom: 35px;
+  padding: 15px;
+  background-color: rgba(48, 48, 48, 0.7);
 
   span, a {
     display: block;
@@ -239,8 +245,12 @@
   }
 
   a {
-    margin: 10px 0 20px;
+    margin: 10px 0 0;
+    color: $c-grey;
     font-size: $f-medium;
+    &:hover {
+      color: $c-red-darker;
+    }
   }
 }
 /*--------------------------------------------------------------
@@ -249,9 +259,17 @@
 #related-posts {
   position: relative;
   margin: 10px 0 0;
+  padding: 0 .5rem;
+  background-color: rgba(48, 48, 48, 0.7);
 
   .related-post {
+    padding-top: 20px;
+    padding-bottom: 25px;
     text-align: center;
+    transition: background .3s ease;
+    &:hover {
+      background-color: rgba(48, 48, 48, 0.8);
+    }
   }
 
   .related-post-thumb {
@@ -281,13 +299,18 @@
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
+  background-color: rgba(48, 48, 48, 0.7);
 
   .btn {
+    padding: 15px;
+    width: 50%;
     color: $c-red;
     background: none;
     border: none;
+    transition: background .3s ease;
     &:hover {
       color: $c-red-darker;
+      background-color: rgba(48, 48, 48, 0.8);
     }
 
     i {
