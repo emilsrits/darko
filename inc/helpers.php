@@ -6,6 +6,12 @@
  */
 
 if ( ! function_exists( 'darko_minify_css' ) ) {
+    /**
+     * Minify css string
+     *
+     * @param string $css
+     * @return string
+     */
     function darko_minify_css( $css ) {
         // remove comments
         $css = preg_replace( '!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $css );

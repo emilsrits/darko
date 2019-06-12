@@ -28,6 +28,7 @@ function darko_setup_customizer_files() {
         'customizer/settings/darko-content-page.php',
         'customizer/settings/darko-content-single-post.php',
         'customizer/settings/darko-footer.php',
+        'customizer/settings/darko-header-image.php',
         'customizer/settings/darko-header-navigation.php'
     );
     foreach ( $settings_array as $setting ) {

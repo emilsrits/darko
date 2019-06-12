@@ -351,9 +351,9 @@ if ( ! function_exists( 'darko_related_posts' ) ) {
                                 $buffer .= darko_tags_trimmed();
                             $buffer .= '</div>';
 
-                            $buffer .= '<h3 class="related-post-title">';
+                            $buffer .= '<h4 class="related-post-title">';
                                 $buffer .= '<a href="' . get_the_permalink() . '" title="' . get_the_title() . '">' . get_the_title() . '</a>';
-                            $buffer .= '</h3>';
+                            $buffer .= '</h4>';
                         $buffer .= '</div> <!-- .related-post-meta -->';
                     $buffer .= '</div> <!-- .related-post -->';
                 endwhile;

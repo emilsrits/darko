@@ -7,6 +7,9 @@
 
 /**
  * Inline styles
+ *
+ * @param string $output
+ * @return string
  */
 function darko_inline( $output ) {
     $background_transparency = get_theme_mod( 'darko_background_transparency' );
@@ -28,6 +31,9 @@ add_filter( 'darko_head_css', 'darko_inline' );
 
 /**
  * Typography inline styles
+ *
+ * @param string $output
+ * @return string
  */
 function darko_inline_typography( $output ) {
     $heading_font = get_theme_mod( 'darko_typography_heading' );

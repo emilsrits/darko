@@ -202,6 +202,8 @@ add_action( 'darko_after_styles', 'darko_enqueue_custom_fonts' );
 
 /**
  * Apply custom theme styles
+ *
+ * @param string $output
  */
 function darko_enqueue_custom_css( $output = '' ) {
     $output = apply_filters( 'darko_head_css', $output );
@@ -221,6 +223,8 @@ add_action( 'darko_after_styles', 'darko_enqueue_custom_css' );
 
 /**
  * Save custom css to a file
+ *
+ * @param string $output
  */
 function darko_save_custom_css( $output = '' ) {
     // WP_Filesystem
