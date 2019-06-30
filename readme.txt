@@ -1,7 +1,7 @@
 --------------------------------------------------
 Darko
 --------------------------------------------------
-Github: https://github.com/emilsrits/darko
+Repository: https://github.com/emilsrits/darko
 
 --------------------------------------------------
 Description

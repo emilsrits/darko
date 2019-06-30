@@ -7,9 +7,9 @@
 
 define( 'DARKO_THEME_URI', get_template_directory_uri() );
 define( 'DARKO_INC', trailingslashit( get_template_directory() ) . 'inc/' );
-define( 'DARKO_IMG_URI', DARKO_THEME_URI . '/assets/images/');
-define( 'DARKO_JS_URI', DARKO_THEME_URI .'/assets/js/' );
-define( 'DARKO_CSS_URI', DARKO_THEME_URI .'/assets/css/' );
+define( 'DARKO_IMG_URI', DARKO_THEME_URI . '/dist/images/');
+define( 'DARKO_JS_URI', DARKO_THEME_URI .'/dist/js/' );
+define( 'DARKO_CSS_URI', DARKO_THEME_URI .'/dist/css/' );
 
 require_once( DARKO_INC . 'helpers.php' );
 require_once( DARKO_INC . 'inline.php' );
@@ -88,7 +88,7 @@ if ( ! function_exists( 'darko_setup_theme' ) ) {
  * Load Gutenberg stylesheet
  */
 function darko_add_gutenberg_assets() {
-    wp_enqueue_style( 'darko-gutenberg', get_theme_file_uri('/assets/css/gutenberg-editor-style.css'), false );
+    wp_enqueue_style( 'darko-gutenberg', get_theme_file_uri('/dist/css/gutenberg-editor-style.css'), false );
 }
 add_action( 'enqueue_block_editor_assets', 'darko_add_gutenberg_assets' );
 

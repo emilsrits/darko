@@ -201,7 +201,7 @@ if ( ! function_exists( 'darko_comment_form_template' ) ) {
         if ( is_user_logged_in() ) {
             $current_user = get_avatar( wp_get_current_user(), 60 );
         } else {
-            $current_user = '<img src="' . DARKO_THEME_URI . '/assets/images/placeholder.png" height="60" width="60"/>';
+            $current_user = '<img src="' . DARKO_THEME_URI . '/dist/images/placeholder.png" height="60" width="60"/>';
         }
         $commenter = wp_get_current_commenter();
         $req = get_option( 'require_name_email' );

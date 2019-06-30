@@ -1,10 +1,34 @@
 {
+  "name": "darko",
+  "version": "1.0.0",
+  "description": "Modern Wordpress dark theme with multiple custom features and responsive design.",
+  "repository": "https://github.com/emilsrits/darko",
+  "author": "Emils Rits",
+  "license": "GNU General Public License v3.0 or later",
   "scripts": {
-    "build": "babel assets/js/script-es6.js -o assets/js/script.js",
-    "watch": "babel assets/js/script-es6.js -w -o assets/js/script.js"
+    "start": "gulp",
+    "build": "gulp build --prod"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.1"
-  }
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/register": "^7.4.4",
+    "autoprefixer": "^9.6.0",
+    "babel-loader": "^8.0.6",
+    "del": "^4.1.1",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-if": "^2.0.2",
+    "gulp-imagemin": "^6.0.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-wp-pot": "^2.3.5",
+    "gulp-zip": "^5.0.0",
+    "vinyl-named": "^1.1.0",
+    "webpack-stream": "^5.2.1",
+    "yargs": "^13.2.4"
+  },
+  "dependencies": {}
 }
