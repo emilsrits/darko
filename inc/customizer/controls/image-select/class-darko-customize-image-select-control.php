@@ -17,8 +17,8 @@ class Darko_Customize_Image_Select_Control extends WP_Customize_Control {
 	 * Add this customize control JS and CSS to customizer
 	 */
 	public function enqueue() {
-		wp_enqueue_style( 'darko-image-select-control', get_template_directory_uri() . '/inc/customizer/controls/image-select/style.css' );
-		wp_enqueue_script( 'darko-image-select-control', get_template_directory_uri() . '/inc/customizer/controls/image-select/script.js', array( 'jquery' ), false, true );
+		wp_enqueue_style( 'darko-image-select-control', DARKO_THEME_URI . '/inc/customizer/controls/image-select/style.css' );
+		wp_enqueue_script( 'darko-image-select-control', DARKO_THEME_URI . '/inc/customizer/controls/image-select/script.js', array( 'jquery' ), false, true );
 	}
 
 	/**
@@ -30,7 +30,7 @@ class Darko_Customize_Image_Select_Control extends WP_Customize_Control {
 		$json = parent::json();
 
 		foreach ( $this->choices as $value => $args ) {
-			$this->choices[$value]['url'] = esc_url( sprintf( $args['url'], DARKO_IMG ) );
+			$this->choices[$value]['url'] = esc_url( sprintf( $args['url'], DARKO_IMG_URI ) );
 		}
 
 		$json['choices'] = $this->choices;

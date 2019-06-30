@@ -128,8 +128,8 @@ add_action( 'customize_register', 'darko_customize_register' );
  * Load customize preview JS file
  */
 function darko_customize_preview_init() {
-    wp_enqueue_script( 'darko-customize-preview', get_template_directory_uri() . '/assets/js/customize-preview.js', array( 'customize-preview' ), false, true );
-    wp_enqueue_script( 'darko-customize-typography-preview', get_template_directory_uri() . '/assets/js/customize-typography-preview.js', array( 'customize-preview' ), false, true );
+    wp_enqueue_script( 'darko-customize-preview', DARKO_JS_URI . 'customize-preview.js', array( 'customize-preview' ), false, true );
+    wp_enqueue_script( 'darko-customize-typography-preview', DARKO_JS_URI . 'customize-typography-preview.js', array( 'customize-preview' ), false, true );
 }
 add_action( 'customize_preview_init', 'darko_customize_preview_init' );
 
@@ -137,8 +137,8 @@ add_action( 'customize_preview_init', 'darko_customize_preview_init' );
  * Load customize control context JS file
  */
 function darko_customize_controls_context_init() {
-    wp_enqueue_style( 'darko-customize-style', get_template_directory_uri() . '/assets/css/customize-styles.css' );
-    wp_enqueue_script( 'darko-customize-context', get_template_directory_uri() . '/assets/js/customize-context.js', array( 'customize-controls' ), false, true );
+    wp_enqueue_style( 'darko-customize-style', DARKO_CSS_URI . 'customize-styles.css' );
+    wp_enqueue_script( 'darko-customize-context', DARKO_JS_URI . 'customize-context.js', array( 'customize-controls' ), false, true );
 }
 add_action( 'customize_controls_enqueue_scripts', 'darko_customize_controls_context_init' );
 

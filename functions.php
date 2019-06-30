@@ -5,8 +5,11 @@
  * @package Darko
  */
 
+define( 'DARKO_THEME_URI', get_template_directory_uri() );
 define( 'DARKO_INC', trailingslashit( get_template_directory() ) . 'inc/' );
-define( 'DARKO_IMG', trailingslashit( get_template_directory_uri() ) . 'assets/images/');
+define( 'DARKO_IMG_URI', DARKO_THEME_URI . '/assets/images/');
+define( 'DARKO_JS_URI', DARKO_THEME_URI .'/assets/js/' );
+define( 'DARKO_CSS_URI', DARKO_THEME_URI .'/assets/css/' );
 
 require_once( DARKO_INC . 'helpers.php' );
 require_once( DARKO_INC . 'inline.php' );
@@ -119,11 +122,11 @@ add_action( 'widgets_init', 'darko_widgets_init' );
  */
 function darko_script() {
     // Normalize styles
-    wp_register_style( 'normalize', get_template_directory_uri() . '/assets/css/normalize.min.css' );
+    wp_register_style( 'normalize', DARKO_CSS_URI . 'normalize.min.css' );
     wp_enqueue_style( 'normalize' );
 
     // Flexbox grid styles
-    wp_register_style( 'flexboxgrid', get_template_directory_uri() . '/assets/css/flexboxgrid.min.css' );
+    wp_register_style( 'flexboxgrid', DARKO_CSS_URI . 'flexboxgrid.min.css' );
     wp_enqueue_style( 'flexboxgrid' );
 
 	// Font Awesome
@@ -131,13 +134,13 @@ function darko_script() {
     wp_enqueue_style( 'darko-font-awesome' );
 
     // Main styles
-    wp_register_style( 'darko-style', get_stylesheet_uri());
+    wp_register_style( 'darko-style', DARKO_CSS_URI . 'style.css');
     wp_enqueue_style( 'darko-style' );
 
     do_action( 'darko_after_styles' );
 
     // Main scripts
-    wp_register_script( 'darko-script', get_template_directory_uri() . '/assets/js/script.js', array( 'jquery' ), false, true );
+    wp_register_script( 'darko-script', DARKO_JS_URI . 'script.js', array( 'jquery' ), false, true );
     wp_enqueue_script( 'darko-script' );
 
     wp_localize_script( 'darko-script', 'phpVars', array( 'ajaxUrl' => admin_url( 'admin-ajax.php'), 'check_nonce' => wp_create_nonce( 'darko-nonce' ) ) );
