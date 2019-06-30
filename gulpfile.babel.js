@@ -79,6 +79,7 @@ export const compress = () => {
             "!src{,/**}",
             "!.babelrc",
             "!.gitignore",
+            "!README.md",
             "!gulpfile.babel.js",
             "!package.json",
             "!package-lock.json",
