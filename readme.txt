@@ -6,7 +6,7 @@ Repository: https://github.com/emilsrits/darko
 --------------------------------------------------
 Description
 --------------------------------------------------
-Modern Wordpress dark theme with multiple custom features and responsive design.
+Wordpress dark theme with multiple custom features and responsive design.
 
 --------------------------------------------------
 Darko License

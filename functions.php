@@ -121,6 +121,8 @@ add_action( 'widgets_init', 'darko_widgets_init' );
  * Script and style registering/enqueuing
  */
 function darko_script() {
+    global $wp_query; 
+    
     // Normalize styles
     wp_register_style( 'normalize', DARKO_CSS_URI . 'normalize.min.css' );
     wp_enqueue_style( 'normalize' );
@@ -143,7 +145,12 @@ function darko_script() {
     wp_register_script( 'darko-script', DARKO_JS_URI . 'script.js', array( 'jquery' ), false, true );
     wp_enqueue_script( 'darko-script' );
 
-    wp_localize_script( 'darko-script', 'phpVars', array( 'ajaxUrl' => admin_url( 'admin-ajax.php'), 'check_nonce' => wp_create_nonce( 'darko-nonce' ) ) );
+    wp_localize_script( 'darko-script', 'phpVars', array( 
+        'ajaxUrl' => admin_url( 'admin-ajax.php'), 
+        'check_nonce' => wp_create_nonce( 'darko-nonce' ), 
+        'current_page' => get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1,
+        'max_page' => $wp_query->max_num_pages
+    ) );
 }
 add_action( 'wp_enqueue_scripts', 'darko_script' );
 

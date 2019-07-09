@@ -12,7 +12,7 @@ if ( ! function_exists( 'darko_content_layout_classes' ) ) {
 	 * @param string $layout Sidebar layout
 	 * @param int|string $sidebar Name or id of a sidebar
 	 * @param array $args Optional arguments for layout classes
-	 * @return mixed|string
+	 * @return mixed
 	 */
     function darko_content_layout_classes( $layout, $sidebar, $args ) {
         if ( ! $args ) {
@@ -300,11 +300,13 @@ if ( ! function_exists( 'darko_related_posts' ) ) {
         } else {
             $post_id = $post->ID;
         }
+        
         if ( empty( $page ) ) {
             $page = 1;
         }
 
         $tags = wp_get_post_tags( $post_id );
+
         if ( $tags ) {
             $tag_ids = [];
             $i = 0;
@@ -325,11 +327,13 @@ if ( ! function_exists( 'darko_related_posts' ) ) {
             $query = new WP_Query( $args );
             $max_pages = $query->max_num_pages;
             $buffer = '';
+
             if ( $page > $max_pages ) {
                 wp_reset_query();
                 http_response_code( 400 );
                 return;
             }
+
             if( $query->have_posts() ) {
                 if ( $ajax == false ) :
 					do_action( 'darko_before_related_posts' );
@@ -362,21 +366,11 @@ if ( ! function_exists( 'darko_related_posts' ) ) {
                             ?>
                         </div> <!-- .row -->
                         <div class="darko-ajax-spinner">
-                            <div class="darko-spinner1 darko-spinner"></div>
-                            <div class="darko-spinner2 darko-spinner"></div>
-                            <div class="darko-spinner3 darko-spinner"></div>
-                            <div class="darko-spinner4 darko-spinner"></div>
-                            <div class="darko-spinner5 darko-spinner"></div>
-                            <div class="darko-spinner6 darko-spinner"></div>
-                            <div class="darko-spinner7 darko-spinner"></div>
-                            <div class="darko-spinner8 darko-spinner"></div>
-                            <div class="darko-spinner9 darko-spinner"></div>
-                            <div class="darko-spinner10 darko-spinner"></div>
-                            <div class="darko-spinner11 darko-spinner"></div>
-                            <div class="darko-spinner12 darko-spinner"></div>
-                        </div> <!-- .sk-fading-circle -->
+                            <i class="fas fa-spinner fa-spin"></i>
+                        </div>
                     </div> <!-- #related_posts -->
                     <?php
+
 					do_action( 'darko_after_related_posts' );
 
                     if ( $max_pages != 1 ) :
@@ -385,7 +379,9 @@ if ( ! function_exists( 'darko_related_posts' ) ) {
                     endif;
                 endif;
             }
+
             wp_reset_query();
+
             if ( ! $ajax == false ) :
                 ( $page == $max_pages ) ? $last_page = true : $last_page = false;
                 ( $page == 1 ) ? $first_page = true : $first_page = false;
@@ -411,6 +407,30 @@ if ( ! function_exists( 'darko_ajax_related_posts_navigation' ) ) {
             </button>
         </div>
         <?php
+    }
+}
+
+if ( ! function_exists( 'darko_load_more' ) ) {
+    /**
+     * Template for posts loaded via ajax request
+     * 
+     * @param integer $page
+     */
+    function darko_load_more( $page ) {
+        $args = json_decode( stripslashes( $_POST['query'] ), true );
+        $args['paged'] = $page + 1;
+        $args['post_status'] = 'publish';
+        query_posts( $args );
+
+        if( have_posts() ) :
+            while( have_posts() ): the_post();
+                get_template_part( 'template-parts/post/content', get_post_format() );
+            endwhile;
+        endif;
+
+        wp_reset_query();
+
+        die();
     }
 }
 

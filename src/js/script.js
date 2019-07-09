@@ -16,7 +16,8 @@
         rpNav = $( '#related-posts-navigation' ),
         rpnNext = rpNav.find( '.ajax-next-page' ),
         rpnPrev = rpNav.find( '.ajax-prev-page' ),
-        rpSpinner = rp.find( '.darko-ajax-spinner' );
+        rpSpinner = rp.find( '.darko-ajax-spinner' ),
+        lmp = $('#darko-load-more');
     let
         data,
         rpnFirst,
@@ -182,6 +183,34 @@
                     }
                     if ( ! rpnFirst ) {
                         rpnPrev.prop( 'disabled', false );
+                    }
+                }
+            } );
+        } );
+    }) ();
+
+    ( () => {
+        lmp.on( 'click', () => {
+            $.ajax( {
+                type: 'POST',
+                url: phpVars.ajaxUrl,
+                data: {
+                    action: 'darko_load_more',
+                    security: phpVars.check_nonce,
+                    paged: phpVars.current_page
+                },
+                beforeSend: () => {
+                    lmp.text( 'Loading...' );
+                },
+                success: ( response ) => {
+                    if ( response ) {
+                        lmp.text( 'Load more posts' ).before( response );
+                        phpVars.current_page++;
+                        if ( phpVars.current_page == phpVars.max_page ) {
+                            lmp.remove();
+                        }
+                    } else {
+                        lmp.remove();
                     }
                 }
             } );

@@ -47,5 +47,19 @@ function darko_content_blog_customize_register( $wp_customize ) {
         'settings'		=> 'darko_blog_excerpt_length',
         'priority'		=> 15,
     ) );
+
+    // Blog infinite load
+    $wp_customize->add_setting( 'darko_blog_infinite_load', array(
+        'default' 			=> false,
+        'sanitize_callback'	=> 'darko_sanitize_checkbox',
+    ) );
+    $wp_customize->add_control( 'darko_blog_infinite_load', array(
+        'type'			=> 'checkbox',
+        'label'			=> esc_html__( 'Load more posts button', 'darko' ),
+        'description'	=> __( 'Replaces pagination with load more posts button.', 'darko' ),
+        'section'		=> 'darko_blog_settings',
+        'settings'		=> 'darko_blog_infinite_load',
+        'priority'		=> 20,
+    ) );
 }
 add_action( 'customize_register', 'darko_content_blog_customize_register' );

@@ -158,15 +158,36 @@ if ( ! function_exists( 'darko_ajax_related_posts' ) ) {
      */
     function darko_ajax_related_posts() {
         check_ajax_referer( 'darko-nonce', 'security' );
+
         $page = $_POST['paged'];
         if ( empty( $page ) ) {
             $page = 1;
         }
+
         darko_related_posts( $page, true );
+
         die();
     }
     add_action( 'wp_ajax_darko_related_posts', 'darko_ajax_related_posts' );
     add_action( 'wp_ajax_nopriv_darko_related_posts', 'darko_ajax_related_posts' );
+}
+
+if ( ! function_exists( 'darko_ajax_load_more' ) ) {
+    /**
+     * Load more posts via ajax request
+     */
+    function darko_ajax_load_more() {
+        check_ajax_referer( 'darko-nonce', 'security' );
+        
+        $page = $_POST['paged'];
+        if ( empty ( $page ) ) {
+            $page = 1;
+        }
+
+        darko_load_more( $page );
+    }
+    add_action( 'wp_ajax_darko_load_more', 'darko_ajax_load_more' );
+    add_action( 'wp_ajax_nopriv_darko_load_more', 'darko_ajax_load_more' );
 }
 
 if ( ! function_exists( 'darko_before_content' ) ) {
