@@ -39,7 +39,7 @@ $infinite_posts = get_theme_mod( 'darko_blog_infinite_load', false );
                         get_template_part( 'template-parts/post/content', 'none' );
                     endif;
                     if ( $infinite_posts ) : ?>
-                        <button id="darko-load-more">Load more posts</button>
+                        <button id="darko-load-more" class="btn">Load more posts</button>
                     <?php endif; ?>
                 </div>
 				<?php
