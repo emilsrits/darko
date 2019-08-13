@@ -1,6 +1,8 @@
 # Darko Changelog
 
 ### *2019.08.13* - 1.0.2
+* Fixed hero height inconsistency
+* Fixed empty search field warning
 * Fixed button styling
 
 ### *2019.07.09* - 1.0.1

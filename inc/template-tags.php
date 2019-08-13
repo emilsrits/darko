@@ -444,7 +444,7 @@ if ( ! function_exists( 'darko_content_area_search_form' ) ) {
         $buffer = '
         <div class="darko-search ' . $class_to_add . '">
             <form action="' . esc_url( home_url( '/' ) ) . '" role="search" method="get">
-                <input name="s" type="search" placeholder="' . __( 'Search...', 'darko' ) . '" value="' . get_search_query() . '" required>
+                <input name="s" type="search" placeholder="' . __( 'Search...', 'darko' ) . '" value="' . get_search_query() . '">
                 <button type="submit" class="btn"><i class="fas fa-search"></i></button>
             </form>
         </div>';

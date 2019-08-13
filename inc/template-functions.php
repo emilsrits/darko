@@ -29,7 +29,7 @@ if ( ! function_exists( 'darko_primary_menu_search' ) ) {
         <li class="darko-nav-search">
             <form action="' . esc_url( home_url( '/' ) ) . '" role="search" method="get">
                 <div class="darko-nav-search-container">
-                    <input name="s" type="search" placeholder="' . __( 'Search...', 'darko' ) . '" value="' . get_search_query() . '" required>
+                    <input name="s" type="search" placeholder="' . __( 'Search...', 'darko' ) . '" value="' . get_search_query() . '">
                     <button type="submit" class="btn"><i class="fas fa-search"></i></button>
                 </div>
             </form>
