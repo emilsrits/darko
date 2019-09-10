@@ -1,6 +1,3 @@
-/*--------------------------------------------------------------
-# Pagination
---------------------------------------------------------------*/
 .pagination {
   width: 100%;
   margin: 20px 0;
@@ -15,9 +12,9 @@
     padding: 5px 10px;
     font-size: $f-small;
     line-height: 1.6;
-    color: $c-grey;
-    background-color: $c-grey-darker;
-    border: 1px solid $c-grey-dark;
+    color: $c-gray;
+    background-color: $c-gray-darker;
+    border: 1px solid $c-gray-dark;
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s ease;
@@ -42,9 +39,7 @@
     }
   }
 }
-/*--------------------------------------------------------------
-# Comments pagination
---------------------------------------------------------------*/
+
 .comments-pagination {
   margin: 20px 0 50px;
 

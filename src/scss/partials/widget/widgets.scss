@@ -1,0 +1,29 @@
+.widget {
+  margin-bottom: 35px;
+
+  h1, h2, h3 {
+	  font-size: $f-normal;
+  }
+
+  ul {
+    padding-left: 0;
+	li {
+	  font-size: $f-medium;
+
+      > a::before, > span::before {
+        display: inline-block;
+        margin-right: 5px;
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        font-style: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+      }
+	}
+  }
+
+  .children {
+    padding-left: 10px;
+  }
+}

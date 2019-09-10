@@ -75,13 +75,13 @@ function darko_customize_register( $wp_customize ) {
 	// Move core header image customization under theme header settings
 	$wp_customize->get_section( 'header_image' )->panel = 'darko_header_settings';
 
-	// Panel: Content settings
+    // Panel: Content settings
     $wp_customize->add_panel( 'darko_content_settings', array(
         'title'     => __( 'Content Settings', 'darko' ),
         'priority'  => 50,
     ) );
 
-	// Add selective refresh
+    // Add selective refresh
     $wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
     $wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
     $wp_customize->get_setting( 'custom_logo' )->transport = 'postMessage';

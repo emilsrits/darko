@@ -1,0 +1,20 @@
+.widget_categories {
+  select {
+    width: 100%;
+    max-width: 100%;
+  }
+  ul li {
+    color: $c-gray-accent;
+
+    a {
+      color: $c-gray;
+      &:hover {
+        color: $c-red-darker;
+      }
+      &::before {
+        content: "\f07b";
+        position: relative;
+      }
+    }
+  }
+}

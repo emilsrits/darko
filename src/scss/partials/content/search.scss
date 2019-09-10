@@ -1,0 +1,64 @@
+/*--------------------------------------------------------------
+# Search form
+--------------------------------------------------------------*/
+.darko-search {
+  form {
+    display: flex;
+  }
+
+  input[type="search"] {
+    padding: 3px 8px;
+    width: 100%;
+    height: 30px;
+    color: $c-gray-light;
+    font-size: $f-medium;
+    background: rgba(0, 0, 0, 0.3);
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    vertical-align: middle;
+    transition: 0.3s ease-in-out;
+    &:active, &:focus {
+      box-shadow: 0 0 5px $c-red-darker;
+    }
+  }
+
+  button[type="submit"] {
+    background: none;
+    border: none;
+    transition: 0.3s ease-in-out;
+    &:hover {
+      color: $c-red-darker;
+    }
+  }
+}
+
+/*--------------------------------------------------------------
+# Search results
+--------------------------------------------------------------*/
+.search-no-results, .error404 {
+  section.no-results.not-found {
+    margin-bottom: 25px;
+    padding-top: 45px;
+  }
+
+  .darko-content-area-search {
+    margin-top: 25px;
+
+    form {
+      display: block;
+    }
+
+    input[type="search"] {
+      width: 250px;
+    }
+  }
+}
+
+@include mobile {
+  .search-no-results, .error404 {
+    .darko-content-area-search input[type="search"] {
+      width: 200px;
+    }
+  }
+}

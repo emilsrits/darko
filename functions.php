@@ -131,7 +131,7 @@ function darko_script() {
     wp_register_style( 'flexboxgrid', DARKO_CSS_URI . 'flexboxgrid.min.css' );
     wp_enqueue_style( 'flexboxgrid' );
 
-	// Font Awesome
+    // Font Awesome
     wp_register_style( 'darko-font-awesome', 'https://use.fontawesome.com/releases/v5.7.2/css/all.css' );
     wp_enqueue_style( 'darko-font-awesome' );
 
@@ -190,7 +190,7 @@ function darko_enqueue_custom_fonts() {
         }
     } else {
         $fonts = sprintf(
-        /* translators: %1$s is heading font, %2$s separator, %3$s is body font */
+            /* translators: %1$s is heading font, %2$s separator, %3$s is body font */
             '%1$s%2$s%3$s',
             ( $heading_font && strpos( $heading_font, '_sys' ) === false ? $heading_font . ':300,400,500,700' : '' ),
             ( ( $heading_font && $body_font ) && ( strpos( $heading_font, '_sys' ) === false && strpos( $body_font, '_sys' ) === false ) ? '|' : '' ),

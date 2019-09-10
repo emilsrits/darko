@@ -1,0 +1,13 @@
+.widget_recent_comments {
+  ul li {
+    color: $c-gray;
+    font-size: $f-small;
+
+    > span {
+      &::before {
+        content: "\f075";
+        position: relative;
+      }
+    }
+  }
+}

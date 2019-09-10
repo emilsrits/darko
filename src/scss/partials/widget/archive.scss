@@ -1,0 +1,21 @@
+.widget_archive {
+  select {
+    width: 100%;
+    max-width: 100%;
+  }
+  ul li {
+    color: $c-gray-accent;
+
+    a {
+      color: $c-gray;
+      &:hover {
+        color: $c-red-darker;
+      }
+      &::before {
+        content: "\f073";
+        position: relative;
+        top: -1px;
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+.widget_pages {
+  ul li a {
+    color: $c-gray;
+    &:hover {
+      color: $c-red-darker;
+    }
+  }
+}

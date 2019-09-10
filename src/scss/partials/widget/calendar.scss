@@ -1,0 +1,35 @@
+.widget_calendar {
+  caption {
+    padding: 5px 0;
+    color: $c-gray;
+    font-size: $f-medium;
+    background: $c-red-darker;
+  }
+
+  table {
+    width: 100%;
+    max-width: 300px;
+    border-collapse: collapse;
+  }
+
+  thead {
+    background: $c-gray-dark;
+  }
+
+  tbody, tfoot {
+    font-size: $f-medium;
+  }
+
+  tfoot td {
+    border: none;
+  }
+
+  tr, th, td {
+    padding: 6px 0;
+  }
+
+  th, td {
+	  text-align: center;
+    border: 1px solid $c-black;
+  }
+}

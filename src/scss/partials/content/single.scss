@@ -1,0 +1,22 @@
+.single-post {
+  .post-content {
+    margin-bottom: 40px;
+  }
+
+  .post-categories, .post-tags {
+    > span:first-child {
+      color: $c-gray;
+      letter-spacing: 0.5px;
+    }
+  }
+
+  .post-categories .label:first-child {
+    margin-left: 5px;
+  }
+}
+
+@include mobile {
+  .single-post .featured-img {
+    margin: 0 5% 20px;
+  }
+}

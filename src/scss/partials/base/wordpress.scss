@@ -1,0 +1,89 @@
+img.alignleft {
+  margin: 26px 24px 26px 0;
+}
+
+img.alignright {
+  margin: 26px 0 26px 24px;
+}
+
+.aligncenter {
+  display: block;
+  margin: 26px auto;
+  text-align: center;
+}
+
+.alignleft {
+  display: block;
+  float: left;
+  margin-right: 15px;
+  text-align: left;
+}
+
+.alignright {
+  display: block;
+  float: right;
+  margin-left: 15px;
+  text-align: right;
+}
+
+.alignnone {
+  display: block;
+  margin: 26px 0;
+  text-align: center;
+}
+
+.wp-caption-text, .gallery-caption {
+  margin: 0;
+  padding-top: 5px;
+  color: $c-gray;
+  font-size: $f-small;
+  text-align: center;
+}
+
+.attachment .wp-caption-text {
+  padding-top: 10px;
+}
+
+.wp-block-separator, .wp-block-separator.is-style-dots::before {
+  color: $c-gray-accent;
+}
+
+.wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
+  max-width: 100px;
+}
+
+.wp-block-table {
+  margin-bottom: 20px;
+}
+
+table.wp-block-table.is-style-stripes {
+  border-bottom: none;
+
+  tr:nth-child(2n+1) {
+    background-color: $c-gray-accent;
+  }
+}
+
+.wp-block-pullquote {
+  margin: 20px 0;
+  border-top: 3px solid $c-red-darker;
+  border-bottom: 3px solid $c-red-darker;
+
+  blockquote {
+    border: none;
+    padding: 0;
+
+    > p {
+      margin-top: 0;
+    }
+  }
+}
+
+.wp-block-image figcaption {
+  color: $c-gray-accent;
+}
+
+.wp-block-gallery, .wp-block-embed {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
